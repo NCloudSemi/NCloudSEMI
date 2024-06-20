@@ -2,4 +2,6 @@ https://codepen.io/dilums/pen/NWodZMd / 카드형식으로 이미지 효과
 https://codepen.io/ecemgo/pen/ZEPYNXJ / 카드형식으로 이미지 효과
 https://codepen.io/Diana-Moretti/pen/rNgYJPR / 카드형식으로 이미지 효과
 https://codepen.io/veronicadev/pen/WJyOwG / 카드형식으로 이미지 효과
+https://codepen.io/jackrugile/pen/nmexZj// 자동생성 움직이는 배경
+https://codepen.io/cobra_winfrey/pen/MdVxbp// 카드모양 게시판내용
 https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda//연습용 여기에다가 스타일을 적용해봐요!
