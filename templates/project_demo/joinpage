@@ -12,7 +12,7 @@
             <img src="../image/subtract_x2.svg" alt="logo">
             <h1>COMMA'</h1>
             <p>JOIN THE MEMBERSHIP</p>
-            <div class="join-page">
+            <div class="login-join-page">
                 <p>ID</p>
                 <div class="input-group">
                     <input type="email" id="email" placeholder="Email">
