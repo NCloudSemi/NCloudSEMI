@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <img src="../image/subtract_x2.svg" alt="logo">
+            <h1>COMMA'</h1>
+            <p>JOIN THE MEMBERSHIP</p>
+            <div class="join-page">
+                <p>ID</p>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email">
+                </div>
+                <p>PW</p>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+                <p>PW CHECK</p>
+                <div class="input-group">
+                    <input type="password" id="passwordChk" placeholder="Password Check">
+                </div>
+                <p>NAME</p>
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Name">
+                </div>
+                <p>WHERE YOU LIVE</p>
+                <div class="input-group">
+                    <input type="text">
+                </div>
+            </div>
+            <button class="join-btn2">Join</button>
+        </div>
+    </div>
+</body>
+</html>
