@@ -22,6 +22,15 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 350px;
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.login-form.hidden{
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
 }
 
 .login-form h1 {
@@ -80,8 +89,8 @@ body, html {
     display: block;
 }
 
-.login-btn,
-.join-btn1 {
+#loginBtn,
+#showSignup {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -93,11 +102,11 @@ body, html {
     cursor: pointer;
 }
 
-.join-btn2 {
+#signupBtn,
+#showLogin {
     width: 100%;
     padding: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 12px 0;
     border: none;
     border-radius: 5px;
     background: black;
@@ -106,8 +115,13 @@ body, html {
     cursor: pointer;
 }
 
-.login-btn:hover,
-.join-btn:hover, 
-.join-btn2:hover {
+#joinpage-btn {
+    margin-top: 10px;
+}
+
+#loginBtn:hover,
+#showSignup:hover, 
+#signupBtn:hover,
+#showLogin:hover {
     background: darkgray;
 }
