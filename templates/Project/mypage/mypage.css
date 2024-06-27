@@ -153,7 +153,7 @@ body{
     height: 0;
     overflow: hidden;
     padding-bottom: 100%;
-    position: relative;
+    position: relative; /*프로필 이미지 동그라미(타원x)로 하려면 position 설정 필요*/
 }
 
 .profilePhoto img {

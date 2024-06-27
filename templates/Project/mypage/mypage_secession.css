@@ -151,8 +151,9 @@ body{
     padding: 50px;
     text-align: center;
     background: #fff;
-    border: 30px solid rgb(173, 173, 173);
-    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 0 10px rgb(173, 173, 173);
+    outline: 35px solid rgb(173, 173, 173);
+    border-radius: 20px;
 }
 
 .secession_message h2 {

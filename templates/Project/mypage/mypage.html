@@ -132,7 +132,7 @@
                             <nav>
                                 <ul class="aside_nav">
                                     <li>
-                                        <a href="#">개인정보수정</a> 
+                                        <a href="mypage.html">개인정보수정</a> 
                                     </li>
                                     <li>
                                         <a href="#">내게시글</a>
@@ -141,7 +141,7 @@
                                         <a href="#">내여행기록</a>
                                     </li>
                                     <li>
-                                        <a href="#">회원탈퇴</a>
+                                        <a href="mypage_secession.html">회원탈퇴</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -150,10 +150,10 @@
                     <!--프로필 사진 영역-->
                     <div class="section2">
                         <div class="profilePhoto">
-                            <img src="../Comma-Img/기본이미지.jpg" alt="기본이미지">
+                            <img src="../Comma-Img/기본이미지.jpg" alt="기본이미지" id="output">
                         </div>
                         <div class="fixed_button">
-                            <button type="button" class="profile_Fixed_Btn">프로필 사진 수정</button>
+                            <button onclick="profilePhotoChange()" type="button" class="profile_Fixed_Btn">프로필 사진 수정</button>
                         </div>
                     </div>
                     <!--기본정보, 수신 동의, 알림 동의 영역-->
@@ -170,13 +170,19 @@
                             <div class="box2-division-line"></div>
                             <div>
                                 <label class="box2_content1">
-                                    <span>휴대전화</span>
+                                    <span>
+                                        <img class="child1" src="../Comma-Img/핸드폰 svg.png" alt="휴대전화">
+                                        <span>휴대전화</span>
+                                    </span>
                                     <input role="switch" type="checkbox">
                                 </label>
                             </div>
                             <div>
                                 <label class="box2_content2">
-                                    <span>이메일</span>
+                                    <span>
+                                        <img src="../Comma-Img/이메일 svg.png" alt="이메일">
+                                        <span>이메일</span>
+                                    </span>
                                     <input role="switch" type="checkbox">
                                 </label>
                             </div>
@@ -186,21 +192,25 @@
                             <div class="box3-division-line"></div>
                             <div>
                                 <label class="box3_content1">
-                                    <span>휴대전화</span>
-                                    <input role="switch" type="checkbox">
+                                    <span>
+                                        <img class="child1" src="../Comma-Img/핸드폰 svg.png" alt="휴대전화">
+                                        <span class="child2">휴대전화</span>
+                                    </span>
+                                    <input class="child3" role="switch" type="checkbox">
                                 </label>
                             </div>
                             <div>
                                 <label class="box3_content2">
-                                    <span>이메일</span>
+                                    <span>
+                                        <img src="../Comma-Img/이메일 svg.png" alt="이메일">
+                                        <span>이메일</span>
+                                    </span>
                                     <input role="switch" type="checkbox">
                                 </label>
                             </div>
                         </div>
                     </div>
                 </main>
-            </div>
-        </div>
             </div>
         </div>
         <!-- Footer -->
@@ -210,5 +220,32 @@
             </div>
         </footer>
     </div>
+    <script>
+        function profilePhotoChange() {
+            let input = document.createElement("input");
+
+            input.type="file";
+            input.accept="image/*";
+
+            input.click();
+            input.onchange=function(event){
+                processFile(event.target.files[0]);
+            };
+        }
+
+        function processFile(file) {
+            let reader = new FileReader();
+            reader.readAsDataURL(file, "UTF-8");
+
+            reader.onload = function() {
+                let output = document.getElementById("output");
+                output.src = reader.result;
+            }
+        }
+
+        
+
+
+    </script>
 </body>
 </html>
