@@ -322,8 +322,8 @@ transition: left 250ms linear;
 }
 
 [type="checkbox"]:checked {
-background-color: tomato;
-border-color: tomato;
+background-color: #FF6B00;
+border-color: #FF6B00;
 }
 
 [type="checkbox"]:checked::before {
@@ -348,7 +348,7 @@ cursor: not-allowed;
 
 [type="checkbox"]:focus-visible {
 outline-offset: max(2px, 0.1em);
-outline: max(2px, 0.1em) solid tomato;
+outline: max(2px, 0.1em) solid #FF6B00;
 }
 
 [type="checkbox"]:enabled:hover {
