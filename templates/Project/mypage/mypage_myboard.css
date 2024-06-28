@@ -177,6 +177,7 @@ body{
 
 .myboard_header_smallbox h5 {
     font-weight: bold;
+    white-space: nowrap;
 }
 
 
@@ -186,10 +187,6 @@ body{
     margin-right: auto;
     margin-bottom: 30px;
     width: 95%;
-}
-
-h5 {
-    white-space: nowrap;
 }
 
 label{
@@ -206,6 +203,7 @@ label{
     background: white;
     padding: 20px;
     border-radius: 10px;
+    white-space: nowrap;
 }
 
 .board1 img {
@@ -233,6 +231,7 @@ label{
     background: white;
     padding: 20px;
     border-radius: 10px;
+    white-space: nowrap;
 }
 
 .board2 img {
@@ -260,6 +259,7 @@ label{
     background: white;
     padding: 20px;
     border-radius: 10px;
+    white-space: nowrap;
 }
 
 .board_body_line3 {
@@ -287,6 +287,7 @@ label{
     background: white;
     padding: 20px;
     border-radius: 10px;
+    white-space: nowrap;
 }
 
 .board_body_line4 {

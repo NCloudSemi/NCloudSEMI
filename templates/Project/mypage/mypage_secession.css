@@ -142,7 +142,12 @@ body{
     text-align: center;
 }
 
-/*-------------탈퇴 메세지 영역---------------*/
+/*-------------secession 영역---------------*/
+
+.secession_message_box {
+    display: flex;
+    justify-content: center;
+}
 
 .secession_message {
     width: 800px;
