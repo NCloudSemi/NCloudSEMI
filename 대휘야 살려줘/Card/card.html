@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/card.css">
+</head>
+<body>
+    <div id="container-main">
+        
+
+        <div id="container-content">
+            <main id="content-main">
+                <!-- 게시글 자리 -->
+                <div id="scroll-anchor"></div>
+            </main>
+        </div>
+        <!-- 게시글 수정 페이지 -->
+        <div id="edit-post" style="display:none;">
+            <h2></h2>
+            <div id="edit-post-content" class="content-main">
+                <p>게시글이 없음</p>
+            </div>
+        </div>
+        <!-- 게시글 삭제 페이지 -->
+        <div id="delete-post" style="display:none;">
+            <h2></h2>
+            <div id="delete-post-content" class="content-main">
+                <p>게시글이 없음</p>
+                <!--체크박스로 체크하면서 삭제, 10개씩 삭제,전체 삭제 옵션-->
+            </div>
+        </div>
+    </div>
+
+    <!-- 게시글 모달창 -->
+    <div id="modal-post" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-post">
+                    <!-- 캐러셀 자리 -->
+                </div>
+                <a class="carousel-prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="carousel-next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div id="modal-text">내 마음을 지키기 위해, 이런 사람과는 거리를 둬야 합니다.
+                책 #나에게괜찮냐고물어본적이없었다 는 모든 서점에서 구매 가능합니다.
+                세상 가장 소중한 나 자신에게 소홀한 적이 있다면, 이 책을 통해 나를 사랑하는 방법을 배워보세요.
+                게시물은 출처만 밝히시면 자유롭게 저장/리그램/공유 가능하십니다.
+                삶에 대한 힘과 용기, 위로와 힐링이 필요하신 분들께 이 계정을 알려주시고 팔로우해 주시면 감사하겠습니다.
+                내주변에도이런인간있다하지말아달라고며번말해도 실실쪼개고쳐웃고 똑같은말반복하고끈질기게인연끝내고싶은데
+                징글징글하게붙어서안떨어지고가나다라마바사아자차</div>
+        </div>
+    </div>
+
+    <!-- 게시글 작성 모달창 -->
+    <div id="modal-create-post" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeCreatePostModal()">&times;</span>
+            <form id="form-upload-images" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" id="input-post-images" name="post-images" style="background-color: white;"
+                        accept="image/*" multiple required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">다음</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 게시글 작성 모달창 (내용 작성 단계) -->
+    <div id="modal-create-post-content" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeCreatePostContentModal()">&times;</span>
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-create-content">
+                    <!-- 업로드한 이미지 자리 -->
+                </div>
+                <a class="carousel-prev" onclick="plusSlidesContent(-1)">&#10094;</a>
+                <a class="carousel-next" onclick="plusSlidesContent(1)">&#10095;</a>
+            </div>
+            <form id="form-create-post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <textarea id="textarea-post-content" placeholder="200자 이내로 작성" name="post-content" rows="4"
+                        required></textarea>
+                </div>
+                <div class="form-group button-group">
+                    <button type="button" onclick="goToPrevious()">이전</button>
+                    <button type="submit">작성</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--게시글 수정 모달창-->
+    <div id="modal-edit-post" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeEditPostModal()">&times;</span>
+            <form id="form-edit-post" enctype="multipart/form-data">
+                <div class="carousel">
+                    <div class="carousel-inner" id="carousel-edit-content">
+                        <!-- 업로드한 이미지 자리 -->
+                    </div>
+                    <a class="carousel-prev" onclick="plusSlidesEdit(-1)">&#10094;</a>
+                    <a class="carousel-next" onclick="plusSlidesEdit(1)">&#10095;</a>
+
+                </div>
+                <div class="form-group">
+                    <textarea id="textarea-edit-post-content" placeholder="내용을 입력하세요" name="edit-post-content" rows="4"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="file" id="input-edit-post-images" name="edit-post-images"
+                        style="background-color: white;" accept="image/*" multiple>
+                </div>
+                <div class="form-group button-group">
+                    <button type="button" onclick="deleteSlide()">삭제</button>
+                    <button type="submit">수정</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../js/card.js"></script>
+</body>
+
+</html>
