@@ -8,30 +8,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <style>
-        /* Fonts style */
+        /*
+        << Elements styles >>
+            ⚠️ 해당 스타일들은 Header 및 Footer의 양식을 위한 styles입니다. 수정 금지.
+        */
         @import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Moirai+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
         .moirai-one-regular {
             font-family: "Moirai One";
         }
-
         .gasoek-one-regular {
             font-family: "Gasoek One";
-            /* 로고명 작성에 사용되는 폰트 */
         }
-
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
-
-        /* Elements style */
         html, body {
             height: 100%;
             margin: 0;
+            font-family: "Noto Sans KR", sans-serif;
         }
-        
         header {
             font-family: "Noto Sans KR", sans-serif;
             font-size: 25px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-width: 1440px;
+            height: 80px;
+            z-index: 1000;
+            background-color: white;
+            padding: 1% 5%;
         }
-
         #search-bar {
             font-family: "Noto Sans KR", sans-serif;
             font-size: 25px;
@@ -41,45 +47,41 @@
             justify-content: center;
             width: 100%;
         }
-
         .wrapper {
             display: flex;
             flex-direction: column;
-            min-height: 100%;
-        }
-        
+            min-height: 1024px;
+            padding-top: 100px;
+            position: relative;
+        }            
         .content {
             flex: 1;
         }
-
         footer {
+            width: 100%;
+            min-width: 1440px;
             font-family: "Noto Sans KR", sans-serif;
             font-size: 15px;
             color: #FFFF;
             text-align: center;
             padding: 1rem 0;
+            position: relative;
+            background-color: #343a40;
         }
-
-        /* Hover styles */
         .nav-link:hover {
             color: #FF6B00 !important;
         }
-
         .btn:hover {
             background-color: #FF6B00 !important;
             border-color: #FF6B00 !important;
         }
-
         .navbar-toggler:hover {
             background-color: #FF6B00 !important;
         }
-
-        /* Focus styles */
         input:focus {
             border-color: #FF6B00 !important;
             box-shadow: 0 0 0 0.25rem rgba(255, 107, 0, 0.25) !important;
         }
-
     </style>
 </head>
 <body>
@@ -120,24 +122,9 @@
         <!-- Contents -->
         <div class="content">
             <div class="container-fluid">
-                <section>
-                    <div class="card">
-                        <img src="../image/lodgment.png" alt="숙소">
-                        <h3>LODGMENT</h3>
-                    </div>
-                    <div class="card">
-                        <img src="../image/food.jpg" alt="음식">
-                        <h3>FOOD</h3>
-                    </div>
-                    <div class="card">
-                        <img src="path/to/tourism.jpg" alt="관광">
-                        <h3>TOURISM</h3>
-                    </div>
-                    <div class="card">
-                        <img src="path/to/activity.jpg" alt="활동">
-                        <h3>ACTIVITY</h3>
-                    </div>
-                </section>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quia dignissimos eligendi, sed, totam illo nemo quaerat labore consequatur laborum et sint eos ex minus dolorum asperiores numquam. Quos, officiis?
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse tempora earum impedit, nobis minima animi quidem quo voluptates voluptas. Eveniet fugit debitis voluptas doloremque explicabo unde mollitia eum sed distinctio!
+                </p>
             </div>
         </div>
         <!-- Footer -->
