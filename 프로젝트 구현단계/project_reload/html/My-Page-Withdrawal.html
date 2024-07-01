@@ -1,0 +1,139 @@
+
+<link rel="stylesheet" href="../css/My-Page-Withdrawal.css">    
+            <!-- Contents Sections -->
+            <div class="content">
+                <div class="withdrawal-box">
+                    <h3>회원 탈퇴</h3>
+                    <hr class="section-divider">
+                    <div class="warning-message">
+                        탈퇴 후에는 계정 복구가 불가능합니다.
+                    </div>
+                    <div class="info-message">
+                        탈퇴 후에도 관련 법령에 따라 일정 기간 동안 일부 정보가 보관될 수 있습니다.
+                    </div>
+                    <form id="withdrawal-form">
+                        <div class="form-group">
+                            <label for="reason">탈퇴 사유(최대 5개까지 선택)</label>
+                            <div id="reason" class="form-control">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="privacy" name="reason" value="privacy">
+                                    <label class="form-check-label" for="privacy">개인정보 보호</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="service" name="reason" value="service">
+                                    <label class="form-check-label" for="service">서비스 불만</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="other" name="reason" value="other">
+                                    <label class="form-check-label" for="other">기타</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="interface" name="reason" value="interface">
+                                    <label class="form-check-label" for="interface">사용자 인터페이스 불만</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="support" name="reason" value="support">
+                                    <label class="form-check-label" for="support">고객 지원 불만</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="features" name="reason" value="features">
+                                    <label class="form-check-label" for="features">기능 부족</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="performance" name="reason" value="performance">
+                                    <label class="form-check-label" for="performance">성능 문제</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cost" name="reason" value="cost">
+                                    <label class="form-check-label" for="cost">비용 문제</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="security" name="reason" value="security">
+                                    <label class="form-check-label" for="security">보안 문제</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="content" name="reason" value="content">
+                                    <label class="form-check-label" for="content">콘텐츠 부족</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ads" name="reason" value="ads">
+                                    <label class="form-check-label" for="ads">광고 과다</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="community" name="reason" value="community">
+                                    <label class="form-check-label" for="community">커뮤니티 불만</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">추가 의견:</label>
+                            <textarea id="comments" class="form-control" rows="4" placeholder="의견을 남겨주세요"></textarea>
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: center; justify-content: center;">
+                            <input type="checkbox" id="confirm" class="form-check-input" style="width: 15px; height: 15px; margin-right: 10px;">
+                            <label for="confirm">위 내용을 확인했으며, 회원 탈퇴에 동의합니다.</label>
+                        </div>
+                        <button type="button" class="btn btn-cancel" onclick="history.back();">뒤로</button>
+                        <button type="submit" class="btn btn-danger">회원 탈퇴</button>
+                    </form>
+                </div>
+                <!-- Modal -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>그동안 Comma를 사용해주셔서 감사드립니다.<br>당신의 일상에 '쉼표'가 필요해지는 그날 다시 뵙겠습니다.</p>
+                    </div>
+                </div>
+            </div>  
+    <script>
+     $(() =>{
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('expanded');
+            sidebar.classList.toggle('collapsed-background');
+        }
+
+        var modal = document.getElementById("myModal");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        document.getElementById("withdrawal-form").onsubmit = function (event) {
+            event.preventDefault();
+            if (document.getElementById("confirm").checked) {
+                document.body.classList.add("modal-open");
+                modal.style.display = "block";
+            } else {
+                alert("회원 탈퇴에 동의하셔야 합니다.");
+            }
+        };
+
+        span.onclick = function () {
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+            window.location.href = "../00. Login-Joining-Page/Login-Joining-Page.html";
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.classList.remove("modal-open");
+                window.location.href = "../00. Login-Joining-Page/Login-Joining-Page.html";
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[name="reason"]');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    const checkedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked);
+
+                    if (checkedCheckboxes.length > 5) {
+                        this.checked = false;
+                        alert('최대 5개까지 선택할 수 있습니다.');
+                    }
+                });
+            });
+        });
+    })
+    </script>

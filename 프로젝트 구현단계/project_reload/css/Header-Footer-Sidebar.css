@@ -1,0 +1,193 @@
+/* ⚠️ Header & Footer styles ⚠️ */
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Moirai+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+.moirai-one-regular {
+    font-family: "Moirai One";
+}
+.gasoek-one-regular {
+    font-family: "Gasoek One";
+}
+html, body {
+    height: 100vh;
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+header {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100vw;
+    height: 80px;
+    z-index: 1000;
+    background-color: white;
+    padding: 1% 5%;
+    margin-bottom: 50px;
+}
+#search-bar {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 100px;
+    position: relative;
+}
+footer {
+    width: 100%;
+    min-width: 100vw;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 15px;
+    color: #FFFF;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    background-color: #343a40;
+    margin-top: 50px;
+}
+.nav-link:hover {
+    color: #FF6B00 !important;
+}
+.btn:hover {
+    background-color: #FF6B00 !important;
+    border-color: #FF6B00 !important;
+}
+.navbar-toggler:hover {
+    background-color: #FF6B00 !important;
+}
+input:focus {
+    border-color: #FF6B00 !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 107, 0, 0.25) !important;
+}
+
+/* ⚠️ Sidebar styles ⚠️ */
+.sidebar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 300px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    position: fixed;
+    top: 15%;
+    left: 2%;
+    width: 80px;
+    transition: width 0.3s, background-color 0.3s;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+.sidebar.expanded {
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: none;
+}
+.sidebar.expanded ul {
+    display: block;
+}
+.sidebar ul li {
+    margin: 10px 0;
+    width: 100%;
+}
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+.content {
+    flex: 1;   
+    padding: 1rem;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+}
+
+#currentContent {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.sidebar.expanded ~ .content {
+    margin-left: 300px;
+}
+.sidebar.collapsed-background {
+    background-color: #FFFF;
+}
+.sidebar i {
+    display: block;
+}
+.sidebar.expanded i {
+    display: none;
+}
+.menu-icon {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.sidebar.expanded .menu-icon {
+    display: block;
+    transition: opacity 4s ease;
+}
+.sidebar.collapsed .menu-icon {
+    display: none;
+}
+.navbar-toggler-icon {
+    width: 0.75em;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none;
+    box-shadow: none;
+}
+.navbar-toggler {
+    transition: transform 0.4s ease;
+}
+.navbar-toggler.collapsed {
+    transform: rotate(0deg);
+}
+.navbar-toggler:not(.collapsed) {
+    transform: rotate(180deg);
+}
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    display: none;
+}
+.sidebar.expanded ~ .sidebar-overlay {
+    display: block;
+}
