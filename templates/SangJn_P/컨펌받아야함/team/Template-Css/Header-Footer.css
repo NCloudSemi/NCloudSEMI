@@ -16,18 +16,15 @@ header {
     font-family: "Noto Sans KR", sans-serif;
     font-size: 25px;
     position: fixed;
-    display: flex;
-    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     min-width: 100vw;
-    height: 100px;
+    height: 80px;
     z-index: 1000;
     background-color: white;
     padding: 1% 5%;
     margin-bottom: 50px;
-    border: 1px solid lightgray;
 }
 #search-bar {
     font-family: "Noto Sans KR", sans-serif;

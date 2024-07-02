@@ -17,12 +17,12 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <!-- Brand -->
-                    <a href="#" class="navbar-brand d-flex align-items-center gasoek-one-regular me-4" style="padding: 0;">
+                    <a href="../02. Main-Page/Main-Page-login.html" class="navbar-brand d-flex align-items-center gasoek-one-regular me-4" style="padding: 0;">
                         <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img">&nbsp;&nbsp;C O M M A
                     </a>
                     <!-- Search -->
                     <form class="d-flex" role="search" id="search-bar">
-                        <input class="form-control me-2" type="search" placeholder="검색할 내용을 입력해주세요." aria-label="Search" style="width: 350px; font-size: 20px;">
+                        <input class="form-control me-2" type="search" placeholder="검색할 내용을 입력해주세요." aria-label="Search" style="width: 500px; font-size: 20px;">
                         <button class="btn btn-dark"
                         type="submit" style="width: 100px; font-size: 20px; font-weight: bold;">검색</button>
                     </form>
@@ -33,10 +33,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto" style="font-size: 20px; font-weight: bold; display: flex; gap: 30px;">
                             <li class="nav-item" style="width: 150px;">
-                                <a class="nav-link" href="#" style="text-align: center;">로그인</a>
+                                <a class="nav-link" href="Login-Joining-Page.html" style="text-align: center;">로그인</a>
                             </li>
                             <li class="nav-item" style="width: 150px;">
-                                <a class="nav-link" href="#" style="text-align: center;">회원가입</a>
+                                <a class="nav-link" href="Joining-Login-Page.html" style="text-align: center;">회원가입</a>
                             </li> 
                             <li class="nav-item" style="width: 150px;">
                                 <a class="nav-link" href="#" style="text-align: center;">여행정보</a>
@@ -50,79 +50,77 @@
             </nav>
         </header>
         <!-- Contents -->
-        <div class="container-fluid">
-            <div class="content">
-                <div class="login-form" id="login">
-                    <div class="text-center mb-4">
-                        <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img" class="img-fluid">
-                        <h1>C O M M A</h1>
-                        <p>당신의 일상에 '쉼표'를 선물하세요</p>
-                    </div>
-                    <!-- Login -->
-                    <div class="login-join-page">
-                        <div class="mb-3">
-                            <label for="signupEmail" class="form-label" style="margin-left: -345px; font-weight: bold; font-size: 17px;">아이디</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupPassword" class="form-label" style="margin-left: -330px; font-weight: bold; font-size: 17px;">비밀번호</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
+        <div class="content">
+            <div class="login-form" id="login">
+                <div class="text-center mb-4">
+                    <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img" class="img-fluid">
+                    <h1>C O M M A</h1>
+                    <p>당신의 일상에 '쉼표'를 선물하세요</p>
+                </div>
+                <!-- Login -->
+                <div class="login-join-page">
+                    <div class="mb-3">
+                        <label for="signupEmail" class="form-label" style="margin-left: -345px; font-weight: bold; font-size: 17px;">아이디</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
                     </div>
                     <div class="mb-3">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe" style="margin-left: -270px;">아이디 저장하기</label>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button id="loginBtn" class="btn btn-primary">로그인</button>
-                        <button id="showSignup" class="btn btn-secondary">회원가입</button>
+                        <label for="signupPassword" class="form-label" style="margin-left: -330px; font-weight: bold; font-size: 17px;">비밀번호</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
                 </div>
-                <!-- Join -->
-                <div id="join" class="login-form hidden">
-                    <div class="text-center mb-4">
-                        <img src="../Element_Images/Comma-Logo.svg" alt="logo" class="img-fluid">
-                        <h1>C O M M A</h1>
-                        <p>JOIN THE MEMBERSHIP</p>
-                    </div>
-                    <div class="login-join-page">
-                        <div class="mb-3">
-                            <label for="signupEmail" class="form-label" style="margin-left: -345px; font-weight: bold; font-size: 17px;">아이디</label>
-                            <input type="email" class="form-control" id="signupEmail" placeholder="Email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupPassword" class="form-label" style="margin-left: -330px; font-weight: bold; font-size: 17px;">비밀번호</label>
-                            <input type="password" class="form-control" id="signupPassword" placeholder="Password">
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupPasswordCheck" class="form-label" style="margin-left: -300px; font-weight: bold; font-size: 17px;">비밀번호 확인</label>
-                            <input type="password" class="form-control" id="signupPasswordCheck" placeholder="Password Check">
-                        </div>
-                        <div class="mb-3">
-                            <label for="name" class="form-label" style="margin-left: -360px; font-weight: bold; font-size: 17px;">이름</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div id="joinpage-btn" class="d-grid gap-2">
-                        <button id="signupBtn" class="btn btn-primary">회원가입</button>
-                        <button id="showLogin" class="btn btn-secondary">뒤로</button>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe" style="margin-left: -270px;">아이디 저장하기</label>
                     </div>
                 </div>
-                <!-- Modal -->
-                <div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="modalAlertLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalAlertLabel">경고</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body" id="modalAlertBody">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                            </div>
+                <div class="d-grid gap-2">
+                    <button id="loginBtn" class="btn btn-primary">로그인</button>
+                    <button id="showSignup" class="btn btn-secondary">회원가입</button>
+                </div>
+            </div>
+            <!-- Join -->
+            <div id="join" class="login-form hidden">
+                <div class="text-center mb-4">
+                    <img src="../Element_Images/Comma-Logo.svg" alt="logo" class="img-fluid">
+                    <h1>C O M M A</h1>
+                    <p>JOIN THE MEMBERSHIP</p>
+                </div>
+                <div class="login-join-page">
+                    <div class="mb-3">
+                        <label for="signupEmail" class="form-label" style="margin-left: -345px; font-weight: bold; font-size: 17px;">아이디</label>
+                        <input type="email" class="form-control" id="signupEmail" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPassword" class="form-label" style="margin-left: -330px; font-weight: bold; font-size: 17px;">비밀번호</label>
+                        <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPasswordCheck" class="form-label" style="margin-left: -300px; font-weight: bold; font-size: 17px;">비밀번호 확인</label>
+                        <input type="password" class="form-control" id="signupPasswordCheck" placeholder="Password Check">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label" style="margin-left: -360px; font-weight: bold; font-size: 17px;">이름</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                </div>
+                <div id="joinpage-btn" class="d-grid gap-2">
+                    <button id="signupBtn" class="btn btn-primary">회원가입</button>
+                    <button id="showLogin" class="btn btn-secondary">뒤로</button>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="modalAlertLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalAlertLabel">경고</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="modalAlertBody">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
