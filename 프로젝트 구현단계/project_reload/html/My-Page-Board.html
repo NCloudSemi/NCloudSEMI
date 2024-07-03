@@ -10,7 +10,7 @@
         </div>
         <div class="scrollable-container">
             <!-- 게시글 1 -->
-            <div class="col mb-4" id="post-1">
+            <div class="col mb-4" id="post-1" >
                 <div class="form-check mt-2 mb-2">
                     <input class="form-check-input" type="checkbox"id="check">
                 </div>
@@ -41,18 +41,18 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" >
                         <h5 class="card-title">☁️하늘 자전거☁️</h5>
                         <p class="card-text">하늘 자전거를 타고 나니까<br>진짜 거짓말 쬐~끔 보태서 ☁️구름 위를 여행하는 것 같았어😚</p>
                         <div class="d-flex justify-content-center">
-                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2">게시글 보기</a>
+                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#postModal" data-post-id="1">게시글 보기</a>
                             <a href="edit_post1.html" id="edit-post-1" class="btn btn-secondary">수정</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- 게시글 2 -->
-            <div class="col mb-4" id="post-2">
+            <div class="col mb-4" id="post-2" >
                 <div class="form-check mt-2 mb-2">
                     <input class="form-check-input" type="checkbox"id="check">
                 </div>
@@ -90,14 +90,14 @@
                         <h5 class="card-title">국내여행지 뿌시기👊 프로젝트 in 【 강 릉 】</h5>
                         <p class="card-text">☀️뜨거운 태양을 피해<br>시~원한 바다🌊가 있는 강릉으로 떠난 날😎</p>
                         <div class="d-flex justify-content-center">
-                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2">게시글 보기</a>
+                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#postModal" data-post-id="2">게시글 보기</a>
                             <a href="edit_post1.html" id="edit-post-1" class="btn btn-secondary">수정</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- 게시글 3 -->
-            <div class="col mb-4" id="post-3">
+            <div class="col mb-4" id="post-3" >
                 <div class="form-check mt-2 mb-2">
                     <input class="form-check-input" type="checkbox"id="check">
                 </div>
@@ -129,14 +129,14 @@
                         <h5 class="card-title">국내여행지 뿌시기👊 프로젝트 in 【 전 주 】</h5>
                         <p class="card-text">⚠️아름다움에 기절 주의⚠️<br>아름다운 자연경관들과 고풍스러운 한옥들이 즐비한 전주</p>
                         <div class="d-flex justify-content-center">
-                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2">게시글 보기</a>
+                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#postModal" data-post-id="3">게시글 보기</a>
                             <a href="edit_post1.html" id="edit-post-1" class="btn btn-secondary">수정</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- 게시글 4 -->
-            <div class="col mb-4" id="post-4">
+            <div class="col mb-4" id="post-4" >
                 <div class="form-check mt-2 mb-2">
                     <input class="form-check-input" type="checkbox"id="check">
                 </div>
@@ -171,7 +171,7 @@
                         <h5 class="card-title">국내여행지 뿌시기👊 프로젝트 in 【 경 주 】</h5>
                         <p class="card-text">⭐선조들이 달과 별을 보던 첨성대가 있던🌕 경주!<br>야경을 보며 걷다보면 감성이 뿜뿜😍😍</p>
                         <div class="d-flex justify-content-center">
-                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2">게시글 보기</a>
+                            <a href="post1.html" id="view-post-1" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#postModal" data-post-id="4">게시글 보기</a>
                             <a href="edit_post1.html" id="edit-post-1" class="btn btn-secondary">수정</a>
                         </div>
                     </div>
@@ -219,14 +219,7 @@
        
     
     <script>
-       $(document).ready(function(){
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('expanded');
-            sidebar.classList.toggle('collapsed-background');
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
+       $(()=>{
             const selectAllCheckbox = document.getElementById('select-all');
             const deleteSelectedButton = document.getElementById('delete-selected');
             const checkboxes = document.querySelectorAll('.form-check-input');
@@ -270,7 +263,7 @@
                 });
                 deleteConfirmationModal.hide();
             });
-        });
+        
     })
     </script>
 

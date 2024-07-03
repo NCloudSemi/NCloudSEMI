@@ -124,18 +124,20 @@
 }
 
 
-.nav-item{
+
+.map-nav-item{
     border-radius: 15px;
     text-align: center;
 }
-
-.nav-item:hover {
+.map-nav-item:hover {
     background-color: orange;
 }
 
-.nav-item .active {
+.map-nav-item .active {
     background-color: orange;
 }
+
+
 
 
 

@@ -140,6 +140,32 @@
             sidebar.classList.toggle('expanded');
             sidebar.classList.toggle('collapsed-background');
         }
+        
+        function profilePhotoChange() {
+            let input = document.createElement("input");
+
+            input.type="file";
+            input.accept="image/*";
+
+            input.click();
+            input.onchange=function(event){
+                processFile(event.target.files[0]);
+            };
+        }
+
+        function processFile(file) {
+            let reader = new FileReader();
+            reader.readAsDataURL(file, "UTF-8");
+
+            reader.onload = function() {
+                let output = document.getElementById("output");
+                output.src = reader.result;
+            }
+        }
+
+        const gallery = document.querySelector(".gallery");
+
+    
     </script>
 </body>
 </html>

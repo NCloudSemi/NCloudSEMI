@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button id="loginBtn" class="btn btn-primary">로그인</button>
+                        <button id="loginBtn" class="btn btn-primary link_main">로그인</button><!--임시 바로로그인-->
                         <button id="showSignup" class="btn btn-secondary">회원가입</button>
                     </div>
                 </div>
@@ -76,76 +76,77 @@
                     </div>
                 </div>
     </div>
-    <script>
-      $(()=>{
-        document.getElementById("showSignup").addEventListener("click", function() {
-            document.getElementById("login").classList.add("hidden");
-            setTimeout(function() {
-                document.getElementById("join").classList.remove("hidden");
-            }, 500);
-        });
+<script>
+    $(()=>{
+  document.getElementById("showSignup").addEventListener("click", function() {
+      document.getElementById("login").classList.add("hidden");
+      setTimeout(function() {
+          document.getElementById("join").classList.remove("hidden");
+      }, 500);
+  });
 
-        document.getElementById("showLogin").addEventListener("click", function() {
-            document.getElementById("join").classList.add("hidden");
-            setTimeout(function() {
-                document.getElementById("login").classList.remove("hidden");
-            }, 500);
-        });
+  document.getElementById("showLogin").addEventListener("click", function() {
+      document.getElementById("join").classList.add("hidden");
+      setTimeout(function() {
+          document.getElementById("login").classList.remove("hidden");
+      }, 500);
+  });
 
-        function validatePassword(password) {
-            const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
-            return passwordRegex.test(password);
-        }
+  function validatePassword(password) {
+      const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+      return passwordRegex.test(password);
+  }
 
-        function showAlert(message) {
-            document.getElementById('modalAlertBody').innerText = message;
-            new bootstrap.Modal(document.getElementById('modalAlert')).show();
-        }
+  function showAlert(message) {
+      document.getElementById('modalAlertBody').innerText = message;
+      new bootstrap.Modal(document.getElementById('modalAlert')).show();
+  }
 
-        document.getElementById('loginBtn').addEventListener('click', function() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+  document.getElementById('loginBtn').addEventListener('click', function() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-            if (!email || !password) {
-                showAlert('아이디와 비밀번호를 입력해 주세요.');
-                return;
-            }
+      if (!email || !password) {
+          showAlert('아이디와 비밀번호를 입력해 주세요.');
+          return;
+      }
 
-            if (!validatePassword(password)) {
-                showAlert('비밀번호는 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.');
-                return;
-            }
+      if (!validatePassword(password)) {
+          showAlert('비밀번호는 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.');
+          return;
+      }
 
-            // 로그인 로직 추가해야 함 - db에서 값 가져오기 + 다음 화면으로 이동 등
-            alert('로그인 성공!');
-        });
+      // 로그인 로직 추가해야 함 
+      link_animation('my_landing','left') // -외부이벤트 임시
+      //alert('로그인 성공!');
+  });
 
-        document.getElementById('signupBtn').addEventListener('click', function() {
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            const passwordCheck = document.getElementById('signupPasswordCheck').value;
-            const name = document.getElementById('name').value;
+  document.getElementById('signupBtn').addEventListener('click', function() {
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      const passwordCheck = document.getElementById('signupPasswordCheck').value;
+      const name = document.getElementById('name').value;
 
-            if (!email || !password || !passwordCheck || !name) {
-                showAlert('입력창에 모든 정보를 입력해 주세요.');
-                return;
-            }
+      if (!email || !password || !passwordCheck || !name) {
+          showAlert('입력창에 모든 정보를 입력해 주세요.');
+          return;
+      }
 
-            if (password !== passwordCheck) {
-                showAlert('비밀번호가 일치하지 않습니다.');
-                return;
-            }
+      if (password !== passwordCheck) {
+          showAlert('비밀번호가 일치하지 않습니다.');
+          return;
+      }
 
-            if (!validatePassword(password)) {
-                showAlert('비밀번호는 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.');
-                return;
-            }
-            // 로그인 로직 추가해야 함 - db에 정보 저장 및 로그인페이지로 이동 등
-            alert(`회원가입 완료`);
-            setTimeout(() => {
-                location.reload();
-            }, 1000);
-        });
-      });
-    </script>
+      if (!validatePassword(password)) {
+          showAlert('비밀번호는 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.');
+          return;
+      }
+      // 로그인 로직 추가해야 함 - db에 정보 저장 및 로그인페이지로 이동 등
+      alert(`회원가입 완료`);
+      setTimeout(() => {
+          location.reload();
+      }, 1000);
+  });
+});
+</script>
 

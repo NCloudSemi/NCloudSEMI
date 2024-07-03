@@ -1,0 +1,103 @@
+/*
+<< Elements styles >>
+    ⚠️ 해당 스타일들은 Header 및 Footer의 양식을 위한 styles입니다. 수정 금지.
+*/
+
+/*--------------------------------------------------------------------*/
+/*-------------flex box 구간 영역---------------*/
+.main_page {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.section2 {
+    width: 100%;
+}
+
+/*-----------------myTravelRecord 영역------------------------*/
+
+        .map_city1, .map_city2, .map_city3, .map_city4,
+        .map_city5, .map_city6, .map_city7, .map_city8,
+        .map_city9, .map_city10, .map_city11, .map_city12,
+        .map_city13, .map_city14, .map_city15, .map_city16,
+        .map_city17 {
+            fill: lightgray;
+            transition: fill 0.3s ease;
+        }
+
+        .map_city1:hover, .map_city2:hover, .map_city3:hover, .map_city4:hover,
+        .map_city5:hover, .map_city6:hover, .map_city7:hover, .map_city8:hover,
+        .map_city9:hover, .map_city10:hover, .map_city11:hover, .map_city12:hover,
+        .map_city13:hover, .map_city14:hover, .map_city15:hover, .map_city16:hover,
+        .map_city17:hover{
+            fill: black;
+            cursor: pointer;
+        }
+
+        .map_city {
+            transition: fill 0.3s ease;
+        }
+
+        .all_map {
+            margin-top: 100px;
+            width: 100%;
+            height: auto;
+            border: 1px solid lightgray;
+            border-radius: 20px;
+        }
+
+        .dropdown_box {
+            width: 50%;
+            height: auto;
+            background: lightgray;
+            margin: 5% 3%;
+            border-radius: 5px;
+        }
+
+        .mtr_flex {
+            display: flex;
+        }
+        
+        #mapBox {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 700px;
+            height: 500px;
+            overflow-y: auto;
+        }
+        
+        #mapBox iframe {
+            width: 80%;
+            height: 40vh;
+            border: none;
+            margin: 0 10%;
+        }
+
+        .mtr_board {
+            width: 100%;
+            display: flex;
+        }
+
+        .mtr_board1 {
+            width: 25%;
+            height: 30vh;
+            margin: 5%;
+            background: gray;
+            border-radius: 10px;
+        }
+        .mtr_board2 {
+            width: 25%;
+            height: 30vh;
+            margin: 5%;
+            background: gray;
+            border-radius: 10px;
+        }
+        .mtr_board3 {
+            width: 25%;
+            height: 30vh;
+            margin: 5%;
+            background: gray;
+            border-radius: 10px;
+        }
