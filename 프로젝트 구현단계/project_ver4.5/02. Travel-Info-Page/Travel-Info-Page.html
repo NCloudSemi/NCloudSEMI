@@ -11,35 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <style>
-        .sidebar.collapsed-background .sideMain,
-        .sidebar.collapsed-background #sideBarHeader {
-            display: none;
-        }
-        .sidebar.expanded .sideMain,
-        .sidebar.expanded #sideBarHeader {
-            display: flex;
-        }
-        .nav-item p {
-            margin: 0;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .nav-item p:hover,
-        .nav-item.active p {
-            color: #FF6B00;
-        }
-        .sidebar {
-            transition: width 0.5s, height 0.5s;
-        }
-        .sidebar.expanded {
-            width: auto;
-            height: auto;
-        }
-        .sidebar.collapsed-background {
-            width: 50px;
-        }
-    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -82,11 +53,10 @@
         <!-- Contents -->
         <div class="container-fluid">
             <!-- Sidebar -->
-            <div class="sidebar navbar collapsed-background" onclick="toggleSidebar()" style="height: 650px;">
+            <div class="sidebar navbar collapsed-background" onclick="toggleSidebar()" style="height: 650px; width: auto;">
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!-- 펼쳤을 때 여기게 나옴 -->
                 <ul class="navbar-nav ms-auto collapse" style="gap: 30px;" id="navbar-content">
                     <div class="d-flex justify-content-start w-100 mb-4 mt-3" id="sideBarHeader">
                         <!-- Toggle Button -->
@@ -106,7 +76,6 @@
                                 <li class="nav-item" id="recommend"><p>추천순</p></li>
                             </ul>
                         </div>
-                        <!-- Item Area -->
                         <div class="h-75 rounded bg-light overflow-auto sideMain justify-content-start" style="text-align: center; max-height: 500px; overflow-y: auto;" id="itemArea">
                             <!-- 초기 지역별 항목 -->
                             <ul class="nav flex-column justify-content-center" id="nevOption">
@@ -146,32 +115,55 @@
                     <div id="kakaoMap">
                         <!-- Info Display -->
                         <div class="" id="info_display">
-                            <div class="d-flex h-25 w-100 p-4" id="main-info">
-                                <!-- Image -->
-                                <a href="" class="border-1 rounded bg-light w-50 h-100" id="main-info-img"></a>
-                                <!-- Info Content -->
-                                <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4 m-4" id="main-info-content">
-                                    <p id="info-title"></p>
-                                    <p id="star">4.2 / 5.0</p>
-                                    <p id="price">40000~50000 / 1Day</p>
-                                    <div class="d-flex">
-                                        <button type="button" id="booking">예약</button>
-                                        <button type="button" id="edit_card">끌 쓰끼</button>
-                                    </div>
+                            <h3 id="titleInfo">Title</h3>
+                            <div class="imageInfoDisplay">
+                                <img src="" alt="" id="imageSection" style="height: 100px;">
+                                <div class="d-flex flex-column px-4">
+                                    <h4 id="imageInfoHeader">Information header</h4>
+                                    <p id="imageInfo">Information content</p>
+                                </div>
+                            </div>
+                            <!-- Address Display -->
+                            <div id="address">
+                                <h4>Address</h4>
+                                <p>address</p>
+                            </div>
+                            <!-- Review Section -->
+                            <div class="reviewSec d-flex flex-column justify-content-start align-items-center w-75">
+                                <!-- Review Input -->
+                                <div class="reviewInput w-75">
+                                    <input type="text" placeholder="리뷰를 입력하세요." id="reviewBar">
+                                    <button class="btn btn-dark">등록</button>
+                                </div>
+                                <!-- Review List -->
+                                <div class="reviewList w-75 bg-light">
+                                    <ul id="reviewList">
+                                        <li>리뷰 1</li>
+                                        <li>리뷰 2</li>
+                                        <li>리뷰 3</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Comment Section -->
-                        <div>
-                            <input type="text" class="form-control w-100" placeholder="한줄평" id="commentBar">
-                        </div>
-                        <div class="d-flex h-75 w-100" id="info_conent">
-                            <ul id="comment_area"></ul>
-                        </div>
                     </div>
+                </div>
+                <!-- Top 5 Section -->
+                <div class="top5Area">
+                    <div class="topHeaderArea d-flex justify-content-between align-items-center">
+                        <h1 id="title">TOP 5</h1>
+                        <a href="#" id="button">전체보기</a>
+                    </div>
+                    <ul class="d-flex justify-content-around w-100" id="top5Ul">
+                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 1</span></li>
+                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 2</span></li>
+                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 3</span></li>
+                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 4</span></li>
+                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 5</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <!-- Footer -->
         <footer class="bg-dark py-3">
             <div class="container" style="font-weight: bold;">
                 <span>&copy; 2024 <span style="color: #FF6B00;">COMMA</span></span>
@@ -231,6 +223,14 @@
                 recommendList.appendChild(li);
             });
         });
+        // 카카오 맵 스크립트
+        var mapContainer = document.getElementById('kakaoMap'),
+            mapOption = { 
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
     </script>
 </body>
 </html>
