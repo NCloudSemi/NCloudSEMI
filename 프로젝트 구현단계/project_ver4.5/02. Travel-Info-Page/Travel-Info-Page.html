@@ -11,6 +11,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
+    <style>
+        .sidebar.expanded {
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.expanded ~ .content {
+            margin-left: 350px;
+        }
+        #navCategory {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #navCategory .nav-item {
+            margin-right: 20px;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            width: auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -53,12 +78,12 @@
         <!-- Contents -->
         <div class="container-fluid">
             <!-- Sidebar -->
-            <div class="sidebar navbar collapsed-background" onclick="toggleSidebar()" style="height: 650px; width: auto;">
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+            <div class="sidebar navbar collapsed-background" style="min-height: 500px;">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content" onclick="toggleSidebar()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul class="navbar-nav ms-auto collapse" style="gap: 30px;" id="navbar-content">
-                    <div class="d-flex justify-content-start w-100 mb-4 mt-3" id="sideBarHeader">
+                    <div class="d-flex justify-content-center w-100 mb-4 mt-3" id="sideBarHeader">
                         <!-- Toggle Button -->
                         <div class="form-check form-switch d-flex p-0">
                             <label class="form-check-label" for="switchDO">국내</label>
@@ -67,34 +92,34 @@
                         </div>
                     </div>
                     <!-- Sidebar Main -->
-                    <div class="d-flex h-100">
-                        <!-- Category Area -->
-                        <div class="w-50 h-75 rounded sideMain justify-content-start" style="text-align: center;">
-                            <ul class="nav flex-column justify-content-center" id="navCategory">
-                                <li class="nav-item" id="Area"><p>지역별</p></li>
-                                <li class="nav-item" id="priceCap"><p>가격</p></li>
-                                <li class="nav-item" id="recommend"><p>추천순</p></li>
-                            </ul>
-                        </div>
-                        <div class="h-75 rounded bg-light overflow-auto sideMain justify-content-start" style="text-align: center; max-height: 500px; overflow-y: auto;" id="itemArea">
-                            <!-- 초기 지역별 항목 -->
-                            <ul class="nav flex-column justify-content-center" id="nevOption">
-                                <li class="nav-item"><p>서울</p></li>
-                                <li class="nav-item"><p>제주</p></li>
-                                <li class="nav-item"><p>전남</p></li>
-                                <li class="nav-item"><p>전북</p></li>
-                                <li class="nav-item"><p>광주</p></li>
-                                <li class="nav-item"><p>경남</p></li>
-                                <li class="nav-item"><p>경북</p></li>
-                                <li class="nav-item"><p>울산</p></li>
-                                <li class="nav-item"><p>대구</p></li>
-                                <li class="nav-item"><p>부산</p></li>
-                                <li class="nav-item"><p>충남</p></li>
-                                <li class="nav-item"><p>충북</p></li>
-                                <li class="nav-item"><p>세종</p></li>
-                                <li class="nav-item"><p>대전</p></li>
-                                <li class="nav-item"><p>인천</p></li>
-                            </ul>
+                    <div class="d-flex justify-content-center" style="position: relative;">
+                        <div class="h-100 rounded sideMain justify-content-start" style="text-align: center;">
+                            <div class="d-flex justify-content-center" id="navCategory">
+                                <ul class="nav" style="display: flex;">
+                                    <li class="nav-item" id="Area">지역별</li>
+                                    <li class="nav-item" id="priceCap">가격</li>
+                                    <li class="nav-item" id="recommend">추천순</li>
+                                </ul>
+                            </div>
+                            <div class="h-75 rounded bg-light overflow-auto sideMain justify-content-start" style="text-align: center; max-height: 300px;" id="itemArea">
+                                <ul class="nav flex-column justify-content-center" id="nevOption">
+                                    <li class="nav-item"><p>서울</p></li>
+                                    <li class="nav-item"><p>제주</p></li>
+                                    <li class="nav-item"><p>전남</p></li>
+                                    <li class="nav-item"><p>전북</p></li>
+                                    <li class="nav-item"><p>광주</p></li>
+                                    <li class="nav-item"><p>경남</p></li>
+                                    <li class="nav-item"><p>경북</p></li>
+                                    <li class="nav-item"><p>울산</p></li>
+                                    <li class="nav-item"><p>대구</p></li>
+                                    <li class="nav-item"><p>부산</p></li>
+                                    <li class="nav-item"><p>충남</p></li>
+                                    <li class="nav-item"><p>충북</p></li>
+                                    <li class="nav-item"><p>세종</p></li>
+                                    <li class="nav-item"><p>대전</p></li>
+                                    <li class="nav-item"><p>인천</p></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </ul>
@@ -175,8 +200,10 @@
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('expanded');
             sidebar.classList.toggle('collapsed-background');
+            const sidebarWidth = sidebar.offsetWidth;
+            itemArea.style.width = `${sidebarWidth + 100}px`;
         }
-
+        
         function activateNavItem(navItem) {
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => {
