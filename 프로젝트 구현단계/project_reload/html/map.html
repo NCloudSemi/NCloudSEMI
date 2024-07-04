@@ -18,13 +18,15 @@
           <div id="kakaoMap">
              <!--숨겨지나?-->
              <div class="" id="info_display">
-              <div class="d-flex h-25 w-100 p-4" id="main-info">
+              <div class="d-flex h-50 w-100 p-4 rounded" id="main-info" style="background-color: white;" >
                    <!--사진-->
                    <a href="" class="border-1 rounded bg-light  w-50 h-100" id="main-info-img"></a>
                    
                    <!--이름 ,별점 ,전화번호 버튼 2개-->
-                   <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4 m-4" id="main-info-content">
+                   <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4 m-4" id="main-info-content" >
                         <p id="info-title"></p>
+                        <p id="adress"></p>
+                        <p id="phone"></p>
                         <p id="star">4.2 / 5.0</p>
                         <p id="price">40000~50000 / 1Day</p>
                         <div class="d-flex" >
@@ -35,10 +37,10 @@
               </div>
               <div>
                 <!--한줄평-->
-                <input type="text" class="form-control w-100 " placeholder="한줄평" id="commentBar">
+                <input type="text" class="form-control w-100 " placeholder="한줄평" id="commentBar" style="margin: 10px 0;">
               </div>
               <!--교체용 갈갈이-->
-              <div class="d-flex h-75 w-100"  id="info_conent">
+              <div class="d-flex h-50 w-100"  id="info_conent">
                 <!--default 한줄평-->
                 <ul id="comment_area">
                              
@@ -274,6 +276,7 @@
 
             // 장소검색 결과 확인
             function placesSearchCB(data, status, pagination) {
+              console.log(data)
               if (status === kakao.maps.services.Status.OK) {
                  filtered_data = dataFiltering(data)
                  if(filtered_data.length == 0)
@@ -322,10 +325,14 @@
                       // mouseout 했을 때는 인포윈도우를 닫습니다
                       (function(marker, place) {
                           kakao.maps.event.addListener(marker, 'mouseover', function() {
-                              displayMinInfo(marker, place.place_name);
+                            markerImage = new kakao.maps.MarkerImage('img/marker_active.svg',new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                            marker.setImage( markerImage)
+                            displayMinInfo(marker, place.place_name);
                           });
 
                           kakao.maps.event.addListener(marker, 'mouseout', function() {
+                              markerImage = new kakao.maps.MarkerImage('img/marker.svg',new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                              marker.setImage(markerImage )
                               infowindow.close();
                           });
 
@@ -368,6 +375,7 @@
             // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
             // 인포윈도우에 장소명을 표시합니다
             function displayMinInfo(marker, title) {
+                  
                   const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
                   infowindow.setContent(content);
                   infowindow.open(kakaoMap, marker);
@@ -376,8 +384,9 @@
             // 검색결과와 연관된 창을 뛰우는 역활
             function displayInfo(marker, place) {
                $('#info_display').css('right','0%')
-               
                $('#info-title').text(place.place_name)
+               $('#adress').text(place.address_name)
+               $('#phone').text(place.phone)
                $('#main-info-img').attr('href', place.place_url);
 
             }
@@ -587,21 +596,21 @@
                 $('#info_conent').empty()
                 const content = `<div class="d-flex flex-column" id="booking_area">
             <div class="d-flex " id="booking_input">
-             <div class="bookingInputArea">
-                  <input type="text"  class="calendar-button" id="check_in" placeholder="체크인" readonly>
+             <div class="bookingInputArea" >
+                  <input type="text"  class="calendar-button" id="check_in" placeholder="체크인" style ='width:200px' readonly>
              </div>
-             <div class="bookingInputArea">
-               <input type="text" class="calendar-button" id="check_out"  placeholder="체크아웃" readonly>
+             <div class="bookingInputArea" >
+               <input type="text" class="calendar-button" id="check_out"  placeholder="체크아웃" style ='width:200px' readonly>
              </div>
-             <div class="bookingInputArea">
-               <input type="text" class="manInfo-button" id="men_info"  placeholder="인원 정보"  readonly>
+             <div class="bookingInputArea" >
+               <input type="text" class="manInfo-button" id="men_info"  placeholder="인원 정보" style ='width:150px'>
              </div>
 
             </div>
 
-            <div id="book_calender" class="">
+            <div id="book_calender" class="" >
               <div class="container mt-4">
-                <div id="calendar-wrapper" class="border rounded p-3">
+                <div id="calendar-wrapper" class="border rounded p-3" style='background-color: #FFF' >
                     <div id="calendar-header" class="d-flex justify-content-between align-items-center mb-3">
                         <button id="prev" class="btn btn-secondary">Previous</button>
                         <h2 id="month-year" class="mb-0"></h2>
@@ -625,7 +634,7 @@
 
             <div id="book_human" class="">
               <div class="container mt-4">
-                <div id="calendar-wrapper" class="border rounded p-3">
+                <div id="calendar-wrapper" class="border rounded p-3" ;'>
                        
 
                 </div>

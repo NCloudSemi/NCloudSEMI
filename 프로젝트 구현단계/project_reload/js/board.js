@@ -4,6 +4,7 @@ $(()=>{
         const scrollAnchor = document.getElementById('scroll-anchor');
         const containerContent = document.getElementById('container-content');
         let postCount = 0;
+        
         window.slideIndex = 0;  // 전역 슬라이드 인덱스 변수
         window.editSlideIndex = 0;
     
@@ -41,9 +42,9 @@ $(()=>{
                 //});
     
                 if (postType === 'photo') {
-                    post.innerHTML = `<img src="https://picsum.photos/1080?random=${postCount}" alt="Post Image">`;
+                    post.innerHTML = `<img src="img/카드 게시판 사진_${(postCount % 22)+1}.jpg" alt="Post Image">`;
                 } else {
-                    post.innerHTML = `<video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>`;
+                    post.innerHTML = `<img src="img/카드 게시판 동영상_${(postCount % 11)+1}.gif" ></img>`;
                 }
     
                 mainContent.insertBefore(post, scrollAnchor);
