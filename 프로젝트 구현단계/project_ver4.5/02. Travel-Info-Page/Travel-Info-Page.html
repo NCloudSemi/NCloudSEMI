@@ -11,32 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <style>
-        .sidebar.expanded {
-            width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .sidebar.expanded ~ .content {
-            margin-left: 350px;
-        }
-        #navCategory {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        #navCategory .nav-item {
-            margin-right: 20px;
-        }
-
-        .sidebar ul li {
-            margin: 10px 0;
-            width: auto;
-            text-align: center;
-        }
-    </style>
-</head>
 <body>
     <div class="wrapper">
         <!-- Header -->
@@ -78,14 +52,14 @@
         <!-- Contents -->
         <div class="container-fluid">
             <!-- Sidebar -->
-            <div class="sidebar navbar collapsed-background" style="min-height: 500px;">
+            <div class="sidebar navbar collapsed-background" style="height: auto;">
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content" onclick="toggleSidebar()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <ul class="navbar-nav ms-auto collapse" style="gap: 30px;" id="navbar-content">
                     <div class="d-flex justify-content-center w-100 mb-4 mt-3" id="sideBarHeader">
                         <!-- Toggle Button -->
-                        <div class="form-check form-switch d-flex p-0">
+                        <div class="form-check form-switch d-flex p-0" style="font-weight: bolder;">
                             <label class="form-check-label" for="switchDO">국내</label>
                             <input class="form-check-input mx-2" type="checkbox" id="switchDO">
                             <label class="form-check-label" for="switchDO">해외</label>
@@ -94,7 +68,7 @@
                     <!-- Sidebar Main -->
                     <div class="d-flex justify-content-center" style="position: relative;">
                         <div class="h-100 rounded sideMain justify-content-start" style="text-align: center;">
-                            <div class="d-flex justify-content-center" id="navCategory">
+                            <div class="d-flex justify-content-center" id="navCategory" style="font-weight: bolder;">
                                 <ul class="nav" style="display: flex;">
                                     <li class="nav-item" id="Area">지역별</li>
                                     <li class="nav-item" id="priceCap">가격</li>
@@ -172,18 +146,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- Top 5 Section -->
-                <div class="top5Area">
+                <!-- Top 3 Section -->
+                <div class="top3Area">
                     <div class="topHeaderArea d-flex justify-content-between align-items-center">
-                        <h1 id="title">TOP 5</h1>
+                        <h1 id="title">TOP 3</h1>
                         <a href="#" id="button">전체보기</a>
                     </div>
-                    <ul class="d-flex justify-content-around w-100" id="top5Ul">
+                    <ul class="d-flex justify-content-around w-100" id="top3Ul">
                         <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 1</span></li>
                         <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 2</span></li>
                         <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 3</span></li>
-                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 4</span></li>
-                        <li class="d-flex flex-column align-items-center" id="card"><img src="../Element_Images/Card-Example-Image.jpg" alt="" id="img"><span id="info">TOP 5</span></li>
                     </ul>
                 </div>
             </div>
