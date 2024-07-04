@@ -1,5 +1,7 @@
 /*전체 영역 설정*/
-
+html , body {
+    overflow-y: hidden;
+}
 
 #container-main {
     display: flex;

@@ -54,7 +54,7 @@
         <main class=" container-fluid content" >
                 <!-- Sidebar script로 요소 조정 -->
                 <div class="sidebar navbar collapsed-background" id="main_sideBar" style="height: 400px; opacity: 0%;"  >
-                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+                    <button type="button"  class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <ul class="navbar-nav ms-auto collapse" style="gap: 30px;" id="navbar-content">
@@ -167,7 +167,11 @@
 <script>
     $(document).ready(function(){
         //임시용 로그인 상태저장 
-
+        $('#main_sideBar').on( 'click', function(event){
+            event.preventDefault();
+            event.stopPropagation();
+      
+         }); //test
          link_dict ={
             login:'html/Login-Joining-Page.html',
             my_landing:'html/My-Page-Landing.html',
@@ -183,9 +187,9 @@
          nevbar_dict ={
             login: {texts:[], links:[]},
             board:{texts:['내 개시글 보기','글쓰기'], links:['my_board','create_post']},
-            map: {texts:['여행정보','카드게시판','마이페이지'],links:['map','board','my_landing']},
             my: {texts:['개인정보 수정','게시글','여행기록','회원탈퇴'],links:['my_landing','my_board','my_trabel','my_withdraw']},
-            main: {texts:['여행정보','카드게시판','마이페이지'],links:['map','board','my_landing']}
+            main: {texts:['여행정보','카드게시판','마이페이지'],links:['map','board','my_landing']},
+            map: {texts:[],links:[],form:'html/mapSide.html'},
          }
          
 
@@ -216,10 +220,19 @@
 
              
              $('footer').css({opacity:'0%'})
+             
+             
+             //sideBar 먼저 처리
              disLink_tags() //잠시 이벤트 제거
+             changeSideBar(mode)
+             
+
+
              $("#currentContent").css(way_start).animate(way_end_m, 700, function() {
                      // remove the old content after the animation
                      $('#currentContent').remove();
+                     
+
                      // load new content into the new div
                      newContent.load( newContent_html , function() {
                          $(".content").append(newContent);
@@ -227,7 +240,7 @@
                          // animate the new content from the right to the center
                          newContent.css(way_end_p).animate(way_start, 700, function() {
                          // set the new content div as the current content
-                         changeSideBar(mode)
+                         
                          $('footer').css({opacity:'100%'})
                          $('main').css('min-height',`${Math.max(1000,newContent.height())}px`)
                          link_tags() //이벤트 연결
@@ -245,42 +258,51 @@
             sidebar.classList.toggle('collapsed-background');
           }
          
-         const changeSideBar = (mode) => {
-            if(mode == 'login'  ){
+         const changeSideBar = (mode) => {     
+            $('#main_sideBar ul').empty() //일단비우고
+            mode = mode.split('_')[0] //이름 필터링
+
+            if(mode == 'login' || mode == 'main'  ){
               $('#main_sideBar').css('opacity' ,'0%')
             }
-            else{
-             if(mode.indexOf('my') != -1)
-              mode = 'my'
-
-             for (let index = 1; index <= 4; index++){
-                 $(`#nav-item-${index} a`).text('')
-             }
-             let i = 1
-             nevbar_dict[mode].texts.forEach(navText => {
-                 $(`#nav-item-${i} a`).text(navText)
-                 i+=1
-            });
-
-            
-            for (let index = 1; index <= 4; index++) {
-                $(`#nav-item-${index} a`).off('click').removeAttr('href')
+            else if( 'form' in nevbar_dict[mode])
+            {   
+                $('#main_sideBar').css('opacity' ,'100%')
+                $('#main_sideBar').css('height' ,'600px')//임시
+                $('#main_sideBar ul').load(nevbar_dict[mode]['form'] )   
             }
-            let j = 1
-            nevbar_dict[mode].links.forEach(navlink => {
-                if(navlink != 'create_post' ){
-                 $(`#nav-item-${j} a`).attr('href',`#${navlink.split('_')[0]}` )
-                 $(`#nav-item-${j} a`).off('click').removeAttr('data-bs-toggle').removeAttr('data-bs-target').on('click',()=>{link_animation(navlink,'left')})
-                }
-                else
-                {
-                 $(`#nav-item-${j} a`).off('click').attr('data-bs-toggle',"modal" ).attr('data-bs-target',"#writeModal" )
-                }          
-                j+=1
-            });
-          
+            else{
+             $('#main_sideBar').css('height' ,'400px')//임시
+             $('#main_sideBar ul').load('html/side.html' ,() =>{
+                    
 
-            $('#main_sideBar').css('opacity' ,'100%')
+                    for (let index = 1; index <= 4; index++){
+                        $(`#nav-item-${index} a`).text('')
+                    }
+                    let i = 1
+                    nevbar_dict[mode].texts.forEach(navText => {
+                        $(`#nav-item-${i} a`).text(navText)
+                        i+=1
+                    });
+
+                    
+                    for (let index = 1; index <= 4; index++) {
+                        $(`#nav-item-${index} a`).off('click').removeAttr('href')
+                    }
+                    let j = 1
+                    nevbar_dict[mode].links.forEach(navlink => {
+                        if(navlink != 'create_post' ){
+                        $(`#nav-item-${j} a`).attr('href',`#${navlink.split('_')[0]}` )
+                        $(`#nav-item-${j} a`).off('click').removeAttr('data-bs-toggle').removeAttr('data-bs-target').on('click',()=>{link_animation(navlink,'left')})
+                        }
+                        else
+                        {
+                        $(`#nav-item-${j} a`).off('click').attr('data-bs-toggle',"modal" ).attr('data-bs-target',"#writeModal" )
+                        }          
+                        j+=1
+                    });
+                    $('#main_sideBar').css('opacity' ,'100%')
+             })
            }
 
          }
@@ -335,8 +357,8 @@
          })
          
          
-         $('#main_sideBar').on('click', toggleSidebar)
-         
+         /*$('#main_sideBar').on('click', toggleSidebar)*/
+         $('#main_sideBar button').on('click', toggleSidebar)
        
                   
 

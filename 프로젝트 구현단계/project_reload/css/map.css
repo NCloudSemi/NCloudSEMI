@@ -10,7 +10,7 @@
     height: 900px;
     
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-items: center;
 
     position: relative;
@@ -63,6 +63,7 @@
     background-position: center center;
     background-size: cover;
     background-image: url('../img/reset.svg'); /* Ensure this path is correct */
+
 }
 
 #info_conent{

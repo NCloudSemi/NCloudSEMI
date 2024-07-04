@@ -77,6 +77,7 @@ input:focus {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    text-align: center;
     height: 300px;
     background-color: #f1f1f1;
     border-radius: 10px;
@@ -128,7 +129,7 @@ input:focus {
     min-height: 1000px;
     display: flex;
     justify-content: center;
-
+    transition: margin-left 0.5s;
     position: relative;
 }
 
@@ -138,8 +139,6 @@ input:focus {
     left: 0%;
     width: 100%;
     min-height: 1000px;
-
-
 }
 
 
@@ -195,4 +194,32 @@ input:focus {
 }
 .sidebar.expanded ~ .sidebar-overlay {
     display: block;
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.4s ease;
+    }
+
+.navbar-toggler.collapsed {
+    transform: rotate(0deg);
+    }
+
+.navbar-toggler:not(.collapsed) {
+    transform: rotate(180deg);
+    }
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
 }
