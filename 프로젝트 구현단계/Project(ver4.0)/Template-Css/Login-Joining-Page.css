@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-form {
+    margin-top: 100px;
+    background: white;
+    padding: 20px 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 500px;
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.login-form.hidden{
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.login-form h1 {
+    font-size: 36px;
+    color: #090808;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: "Gasoek One", serif;
+}
+.login-form p {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+
+.login-join-page p{
+    margin: 0;
+    text-align: left;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form label {
+    font-size: 14px;
+    color: #090808;
+    display: block;
+    margin: 10px 0;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group label {
+    width: 50px;
+    height: 28px;
+    text-align: center;
+    margin-right: 10px;
+    padding-top: 6px;
+    border: none;
+    border-radius: 5px;
+    background: black;
+    color: white;
+}
+.form-check-input:checked {
+    background-color: #FF6B00;
+    border-color: #FF6B00;
+}
+.input div{
+    display: block;
+}
+
+#loginBtn,
+#showSignup {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#signupBtn,
+#showLogin {
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 5px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#joinpage-btn {
+    margin-top: 10px;
+}

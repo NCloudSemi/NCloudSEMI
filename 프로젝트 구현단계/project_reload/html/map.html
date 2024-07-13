@@ -1,0 +1,694 @@
+
+    <!--custom css-->
+    <link rel="stylesheet" href="css/map.css">
+    <!--통틀-->
+    <div class="d-flex" id="main">
+        <!--지도영역-->
+        <div class="mapArea"  style="margin-left: 300px;">
+          <!--검색 영역-->
+          <div id="serchArea">
+            <div class="input-group" >
+                <span class="input-group-text" id="serch">
+                  <img src="img/serch.svg" width="30px" height="30px" alt="">
+                </span>
+                <input type="text" class="form-control" placeholder="검색" id="serchBar">
+            </div> 
+          </div>
+          <!-- 카카오 지도 뛰우기-->
+          <div id="kakaoMap">
+             <!--숨겨지나?-->
+             <div class="" id="info_display">
+              <div class="d-flex h-50 w-100 p-4 rounded" id="main-info" style="background-color: white;" >
+                   <!--사진-->
+                   <a href="" class="border-1 rounded bg-light  w-50 h-100" id="main-info-img"></a>
+                   
+                   <!--이름 ,별점 ,전화번호 버튼 2개-->
+                   <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4 m-4" id="main-info-content" >
+                        <p id="info-title"></p>
+                        <p id="adress"></p>
+                        <p id="phone"></p>
+                        <p id="star">4.2 / 5.0</p>
+                        <p id="price">40000~50000 / 1Day</p>
+                        <div class="d-flex" >
+                          <button type="button" id="booking">예약</button>
+                          <button type="button" id="edit_card">끌 쓰끼</button>
+                        </div>
+                   </div>
+              </div>
+              <div>
+                <!--한줄평-->
+                <input type="text" class="form-control w-100 " placeholder="한줄평" id="commentBar" style="margin: 10px 0;">
+              </div>
+              <!--교체용 갈갈이-->
+              <div class="d-flex h-50 w-100"  id="info_conent">
+                <!--default 한줄평-->
+                <ul id="comment_area">
+                             
+                </ul>
+              </div>
+             </div>
+
+          </div>
+          
+        </div>
+        <!---->
+        <div class="" style="margin-left: 30px;">
+          <div class="top3-area d-flex flex-column align-items-center">
+              <!-- 배너 -->
+              <div class="banner text-center mt-5 mb-5">
+                  <img src="img/Top3-Travel-Area.gif" alt="top3-area" class="img-fluid">
+              </div>
+              <!-- 카드 섹션 -->
+              <div class="card-container" style="max-width: 400px; width: 100%; height: 200px;">
+                  <!-- 카드 1 -->
+                  <div class="card" id="card1">
+                      <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          </div>
+                          <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                  <img src="img/하늘자전거1.png" class="d-block w-100 fixed-height" alt="하늘자전거1">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="img/하늘자전거2.png" class="d-block w-100 fixed-height" alt="하늘자전거2">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="img/하늘자전거3.png" class="d-block w-100 fixed-height" alt="하늘자전거3">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                          </button>
+                      </div>
+                      <div class="card-body" style="text-align: center;">
+                          <h5 class="card-title">☁️하늘 자전거☁️</h5>
+                          <p class="card-text">☁️구름 위를 여행하는 것 같았어😚</p>
+                      </div>
+                  </div>
+                  <!-- 카드 2 -->
+                  <div class="card d-none" id="card2">
+                      <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          </div>
+                          <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                  <img src="img/강릉1.jpg" class="d-block w-100 fixed-height" alt="강릉1">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="img/강릉2.jpg" class="d-block w-100 fixed-height" alt="강릉2">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="img/강릉3.jpg" class="d-block w-100 fixed-height" alt="강릉3">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="img/강릉4.jpg" class="d-block w-100 fixed-height" alt="강릉4">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                          </button>
+                      </div>
+                      <div class="card-body" style="text-align: center;">
+                          <h5 class="card-title">국내여행지 뿌시기👊프로젝트 in【강 릉】</h5>
+                          <p class="card-text">시~원한 바다🌊가 있는<br>강릉으로 떠난 날😎</p>
+                      </div>
+                  </div>
+                  <!-- 카드 3 -->
+                  <div class="card d-none" id="card3">
+                      <div id="carouselExampleIndicators3" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          </div>
+                          <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                  <img src="img/전주1.jpg" class="d-block w-100 fixed-height" alt="전주1">
+                              </div>
+                              <div class="carousel-item">
+                                  <img src="img/전주2.jpg" class="d-block w-100 fixed-height" alt="전주2">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                          </button>
+                      </div>
+                      <div class="card-body" style="text-align: center;">
+                          <h5 class="card-title">국내여행지 뿌시기👊프로젝트 in 【전 주】</h5>
+                          <p class="card-text">아름다운 자연경관들과 고풍스러운 한옥들이<br>즐비한 전주</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <script>
+       $(()=>{
+           //navbar 관련 스크립트
+
+            let swich_flag ='Korea'
+            const categoryData ={
+               Forigin: ['국가별','가격별'],
+               Korea: ['지역별','가격별']     
+            }
+            
+            const optionData ={
+              Area : ['서울','제주','전남','전북','광주','경남','경북','울산','대구','부산','충남','충북','세종','대전','인천'],
+              priceCap :['3만원 이하', '3~5만원', '5~7만원', '7만원 이상'],
+              recommend :  ['⭐⭐⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐', '⭐⭐', '⭐'],
+              Area_Forigin : ['aa','bb','cc','dd','ee','ff','gg','hh','ii']
+            }
+            
+            //추가 예정
+            const areaPosition  = {
+               서울: [37.56356944444444, 126.98000833333333],
+               제주: [33.48569444444445, 126.50033333333333],
+               전남: [34.813044444444444, 126.465],
+               전북: [35.81727, 127.11105277777777],
+               강원: [38.642618, 127.170231],
+               광주: [35.156974999999996, 126.85336388888888],
+               경기: [35.23473611111111, 128.69416666666666],
+               울산: [35.53540833333333, 129.3136888888889],
+               대구: [35.868541666666665, 128.60355277777776],
+               부산: [35.17701944444444, 129.07695277777776],
+               충남: [36.32387222222223, 127.42295555555556],
+               충북: [36.6325, 127.49358611111111],
+               세종: [36.4800121, 127.2890691],
+               경북: [36.491286, 128.889433],
+               경남: [35.459369, 128.214826],
+               대전: [36.347119444444445, 127.38656666666667],
+               인천: [37.45323333333334, 126.70735277777779]
+            }
+            
+            //test 나중에 DB에서 땡겨오기
+            const marKerdataDB ={
+              서울: [{ name:"서울TEST", wh:[37.56356944444444, 126.98000833333333]}]
+            }
+
+            //검색
+            let markers = []; //검색된 마커들 보관용
+            const serchFillter ={ //필터용
+                Area: '서울',
+                priceCap: null,
+                grade:0
+            }
+
+           //카카오 지도
+           const mapContainer = document.getElementById('kakaoMap')
+           const mapOption = { 
+              center: new kakao.maps.LatLng(37.56356944444444, 126.98000833333333), // 지도의 중심좌표
+              level: 3 // 지도의 확대 레벨
+           };
+           const kakaoMap = new kakao.maps.Map(mapContainer, mapOption); 
+           //지도 클릭 이벤트
+           kakao.maps.event.addListener(kakaoMap, 'click', function(mouseEvent) { 
+            $('#info_display').css('right','-100%')
+            $('#info_conent').empty()
+           }) 
+
+           //위치 검색서비스
+           const pleaceService = new kakao.maps.services.Places();  
+           
+           //마커 이름 뛰울거
+           const infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+           //navOption item  이벤트
+           const nevOptionItemFun =  function() {
+              let centerPosition = areaPosition[$(this).text()];
+
+              //filtering
+              serchFillter['Area'] = $(this).text()
+              //이동할 위치
+              if($('#serchBar').val() !='')
+              {
+               serchingData()
+              }
+              else{
+               const moveLatLon = new kakao.maps.LatLng(centerPosition[0], centerPosition[1]);
+               kakaoMap.setCenter(moveLatLon);
+              }
+              
+           }
+
+
+            //kakao 검색관련 이벤트
+            const serchingData = () =>{
+              const serchValue = $('#serchBar').val()
+              //검색창 비워져 있는지
+              if(serchValue ===''){
+                   console.log('no_serch_Value')
+                   return
+              }
+
+              //serch options
+              const option ={
+                radius: parseInt(5000),
+              }
+              const f_a =serchFillter['Area']
+              if( f_a != null){
+                option['location'] = new kakao.maps.LatLng(areaPosition[f_a][0], areaPosition[f_a][1])
+              }
+              pleaceService.keywordSearch(serchValue,placesSearchCB,option);
+
+            }
+             
+
+            // 장소검색 결과 확인
+            function placesSearchCB(data, status, pagination) {
+              console.log(data)
+              if (status === kakao.maps.services.Status.OK) {
+                 filtered_data = dataFiltering(data)
+                 if(filtered_data.length == 0)
+                 {
+                   console.log("no Data")
+                   return;
+                 }
+                 displayPlaces(filtered_data)
+              } else if (status === kakao.maps.services.Status.ZERO_RESULT || status === kakao.maps.services.Status.ERROR) {
+                  console.log("no Data or Serch Error")
+                  return;
+              }
+            }
+            
+            //데이터 필터링
+            dataFiltering = (data) =>{
+              let new_data =[]
+              data.forEach(di => {
+                const adress =di["address_name"].split(' ')
+
+                if(adress[0].indexOf(serchFillter['Area']) !== -1 || serchFillter['Area'] === null) 
+                    new_data.push(di);
+              });
+              return new_data
+            }
+
+            //마커 뛰우기
+            // 검색 결과 목록과 마커를 표출하는 함수입니다
+            function displayPlaces(places) {
+
+                  bounds = new kakao.maps.LatLngBounds(), 
+                  // 지도에 표시되고 있는 마커를 제거합니다
+                  removeMarker();
+
+                  for ( let i=0; i<places.length; i++ ) {
+
+                      // 마커를 생성하고 지도에 표시합니다
+                      const placePosition = new kakao.maps.LatLng(places[i].y, places[i].x)
+                      const marker = addMarker(placePosition, i)
+                      // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                      // LatLngBounds 객체에 좌표를 추가합니다
+                      bounds.extend(placePosition);
+
+                      // 마커와 검색결과 항목에 mouseover 했을때
+                      // 해당 장소에 인포윈도우에 장소명을 표시합니다
+                      // mouseout 했을 때는 인포윈도우를 닫습니다
+                      (function(marker, place) {
+                          kakao.maps.event.addListener(marker, 'mouseover', function() {
+                            markerImage = new kakao.maps.MarkerImage('img/marker_active.svg',new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                            marker.setImage( markerImage)
+                            displayMinInfo(marker, place.place_name);
+                          });
+
+                          kakao.maps.event.addListener(marker, 'mouseout', function() {
+                              markerImage = new kakao.maps.MarkerImage('img/marker.svg',new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                              marker.setImage(markerImage )
+                              infowindow.close();
+                          });
+
+                          kakao.maps.event.addListener(marker, 'click', function() {
+                             displayInfo(marker, place);
+                          });
+
+                      })(marker, places[i]);
+                  }
+                  // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                  kakaoMap.setBounds(bounds);
+            }
+
+
+
+            // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+            function addMarker(position, idx, title) {
+                  const imageSrc = 'img/marker.svg'// 마커 이미지 url, 스프라이트 이미지를 씁니다
+                  const    imageSize = new kakao.maps.Size(36, 37) // 마커 이미지의 크기        
+                  const   markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
+                  const   marker = new kakao.maps.Marker({
+                          position: position, // 마커의 위치
+                          image: markerImage 
+                      });
+                  marker.setMap(kakaoMap); // 지도 위에 마커를 표출합니다
+                  markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+                  return marker;
+            }
+
+            // 지도 위에 표시되고 있는 마커를 모두 제거합니다
+            function removeMarker() {
+                  for ( var i = 0; i < markers.length; i++ ) {
+                      markers[i].setMap(null);
+                  }   
+                  markers = [];
+            }
+
+
+            // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+            // 인포윈도우에 장소명을 표시합니다
+            function displayMinInfo(marker, title) {
+                  
+                  const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+                  infowindow.setContent(content);
+                  infowindow.open(kakaoMap, marker);
+            }
+
+            // 검색결과와 연관된 창을 뛰우는 역활
+            function displayInfo(marker, place) {
+               $('#info_display').css('right','0%')
+               $('#info-title').text(place.place_name)
+               $('#adress').text(place.address_name)
+               $('#phone').text(place.phone)
+               $('#main-info-img').attr('href', place.place_url);
+
+            }
+            
+            
+
+            //예약 관련이벤트
+   
+            let date = new Date();
+            let month = date.getMonth();
+            let year = date.getFullYear();
+            
+            let startDate =null
+            let endDate =null
+          
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            function renderCalendar() {
+                $('#calendar-body').empty();
+                $('#month-year').text(`${months[month]} ${year}`);
+
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < firstDayOfMonth; i++) {
+                  $('#calendar-body').append(createEmptyDay());
+                }
+
+                for (let i = 1; i <= daysInMonth; i++) {
+                  $('#calendar-body').append(createDay(i));
+                }
+
+                if(startDate != null)
+                {
+                  $("#check_in").val(`${startDate.getFullYear()}-${startDate.getMonth() +1}-${startDate.getDate()}`)
+                }
+                if(endDate != null)
+                {
+                  $("#check_out").val(`${endDate.getFullYear()}-${endDate.getMonth() +1}-${endDate.getDate()}`)
+                }
+            }
+
+            function createEmptyDay() {
+                return $('<div>').addClass('day');
+            }
+
+            function createDay(day) {
+                const div = $('<div>')
+                    .addClass('day')
+                    .text(day)
+                    .on('click',bookingDay);
+                let selectedDate = new Date(year, month, day); // Corrected this part
+                if (startDate != null && endDate != null && 
+                      startDate <= selectedDate && selectedDate <= endDate) {
+                      div.addClass('booked');
+                }
+                return div
+            }
+
+            function bookingDay(){
+
+                $(this).addClass('booked')
+                if (startDate == null) {
+                    startDate = new Date(year, month, $(this).text());
+                } else {
+                    endDate = new Date(year, month, $(this).text());
+                    if (startDate > endDate) {
+                        let temp = startDate;
+                        startDate = endDate;
+                        endDate = temp;
+                    }
+                }
+                console.log(startDate)
+                console.log(endDate)
+                renderCalendar()
+            }
+
+            
+           //각종 이벤트변수 초기화
+           initalize_val = ()=>{
+            date = new Date();
+            month = date.getMonth();
+            year = date.getFullYear();
+            startDate =null
+            endDate =null
+           }
+            
+
+            
+
+            
+            //reset button 이벤트
+            $('#reset').on('click',function() {
+              $(this).addClass('rotate_click');
+              $(this).removeClass('rotate_hover');
+              setTimeout(() => {
+                    $(this).removeClass('rotate_click');
+                    $(this).addClass('rotate_hover');
+              }, 2000);
+            })
+
+            //toggle button 이벤트
+            $('#switchDO').on('click',function() {
+                 if(swich_flag =='Korea'){
+                  swich_flag='Forigin'
+                 }
+                 else{
+                   swich_flag= 'Korea'
+                 }
+                
+                let newCategory = '';
+                for (let i = 0; i < categoryData[swich_flag].length; i++) {
+                  newCategory += `<li class="nav-item map-nav-item"><p>${categoryData[swich_flag][i]}</p></li>`;
+                }
+             
+                 $('#navCategory').animate({ opacity: 0 }, 200, function() {
+                    $('#nevCategory').empty()
+                    const newHeight = categoryData[swich_flag].length * 45;
+                    $('#nevCategory').animate({ height: `${newHeight}px` }, 300, function() {
+                      $('#nevCategory').append(newCategory).animate({ opacity: 1 }, 200);
+                    })
+                   
+                });
+            })
+
+            // nevCategory 이벤트
+            $('#navCategory .nav-item').on('click', function() {
+                const id = $(this).attr('id');
+
+                // 새로운 항목들을 생성하여 임시 변수에 저장
+                let newOptions = '';
+                for (let i = 0; i < optionData[id].length; i++) {
+                  newOptions += `<li class="nav-item map-nav-item"><p>${optionData[id][i]}</p></li>`;
+                }
+
+                // nevOption의 자식 요소들을 숨기고 새로운 항목들을 투명도 애니메이션으로 나타나게 함
+                $('#nevOption').animate({ opacity: 0 }, 200, function() {
+                    $('#nevOption').empty()
+                    const newHeight = optionData[id].length * 50;
+                    $('#nevOption').animate({ height: `${newHeight}px` }, 300, function() {
+                      $('#nevOption').append(newOptions).animate({ opacity: 1 }, 200);
+                      $('#nevOption .nav-item').on('click',nevOptionItemFun)
+                    })
+                   
+                });
+
+                // 새로운 요소들이 추가된 후에 높이를 계산하여 설정
+                
+              });
+            
+            
+            //navOption item  이벤트등록
+            $('#nevOption .nav-item').on('click',nevOptionItemFun)
+            
+            //serch 이벤트 등록
+            $('#serch').on('click' ,serchingData )
+
+            //enter 이벤트 등록
+            $('#serchBar').keypress( function(event) {
+                if (event.which == 13) { // 13은 Enter 키의 키 코드입니다.
+                    event.preventDefault();
+                    serchingData()
+                }
+            });
+            
+
+            //한줄평 다른 사람들거 보이게
+            $('#commentBar').on('click', function(){
+              if($('#info_conent').find('#comment_area').length == 0)
+              {
+
+                $('#info_conent').empty()
+                const content = `<ul class='p-4' id="comment_area"></ul>`
+                $('#info_conent').append(content)
+                
+                /*test*/
+                for (let index = 0; index < 30; index++) {
+                  $('#comment_area').append(`<li><p>MAN${index}: TEST${index}</p></ul>`)
+                }
+
+                initalize_val()
+               
+              }
+            })
+
+            //글쓰기 간단한 페이지
+            $('#edit_card').on('click', function(){
+              if(!$('#info_conent').hasClass('#card_area'))
+              {
+                $('#info_conent').empty()
+                $('#info_conent').push()
+
+                initalize_val()
+              }
+
+              
+
+            })
+            
+            //예약 간단한 페이지
+            $('#booking').on('click', function(){
+              if(!$('#info_conent').hasClass('#booking_area'))
+              {
+                $('#info_conent').empty()
+                const content = `<div class="d-flex flex-column" id="booking_area">
+            <div class="d-flex " id="booking_input">
+             <div class="bookingInputArea" >
+                  <input type="text"  class="calendar-button" id="check_in" placeholder="체크인" style ='width:200px' readonly>
+             </div>
+             <div class="bookingInputArea" >
+               <input type="text" class="calendar-button" id="check_out"  placeholder="체크아웃" style ='width:200px' readonly>
+             </div>
+             <div class="bookingInputArea" >
+               <input type="text" class="manInfo-button" id="men_info"  placeholder="인원 정보" style ='width:150px'>
+             </div>
+
+            </div>
+
+            <div id="book_calender" class="" >
+              <div class="container mt-4">
+                <div id="calendar-wrapper" class="border rounded p-3" style='background-color: #FFF' >
+                    <div id="calendar-header" class="d-flex justify-content-between align-items-center mb-3">
+                        <button id="prev" class="btn btn-secondary">Previous</button>
+                        <h2 id="month-year" class="mb-0"></h2>
+                        <button id="next" class="btn btn-secondary">Next</button>
+                    </div>
+                    <div id="calendar-days" class="d-flex justify-content-between mb-2">
+                        <div class="day-name">Sun</div>
+                        <div class="day-name">Mon</div>
+                        <div class="day-name">Tue</div>
+                        <div class="day-name">Wed</div>
+                        <div class="day-name">Thu</div>
+                        <div class="day-name">Fri</div>
+                        <div class="day-name">Sat</div>
+                    </div>
+                    <div id="calendar-body" class="">
+                        <!-- Calendar dates will be inserted here by JavaScript -->
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="book_human" class="">
+              <div class="container mt-4">
+                <div id="calendar-wrapper" class="border rounded p-3" ;'>
+                       
+
+                </div>
+              </div>   
+                
+            </div>
+
+          </div>`
+                $('#info_conent').append(content)
+                
+                //버튼 이벤트 박아 넣기
+                $('.calendar-button').on('click' , function(){
+                  if(!$('#book_calender').hasClass('active')){
+                  $('#book_calender').addClass('active')
+                  $("#book_human").removeClass('active')
+                  }
+                })
+                //버튼 이벤트 박아 넣기
+                $('.manInfo-button').on('click' , function(){
+                  $('#book_calender').removeClass('active')
+                  $("#book_human").addClass('active')
+                })
+                //
+                $('#prev').on('click', function () {
+                    month--;
+                    if (month < 0) {
+                        month = 11;
+                        year--;
+                    }
+                    renderCalendar();
+                });
+                //
+                $('#next').on('click', function () {
+                    month++;
+                    if (month > 11) {
+                        month = 0;
+                        year++;
+                    }
+                    renderCalendar();
+                });
+                initalize_val()
+                renderCalendar()
+                
+
+              }
+
+
+
+            })
+            
+
+
+
+            })
+    
+       
+    </script>

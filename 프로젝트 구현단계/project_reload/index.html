@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인-회원가입</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/Header-Footer-Sidebar.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!--kakao api 한놈만 챙겨오기-->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Brand -->
+                    <a href="#main" class="navbar-brand d-flex align-items-center gasoek-one-regular me-4 link_main" style="padding: 0;">
+                        <img src="img/Comma-Logo.svg" alt="Comma-Img">&nbsp;&nbsp;C O M M A
+                    </a>
+                    <!-- Search -->
+                    <form class="d-flex" role="search" id="search-bar">
+                        <input class="form-control me-2" type="search" placeholder="검색할 내용을 입력해주세요." aria-label="Search" style="width: 500px; font-size: 20px;">
+                        <button class="btn btn-dark"
+                        type="submit" style="width: 100px; font-size: 20px; font-weight: bold;">검색</button>
+                    </form>
+                    <!-- Menu -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto" style="font-size: 20px; font-weight: bold; display: flex; gap: 30px;">
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link link_map" href="#map" style="text-align: center;">여행정보</a>
+                            </li> 
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link link_board"  href="#board" style="text-align: center;">카드 게시판</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link link_my_landing" href="#my" style="text-align: center;">마이페이지</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Contents -->
+
+        <main class=" container-fluid content" >
+                <!-- Sidebar script로 요소 조정 -->
+                <div class="sidebar navbar collapsed-background" id="main_sideBar" style="height: 400px; opacity: 0%;"  >
+                    <button type="button"  class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <ul class="navbar-nav ms-auto collapse" style="gap: 30px;" id="navbar-content">
+                        <li class="nav-item" id="nav-item-1">
+                            <a class="nav-link" href="#my" > <!--나중에 href  기반으로 바꾸기-->
+                                <i class="menu-icon fas fa-plane"></i>
+                                개인정보 수정
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav-item-2">
+                            <a class="nav-link" href="#my" >
+                                <i class="menu-icon fas fa-credit-card"></i>
+                                게시글
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav-item-3">
+                            <a class="nav-link" href="#my" >
+                                <i class="menu-icon fas fa-user"></i>
+                                여행기록
+                            </a>
+                        </li>
+                        <li class="nav-item" id="nav-item-4">
+                            <a class="nav-link" href="#my" >
+                                <i class="menu-icon fas fa-user"></i>
+                                회원탈퇴
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- current -->
+                <div id="currentContent" >
+                </div>
+        </main >
+
+        <!-- Footer -->
+        <footer class="bg-dark py-3">
+            <div class="container" style="font-weight: bold;">
+                <span>&copy; 2024 <span style="color: #FF6B00;">COMMA</span></span>
+            </div>
+        </footer>
+    </div>
+    <!--modals-->
+
+    <!-- Post Modal -->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="postModalLabel">게시글 제목</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="postCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <!-- 이미지 슬라이드가 여기에 동적으로 추가됩니다 -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#postCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#postCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div id="postContent" class="mt-3">
+                        <!-- 게시글 내용이 여기에 동적으로 추가됩니다 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Write Modal -->
+    <div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="writeModalLabel">새 게시글 작성</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="writePostForm">
+                        <div class="mb-3">
+                            <label for="postTitle" class="form-label">제목</label>
+                            <input type="text" class="form-control" id="postTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postContent" class="form-label">내용 (200자 이내)</label>
+                            <textarea class="form-control" id="postContent" rows="3" maxlength="200" required></textarea>
+                            <div id="charCount" class="form-text">0 / 200</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postImages" class="form-label">이미지 추가</label>
+                            <input type="file" class="form-control" id="postImages" accept="image/*" multiple>
+                        </div>
+                        <div id="imagePreview" class="d-flex flex-wrap gap-2 mt-2"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-dark" id="submitPost">게시하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</body>
+<script>
+    $(document).ready(function(){
+        //임시용 로그인 상태저장 
+        $('#main_sideBar').on( 'click', function(event){
+            event.preventDefault();
+            event.stopPropagation();
+      
+         }); //test
+         link_dict ={
+            login:'html/Login-Joining-Page.html',
+            my_landing:'html/My-Page-Landing.html',
+            my_board:'html/My-Page-Board.html',
+            my_withdraw:'html/My-Page-Withdrawal.html',
+            my_trabel:'html/My-Page-Travel-Record.html',
+            board:'html/board.html',
+            map : 'html/map.html',
+            main: 'html/main.html',
+            test :'#' 
+         }
+         
+         nevbar_dict ={
+            login: {texts:[], links:[]},
+            board:{texts:['내 개시글 보기','글쓰기'], links:['my_board','create_post']},
+            my: {texts:['개인정보 수정','게시글','여행기록','회원탈퇴'],links:['my_landing','my_board','my_trabel','my_withdraw']},
+            main: {texts:['여행정보','카드게시판','마이페이지'],links:['map','board','my_landing']},
+            map: {texts:[],links:[],form:'html/mapSide.html'},
+         }
+         
+
+         let doing = false //에니메이션 작동중인지 확인용
+                           //현재 contnent 확인
+         //링크
+         const link_animation = (mode, pos) => {
+             if(doing == true)
+               return
+             doing = true    
+             // create a new div for the new content
+             let newContent = $("<div id='currentContent'></div>");
+             let newContent_html  =link_dict[mode]
+              // animate the old content to the left
+             let way_start ={}
+             let way_end_m ={}
+             let way_end_p ={}
+             if(pos =='left'){
+                 way_start['left'] = '0%'
+                 way_end_m['left'] = '-100%'
+                 way_end_p['left'] = '100%'
+             }
+             else{
+                 way_start['left'] = '0%'
+                 way_end_m['left'] = '100%'
+                 way_end_p['left'] = '-100%'
+             }
+
+             
+             $('footer').css({opacity:'0%'})
+             
+             
+             //sideBar 먼저 처리
+             disLink_tags() //잠시 이벤트 제거
+             changeSideBar(mode)
+             
+
+
+             $("#currentContent").css(way_start).animate(way_end_m, 700, function() {
+                     // remove the old content after the animation
+                     $('#currentContent').remove();
+                     
+
+                     // load new content into the new div
+                     newContent.load( newContent_html , function() {
+                         $(".content").append(newContent);
+                         console.log(newContent.height())
+                         // animate the new content from the right to the center
+                         newContent.css(way_end_p).animate(way_start, 700, function() {
+                         // set the new content div as the current content
+                         
+                         $('footer').css({opacity:'100%'})
+                         $('main').css('min-height',`${Math.max(1000,newContent.height())}px`)
+                         link_tags() //이벤트 연결
+
+                         doing = false
+                        });
+
+                     });
+              });
+         }
+         
+         const toggleSidebar = () => {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('expanded');
+            sidebar.classList.toggle('collapsed-background');
+          }
+         
+         const changeSideBar = (mode) => {     
+            $('#main_sideBar ul').empty() //일단비우고
+            mode = mode.split('_')[0] //이름 필터링
+
+            if(mode == 'login' || mode == 'main'  ){
+              $('#main_sideBar').css('opacity' ,'0%')
+            }
+            else if( 'form' in nevbar_dict[mode])
+            {   
+                $('#main_sideBar').css('opacity' ,'100%')
+                $('#main_sideBar').css('height' ,'600px')//임시
+                $('#main_sideBar ul').load(nevbar_dict[mode]['form'] )   
+            }
+            else{
+             $('#main_sideBar').css('height' ,'400px')//임시
+             $('#main_sideBar ul').load('html/side.html' ,() =>{
+                    
+
+                    for (let index = 1; index <= 4; index++){
+                        $(`#nav-item-${index} a`).text('')
+                    }
+                    let i = 1
+                    nevbar_dict[mode].texts.forEach(navText => {
+                        $(`#nav-item-${i} a`).text(navText)
+                        i+=1
+                    });
+
+                    
+                    for (let index = 1; index <= 4; index++) {
+                        $(`#nav-item-${index} a`).off('click').removeAttr('href')
+                    }
+                    let j = 1
+                    nevbar_dict[mode].links.forEach(navlink => {
+                        if(navlink != 'create_post' ){
+                        $(`#nav-item-${j} a`).attr('href',`#${navlink.split('_')[0]}` )
+                        $(`#nav-item-${j} a`).off('click').removeAttr('data-bs-toggle').removeAttr('data-bs-target').on('click',()=>{link_animation(navlink,'left')})
+                        }
+                        else
+                        {
+                        $(`#nav-item-${j} a`).off('click').attr('data-bs-toggle',"modal" ).attr('data-bs-target',"#writeModal" )
+                        }          
+                        j+=1
+                    });
+                    $('#main_sideBar').css('opacity' ,'100%')
+             })
+           }
+
+         }
+         
+         
+         const disLink_tags = () =>{
+            $('.link_map').off('click')
+            $('.link_board').off('click')
+            $('.link_my_landing').off('click')
+            $('.link_main').off('click')
+            $('.link_create_post').off('click')
+         }
+
+         const link_tags =() =>{
+            $('.link_map').on('click',()=>{link_animation('map','left')})
+            $('.link_board').on('click',()=>{link_animation('board','left')})
+            $('.link_my_landing').on('click', ()=>{link_animation('my_landing','left')})
+            $('.link_main').on('click', ()=>{link_animation('main','left')})
+            $('.link_create_post').on('click',()=>{})
+         }
+         
+    
+
+
+
+         //링크별 어디로
+         //이벤트 작종 중인지
+
+         // load content fragmant에 따라
+         const fragment = window.location.hash;
+         if(fragment =='')
+          link_animation('login','left')
+         else{
+               if(fragment.slice(1) == 'my')
+                 link_animation('my_landing','left')
+               else
+                link_animation(fragment.slice(1),'left')
+         }
+
+        //백 이벤트
+         $(window).on('popstate', function(event) {
+            console.log(event)
+            const fragment = window.location.hash;
+            if(fragment =='')
+                 link_animation('login','right')
+            else{
+               if(fragment.slice(1) == 'my')
+                 link_animation('my_landing','right')
+               else
+               link_animation(fragment.slice(1),'right')
+            }
+         })
+         
+         
+         /*$('#main_sideBar').on('click', toggleSidebar)*/
+         $('#main_sideBar button').on('click', toggleSidebar)
+       
+                  
+
+
+    })
+</script>
+<script src="js/modal.js"></script>
+</html>

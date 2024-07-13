@@ -1,0 +1,121 @@
+.controls {
+    display: flex;
+    justify-content: right;
+    margin-right: 300px;
+    gap: 10px;
+}
+.scrollable-container {
+    display: flex;
+    width: 80vw;
+    min-height: 100vh;
+    margin-left: 300px;/*임시*/
+    overflow-y: auto;
+    flex-wrap: wrap;
+    
+    
+}
+
+
+.scrollable-container .col {
+    width: 50%;
+    box-sizing: border-box;
+}
+.carousel-item img {
+    width: 350px;
+    height: 500px;
+}
+.card {
+    width: 500px;
+    border: 3px solid #A6A6A6;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.card:hover, .card:focus {
+    border-color: #FF6B00;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.card:active {
+    border-color: #FF6B00;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.card-title {
+    margin: 0.5rem 0 1rem;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.fixed-height {
+    height: 350px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.form-check {
+    z-index: 1;
+    margin-left: 10px;
+}
+.form-check-input:checked {
+    background-color: #FF6B00;
+    border-color: #FF6B00;
+}
+.btn-primary, .btn-warning {
+    transition: background-color 0.3s;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #FF6B00;
+    border-color: #FF6B00;
+}
+.btn-warning:hover, .btn-warning:focus {
+    background-color: #FF6B00;
+    border-color: #FF6B00;
+}
+.row-cols-2 > * {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.carousel-indicators {
+    display: none;
+    .scrollable-container {
+        max-height: 600px; /* 원하는 최대 높이 설정 */
+        overflow-y: auto;
+    }
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+    .card {
+        border-radius: 15px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .card:hover, .card:focus {
+        border-color: #FF6B00;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .card:active {
+        border-color: #FF6B00;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    .btn-primary, .btn-warning {
+        transition: background-color 0.3s;
+    }
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: #FF6B00;
+        border-color: #FF6B00;
+    }
+    .btn-warning:hover, .btn-warning:focus {
+        background-color: #FF6B00;
+        border-color: #FF6B00;
+    }
+    .row-cols-2 > * {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}

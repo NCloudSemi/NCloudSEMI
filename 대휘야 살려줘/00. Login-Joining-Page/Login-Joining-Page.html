@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인-회원가입</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Template-Css/Header-Footer.css">
+    <link rel="stylesheet" href="../Template-Css/Login-Joining-Page.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Brand -->
+                    <a href="#" class="navbar-brand d-flex align-items-center gasoek-one-regular me-4" style="padding: 0;">
+                        <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img">&nbsp;&nbsp;C O M M A
+                    </a>
+                    <!-- Search -->
+                    <form class="d-flex" role="search" id="search-bar">
+                        <input class="form-control me-2" type="search" placeholder="검색할 내용을 입력해주세요." aria-label="Search" style="width: 500px; font-size: 20px;">
+                        <button class="btn btn-dark"
+                        type="submit" style="width: 100px; font-size: 20px; font-weight: bold;">검색</button>
+                    </form>
+                    <!-- Menu -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto" style="font-size: 20px; font-weight: bold; display: flex; gap: 30px;">
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="#" style="text-align: center;">여행정보</a>
+                            </li> 
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="#" style="text-align: center;">카드 게시판</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="#" style="text-align: center;">마이페이지</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Contents -->
+        <div class="container-fluid">
+            <div class="content">
+                <div class="login-form" id="login">
+                    <div class="text-center mb-4">
+                        <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img" class="img-fluid">
+                        <h1>C O M M A</h1>
+                        <p>당신의 일상에 '쉼표'를 선물하세요</p>
+                    </div>
+                    <!-- Login -->
+                    <div class="login-join-page">
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label" style="margin-left: -345px; font-weight: bold; font-size: 17px;">아이디</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label" style="margin-left: -330px; font-weight: bold; font-size: 17px;">비밀번호</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe" style="margin-left: -270px;">아이디 저장하기</label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button id="loginBtn" class="btn btn-primary">로그인</button>
+                        <button id="showSignup" class="btn btn-secondary">회원가입</button>
+                    </div>
+                </div>
+                <!-- Join -->
+                <div id="join" class="login-form hidden">
+                    <div class="text-center mb-4">
+                        <img src="../Element_Images/Comma-Logo.svg" alt="logo" class="img-fluid">
+                        <h1>C O M M A</h1>
+                        <p>JOIN THE MEMBERSHIP</p>
+                    </div>
+                    <div class="login-join-page">
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label" style="margin-left: -345px; font-weight: bold; font-size: 17px;">아이디</label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label" style="margin-left: -330px; font-weight: bold; font-size: 17px;">비밀번호</label>
+                            <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPasswordCheck" class="form-label" style="margin-left: -300px; font-weight: bold; font-size: 17px;">비밀번호 확인</label>
+                            <input type="password" class="form-control" id="signupPasswordCheck" placeholder="Password Check">
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label" style="margin-left: -360px; font-weight: bold; font-size: 17px;">이름</label>
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div id="joinpage-btn" class="d-grid gap-2">
+                        <button id="signupBtn" class="btn btn-primary">회원가입</button>
+                        <button id="showLogin" class="btn btn-secondary">뒤로</button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="modalAlertLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalAlertLabel">경고</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="modalAlertBody">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-dark py-3">
+            <div class="container" style="font-weight: bold;">
+                <span>&copy; 2024 <span style="color: #FF6B00;">COMMA</span></span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        document.getElementById("showSignup").addEventListener("click", function() {
+            document.getElementById("login").classList.add("hidden");
+            setTimeout(function() {
+                document.getElementById("join").classList.remove("hidden");
+            }, 500);
+        });
+
+        document.getElementById("showLogin").addEventListener("click", function() {
+            document.getElementById("join").classList.add("hidden");
+            setTimeout(function() {
+                document.getElementById("login").classList.remove("hidden");
+            }, 500);
+        });
+
+        function validatePassword(password) {
+            const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+            return passwordRegex.test(password);
+        }
+
+        function showAlert(message) {
+            document.getElementById('modalAlertBody').innerText = message;
+            new bootstrap.Modal(document.getElementById('modalAlert')).show();
+        }
+
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                showAlert('아이디와 비밀번호를 입력해 주세요.');
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                showAlert('비밀번호는 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.');
+                return;
+            }
+
+            // 로그인 로직 추가해야 함 - db에서 값 가져오기 + 다음 화면으로 이동 등
+            alert('로그인 성공!');
+        });
+
+        document.getElementById('signupBtn').addEventListener('click', function() {
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const passwordCheck = document.getElementById('signupPasswordCheck').value;
+            const name = document.getElementById('name').value;
+
+            if (!email || !password || !passwordCheck || !name) {
+                showAlert('입력창에 모든 정보를 입력해 주세요.');
+                return;
+            }
+
+            if (password !== passwordCheck) {
+                showAlert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                showAlert('비밀번호는 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.');
+                return;
+            }
+            // 로그인 로직 추가해야 함 - db에 정보 저장 및 로그인페이지로 이동 등
+            alert(`회원가입 완료`);
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
