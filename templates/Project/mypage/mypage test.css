@@ -353,7 +353,7 @@ body{
     left: 0.1em; /* 여백 조정 */
     top: 0.1em; /* 수직 중앙 정렬 */
     width: 0.45em; /* width 줄이기 */
-    height: 0.45em; /* height 줄이기 */
+    height: 0.38em; /* height 줄이기 */
     border-radius: 50%;
     background-color: gray;
     transition: left 250ms linear;
