@@ -17,7 +17,7 @@ body, html, .wrap {
 
 /* Sidebar */
 .sidebar {
-  width: 15vw;
+  width: 20vw;
   height: 100vh;
   background-color: white;
   position: fixed;
@@ -62,6 +62,12 @@ body, html, .wrap {
   color: #FF6B00;
 }
 
+.sidebar-buttons #logout:hover {
+  font-size: 1.75em;
+  font-weight: bolder;
+  color: #B10505;
+}
+
 .sidebar-footer > p{
   font-size: 0.75em;
   font-weight: bold;
@@ -74,8 +80,8 @@ body, html, .wrap {
   
 /* Content */
 .content {
-  margin-left: 15vw;
-  width: 85vw;
+  margin-left: 20vw;
+  width: 80vw;
   height: 1000vh;
-  background-color: black;
+  background-color: white;
 }
