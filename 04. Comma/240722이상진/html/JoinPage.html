@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css 초기화 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"/>
+    <link rel="stylesheet" href="/css/join.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page-container">
+        <!-- left content -->
+        <div id="login-left-content">
+            <div id="login-page-img">
+                <img src="/image/LoginPageImg.jpg" alt="left-img">
+            </div>
+        </div>
+
+        <!-- right content -->
+        <div id="login-right-content">
+            <a href="">
+                <img src="/image/TeamProjectLogo.png" alt="logo" id="main-logo">
+            </a>
+
+            <h1>comma</h1>
+            <p>join the membership</p>
+            <div id="login-container">
+                <div class="input-group">
+                    <label for="username">ID</label>
+                    <input type="text" id="username" class="login-input">
+                </div>
+                <div class="input-group">
+                    <label for="password">PW</label>
+                    <input type="password" id="password" class="login-input">
+                </div>
+                <div class="input-group">
+                    <label for="password">PW CHECK</label>
+                    <input type="password" id="passwordChk" class="login-input">
+                </div>
+                <div class="input-group">
+                    <label for="password">NAME</label>
+                    <input type="text" id="nickname" class="login-input">
+                </div>
+                <div id="btn-group">
+                    <button id="male" class="btn">MALE</button>
+                    <button id="female" class="btn">FEMALE</button>
+                </div>
+                <div id="residence-group">
+                    <div id="residence">
+                        WEHRE YOU LIVE
+                    </div>
+                    <div>
+                        <select name="residence" id="residence-list">
+                            <option value="서울">서울</option>
+                            <option value="경기">경기</option>
+                            <option value="인천">인천</option>
+                            <option value="강원">강원</option>
+                            <option value="대구">대구</option>
+                            <option value="대전">대전</option>
+                            <option value="광주">광주</option>
+                            <option value="울산">울산</option>
+                            <option value="충남">충남</option>
+                            <option value="충북">충북</option>
+                            <option value="경남">경남</option>
+                            <option value="경북">경북</option>
+                            <option value="전남">전남</option>
+                            <option value="전북">전북</option>
+                            <option value="제주">제주</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="residence-input" class="login-input" placeholder="상세지역을 입력하세요.">
+                </div>
+                <div id="btn-group">
+                    <button class="btn">JOIN</button>
+                    <button class="btn">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    /* Male, Female check */
+    document.addEventListener('DOMContentLoaded', function() {
+        const maleOption = document.getElementById('male');
+        const femaleOption = document.getElementById('female');
+
+        maleOption.addEventListener('click', function() {
+            maleOption.classList.add('active');
+            femaleOption.classList.remove('active');
+        });
+
+        femaleOption.addEventListener('click', function() {
+            femaleOption.classList.add('active');
+            maleOption.classList.remove('active');
+        });
+    });
+</script>
+</html>
