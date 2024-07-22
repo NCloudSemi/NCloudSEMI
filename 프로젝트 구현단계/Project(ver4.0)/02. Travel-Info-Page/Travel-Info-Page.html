@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -154,4 +155,162 @@
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Template-Css/Header-Footer-Sidebar.css">
+    <link rel="stylesheet" href="../Template-Css/Travel-Info-Page.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Brand -->
+                    <a href="#" class="navbar-brand d-flex align-items-center gasoek-one-regular me-4" style="padding: 0;">
+                        <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img">&nbsp;&nbsp;C O M M A
+                    </a>
+                    <!-- Search -->
+                    <form class="d-flex" role="search" id="search-bar">
+                        <input class="form-control me-2" type="search" placeholder="검색할 내용을 입력해주세요." aria-label="Search" style="width: 500px; font-size: 20px;">
+                        <button class="btn btn-dark" type="submit" style="width: 100px; font-size: 20px; font-weight: bold;">검색</button>
+                    </form>
+                    <!-- Menu -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto" style="font-size: 20px; font-weight: bold; display: flex; gap: 30px;">
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="../00. Login-Joining-Page/Login-Joining-Page.html" style="text-align: center;">로그인</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="../00. Login-Joining-Page/Joining-Login-Page.html" style="text-align: center;">회원가입</a>
+                            </li> 
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="Travel-Info-Page.html" style="text-align: center; color: #FF6B00;">여행정보</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="../04. Card-Page/Card-Page.html" style="text-align: center;">카드게시판</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Contents -->
+        <div class="container-fluid">
+            <!-- Sidebar -->
+            <div class="sidebar navbar collapsed-background" onclick="toggleSidebar()" style="height: 350px;">
+                <div class="container" id="main">
+                    <!--사이드바-->
+                    <div class="sideBar" id="sideBar">
+                        <!--사이드바 헤더-->
+                        <div class="d-flex justify-content-between w-100 mb-4"  id="sideBarHeader">
+                            <!--토글 버튼-->
+                            <div class="form-check form-switch d-flex p-0" >
+                                <label class="form-check-label" for="switchDO">국내</label>
+                                <input class="form-check-input mx-2" type="checkbox" id="switchDO">
+                                <label class="form-check-label" for="switchDO">해외</label>
+                            </div>
+                            <!--리셋 버튼-->
+                            <button type="button" class="btn p-0 border-0 bg-transparent rotate_hover"  id="reset">
+                                <img src="img/reset.svg" width="20px" height="20px" alt="">
+                            </button>
+                        </div>
+                        <!--사이드바 메인-->
+                        <div class="d-flex h-100">
+                            <!--카테고리 영역-->
+                            <div class="w-50 h-75 rounded bg-secondary sideMain" >
+                                <ul class="nav flex-column justify-content-center" id="navCategory">
+                                    <li class="nav-item" id="Area">
+                                        <p class="" >지역별</p>
+                                    </li>
+                                    <li class="nav-item" id="priceCap">
+                                        <p class="" >가격</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <p class="">추천순</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--항목 영역  js 사용해서 항목 초기화-->
+                            <div class="w-50 h-75 rounded bg-light overflow-auto  sideMain " >
+                                <ul class="nav flex-column  justify-content-center  " id="nevOption" >
+                                    <!--기본값 지역별-->
+                                    <li class="nav-item"><p>서울</p></li><li class="nav-item"><p>제주</p></li><li class="nav-item"><p>전남</p></li><li class="nav-item"><p>전북</p></li><li class="nav-item"><p>광주</p></li><li class="nav-item"><p>경남</p></li><li class="nav-item"><p>경북</p></li><li class="nav-item"><p>울산</p></li><li class="nav-item"><p>대구</p></li><li class="nav-item"><p>부산</p></li><li class="nav-item"><p>충남</p></li><li class="nav-item"><p>충북</p></li><li class="nav-item"><p>세종</p></li><li class="nav-item"><p>대전</p></li><li class="nav-item"><p>인천</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contents Sections -->
+            <div class="content">
+                <div class="mapArea">
+                    <!--검색 영역-->
+                    <div id="serchArea">
+                        <div class="input-group" >
+                            <span class="input-group-text" id="serch">
+                            <img src="img/serch.svg" width="30px" height="30px" alt="">
+                            </span>
+                            <input type="text" class="form-control" placeholder="검색" id="serchBar">
+                        </div> 
+                    </div>
+                    <!-- 카카오 지도 뛰우기-->
+                    <div id="kakaoMap">
+                        <!--숨겨지나?-->
+                        <div class="" id="info_display">
+                            <div class="d-flex h-25 w-100 p-4" id="main-info">
+                                <!--사진-->
+                                <a href="" class="border-1 rounded bg-light  w-50 h-100" id="main-info-img"></a>
+                                <!--이름 ,별점 ,전화번호 버튼 2개-->
+                                <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4 m-4" id="main-info-content">
+                                    <p id="info-title"></p>
+                                    <p id="star">4.2 / 5.0</p>
+                                    <p id="price">40000~50000 / 1Day</p>
+                                    <div class="d-flex" >
+                                        <button type="button" id="booking">예약</button>
+                                        <button type="button" id="edit_card">끌 쓰끼</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <!--한줄평-->
+                            <input type="text" class="form-control w-100 " placeholder="한줄평" id="commentBar">
+                        </div>
+                        <!--교체용 갈갈이-->
+                        <div class="d-flex h-75 w-100"  id="info_conent">
+                            <!--default 한줄평-->
+                            <ul id="comment_area"></ul>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <footer class="bg-dark py-3">
+            <div class="container" style="font-weight: bold;">
+                <span>&copy; 2024 <span style="color: #FF6B00;">COMMA</span></span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('expanded');
+            sidebar.classList.toggle('collapsed-background');
+        }
+    </script>
+</body>
+>>>>>>> 9f2fc412ba7e6ec46e513d72a319f6762d29d6c2
 </html>

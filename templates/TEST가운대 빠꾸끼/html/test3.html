@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,4 +85,92 @@
   <!-- Bootstrap JS and dependencies (optional) -->
   
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Grid Layout Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Optional custom styles */
+    .box {
+      height: 200px; /* Adjust height as needed */
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+    .big-box{
+      height: 400px; /* Adjust height as needed */
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!--main-->
+  <div class="container d-flex justify-content-center  align-items-center">
+    <!--sideBar-->
+    <div class="container w-25 sideBar">
+        <ul class="nav flex-column">
+            <li class="nav-item bg-secondary">
+              <a class="nav-link active" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">BBB</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CCC</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">DDD</a>
+            </li>
+        </ul>
+        </nav>
+    </div>
+    <!--gird-view-->
+    <div class="container w-75 gridBox">
+
+
+    <div class="row"> 
+      <div class="col box"></div>
+      <div class="col box"></div>
+      <div class="col box"></div>
+      <div class="col box"></div>
+    </div>
+    <div class="row ">  
+        <div class="col">
+
+           <div class="row">
+            <div class="col big-box"></div>
+           </div>
+
+           <div class="row">
+            <div class="col box"></div>
+            <div class="col box"></div>
+           </div>
+
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col box"></div>
+                <div class="col box"></div>
+               </div>
+    
+               <div class="row">
+                <div class="col big-box"></div>
+               </div>
+        </div>
+    </div>
+
+    
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS and dependencies (optional) -->
+  
+</body>
+>>>>>>> 9f2fc412ba7e6ec46e513d72a319f6762d29d6c2
 </html>

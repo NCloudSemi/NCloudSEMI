@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,4 +61,68 @@
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/background.css">
+</head>
+<body>
+      <div class="login-box">
+
+        <div class="logo"> </div>
+        <div class="logo-comment">
+          <p id="comment">COMMA<br>당신의 일상에 '쉼표을' 선물하세요</p>
+        </div>
+        <form id="form">
+          <!--Id-->
+          <div class="user-box" id="id">
+            <input type="text" name="username" required="">
+            <label>Username</label>
+          </div>
+          <!--password-->
+          <div class="user-box" id="password">
+            <input type="password" name="password" required="">
+            <label>Password</label>
+          </div>
+          <!--password-check-->
+          <div class="user-box hidden" id="check">
+            <input type="password" name="password-check" required="">
+            <label>Check-Password</label>
+          </div>
+          <!--name-->
+          <div class="user-box hidden" id="name">
+            <input type="text" name="name" required="">
+            <label>Name</label>
+          </div>
+
+        </form>
+        <div class="footer">
+          <a href="" onclick="change_form">Login</a>
+          <a href="" onclick="change_form">Join</a>
+        </div>
+      </div>
+    <script>
+      let flag = 'login' //login and join
+      
+      const form = document.querySelector('#form')
+      const comment = document.querySelector('#comment')  //form 
+      
+      //operciy 관련 함수 사용 // 나중에
+      const change_form = () =>{
+        if(flag == 'login')
+        { 
+           comment.innerText(`COMMA<br>당신의 일상에 '쉼표을' 선물하세요`)
+        }
+        else{
+          comment.innerText('WELCOME')
+        }
+      }
+
+    </script>
+</body>
+>>>>>>> 9f2fc412ba7e6ec46e513d72a319f6762d29d6c2
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -368,3 +369,375 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 정보</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Template-Css/Header-Footer-Sidebar.css">
+    <link rel="stylesheet" href="../Template-Css/Travel-Info-Page.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-1wOa38HU7OHdLsMg1jV0J/NW7fygYhOq3MRGrXbJ6SzB5Zg3xfGafX8RkJJzChKwbj+Y1/wLkfV14DPwYtkBfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Brand -->
+                    <a href="#" class="navbar-brand d-flex align-items-center gasoek-one-regular me-4" style="padding: 0;">
+                        <img src="../Element_Images/Comma-Logo.svg" alt="Comma-Img">&nbsp;&nbsp;C O M M A
+                    </a>
+                    <!-- Search -->
+                    <form class="d-flex" role="search" id="search-bar">
+                        <input class="form-control me-2" type="search" placeholder="검색할 내용을 입력해주세요." aria-label="Search" style="width: 500px; font-size: 20px;">
+                        <button class="btn btn-dark" type="submit" style="width: 100px; font-size: 20px; font-weight: bold;">검색</button>
+                    </form>
+                    <!-- Menu -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto" style="font-size: 20px; font-weight: bold; display: flex; gap: 30px;">
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="../00. Login-Joining-Page/Login-Joining-Page.html" style="text-align: center;">로그인</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="../00. Login-Joining-Page/Joining-Login-Page.html" style="text-align: center;">회원가입</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="Travel-Info-Page.html" style="text-align: center; color: #FF6B00;">여행정보</a>
+                            </li>
+                            <li class="nav-item" style="width: 150px;">
+                                <a class="nav-link" href="../04. Card-Page/Card-Page.html" style="text-align: center;">카드게시판</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Contents -->
+        <div class="container-fluid">
+            <!-- Sidebar -->
+            <div class="sidebar navbar collapsed-background" style="height: auto;">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content" onclick="toggleSidebar()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="navbar-nav ms-auto collapse" style="gap: 30px;" id="navbar-content">
+                    <div class="d-flex justify-content-center w-100 mb-4 mt-3" id="sideBarHeader">
+                        <!-- Toggle Button -->
+                        <div class="form-check form-switch d-flex p-0" style="font-weight: bolder;">
+                            <label class="form-check-label" for="switchDO">국내</label>
+                            <input class="form-check-input mx-2" type="checkbox" id="switchDO">
+                            <label class="form-check-label" for="switchDO">해외</label>
+                        </div>
+                    </div>
+                    <!-- Sidebar Main -->
+                    <div class="d-flex justify-content-center" style="position: relative;">
+                        <div class="h-100 rounded sideMain justify-content-start" style="text-align: center;">
+                            <div class="d-flex justify-content-center" id="navCategory" style="font-weight: bolder;">
+                                <ul class="nav" style="display: flex;">
+                                    <li class="nav-item" id="Area">지역별</li>
+                                    <li class="nav-item" id="priceCap">가격</li>
+                                    <li class="nav-item" id="recommend">추천순</li>
+                                </ul>
+                            </div>
+                            <div class="h-75 rounded bg-light overflow-auto sideMain justify-content-start" style="text-align: center; max-height: 300px;" id="itemArea">
+                                <ul class="nav flex-column justify-content-center" id="nevOption">
+                                    <li class="nav-item"><p>서울</p></li>
+                                    <li class="nav-item"><p>제주</p></li>
+                                    <li class="nav-item"><p>전남</p></li>
+                                    <li class="nav-item"><p>전북</p></li>
+                                    <li class="nav-item"><p>광주</p></li>
+                                    <li class="nav-item"><p>경남</p></li>
+                                    <li class="nav-item"><p>경북</p></li>
+                                    <li class="nav-item"><p>울산</p></li>
+                                    <li class="nav-item"><p>대구</p></li>
+                                    <li class="nav-item"><p>부산</p></li>
+                                    <li class="nav-item"><p>충남</p></li>
+                                    <li class="nav-item"><p>충북</p></li>
+                                    <li class="nav-item"><p>세종</p></li>
+                                    <li class="nav-item"><p>대전</p></li>
+                                    <li class="nav-item"><p>인천</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <!-- Content Sections -->
+            <div class="content">
+                <div class="mapArea">
+                    <!-- Search Area -->
+                    <div id="serchArea">
+                        <div class="input-group">
+                            <span class="input-group-text" id="serch">
+                                <img src="../Element_Images/Search-Icon.svg" width="30px" height="30px" alt="">
+                            </span>
+                            <input type="text" class="form-control" placeholder="검색" id="serchBar">
+                        </div>
+                    </div>
+                    <!-- Kakao Map -->
+                    <div id="kakaoMap">
+                        <!-- Info Display -->
+                        <div class="" id="info_display">
+                            <h3 id="titleInfo">Title</h3>
+                            <div class="imageInfoDisplay">
+                                <img src="" alt="" id="imageSection" style="height: 100px;">
+                                <div class="d-flex flex-column px-4">
+                                    <h4 id="imageInfoHeader">Information header</h4>
+                                    <p id="imageInfo">Information content</p>
+                                </div>
+                            </div>
+                            <!-- Address Display -->
+                            <div id="address">
+                                <h4>Address</h4>
+                                <p>address</p>
+                            </div>
+                            <!-- Review Section -->
+                            <div class="reviewSec d-flex flex-column justify-content-start align-items-center w-75">
+                                <!-- Review Input -->
+                                <div class="reviewInput w-75">
+                                    <input type="text" placeholder="리뷰를 입력하세요." id="reviewBar">
+                                    <button class="btn btn-dark">등록</button>
+                                </div>
+                                <!-- Review List -->
+                                <div class="reviewList w-75 bg-light">
+                                    <ul id="reviewList">
+                                        <li>리뷰 1</li>
+                                        <li>리뷰 2</li>
+                                        <li>리뷰 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="top3-area d-flex flex-column align-items-center" style="margin-left: -250px;">
+                        <!-- 배너 -->
+                        <div class="banner text-center mt-5 mb-5">
+                            <img src="../Element_Images/Top3-Travel-Area.gif" alt="top3-area" class="img-fluid">
+                        </div>
+                        <!-- 카드 섹션 -->
+                        <div class="card-container" style="max-width: 400px; width: 100%; height: 200px;">
+                            <!-- 카드 1 -->
+                            <div class="card" id="card1">
+                                <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../Element_Images/하늘자전거1.png" class="d-block w-100 fixed-height" alt="하늘자전거1">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../Element_Images/하늘자전거2.png" class="d-block w-100 fixed-height" alt="하늘자전거2">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../Element_Images/하늘자전거3.png" class="d-block w-100 fixed-height" alt="하늘자전거3">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 class="card-title">☁️하늘 자전거☁️</h5>
+                                    <p class="card-text">☁️구름 위를 여행하는 것 같았어😚</p>
+                                </div>
+                            </div>
+                            <!-- 카드 2 -->
+                            <div class="card d-none" id="card2">
+                                <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../Element_Images/강릉1.jpg" class="d-block w-100 fixed-height" alt="강릉1">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../Element_Images/강릉2.jpg" class="d-block w-100 fixed-height" alt="강릉2">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../Element_Images/강릉3.jpg" class="d-block w-100 fixed-height" alt="강릉3">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../Element_Images/강릉4.jpg" class="d-block w-100 fixed-height" alt="강릉4">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 class="card-title">국내여행지 뿌시기👊프로젝트 in【강 릉】</h5>
+                                    <p class="card-text">시~원한 바다🌊가 있는<br>강릉으로 떠난 날😎</p>
+                                </div>
+                            </div>
+                            <!-- 카드 3 -->
+                            <div class="card d-none" id="card3">
+                                <div id="carouselExampleIndicators3" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../Element_Images/전주1.jpg" class="d-block w-100 fixed-height" alt="전주1">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../Element_Images/전주2.jpg" class="d-block w-100 fixed-height" alt="전주2">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 class="card-title">국내여행지 뿌시기👊프로젝트 in 【전 주】</h5>
+                                    <p class="card-text">아름다운 자연경관들과 고풍스러운 한옥들이<br>즐비한 전주</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-dark py-3">
+            <div class="container" style="font-weight: bold;">
+                <span>&copy; 2024 <span style="color: #FF6B00;">COMMA</span></span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('expanded');
+            sidebar.classList.toggle('collapsed-background');
+            const sidebarWidth = sidebar.offsetWidth;
+            itemArea.style.width = `${sidebarWidth + 100}px`;
+        }
+        
+        function activateNavItem(navItem) {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            navItem.classList.add('active');
+        }
+
+        document.getElementById('Area').addEventListener('click', () => {
+            activateNavItem(document.getElementById('Area'));
+            const regionOptions = ['서울', '제주', '전남', '전북', '광주', '경남', '경북', '울산', '대구', '부산', '충남', '충북', '세종', '대전', '인천'];
+            const regionList = document.getElementById('nevOption');
+            regionList.innerHTML = '';
+            regionOptions.forEach(region => {
+                const li = document.createElement('li');
+                li.classList.add('nav-item');
+                li.innerHTML = `<p>${region}</p>`;
+                regionList.appendChild(li);
+            });
+        });
+
+        document.getElementById('priceCap').addEventListener('click', () => {
+            activateNavItem(document.getElementById('priceCap'));
+            const priceOptions = ['3만원 이하', '3~5만원', '5~7만원', '7만원 이상'];
+            const priceList = document.getElementById('nevOption');
+            priceList.innerHTML = '';
+            priceOptions.forEach(price => {
+                const li = document.createElement('li');
+                li.classList.add('nav-item');
+                li.innerHTML = `<p>${price}</p>`;
+                priceList.appendChild(li);
+            });
+        });
+
+        document.getElementById('recommend').addEventListener('click', () => {
+            activateNavItem(document.getElementById('recommend'));
+            const recommendOptions = ['⭐⭐⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐', '⭐⭐', '⭐'];
+            const recommendList = document.getElementById('nevOption');
+            recommendList.innerHTML = '';
+            recommendOptions.forEach(recommendation => {
+                const li = document.createElement('li');
+                li.classList.add('nav-item');
+                li.innerHTML = `<p>${recommendation}</p>`;
+                recommendList.appendChild(li);
+            });
+        });
+
+        // 카드를 슬라이드할 때 다음 카드로 전환하는 함수
+        function switchToNextCard(currentCardId, nextCardId) {
+            document.getElementById(currentCardId).classList.add('d-none');
+            document.getElementById(nextCardId).classList.remove('d-none');
+        }
+
+        // 카드 1의 슬라이드 종료 이벤트 감지
+        var carousel1 = document.getElementById('carouselExampleIndicators1');
+        carousel1.addEventListener('slid.bs.carousel', function (event) {
+            if (event.to === event.relatedTarget.parentNode.children.length - 1) {
+                setTimeout(function() {
+                    switchToNextCard('card1', 'card2');
+                }, 2000); // 2초 후에 다음 카드로 전환
+            }
+        });
+
+        // 카드 2의 슬라이드 종료 이벤트 감지
+        var carousel2 = document.getElementById('carouselExampleIndicators2');
+        carousel2.addEventListener('slid.bs.carousel', function (event) {
+            if (event.to === event.relatedTarget.parentNode.children.length - 1) {
+                setTimeout(function() {
+                    switchToNextCard('card2', 'card3');
+                }, 2000); // 2초 후에 다음 카드로 전환
+            }
+        });
+
+        // 카드 3의 슬라이드 종료 이벤트 감지
+        var carousel3 = document.getElementById('carouselExampleIndicators3');
+        carousel3.addEventListener('slid.bs.carousel', function (event) {
+            if (event.to === event.relatedTarget.parentNode.children.length - 1) {
+                setTimeout(function() {
+                    switchToNextCard('card3', 'card1');
+                }, 2000); // 2초 후에 다음 카드로 전환
+            }
+        });
+
+        // 카카오 맵 스크립트
+        var mapContainer = document.getElementById('kakaoMap'),
+            mapOption = { 
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+    </script>
+</body>
+</html>
+>>>>>>> 9f2fc412ba7e6ec46e513d72a319f6762d29d6c2

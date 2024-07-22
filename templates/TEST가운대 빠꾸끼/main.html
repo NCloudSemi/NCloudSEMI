@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,4 +73,80 @@
       });
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+
+    </div>
+    <!--main-container-->
+    <!--goal slide another page-->
+    <div class="content-form" id="main">
+        <div class="content" id="content">
+            <div id="currentContent">
+                <!-- initial content here -->
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <div class="footer">
+       <!--test button-->
+       <button type="button" id="test">TEST</button>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+         let page = 'test1';
+         let page_parent = 'test'
+         let wh = 0;
+         let doing = false
+         // load content
+         $("#test").on("click", function() {
+             if(doing == true)
+               return
+             doing = true
+             // create a new div for the new content
+             let newContent = $("<div id='newContent'></div>");
+             
+              // animate the old content to the left
+              $("#currentContent").animate({left: "-100%"}, 500, function(e) {
+                     // remove the old content after the animation
+                     $(this).remove();
+                     // load new content into the new div
+                     newContent.load(`html/${page}.html`, function() {
+                         $("#content").append(newContent);
+                         // animate the new content from the right to the center
+                         newContent.css({left: "100%"}).animate({left: "0%"}, 500, function() {
+                         // set the new content div as the current content
+                         newContent.attr("id", "currentContent");
+                         doing = false
+                         wh = (wh+1)%4
+                         page =`${page_parent}${wh+1}`
+                            });
+
+                     });
+              });
+
+             
+
+            
+            
+        });
+
+      });
+    </script>
+</body>
+>>>>>>> 9f2fc412ba7e6ec46e513d72a319f6762d29d6c2
 </html>
