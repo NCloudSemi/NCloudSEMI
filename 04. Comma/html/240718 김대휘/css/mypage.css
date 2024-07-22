@@ -1,0 +1,83 @@
+/*-------------------------status_box-------------------------*/
+
+#mp_messagebox {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    cursor: pointer; /* 클릭할 수 있도록 커서 변경 */
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+#mp_status_popup {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+#mp_status_overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    z-index: 999; /* 팝업보다 아래에 표시 */
+}
+.input-area {
+    margin-bottom: 20px;
+}
+
+/*-----------------------new_board_upload-------------------------*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px;
+}
+.grid-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+.grid-item img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+#new_board_popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 1000;
+}
+#new_board_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}

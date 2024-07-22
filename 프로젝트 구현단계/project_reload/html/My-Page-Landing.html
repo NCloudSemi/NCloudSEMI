@@ -1,0 +1,59 @@
+
+            <link rel="stylesheet" href="../css/My-Page-Landing.css">
+
+
+          
+            <!-- Contents Sections -->
+            <div class="content">
+                <!-- Profile Section-->
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src="../img/Profile-Image.jpg" alt="Profile-Image" id="output">
+                    </div>
+                    <div class="profile-btn">
+                        <button onclick="profilePhotoChange()" type="button" class="btn btn-dark">프로필 사진 수정</button>
+                    </div>
+                </div>
+                <!-- Info Section -->
+                <div class="info">  
+                    <div class="info-box">
+                        <h3 class="section-title">사용자 정보</h3>
+                        <hr class="section-divider">
+                        <div class="mb-3" style="font-size: 20px;">
+                            <label for="name" class="form-label">이름</label>
+                            <input type="text" class="form-control" id="name" value="Comma-Junior" readonly>
+                        </div>
+                        <div class="mb-3" style="font-size: 20px;">
+                            <label for="email" class="form-label">이메일</label>
+                            <input type="email" class="form-control" id="email" value="Comma-Junior@comma.com" readonly>
+                        </div>
+                        <div class="mb-3" style="font-size: 20px;">
+                            <label for="phone" class="form-label">전화번호</label>
+                            <input type="tel" class="form-control" id="phone" value="010-***-****" readonly>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h3>수신 및 알림 동의</h3>
+                        <hr class="section-divider">
+                        <div class="form-check form-switch mb-3" style="font-size: 20px;">
+                            <img src="../img/Phone-Icon.svg" alt="Phone-Icon" style="margin-right: 30px;">
+                            <label class="form-check-label" for="phoneAgree">휴대폰</label>
+                            <input class="form-check-input" type="checkbox" id="phoneAgree">
+                        </div>
+                        <div class="form-check form-switch mb-3" style="font-size: 20px;">
+                            <img src="../img/Email-Icon.svg" alt="Email-Icon" style="margin-right: 25px;">
+                            <label class="form-check-label" for="emailAgree">이메일</label>
+                            <input class="form-check-input" type="checkbox" id="emailAgree">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <script>
+      $(() =>{
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('expanded');
+            sidebar.classList.toggle('collapsed-background');
+        }
+    })
+    </script>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <!--부트 스트랩 링크-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--jquery-->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!--kakao api 한놈만 챙겨오기-->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
+    <!--custom css-->
+    <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+    <!--통틀-->
+    <div class="container" id="main">
+        <!--사이드바-->
+        <div class="sideBar" id="sideBar">
+            <!--사이드바 헤더-->
+            <div class="d-flex justify-content-between w-100 mb-4"  id="sideBarHeader">
+                <!--토글 버튼-->
+                <div class="form-check form-switch d-flex p-0" >
+                    <label class="form-check-label" for="switchDO">국내</label>
+                    <input class="form-check-input mx-2" type="checkbox" id="switchDO">
+                    <label class="form-check-label" for="switchDO">해외</label>
+                </div>
+                <!--리셋 버튼-->
+                <button type="button" class="btn p-0 border-0 bg-transparent rotate_hover"  id="reset">
+                    <img src="img/reset.svg" width="20px" height="20px" alt="">
+                </button>
+            </div>
+            <!--사이드바 메인-->
+            <div class="d-flex h-100">
+                <!--카테고리 영역-->
+                <div class="w-50 h-75 rounded bg-secondary sideMain" >
+                    <ul class="nav flex-column justify-content-center" id="navCategory">
+                          <li class="nav-item" id="Area">
+                            <p class="" >지역별</p>
+                          </li>
+                          <li class="nav-item" id="priceCap">
+                            <p class="" >가격</p>
+                          </li>
+                          <li class="nav-item">
+                            <p class="">추천순</p>
+                          </li>
+                      </ul>
+                </div>
+                <!--항목 영역  js 사용해서 항목 초기화-->
+                <div class="w-50 h-75 rounded bg-light overflow-auto  sideMain " >
+                    <ul class="nav flex-column  justify-content-center  " id="nevOption" >
+                       <!--기본값 지역별-->
+                       <li class="nav-item"><p>서울</p></li><li class="nav-item"><p>제주</p></li><li class="nav-item"><p>전남</p></li><li class="nav-item"><p>전북</p></li><li class="nav-item"><p>광주</p></li><li class="nav-item"><p>경남</p></li><li class="nav-item"><p>경북</p></li><li class="nav-item"><p>울산</p></li><li class="nav-item"><p>대구</p></li><li class="nav-item"><p>부산</p></li><li class="nav-item"><p>충남</p></li><li class="nav-item"><p>충북</p></li><li class="nav-item"><p>세종</p></li><li class="nav-item"><p>대전</p></li><li class="nav-item"><p>인천</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--지도영역-->
+        <div class="mapArea">
+          <!--검색 영역-->
+          <div id="serchArea">
+            <div class="input-group" >
+                <span class="input-group-text" id="serch">
+                  <img src="img/serch.svg" width="30px" height="30px" alt="">
+                </span>
+                <input type="text" class="form-control" placeholder="검색" id="serchBar">
+            </div> 
+          </div>
+          <!-- 카카오 지도 뛰우기-->
+          <div id="kakaoMap">
+             <!--숨겨지나?-->
+             <div class="" id="info_display">
+              <div class="d-flex h-25 w-100 p-4" id="main-info">
+                   <!--사진-->
+                   <a href="" class="border-1 rounded bg-light  w-50 h-100" id="main-info-img"></a>
+                   
+                   <!--이름 ,별점 ,전화번호 버튼 2개-->
+                   <div class="d-flex flex-column justify-content-center align-items-center w-50 p-4 m-4" id="main-info-content">
+                        <p id="info-title"></p>
+                        <p id="star">4.2 / 5.0</p>
+                        <p id="price">40000~50000 / 1Day</p>
+                        <div class="d-flex" >
+                          <button type="button" id="booking">예약</button>
+                          <button type="button" id="edit_card">끌 쓰끼</button>
+                        </div>
+                   </div>
+              </div>
+              <div>
+                <!--한줄평-->
+                <input type="text" class="form-control w-100 " placeholder="한줄평" id="commentBar">
+              </div>
+              <!--교체용 갈갈이-->
+              <div class="d-flex h-75 w-100"  id="info_conent">
+                <!--default 한줄평-->
+                <ul id="comment_area">
+                             
+                </ul>
+              </div>
+             </div>
+
+          </div>
+          
+        </div>
+    </div>
+
+    
+   
+    <script>
+       $(()=>{
+           //navbar 관련 스크립트
+            const navCategory = document.querySelector('#navCategory')
+            let swich_flag ='Korea'
+            const categoryData ={
+               Forigin: ['국가별','가격별'],
+               Korea: ['지역별','가격별']     
+            }
+            
+            const optionData ={
+              Area : ['서울','제주','전남','전북','광주','경남','경북','울산','대구','부산','충남','충북','세종','대전','인천'],
+              priceCap :[1,2,3,4,5,6],
+              Area_Forigin : ['aa','bb','cc','dd','ee','ff','gg','hh','ii']
+            }
+            
+            //추가 예정
+            const areaPosition  = {
+               서울: [37.56356944444444, 126.98000833333333],
+               제주: [33.48569444444445, 126.50033333333333],
+               전남: [34.813044444444444, 126.465],
+               전북: [35.81727, 127.11105277777777],
+               강원: [38.642618, 127.170231],
+               광주: [35.156974999999996, 126.85336388888888],
+               경기: [35.23473611111111, 128.69416666666666],
+               울산: [35.53540833333333, 129.3136888888889],
+               대구: [35.868541666666665, 128.60355277777776],
+               부산: [35.17701944444444, 129.07695277777776],
+               충남: [36.32387222222223, 127.42295555555556],
+               충북: [36.6325, 127.49358611111111],
+               세종: [36.4800121, 127.2890691],
+               경북: [36.491286, 128.889433],
+               경남: [35.459369, 128.214826],
+               대전: [36.347119444444445, 127.38656666666667],
+               인천: [37.45323333333334, 126.70735277777779]
+            }
+            
+            //test 나중에 DB에서 땡겨오기
+            const marKerdataDB ={
+              서울: [{ name:"서울TEST", wh:[37.56356944444444, 126.98000833333333]}]
+            }
+
+            //검색
+            let markers = []; //검색된 마커들 보관용
+            const serchFillter ={ //필터용
+                Area: null,
+                priceCap: null
+            }
+
+           //카카오 지도
+           const mapContainer = document.getElementById('kakaoMap')
+           const mapOption = { 
+              center: new kakao.maps.LatLng(37.56356944444444, 126.98000833333333), // 지도의 중심좌표
+              level: 3 // 지도의 확대 레벨
+           };
+           const kakaoMap = new kakao.maps.Map(mapContainer, mapOption); 
+           //지도 클릭 이벤트
+           kakao.maps.event.addListener(kakaoMap, 'click', function(mouseEvent) { 
+            $('#info_display').css('right','-100%')
+            $('#info_conent').empty()
+           }) 
+
+           //위치 검색서비스
+           const pleaceService = new kakao.maps.services.Places();  
+           
+           //마커 이름 뛰울거
+           const infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+           //navOption item  이벤트
+           const nevOptionItemFun =  function() {
+              let centerPosition = areaPosition[$(this).text()];
+
+              //filtering
+              serchFillter['Area'] = $(this).text()
+              //이동할 위치
+              const moveLatLon = new kakao.maps.LatLng(centerPosition[0], centerPosition[1]);
+              
+              kakaoMap.setCenter(moveLatLon);
+              //kakaoMap.setBounds(3)
+           }
+
+
+            //kakao 검색관련 이벤트
+            const serchingData = () =>{
+              const serchValue = $('#serchBar').val()
+              //검색창 비워져 있는지
+              if(serchValue ===''){
+                   console.log('no_serch_Value')
+                   return
+              }
+
+              //serch options
+              const option ={
+                radius: parseInt(5000),
+              }
+              const f_a =serchFillter['Area']
+              if( f_a != null){
+                option['location'] = new kakao.maps.LatLng(areaPosition[f_a][0], areaPosition[f_a][1])
+              }
+              pleaceService.keywordSearch(serchValue,placesSearchCB,option);
+
+            }
+             
+
+            // 장소검색 결과 확인
+            function placesSearchCB(data, status, pagination) {
+              if (status === kakao.maps.services.Status.OK) {
+                 filtered_data = dataFiltering(data)
+                 if(filtered_data.length == 0)
+                 {
+                   console.log("no Data")
+                   return;
+                 }
+                 displayPlaces(filtered_data)
+              } else if (status === kakao.maps.services.Status.ZERO_RESULT || status === kakao.maps.services.Status.ERROR) {
+                  console.log("no Data or Serch Error")
+                  return;
+              }
+            }
+            
+            //데이터 필터링
+            dataFiltering = (data) =>{
+              let new_data =[]
+              data.forEach(di => {
+                const adress =di["address_name"].split(' ')
+
+                if(adress[0].indexOf(serchFillter['Area']) !== -1 || serchFillter['Area'] === null) 
+                    new_data.push(di);
+              });
+              return new_data
+            }
+
+            //마커 뛰우기
+            // 검색 결과 목록과 마커를 표출하는 함수입니다
+            function displayPlaces(places) {
+
+                  bounds = new kakao.maps.LatLngBounds(), 
+                  // 지도에 표시되고 있는 마커를 제거합니다
+                  removeMarker();
+
+                  for ( let i=0; i<places.length; i++ ) {
+
+                      // 마커를 생성하고 지도에 표시합니다
+                      const placePosition = new kakao.maps.LatLng(places[i].y, places[i].x)
+                      const marker = addMarker(placePosition, i)
+                      // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                      // LatLngBounds 객체에 좌표를 추가합니다
+                      bounds.extend(placePosition);
+
+                      // 마커와 검색결과 항목에 mouseover 했을때
+                      // 해당 장소에 인포윈도우에 장소명을 표시합니다
+                      // mouseout 했을 때는 인포윈도우를 닫습니다
+                      (function(marker, place) {
+                          kakao.maps.event.addListener(marker, 'mouseover', function() {
+                              displayMinInfo(marker, place.place_name);
+                          });
+
+                          kakao.maps.event.addListener(marker, 'mouseout', function() {
+                              infowindow.close();
+                          });
+
+                          kakao.maps.event.addListener(marker, 'click', function() {
+                             displayInfo(marker, place);
+                          });
+
+                      })(marker, places[i]);
+                  }
+                  // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                  kakaoMap.setBounds(bounds);
+            }
+
+
+
+            // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+            function addMarker(position, idx, title) {
+                  const imageSrc = 'img/marker.svg'// 마커 이미지 url, 스프라이트 이미지를 씁니다
+                  const    imageSize = new kakao.maps.Size(36, 37) // 마커 이미지의 크기        
+                  const   markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
+                  const   marker = new kakao.maps.Marker({
+                          position: position, // 마커의 위치
+                          image: markerImage 
+                      });
+                  marker.setMap(kakaoMap); // 지도 위에 마커를 표출합니다
+                  markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+                  return marker;
+            }
+
+            // 지도 위에 표시되고 있는 마커를 모두 제거합니다
+            function removeMarker() {
+                  for ( var i = 0; i < markers.length; i++ ) {
+                      markers[i].setMap(null);
+                  }   
+                  markers = [];
+            }
+
+
+            // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+            // 인포윈도우에 장소명을 표시합니다
+            function displayMinInfo(marker, title) {
+                  const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+                  infowindow.setContent(content);
+                  infowindow.open(kakaoMap, marker);
+            }
+
+            // 검색결과와 연관된 창을 뛰우는 역활
+            function displayInfo(marker, place) {
+               $('#info_display').css('right','0%')
+               
+               $('#info-title').text(place.place_name)
+               $('#main-info-img').attr('href', place.place_url);
+
+            }
+            
+            
+
+            //예약 관련이벤트
+   
+            let date = new Date();
+            let month = date.getMonth();
+            let year = date.getFullYear();
+            
+            let startDate =null
+            let endDate =null
+          
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            function renderCalendar() {
+                $('#calendar-body').empty();
+                $('#month-year').text(`${months[month]} ${year}`);
+
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < firstDayOfMonth; i++) {
+                  $('#calendar-body').append(createEmptyDay());
+                }
+
+                for (let i = 1; i <= daysInMonth; i++) {
+                  $('#calendar-body').append(createDay(i));
+                }
+
+                if(startDate != null)
+                {
+                  $("#check_in").val(`${startDate.getFullYear()}-${startDate.getMonth() +1}-${startDate.getDate()}`)
+                }
+                if(endDate != null)
+                {
+                  $("#check_out").val(`${endDate.getFullYear()}-${endDate.getMonth() +1}-${endDate.getDate()}`)
+                }
+            }
+
+            function createEmptyDay() {
+                return $('<div>').addClass('day');
+            }
+
+            function createDay(day) {
+                const div = $('<div>')
+                    .addClass('day')
+                    .text(day)
+                    .on('click',bookingDay);
+                let selectedDate = new Date(year, month, day); // Corrected this part
+                if (startDate != null && endDate != null && 
+                      startDate <= selectedDate && selectedDate <= endDate) {
+                      div.addClass('booked');
+                }
+                return div
+            }
+
+            function bookingDay(){
+
+                $(this).addClass('booked')
+                if (startDate == null) {
+                    startDate = new Date(year, month, $(this).text());
+                } else {
+                    endDate = new Date(year, month, $(this).text());
+                    if (startDate > endDate) {
+                        let temp = startDate;
+                        startDate = endDate;
+                        endDate = temp;
+                    }
+                }
+                console.log(startDate)
+                console.log(endDate)
+                renderCalendar()
+            }
+
+            
+           //각종 이벤트변수 초기화
+           initalize_val = ()=>{
+            date = new Date();
+            month = date.getMonth();
+            year = date.getFullYear();
+            startDate =null
+            endDate =null
+           }
+            
+
+            
+
+            
+            //reset button 이벤트
+            $('#reset').on('click',function() {
+              $(this).addClass('rotate_click');
+              $(this).removeClass('rotate_hover');
+              setTimeout(() => {
+                    $(this).removeClass('rotate_click');
+                    $(this).addClass('rotate_hover');
+              }, 2000);
+            })
+
+            //toggle button 이벤트
+            $('#switchDO').on('click',function() {
+                 if(swich_flag =='Korea'){
+                  swich_flag='Forigin'
+                 }
+                 else{
+                   swich_flag= 'Korea'
+                 }
+                
+                let newCategory = '';
+                for (let i = 0; i < categoryData[swich_flag].length; i++) {
+                  newCategory += `<li class="nav-item"><p>${categoryData[swich_flag][i]}</p></li>`;
+                }
+             
+                 $('#navCategory').animate({ opacity: 0 }, 200, function() {
+                    $('#nevCategory').empty()
+                    const newHeight = categoryData[swich_flag].length * 50;
+                    $('#nevCategory').animate({ height: `${newHeight}px` }, 300, function() {
+                      $('#nevCategory').append(newCategory).animate({ opacity: 1 }, 200);
+                    })
+                   
+                });
+            })
+
+            // nevCategory 이벤트
+            $('#navCategory .nav-item').on('click', function() {
+                const id = $(this).attr('id');
+
+                // 새로운 항목들을 생성하여 임시 변수에 저장
+                let newOptions = '';
+                for (let i = 0; i < optionData[id].length; i++) {
+                  newOptions += `<li class="nav-item"><p>${optionData[id][i]}</p></li>`;
+                }
+
+                // nevOption의 자식 요소들을 숨기고 새로운 항목들을 투명도 애니메이션으로 나타나게 함
+                $('#nevOption').animate({ opacity: 0 }, 200, function() {
+                    $('#nevOption').empty()
+                    const newHeight = optionData[id].length * 50;
+                    $('#nevOption').animate({ height: `${newHeight}px` }, 300, function() {
+                      $('#nevOption').append(newOptions).animate({ opacity: 1 }, 200);
+                      $('#nevOption .nav-item').on('click',nevOptionItemFun)
+                    })
+                   
+                });
+
+                // 새로운 요소들이 추가된 후에 높이를 계산하여 설정
+                
+              });
+            
+            
+            //navOption item  이벤트등록
+            $('#nevOption .nav-item').on('click',nevOptionItemFun)
+            
+            //serch 이벤트 등록
+            $('#serch').on('click' ,serchingData )
+
+            //enter 이벤트 등록
+            $('#serchBar').keypress( function(event) {
+                if (event.which == 13) { // 13은 Enter 키의 키 코드입니다.
+                    event.preventDefault();
+                    serchingData()
+                }
+            });
+            
+
+            //한줄평 다른 사람들거 보이게
+            $('#commentBar').on('click', function(){
+              if($('#info_conent').find('#comment_area').length == 0)
+              {
+
+                $('#info_conent').empty()
+                const content = `<ul class='p-4' id="comment_area"></ul>`
+                $('#info_conent').append(content)
+                
+                /*test*/
+                for (let index = 0; index < 30; index++) {
+                  $('#comment_area').append(`<li><p>TEST${index}</p></ul>`)
+                }
+
+                initalize_val()
+               
+              }
+            })
+
+            //글쓰기 간단한 페이지
+            $('#edit_card').on('click', function(){
+              if(!$('#info_conent').hasClass('#card_area'))
+              {
+                $('#info_conent').empty()
+                $('#info_conent').push()
+
+                initalize_val()
+              }
+
+              
+
+            })
+            
+            //예약 간단한 페이지
+            $('#booking').on('click', function(){
+              if(!$('#info_conent').hasClass('#booking_area'))
+              {
+                $('#info_conent').empty()
+                const content = `<div class="d-flex flex-column" id="booking_area">
+            <div class="d-flex " id="booking_input">
+             <div class="bookingInputArea">
+                  <input type="text"  class="calendar-button" id="check_in" placeholder="체크인" readonly>
+             </div>
+             <div class="bookingInputArea">
+               <input type="text" class="calendar-button" id="check_out"  placeholder="체크아웃" readonly>
+             </div>
+             <div class="bookingInputArea">
+               <input type="text" class="manInfo-button" id="men_info"  placeholder="인원 정보"  readonly>
+             </div>
+
+            </div>
+
+            <div id="book_calender" class="">
+              <div class="container mt-4">
+                <div id="calendar-wrapper" class="border rounded p-3">
+                    <div id="calendar-header" class="d-flex justify-content-between align-items-center mb-3">
+                        <button id="prev" class="btn btn-secondary">Previous</button>
+                        <h2 id="month-year" class="mb-0"></h2>
+                        <button id="next" class="btn btn-secondary">Next</button>
+                    </div>
+                    <div id="calendar-days" class="d-flex justify-content-between mb-2">
+                        <div class="day-name">Sun</div>
+                        <div class="day-name">Mon</div>
+                        <div class="day-name">Tue</div>
+                        <div class="day-name">Wed</div>
+                        <div class="day-name">Thu</div>
+                        <div class="day-name">Fri</div>
+                        <div class="day-name">Sat</div>
+                    </div>
+                    <div id="calendar-body" class="">
+                        <!-- Calendar dates will be inserted here by JavaScript -->
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="book_human" class="">
+              <div class="container mt-4">
+                <div id="calendar-wrapper" class="border rounded p-3">
+                       
+
+                </div>
+              </div>   
+                
+            </div>
+
+          </div>`
+                $('#info_conent').append(content)
+                
+                //버튼 이벤트 박아 넣기
+                $('.calendar-button').on('click' , function(){
+                  if(!$('#book_calender').hasClass('active')){
+                  $('#book_calender').addClass('active')
+                  $("#book_human").removeClass('active')
+                  }
+                })
+                //버튼 이벤트 박아 넣기
+                $('.manInfo-button').on('click' , function(){
+                  $('#book_calender').removeClass('active')
+                  $("#book_human").addClass('active')
+                })
+                //
+                $('#prev').on('click', function () {
+                    month--;
+                    if (month < 0) {
+                        month = 11;
+                        year--;
+                    }
+                    renderCalendar();
+                });
+                //
+                $('#next').on('click', function () {
+                    month++;
+                    if (month > 11) {
+                        month = 0;
+                        year++;
+                    }
+                    renderCalendar();
+                });
+                initalize_val()
+                renderCalendar()
+                
+
+              }
+
+
+
+            })
+            
+
+
+
+            })
+    
+       
+    </script>
+</body>
+</html> 
