@@ -135,13 +135,13 @@
     font-weight: bold;
     margin-bottom: 2vh;
 }
-.modal-text p{
+.modal-text p {
     font-size: 1em;
 }
-.modal-text-line{
+.modal-text-line {
     width: 36vw;
     height: 2px;
-    background-color: #D7D6D6;
+    background-color: #d7d6d6;
     margin-bottom: 1vh;
 }
 /* 상호작용 영역 설정 */
@@ -219,7 +219,7 @@
 }
 #tag {
     font-weight: bold;
-    color: #0047FF;
+    color: #0047ff;
     margin-right: 0.3em;
     margin-left: 0.3em;
 }

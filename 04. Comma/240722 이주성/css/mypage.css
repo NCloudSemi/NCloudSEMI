@@ -1,21 +1,250 @@
+#mp_content_flexbox {
+    width: 70vw;
+    margin: 8vh;
+    display: inline-flex;
+    gap: 10vw;
+}
+
+#mp_content_flexbox_left {
+    text-align: center;
+}
+
+/*--------------------mp_content_flexbox_left-------------------*/
+/*-------------------------profile_box-------------------------*/
+
+#mp_profile_box img {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+@media (min-width: 400px) {
+    #mp_content_flexbox_left {
+    }
+
+    #mp_profile_box img {
+        width: 20vh;
+        height: 20vh;
+    }
+
+    #pick_box ul li {
+        margin-left: 3rem;
+    }
+}
+
+@media (min-width: 500px) {
+    #mp_profile_box img {
+        width: 21vh;
+        height: 21vh;
+    }
+}
+
+@media (min-width: 600px) {
+    #mp_profile_box img {
+        width: 22vh;
+        height: 22vh;
+    }
+}
+
+@media (min-width: 700px) {
+    #mp_profile_box img {
+        width: 23vh;
+        height: 23vh;
+    }
+}
+
+@media (min-width: 800px) {
+    #mp_profile_box img {
+        width: 24vh;
+        height: 24vh;
+    }
+}
+
+@media (min-width: 900px) {
+    #mp_profile_box img {
+        width: 25vh;
+        height: 25vh;
+    }
+}
+
+@media (min-width: 1000px) {
+    #mp_profile_box img {
+        width: 26vh;
+        height: 26vh;
+    }
+}
+
+@media (min-width: 1100px) {
+    #mp_profile_box img {
+        width: 27vh;
+        height: 27vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    #mp_profile_box img {
+        width: 28vh;
+        height: 28vh;
+    }
+}
+
+@media (min-width: 1300px) {
+    #mp_profile_box img {
+        width: 29vh;
+        height: 29vh;
+    }
+}
+
+@media (min-width: 1400px) {
+    #mp_profile_box img {
+        width: 30vh;
+        height: 30vh;
+    }
+
+    #pick_box ul li {
+        margin-left: 5rem;
+    }
+}
+
+/*-------------------------pick_box-------------------------*/
+
+#pick_box {
+    margin: 5vh auto;
+}
+
+#pick_box ul {
+    padding-left: 0;
+}
+
+#pick_box ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+#pick_box ul li p {
+    margin-bottom: 0;
+}
+
+#pick_box ul li a {
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+#mp_heart_icon {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-right: 0.4rem;
+    cursor: pointer;
+}
+
+#mp_pin_icon {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.4rem;
+    cursor: pointer;
+}
+
+/* Overlay */
+#mp_pickboard_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Popup */
+#mp_pickboard_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#mp_pickboard_popup-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#mp_pickboard_popup-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#popup-content {
+    padding: 20px;
+}
+
+.popup-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.popup-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/*------------------mp_my_travel_grade_box-------------------*/
+
+#mp_my_travel_grade_box a {
+    text-decoration-line: none;
+    color: black;
+}
+
+#mp_my_travel_grade_box p {
+    font-weight: bold;
+}
+
+#mp_baggage_icon {
+    cursor: pointer;
+}
+
 /*-------------------------status_box-------------------------*/
 
 #mp_messagebox {
+    width: 15vw;
+    height: 30vh;
+    margin: 5vh auto;
+    padding: 0 0.5vw;
     display: flex;
     align-items: center;
-    padding: 10px;
+    justify-content: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    margin: 10px 0;
     cursor: pointer; /* 클릭할 수 있도록 커서 변경 */
+    overflow: hidden;
+    text-align: center;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
-.icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
+
 #mp_status_popup {
+    width: 30vw;
+    height: 50vh;
     display: none; /* 기본적으로 숨김 */
     position: fixed;
     left: 50%;
@@ -37,13 +266,63 @@
     background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
     z-index: 999; /* 팝업보다 아래에 표시 */
 }
-.input-area {
-    margin-bottom: 20px;
+
+#message-input {
+    width: 100%;
+    height: 35vh;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, transparent calc(100% - 1px)) repeat-y;
+    resize: none; /* 사용자가 크기를 변경하지 못하도록 */
+}
+
+#close-mp_status_popup_btn {
+    display: flex;
+    justify-content: end;
+}
+
+#close-mp_status_popup {
+    margin-bottom: 10px;
+    right: 0;
+}
+
+#apply-message {
+    margin-top: 10px;
+}
+
+/*-----------------mp_content_flexbox_right---------------------*/
+
+#mp_header_text {
+    display: flex;
+    gap: 7vw;
+    text-align: center;
+}
+
+#mp_header_text div a {
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+
+#mp_header_text div p {
+    width: 10vw;
+    font-weight: bold;
+    font-size: large;
 }
 
 /*-----------------------new_board_upload-------------------------*/
 
-.grid-container {
+#add-post-button {
+    display: flex;
+    cursor: pointer;
+    justify-content: end;
+    margin: 2rem;
+}
+
+#mp_grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
