@@ -5,7 +5,6 @@
     box-sizing: border-box;
     font-family: "Noto Sans KR", sans-serif;
 }
-
 /* 기본 틀 구성 */
 body, html, .wrap {
     display: flex;
@@ -24,13 +23,11 @@ header {
     height: 20vh;
     z-index: 1000;
 }
-
 header > img {
     margin-top: 3vh;
     width: 13vw;
     height: 8vh;
 }
-
 /* Container */
 .container {
     display: flex;
@@ -38,12 +35,10 @@ header > img {
     margin: 20vh 0 1vh 0 ;
     padding: 0;
 }
-
 /* Content */
 .content {
     flex: 1;
 }
-
 /* 반응성 설정 */
 @media (max-width: 768px) {
     .content {
