@@ -2,7 +2,7 @@ $(document).ready(function() {
     // 카드 불러오기 기능
     const cardContainer = document.getElementById('cardContainer');
     let page = 1;
-    const cardsPerPage = 40;
+    const cardsPerPage = 1000;
     function fetchCards(page, perPage) {
         return new Promise((resolve) => {
             setTimeout(() => {
