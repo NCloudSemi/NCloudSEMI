@@ -130,7 +130,7 @@
 
 #pick_box ul li img {
     transition: transform 0.3s ease;
-} 
+}
 
 #pick_box ul li a {
     font-size: 15px;
@@ -438,7 +438,7 @@
     margin-bottom: 20px;
 }
 
-.mp_grade_marks img{
+.mp_grade_marks img {
     width: 70px;
     height: 70px;
     margin-bottom: 15px;
@@ -450,7 +450,7 @@
     font-weight: 900;
 }
 
-.mp_grade_my_info img{
+.mp_grade_my_info img {
     margin-bottom: 10px;
 }
 
@@ -564,12 +564,12 @@
 
 #mp_add-post-button {
     display: flex;
-    cursor: pointer;
     justify-content: end;
     margin: 2rem;
 }
 
 #mp_add-post-button img {
+    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
