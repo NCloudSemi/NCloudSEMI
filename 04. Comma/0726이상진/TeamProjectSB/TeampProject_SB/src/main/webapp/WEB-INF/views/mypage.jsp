@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <html lang="ko">
 <head>
-    <title>반응형 레이아웃</title>
+    <title>COMMA_mypage</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/mypage.css">
 </head>
 <body>
@@ -262,13 +262,19 @@
                             </div>
                             <div class="mp_popup_content">
                                 <div class="mp_new_board_box">
-                                    <div>
-                                        <img src="" alt="+아이콘" />
-                                        <p><strong>이미지 등록</strong></p>
-                                    </div>
-                                    <div>
-                                        <input type="text" placeholder="게시물의 내용을 입력하세요." />
-                                    </div>
+                                    <form action="">
+                                        <div class="mp_new_board_image_box">
+                                            <img src="${pageContext.request.contextPath}/static/image/+_icon.svg" alt="+아이콘" />
+                                            <p><strong>이미지 등록</strong></p>
+                                        </div>
+                                        <div class="mp_new_board_text_box">
+                                                <textarea
+                                                        rows="10"
+                                                        maxlength="1000"
+                                                        placeholder="게시물의 내용을 입력하세요."
+                                                ></textarea>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -292,5 +298,5 @@
         </div>
     </div>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage.js"></script>
-    </body>
+</body>
 </html>

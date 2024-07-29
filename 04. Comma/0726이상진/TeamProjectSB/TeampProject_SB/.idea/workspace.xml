@@ -10,50 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c6ebaba-041d-49b9-bb4f-fd1440c42bbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/image/닫기_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/image/업로드_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/image/인증마크_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql-map-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql-map-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sql-map-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql-map-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/html/mypage-main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/Sidebar-Header-Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/Sidebar-Header-Logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/Siderbar-Footer-Logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/Siderbar-Footer-Logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/delete_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/delete_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/mp_gridbox 사진9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/mp_gridbox 사진9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/new_board_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/new_board_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/내 여행 등급 baggage_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/내 여행 등급 baggage_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/닫기 icon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/별점(4점).svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/별점(4점).svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/보스턴백_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/보스턴백_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/비행기_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/비행기_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/신라스테이_서초_img.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/신라스테이_서초_img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/업로드 icon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/인증마크.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/캐리어_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/캐리어_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/트렁크백_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/트렁크백_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/프로필 사진.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/프로필 사진.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물 heart_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물 heart_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 게시물8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 게시물8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/픽한 장소 pin_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/픽한 장소 pin_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../240722 이주성/img/화살표_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/화살표_icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/mypage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,9 +40,6 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="없음" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -94,33 +50,33 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Smart Tomcat.Tomcat.executor&quot;: &quot;Run&quot;,
-    &quot;Smart Tomcat.tomcat.executor&quot;: &quot;Run&quot;,
-    &quot;Tomcat 서버.tomcat.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/wntjd/OneDrive/바탕 화면/NCloudSEMI-main/04. Comma/0726이상진/TeamProjectSB/TeampProject_SB/src/main/webapp/static/js&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Smart Tomcat.Tomcat.executor": "Run",
+    "Smart Tomcat.tomcat.executor": "Run",
+    "Tomcat 서버.tomcat.executor": "Run",
+    "git-widget-placeholder": "Jusung",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/wntjd/OneDrive/바탕 화면/NCloudSEMI-main/04. Comma/0726이상진/TeamProjectSB/TeampProject_SB",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp\static\js" />
@@ -184,6 +140,7 @@
       <workItem from="1722061734552" duration="5000" />
       <workItem from="1722061766132" duration="12415000" />
       <workItem from="1722153302556" duration="4943000" />
+      <workItem from="1722219470179" duration="473000" />
     </task>
     <servers />
   </component>
