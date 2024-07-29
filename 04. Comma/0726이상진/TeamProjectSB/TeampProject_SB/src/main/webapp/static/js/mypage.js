@@ -206,20 +206,28 @@ function fitTextToBox(element) {
 }
 
 /*-------------------------------게시물추가----------------------------*/
-// 게시물 추가 버튼 클릭 시 팝업 표시
-document.getElementById("mp_add-post-button").addEventListener("click", function () {
-    document.getElementById("mp_new_board_overlay").style.display = "block";
-    document.getElementById("mp_new_board_popup").style.display = "block";
+const newBoardIcons = document.querySelectorAll("#mp_add-post-button");
+newBoardIcons.forEach((icon) => {
+    icon.addEventListener("click", function () {
+        document.getElementById("mp_new_board_overlay").style.display = "block";
+        document.getElementById("mp_new_board_popup").style.display = "block";
+    });
 });
 
 // 게시물 추가 팝업 닫기
 document.getElementById("mp_new_board_close-popup").addEventListener("click", function () {
+    console.log(1);
     document.getElementById("mp_new_board_overlay").style.display = "none";
+    console.log(2);
     document.getElementById("mp_new_board_popup").style.display = "none";
+    console.log(3);
 });
 
 // 게시물 추가 오버레이 클릭 시 팝업 닫기
 document.getElementById("mp_new_board_overlay").addEventListener("click", function () {
+    console.log(1);
     document.getElementById("mp_new_board_overlay").style.display = "none";
+    console.log(2);
     document.getElementById("mp_new_board_popup").style.display = "none";
+    console.log(3);
 });

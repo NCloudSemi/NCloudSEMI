@@ -71,7 +71,7 @@
                                                 <h5>픽한 게시물</h5>
                                             </div>
                                             <button id="mp_pickboard_close-popup">
-                                                <img src="../img/닫기 icon.svg" alt="닫기버튼" />
+                                                <img src="../img/닫기_icon.svg" alt="닫기버튼" />
                                             </button>
                                         </div>
                                         <div class="mp_popup_content">
@@ -136,7 +136,7 @@
                                                 <h5>픽한 장소</h5>
                                             </div>
                                             <button id="mp_pickplace_close-popup">
-                                                <img src="../img/닫기 icon.svg" alt="닫기버튼" />
+                                                <img src="../img/닫기_icon.svg" alt="닫기버튼" />
                                             </button>
                                         </div>
                                         <div class="mp_popup_content">
@@ -168,7 +168,7 @@
                                                             <strong>3성급 호텔</strong>
                                                             <img
                                                                 id="certification_mark"
-                                                                src="../img/인증마크.svg"
+                                                                src="../img/인증마크_icon.svg"
                                                                 alt="인증마크"
                                                             />
                                                         </div>
@@ -197,7 +197,7 @@
                                 <div class="mp_pick_popup-header">
                                     <div class="mp_pick_popup-header-title"></div>
                                     <button id="mp_grade_close-popup">
-                                        <img src="../img/닫기 icon.svg" alt="닫기버튼" />
+                                        <img src="../img/닫기_icon.svg" alt="닫기버튼" />
                                     </button>
                                 </div>
                                 <div class="mp_popup_content">
@@ -249,7 +249,7 @@
                         <div id="mp_status_popup">
                             <div>
                                 <div id="close-mp_status_popup_btn">
-                                    <img id="close-mp_status_popup" src="../img/닫기 icon.svg" alt="닫기" />
+                                    <img id="close-mp_status_popup" src="../img/닫기_icon.svg" alt="닫기" />
                                 </div>
                                 <textarea
                                     id="message-input"
@@ -258,7 +258,7 @@
                                     placeholder="상태 메시지를 입력하세요"
                                 ></textarea>
                             </div>
-                            <img id="apply-message" src="../img/업로드 icon.svg" alt="업로드" />
+                            <img id="apply-message" src="../img/업로드_icon.svg" alt="업로드" />
                         </div>
                     </div>
                     <div id="mp_content_flexbox_right">
@@ -279,31 +279,37 @@
                         <div>
                             <div id="mp_add-post-button">
                                 <img src="../img/new_board_icon.svg" alt="게시물추가" />
-                                <!-- Overlay -->
-                                <div id="mp_new_board_overlay" class="mp_hidden"></div>
-                                <!-- Popup -->
-                                <div id="mp_new_board_popup" class="mp_hidden">
-                                    <div class="mp_pick_popup-header">
-                                        <div class="mp_pick_popup-header-title">
-                                            <h3>게시물 등록</h3>
-                                        </div>
-                                        <button id="mp_new_board_upload_popup">
-                                            <img src="../img/업로드 icon.svg" alt="업로드_icon" />
-                                        </button>
-                                        <button id="mp_new_board_close-popup">
-                                            <img src="../img/닫기 icon.svg" alt="닫기버튼" />
-                                        </button>
+                            </div>
+                            <!-- Overlay -->
+                            <div id="mp_new_board_overlay" class="mp_hidden"></div>
+                            <!-- Popup -->
+                            <div id="mp_new_board_popup" class="mp_hidden">
+                                <div class="mp_pick_popup-header">
+                                    <div class="mp_pick_popup-header-title">
+                                        <h5>게시물 등록</h5>
                                     </div>
-                                    <div class="mp_popup_content">
-                                        <div class="mp_new_board_box">
-                                            <div>
-                                                <img src="" alt="+아이콘" />
+                                    <button id="mp_new_board_upload_popup">
+                                        <img src="../img/업로드_icon.svg" alt="업로드_icon" />
+                                    </button>
+                                    <button id="mp_new_board_close-popup">
+                                        <img src="../img/닫기_icon.svg" alt="닫기버튼" />
+                                    </button>
+                                </div>
+                                <div class="mp_popup_content">
+                                    <div class="mp_new_board_box">
+                                        <form action="">
+                                            <div class="mp_new_board_image_box">
+                                                <img src="../img/+_icon.svg" alt="+아이콘" />
                                                 <p><strong>이미지 등록</strong></p>
                                             </div>
-                                            <div>
-                                                <input type="text" placeholder="게시물의 내용을 입력하세요." />
+                                            <div class="mp_new_board_text_box">
+                                                <textarea
+                                                    rows="10"
+                                                    maxlength="1000"
+                                                    placeholder="게시물의 내용을 입력하세요."
+                                                ></textarea>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
