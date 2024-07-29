@@ -229,11 +229,11 @@
                 <div id="mp_content_flexbox_right">
                     <div id="mp_header_text">
                         <div>
-                            <a href="">게시물</a><br />
+                            <a href="">여행기록</a><br />
                             <a href="">11</a>
                         </div>
                         <div>
-                            <a href="">여행기록</a><br />
+                            <a href="">여행계획</a><br />
                             <a href="">3</a>
                         </div>
                         <div>
