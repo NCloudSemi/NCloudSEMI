@@ -1,18 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="TeampProject_SB:war exploded" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c6ebaba-041d-49b9-bb4f-fd1440c42bbe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/catalina.policy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/catalina.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/jaspic-providers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/jaspic-providers.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/logging.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/tomcat-users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/tomcat-users.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/.smarttomcat/TeampProject_SB/conf/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/java/com/bit/springboard/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/java/com/bit/springboard/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/java/com/bit/springboard/dto/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/java/com/bit/springboard/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/java/com/bit/springboard/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/resources/config/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/resources/mappings/user-mapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/resources/sql-map-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/static/css/login-joining.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/static/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/static/image/LoginPageImg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/static/image/TeamProjectLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../0730이상진/TeampProject_SB/src/main/webapp/static/js/login-joining.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240729 김대휘/img/Plan_Icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/board-plan-modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/board-view-modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/board-write-modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/board.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/css/sidebar-template.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/board-all-function.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/board-plan-modal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/board-view-modal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/board-write-modal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/board.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/html/sidebar-template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Activity.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Comment1-Rank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Comment1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Comment2-Rank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Comment2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Comment3-Rank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Comment3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Default-Img.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Example_Img1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Example_Img2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Food.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Header-Logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Hidden-Comment1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Liked-Icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Lodgment.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Plan_Icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Search-Button-Hover.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Search-Button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Share.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Sidebar-Header-Logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Siderbar-Footer-Logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Tourism.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Unliked-Icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Writer-Rank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/img/Writer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/js/board-all-function.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/js/board-view-modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/js/board-write-modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/js/board.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../240730 김대휘/js/jquery-3.7.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../COMMA(ver2).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +107,12 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
-  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="없음" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -57,21 +128,19 @@
   "keyToString": {
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Smart Tomcat.Tomcat.executor": "Run",
     "Smart Tomcat.tomcat.executor": "Run",
-    "Tomcat 서버.tomcat.executor": "Run",
-    "git-widget-placeholder": "Jusung",
+    "git-widget-placeholder": "main 병합 중",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/lecture/SpringFramework/_21_Spring_Board_Fileupload",
+    "last_opened_file_path": "D:/lecture/NcloudSEMI/04. Comma/0730이상진/TeampProject_SB",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -80,18 +149,6 @@
     ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp\static\js" />
-      <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp\WEB-INF\views" />
-      <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp\WEB-INF" />
-      <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp\static\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp\static\image" />
-      <recent name="C:\Users\wntjd\OneDrive\바탕 화면\NCloudSEMI-main\04. Comma\0726이상진\TeamProjectSB\TeampProject_SB\src\main\webapp" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="tomcat" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
@@ -102,6 +159,9 @@
       <option name="catalinaBase" value="C:\devTools\apache-tomcat-10.1.25" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="extraClassPath" value="" />
       <option name="port" value="8090" />
       <option name="tomcatInfo">
@@ -139,17 +199,6 @@
       <workItem from="1721885144734" duration="7827000" />
       <workItem from="1721896936447" duration="1703000" />
       <workItem from="1721954573628" duration="20393000" />
-      <workItem from="1722058163675" duration="3417000" />
-      <workItem from="1722061734552" duration="5000" />
-      <workItem from="1722061766132" duration="12415000" />
-      <workItem from="1722153302556" duration="4943000" />
-      <workItem from="1722219470179" duration="473000" />
-      <workItem from="1722230447197" duration="3267000" />
-      <workItem from="1722236626120" duration="11799000" />
-      <workItem from="1722252946789" duration="3813000" />
-      <workItem from="1722298092075" duration="264000" />
-      <workItem from="1722298403215" duration="183000" />
-      <workItem from="1722298632102" duration="25672000" />
     </task>
     <servers />
   </component>

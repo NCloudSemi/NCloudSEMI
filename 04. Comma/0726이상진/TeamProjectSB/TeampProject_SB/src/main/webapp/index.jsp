@@ -47,7 +47,7 @@
                 <div id="login-container1">
                     <div id="focus-login-username" class="input-group">
                         <%--@declare id="username"--%><label for="username">ID</label>
-                        <input type="text" id="login-username" class="login-input">
+                        <input type="text" id="login-email" class="login-input">
                     </div>
                     <div id="focus-login-password" class="input-group">
                         <%--@declare id="password"--%><label for="password">PW</label>
