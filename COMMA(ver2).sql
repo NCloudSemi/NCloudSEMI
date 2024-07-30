@@ -28,6 +28,7 @@ CREATE TABLE `POST` (
     `plan_id` INT NULL COMMENT '여행 계획 정보 저장을 위한 id ---- 여행계획 db 만들면 foreign키로 잡아줘야 함',
     `like_cnt` INT NULL DEFAULT 0 COMMENT '게시글 좋아요의 수를 확인',
     `reg_date` DATETIME NOT NULL COMMENT '게시글 작성 일자(최신순 정렬을 위함)',
+    `post_img` VARCHAR(1000) COMMENT '게시글 작성 시, 넣을 사진 url'
     PRIMARY KEY (`post_id`)
 );
 
