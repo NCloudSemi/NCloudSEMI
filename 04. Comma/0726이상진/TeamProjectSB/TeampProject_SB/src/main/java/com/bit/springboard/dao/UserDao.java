@@ -41,7 +41,7 @@ public class UserDao {
     }
 
     public void changeNickname(UserDto existingUser) {
-        mybatis.selectOne("UserDao.changeNickname");
+        mybatis.selectOne("UserDao.changeNickname", existingUser);
     }
 
 }

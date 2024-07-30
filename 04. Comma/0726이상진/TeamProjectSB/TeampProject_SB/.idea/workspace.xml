@@ -10,28 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c6ebaba-041d-49b9-bb4f-fd1440c42bbe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/341d9498-26aa-432b-95ff-9d9a55e8486d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/341d9498-26aa-432b-95ff-9d9a55e8486d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappings/user-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappings/user-mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/mypage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/mypage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bit/springboard/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bit/springboard/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bit/springboard/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bit/springboard/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bit/springboard/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bit/springboard/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bit/springboard/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bit/springboard/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mappings/user-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappings/user-mapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +149,7 @@
       <workItem from="1722252946789" duration="3813000" />
       <workItem from="1722298092075" duration="264000" />
       <workItem from="1722298403215" duration="183000" />
-      <workItem from="1722298632102" duration="14573000" />
+      <workItem from="1722298632102" duration="15756000" />
     </task>
     <servers />
   </component>
