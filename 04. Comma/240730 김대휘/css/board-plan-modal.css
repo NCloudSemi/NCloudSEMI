@@ -1,0 +1,32 @@
+/* 모달창 뒷배경 설정 */
+.board-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 모달창 박스 설정*/
+.modal-box {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80vw;
+    height: 90vh;
+}
+/* 모달창 헤더 영역 설정 */
+.modal-header {
+    width: 80vw;
+    height: 5vh;
+    background-color: pink;
+}
+/* 모달창 챕터 영역 설정 */
+.xxx {
+    width: 80vw;
+    height: 5vh;
+    background-color: black;
+}
