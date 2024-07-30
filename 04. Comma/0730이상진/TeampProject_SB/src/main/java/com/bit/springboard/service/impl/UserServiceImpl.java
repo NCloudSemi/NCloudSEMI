@@ -38,11 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> emailCheck(String username) {
+    public Map<String, Object> emailCheck(String email) {
 
-        System.out.println(username);
+        System.out.println(email);
 
-        int emailCheck = userDao.emailCheck(username);
+        int emailCheck = userDao.emailCheck(email);
 
         Map<String, Object> chkResult = new HashMap<>();
 

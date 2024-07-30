@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -37,12 +38,17 @@ public class UserController {
             loginMember.setPassword("");
 
             session.setAttribute("loginMember", loginMember);
-
+            System.out.println("로그인 성공");
             return "home";
         } catch (Exception e) {
             System.out.println(e.getMessage());
             model.addAttribute("loginFailMsg", e.getMessage());
             return "/user/login";
         }
+    }
+
+    @PostMapping("/emailCheck.do")
+    public Map<String, Object> emailCheck(UserDto userDto, HttpSession session) {
+        return userService.emailCheck(userDto.getEmail());
     }
 }

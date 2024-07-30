@@ -112,4 +112,5 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('myModal').style.display = 'none';
         document.getElementById('residenceDetails').value = '';
     })
+
 });
