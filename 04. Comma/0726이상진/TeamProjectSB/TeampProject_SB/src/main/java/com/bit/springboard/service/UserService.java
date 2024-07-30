@@ -17,4 +17,8 @@ public interface UserService {
     String nicknameCheck(String nickname);
 
     UserDto login(UserDto userDto);
+
+    String changeNickname(UserDto userDto);
+
+    UserDto getUser();
 }

@@ -9,4 +9,23 @@
         FROM USERS
         WHERE EMAIL = #{email}
     </select>
+
+    <select id="findById" parameterType="int" resultType="user">
+        SELECT *
+            FROM USERS
+        WHERE ID = #{id}
+
+    </select>
+
+    <select id="getUser" resultType="user">
+        SELECT *
+            FROM USERS
+            WHERE ID = 1
+    </select>
+
+    <update id="changeNickname" parameterType="user">
+        UPDATE USERS
+            SET NICKNAME = #{nickname}
+            WHERE ID = #{id}
+    </update>
 </mapper>

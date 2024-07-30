@@ -21,6 +21,26 @@ function changeFileFromLocal(file) {
         output.src = reader.result;
     };
 }
+/*---------------------------유저 info 변경-----------------------*/
+const userInfoChangeIcons = document.querySelectorAll("#mp_nickname_change, #mp_region_change");
+userInfoChangeIcons.forEach((icon) => {
+    icon.addEventListener("click", function () {
+        document.getElementById("mp_userInfo_overlay").style.display = "block";
+        document.getElementById("mp_userInfo_popup").style.display = "block";
+    });
+});
+
+// 픽한 게시물 팝업 닫기
+document.getElementById("mp_userInfo_close-popup").addEventListener("click", function () {
+    document.getElementById("mp_userInfo_overlay").style.display = "none";
+    document.getElementById("mp_userInfo_popup").style.display = "none";
+});
+
+// 픽한 게시물 오버레이 클릭 시 팝업 닫기
+document.getElementById("mp_userInfo_overlay").addEventListener("click", function () {
+    document.getElementById("mp_userInfo_overlay").style.display = "none";
+    document.getElementById("mp_userInfo_popup").style.display = "none";
+});
 
 /*---------------------------픽한 게시물, 픽한 장소-----------------------*/
 /*------------------------------픽한 게시물------------------------------*/

@@ -60,4 +60,33 @@ public class UserServiceImpl implements UserService {
     public UserDto login(UserDto userDto) {
         return null;
     }
+
+    @Override
+    public String changeNickname(UserDto userDto) {
+
+        UserDto existingUser = userDao.findById(userDto.getId());
+        if (existingUser == null) {
+            throw new IllegalArgumentException("User not found");
+        }
+
+        System.out.println(existingUser);
+        System.out.println(userDto);
+
+        if (userDto.getNickname().equals(existingUser.getNickname())) {
+            throw new IllegalArgumentException("New nickname is the same as the old one");
+        }
+
+        existingUser.setNickname(userDto.getNickname());
+        userDao.changeNickname(existingUser);
+        return "Nickname updated successfully";
+
+    }
+
+    @Override
+    public UserDto getUser() {
+        return userDao.getUser();
+    }
+
 }
+
+

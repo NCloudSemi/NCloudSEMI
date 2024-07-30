@@ -9,6 +9,7 @@
 <body>
     <div class="wrap">
         <jsp:include page="/sidebar-template.jsp"></jsp:include>
+        <input type="hidden" name="id" value="${loginUser.id}">
         <div class="content">
             <div id="mp_content_flexbox">
                 <div id="mp_content_flexbox_left">
@@ -19,6 +20,110 @@
                             src="${pageContext.request.contextPath}/static/image/프로필 사진.jpg"
                             alt="프로필사진"
                         />
+                    </div>
+                    <div class="mp_user_info_box">
+                        <h5 id="mp_nickname_change"><strong>Ob_bear___</strong></h5>
+                        <p id="mp_region_change">${loginUser.region}, Korea</p>
+                        <!-- Overlay -->
+                        <div id="mp_userInfo_overlay"></div>
+                        <!-- Popup -->
+                        <div id="mp_userInfo_popup">
+                            <div class="mp_pick_popup-header">
+                                <div class="mp_pick_popup-header-title">
+                                    <h5>유저정보 변경</h5>
+                                </div>
+                                <button id="mp_userInfo_close-popup">
+                                    <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
+                                </button>
+                            </div>
+                            <div class="mp_popup_content">
+                                <form action="/change-nickname.do" name="">
+                                    <div>
+                                        <p>닉네임변경</p>
+                                        <input type="hidden" name="id" value="${loginUser.id}">
+                                        <input type="text" name="nickname" placeholder="${loginUser.nickname}"/>
+                                        <button type="submit">변경</button>
+                                    </div>
+                                    <div>
+                                        <p>지역변경</p>
+                                        <select name="residence" id="residence-list">
+                                            <option value="서울">서울</option>
+                                            <option value="경기">경기</option>
+                                            <option value="인천">인천</option>
+                                            <option value="강원">강원</option>
+                                            <option value="대구">대구</option>
+                                            <option value="대전">대전</option>
+                                            <option value="광주">광주</option>
+                                            <option value="울산">울산</option>
+                                            <option value="충남">충남</option>
+                                            <option value="충북">충북</option>
+                                            <option value="경남">경남</option>
+                                            <option value="경북">경북</option>
+                                            <option value="전남">전남</option>
+                                            <option value="전북">전북</option>
+                                            <option value="제주">제주</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mp_my_travel_grade_box">
+                        <a href=""><p id="mp_grade_text">내 여행 등급</p></a>
+                        <img
+                                id="mp_baggage_icon"
+                                src="${pageContext.request.contextPath}/static/image/내 여행 등급 baggage_icon.svg"
+                                alt="내여행등급(1단계)"
+                        />
+                        <!-- Overlay -->
+                        <div id="mp_grade_overlay"></div>
+                        <!-- Popup -->
+                        <div id="mp_grade_popup">
+                            <div class="mp_pick_popup-header">
+                                <div class="mp_pick_popup-header-title"></div>
+                                <button id="mp_grade_close-popup">
+                                    <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
+                                </button>
+                            </div>
+                            <div class="mp_popup_content">
+                                <div class="mp_grade_info_box">
+                                    <div class="mp_grade_my_info">
+                                        <h4><strong>내 여행 등급</strong></h4>
+                                        <img src="${pageContext.request.contextPath}/static/image/보스턴백_icon.svg" alt="보스턴백img" />
+                                        <p>보스턴백</p>
+                                    </div>
+                                    <div class="mp_grade_text_info">
+                                        <h6><strong>다음 단계까지 ____남았습니다.</strong></h6>
+                                        <p>여행 계획 채택 수에 따라서 등급이 나누어집니다.</p>
+                                        <p>보스턴백 : 채택수 0 ~ 500사이</p>
+                                        <p>트렁크백 : 채택수 500 ~ 2000사이</p>
+                                        <p>캐리어 : 채택수 2000 ~ 10000사이</p>
+                                        <p>비행기 : 채택수 10000이상</p>
+                                    </div>
+                                </div>
+                                <div class="mp_arrow">
+                                    <img src="${pageContext.request.contextPath}/static/image/화살표_icon.svg" alt="화살표img" />
+                                </div>
+                                <div class="mp_grade_marks">
+                                    <div>
+                                        <img src="${pageContext.request.contextPath}/static/image/비행기_icon.svg" alt="비행기" />
+                                        <p>비행기</p>
+                                    </div>
+                                    <div>
+                                        <img src="${pageContext.request.contextPath}/static/image/캐리어_icon.svg" alt="캐리어" />
+                                        <p>캐리어</p>
+                                    </div>
+                                    <div>
+                                        <img src="${pageContext.request.contextPath}/static/image/트렁크백_icon.svg" alt="트렁크백" />
+                                        <p>트렁크백</p>
+                                    </div>
+                                    <div>
+                                        <img src="${pageContext.request.contextPath}/static/image/보스턴백_icon.svg" alt="보스턴백" />
+                                        <p>보스턴백</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id="pick_box">
                         <ul id="pick_box_ul">
@@ -147,63 +252,6 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
-                    <div id="mp_my_travel_grade_box">
-                        <a href=""><p id="mp_grade_text">내 여행 등급</p></a>
-                        <img
-                            id="mp_baggage_icon"
-                            src="${pageContext.request.contextPath}/static/image/내 여행 등급 baggage_icon.svg"
-                            alt="내여행등급(1단계)"
-                        />
-                        <!-- Overlay -->
-                        <div id="mp_grade_overlay"></div>
-                        <!-- Popup -->
-                        <div id="mp_grade_popup">
-                            <div class="mp_pick_popup-header">
-                                <div class="mp_pick_popup-header-title"></div>
-                                <button id="mp_grade_close-popup">
-                                    <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
-                                </button>
-                            </div>
-                            <div class="mp_popup_content">
-                                <div class="mp_grade_info_box">
-                                    <div class="mp_grade_my_info">
-                                        <h4><strong>내 여행 등급</strong></h4>
-                                        <img src="${pageContext.request.contextPath}/static/image/보스턴백_icon.svg" alt="보스턴백img" />
-                                        <p>보스턴백</p>
-                                    </div>
-                                    <div class="mp_grade_text_info">
-                                        <h6><strong>다음 단계까지 ____남았습니다.</strong></h6>
-                                        <p>여행 계획 채택 수에 따라서 등급이 나누어집니다.</p>
-                                        <p>보스턴백 : 채택수 0 ~ 500사이</p>
-                                        <p>트렁크백 : 채택수 500 ~ 2000사이</p>
-                                        <p>캐리어 : 채택수 2000 ~ 10000사이</p>
-                                        <p>비행기 : 채택수 10000이상</p>
-                                    </div>
-                                </div>
-                                <div class="mp_arrow">
-                                    <img src="${pageContext.request.contextPath}/static/image/화살표_icon.svg" alt="화살표img" />
-                                </div>
-                                <div class="mp_grade_marks">
-                                    <div>
-                                        <img src="${pageContext.request.contextPath}/static/image/비행기_icon.svg" alt="비행기" />
-                                        <p>비행기</p>
-                                    </div>
-                                    <div>
-                                        <img src="${pageContext.request.contextPath}/static/image/캐리어_icon.svg" alt="캐리어" />
-                                        <p>캐리어</p>
-                                    </div>
-                                    <div>
-                                        <img src="${pageContext.request.contextPath}/static/image/트렁크백_icon.svg" alt="트렁크백" />
-                                        <p>트렁크백</p>
-                                    </div>
-                                    <div>
-                                        <img src="${pageContext.request.contextPath}/static/image/보스턴백_icon.svg" alt="보스턴백" />
-                                        <p>보스턴백</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div id="mp_messagebox">
                         <span class="message">상태 메시지: 메시지를 클릭하여 수정하세요.</span>
