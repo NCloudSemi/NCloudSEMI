@@ -1,0 +1,180 @@
+/* 모달창 뒷배경 설정 */
+.board-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 모달창 박스 설정*/
+.modal-box {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80vw;
+    height: 90vh;
+}
+/* 모달창 헤더 영역 설정 */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    height: 5vh;
+    padding: 1vh 2vh;
+}
+.modal-header h3 {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0;
+}
+.modal-header button {
+    margin-left: 1vh;
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.modal-header button:hover {
+    transform: scale(1.2);
+}
+/* 모달창 챕터 박스 영역 설정 */
+.chapter-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 80vw;
+    height: 5vh;
+    padding: 0 2vh;
+}
+.chapter-list {
+    display: flex;
+    width: 71vw;
+}
+.chapter {
+    width: 5vw;
+    height: 3vh;
+    border-top-right-radius: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+.chapter p {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+}
+#chapter-add {
+    border: none;
+    background-color: #817F7F;
+    color: white;
+}
+.chapter-box button {
+    margin-left: 1vh;
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.chapter-box button:hover {
+    transform: scale(1.2);
+}
+/* 모달창 컨텐츠 박스 영역 설정 */
+.contents-box {
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    padding: 0 2vh 2vh;
+}
+/* 컨텐츠 박스 1 - 맵 박스 영역 설정 */
+.map-box {
+    width: 20vw;
+    height: 78vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-box-search-bar {
+    width: 20vw;
+    height: 3vh;
+    display: flex;
+    margin-top: 1vh;
+    justify-content: center;
+    align-items: center;
+}
+.map-box-search-bar button {
+    border: none;
+    background: none;
+    margin-right: 1vw;
+    transition: transform 0.2s;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+}
+.map-box-search-bar button:hover {
+    transform: scale(1.2);
+}
+.map-box-search-bar img {
+    width: 3vh;
+    height: 3vh;
+}
+.map-box-search-bar input {
+    width: 15vw;
+    height: 3vh;
+    border: none;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.map-box-search-bar input:hover,
+.map-box-search-bar input:focus {
+    outline: none;
+}
+
+.map-box-map {
+    width: 19vw;
+    height: 25vh;
+    background-color: black;
+    color: white;
+    margin: 1vh 0;
+}
+
+.map-box-preview-box {
+    width: 19vw;
+    height: 47vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.map-box-preview {
+    width: 19vw;
+    height: 11vh;
+    margin-bottom: 1vh;
+    border-radius: 10px;
+    padding: 1vh;
+    background-color: pink;
+}
+.map-box-preview-img {
+    width: 5vw;
+    height: 9vh;
+    background-color: black;
+}
+/* 컨텐츠 박스 2 - 버튼 박스 영역 설정 */
+.button-box {
+    width: 2vw;
+    height: 78vh;
+    background-color: gray;
+}
+/* 컨텐츠 박스 3 - 계획 박스 영역 설정 */
+.plan-box {
+    width: 70vw;
+    background-color: blue;
+}
