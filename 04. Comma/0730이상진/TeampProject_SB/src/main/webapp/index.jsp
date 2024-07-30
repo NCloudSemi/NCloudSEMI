@@ -35,7 +35,7 @@
         <!-- right content -->
         <div id="login-right-content">
             <!-- login Page -->
-            <div id="login" class="login-content">
+            <form action="/user/login.do" method="post" id="login" class="login-content">
                 <a href="">
                     <img src="${pageContext.request.contextPath}/static/image/TeamProjectLogo.png" alt="logo" class="main-logo">
                 </a>
@@ -46,21 +46,21 @@
                 <div id="login-container1">
                     <div id="focus-login-email" class="input-group">
                         <%--@declare id="username"--%><label for="login-email">ID</label>
-                        <input type="text" id="login-email" class="login-input">
+                        <input type="text" id="login-email" name="email" class="login-input">
                     </div>
                     <div id="focus-login-password" class="input-group">
                         <%--@declare id="password"--%><label for="login-password">PW</label>
-                        <input type="password" id="login-password" class="login-input">
+                        <input type="password" id="login-password" name="password" class="login-input">
                     </div>
                     <div class="btn-group">
                         <button id="loginBtn" class="btn">LOGIN</button>
-                        <button id="showSignup" class="btn">JOIN</button>
+                        <button type="button" id="showSignup" class="btn">JOIN</button>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <!-- join page -->
-            <div id="join" class="login-content hidden">
+            <form action="user/join.do" method="post" id="join" class="login-content hidden">
                 <a href="">
                     <img src="${pageContext.request.contextPath}/static/image/TeamProjectLogo.png" alt="logo" class="main-logo">
                 </a>
@@ -70,19 +70,19 @@
                 <div id="login-container2">
                     <div id="focus-join-email" class="input-group">
                         <label for="join-email">ID</label>
-                        <input type="text" id="join-email" class="login-input">
+                        <input type="text" id="join-email" name="email" class="login-input">
                     </div>
                     <div id="focus-join-password" class="input-group">
                         <label for="join-password">PW</label>
-                        <input type="password" id="join-password" class="login-input">
+                        <input type="password" id="join-password" name="password" class="login-input">
                     </div>
                     <div id="focus-join-passwordChk" class="input-group">
                         <label for="passwordChk">PW CHECK</label>
-                        <input type="password" id="passwordChk" class="login-input">
+                        <input type="password" id="passwordChk" name="passwordChk" class="login-input">
                     </div>
                     <div id="focus-join-name" class="input-group">
                         <label for="name">NAME</label>
-                        <input type="text" id="name" class="login-input">
+                        <input type="text" id="name" name="name" class="login-input">
                     </div>
                     <div class="btn-group">
                         <button id="male" class="btn" value="MALE">MALE</button>
@@ -117,10 +117,10 @@
                     </div>
                     <div class="btn-group">
                         <button id="signupBtn" class="btn">JOIN</button>
-                        <button id="showLogin" class="btn">CANCEL</button>
+                        <button type="button" id="showLogin" class="btn">CANCEL</button>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <!-- Modal -->
             <div id="myModal" class="modal">

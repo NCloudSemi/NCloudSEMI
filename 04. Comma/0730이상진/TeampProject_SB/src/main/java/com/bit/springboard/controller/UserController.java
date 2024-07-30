@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -28,14 +29,20 @@ public class UserController {
     }
 
     @PostMapping("/login.do")
-    public String loginView(@ModelAttribute UserDto userDto, HttpSession session) {
+    public String login(UserDto userDto, Model model, HttpSession session) {
+
         try {
-           UserDto user = userService.login(userDto);
-           session.setAttribute("user", user);
-           return "redirect:/";
-        } catch ( Exception e ) {
+            UserDto loginMember = userService.login(userDto);
+
+            loginMember.setPassword("");
+
+            session.setAttribute("loginMember", loginMember);
+
+            return "home";
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            return "index.jsp";
+            model.addAttribute("loginFailMsg", e.getMessage());
+            return "redirect:/";
         }
     }
 }

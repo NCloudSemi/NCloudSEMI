@@ -16,27 +16,9 @@
         WHERE NAME = #{name}
     </select>
 
-    <insert id="insertUser" parameterType="user">
-        INSERT INTO USERS(
-                            EMAIL
-                          , PASSWORD
-                          , NAME
---                           , ADDRESS
-                          , DETAIL_ADDRESS
-        ) VALUES (
-                   #{email}
-                 , #{password}
-                 , #{name}
---                  , #{address}
-                 , #{detail_address}
-                 )
-    </insert>
-
     <select id="login" parameterType="user" resultType="user">
-        SELECT ID
-             , EMAIL
+        SELECT EMAIL
              , PASSWORD
-             , NAME
         FROM USERS
         WHERE EMAIL = #{email}
           AND PASSWORD = #{password}

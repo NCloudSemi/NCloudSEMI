@@ -6,7 +6,6 @@ body {
     justify-content: center;
 
     margin: 35px 0;
-
 }
 
 
@@ -116,7 +115,6 @@ body {
     border: none;
     outline: none;
 }
-
 
 #login-password,
 #join-password{

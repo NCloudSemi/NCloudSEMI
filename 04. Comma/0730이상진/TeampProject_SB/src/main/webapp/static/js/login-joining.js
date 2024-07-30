@@ -112,11 +112,4 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('myModal').style.display = 'none';
         document.getElementById('residenceDetails').value = '';
     })
-
-
-    $("#loginBtn").on("click", (e) => {
-        $.post('user/login.do', {email: $("#login-email"), password: $("#login-password")}, function (obj) {
-
-        });
-    });
 });

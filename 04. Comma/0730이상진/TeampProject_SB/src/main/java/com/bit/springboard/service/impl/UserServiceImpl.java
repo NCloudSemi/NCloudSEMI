@@ -73,6 +73,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto login(UserDto userDto) {
+
+        System.out.println("UserServiceImpl.login메소드 실행");
+        System.out.println(userDto.getEmail());
+
         int emailCheck = userDao.emailCheck(userDto.getEmail());
 
         if(emailCheck == 0)
