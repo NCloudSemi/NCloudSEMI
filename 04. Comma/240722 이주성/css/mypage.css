@@ -482,7 +482,7 @@
 
 #mp_status_popup {
     width: 30vw;
-    height: 50vh;
+    height: auto;
     display: none; /* 기본적으로 숨김 */
     position: fixed;
     left: 50%;
@@ -546,11 +546,12 @@
 }
 
 #mp_header_text div a {
+    width: 10vw;
     text-decoration-line: none;
     color: black;
     font-weight: bold;
     font-size: large;
-    margin: 2rem;
+    margin: 1.5rem;
     transition: font-size 0.3s, color 0.3s;
 }
 
@@ -638,6 +639,62 @@
     z-index: 1000;
 }
 
-.mp_new_board_box {
+#mp_new_board_upload_popup img {
+    margin-top: 0.5rem;
+    width: 30px;
+    height: 30px;
+}
+
+.mp_new_board_box form {
     display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mp_new_board_image_box {
+    display: flex;
+    flex-direction: column;
+    background-color: #ccc;
+    width: 35vh;
+    height: 35vh;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    border-radius: 10px;
+}
+
+.mp_new_board_image_box img {
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.mp_new_board_image_box p {
+    cursor: pointer;
+}
+
+.mp_new_board_text_box textarea {
+    width: 40vh;
+    height: 35vh;
+    border: 1px solid #777676;
+    border-radius: 10px;
+    cursor: pointer;
+    resize: none;
+}
+
+.mp_pick_popup-header-title h5 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 3rem;
+    margin-top: 0.5rem;
+}
+
+textarea::placeholder {
+    color: #777676;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    text-align: start;
 }
