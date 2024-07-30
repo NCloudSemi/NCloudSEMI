@@ -42,7 +42,7 @@ public class UserController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             model.addAttribute("loginFailMsg", e.getMessage());
-            return "redirect:/";
+            return "/user/login";
         }
     }
 }
