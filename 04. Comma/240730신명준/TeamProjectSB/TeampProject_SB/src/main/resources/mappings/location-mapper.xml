@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--쿼리문이 Dao 클래스에서 분리되어 온 것이기 때문에 namespace는 관례적으로 Dao 클래스명과 일치시킨다.-->
+<mapper namespace="LocationDao">
+
+    <select id="get" parameterType="location" resultType="location">
+        SELECT *
+        FROM LOCATION
+        WHERE X = #{x}
+          AND  Y = #{y}
+          AND  LOCATION_NAME = #{location_name}
+    </select>
+
+    <insert id="post" parameterType="location">
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            SELECT IFNULL(MAX(ID), 1) FROM LOCATION
+        </selectKey>
+       INSERT INTO LOCATION(
+         LOCATION_NAME,
+         LIKE_CNT,
+         GRADE,
+         GRADE_CNT,
+         X,
+         Y
+       )
+       VALUE(
+           #{location_name},
+           0,
+           0,
+           0,
+           #{x},
+           #{y}
+        )
+    </insert>
+
+    <select id="getReviews" parameterType="int" resultType="list">
+         SELECT *
+         FROM LOCATION_REVIEW
+         WHERE LOCATION_ID = #{locationId}
+    </select>
+
+    <select id="getOptions" parameterType="int" resultType="list">
+        SELECT *
+        FROM LOCATION_OPTION
+        WHERE LOCATION_ID = #{locationId}
+    </select>
+
+</mapper>

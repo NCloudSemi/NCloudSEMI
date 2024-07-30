@@ -65,7 +65,12 @@
                     
                     //kakao 검색관련 이벤트 TEST
                     const serchingData = () =>{
-                        const serchValue = "호텔" //document.querySelector('#serchBar').val()
+                        let serchValue = "호텔" //document.querySelector('#serchBar').val()
+                        console.log($('#serchBar').val())
+                        if($('#serchBar').val() =='')
+                            serchValue = "호텔"
+                        else
+                            serchValue = $('#serchBar').val() 
                         //검색창 비워져 있는지
                         if(serchValue ===''){
                                 console.log('no_serch_Value')
@@ -341,8 +346,24 @@
                     }
 
 
+                    //book-p[tiom]
+                    // men
+                    function updateDropdown() {
+                        let text = "";
+                        console.log($('#book-adult').val())
+                        console.log($('#book-child').val())
+                        let adultCount = parseInt($('#book-adult').val(), 10);
+                        let childCount = parseInt($('#book-child').val(), 10);
 
+                        if (!isNaN(adultCount)) {
+                            text += "성인 " + adultCount + "명";
+                        }
+                        if (!isNaN(childCount)) {
+                            text += (text.length > 0 ? " " : "") + "아동 " + childCount + "명";
+                        }
 
+                        $('#bookMen-dropDown').text(text);
+                    }
 
                      
                     //calender
@@ -470,6 +491,14 @@
                         $('#serch-form').css({display:'flex'}) 
                     })
 
+                    //serch 
+                    $('#serchBar').on('keydown', function(event) {
+                        if (event.keyCode == 13) {
+                            event.preventDefault(); // Prevents default form submission behavior
+                            serchingData()
+                        }
+                    });
+
                     
                     
                     //price filter drag
@@ -539,7 +568,14 @@
                             "top":  (top/offsetH) *100 +'vh'
                         })
                     }
-                });
+                    });
+                    
+                    //booking data
+                    
+
+                    $('#book-adult').on('blur', updateDropdown);
+                    $('#book-child').on('blur', updateDropdown);
+
 
                     //calender button
                     $('#prev').on('click', function () {

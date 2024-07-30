@@ -130,7 +130,8 @@
                             </div>
                             <div class="col-3 border result-container" >
                                 <div id="resultModalComment">
-                                    <div class="container" id="commentArea">
+                                    <p>후기</p>
+                                    <div class="commentArea">
                                         <div class="d-flex">
                                             <div class="grade">
                                                 ⭐⭐⭐⭐⭐
@@ -146,7 +147,7 @@
                                          
 
                                     </div>
-                                    <div class="container" id="commentArea">
+                                    <div class="commentArea">
                                         <div class="d-flex">
                                             <div class="grade">
                                                 ⭐⭐⭐⭐⭐
@@ -162,7 +163,7 @@
                                          
 
                                     </div>
-                                    <div class="container" id="commentArea">
+                                    <div class="commentArea">
                                         <div class="d-flex">
                                             <div class="grade">
                                                 ⭐⭐⭐⭐⭐
@@ -211,32 +212,35 @@
                             <div class="col-3 border" id="resultModalBooking">
 
                                 <div class="d-flex" id="book-men">
-                                    <p>예약인원</p>
-                                    <div class="dropdown">
-                                        <button class="btn dropdown-toggle" type="button" id="bookMen-dropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       <div style="padding: 6px;">예약인원</div>
+                                 
+                                        <button class="btn dropdown-toggle" type="button" id="bookMen-dropDown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                            예약인원수
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="bookMen-dropDown">
+                                        <div class="dropdown-menu" >
+                                            <form>
                                                 <div class="form-group">
                                                     <label for="book-adult">성인</label>
-                                                    <input type="text" class="form-control" id="book-adult" placeholder="0">
+                                                    <input type="text" class="form-control" id="book-adult" placeholder="0명">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="book-child">아동</label>
-                                                    <input type="text" class="form-control" id="book-child" placeholder="0">
+                                                    <input type="text" class="form-control" id="book-child" placeholder="0명">
                                                 </div>
+                                            </form>
                                         </div>
-                                    </div>
                                 </div>
 
                                 <div class="d-flex" id="book-option">
-                                    <p>객실종류</p>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                    <div style="padding: 6px;">객실종류</div>
+                                      <button class="btn dropdown-toggle" id="book-option-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        option1
+                                      </button>
+                                      <ul class="dropdown-menu">
+                                        <li><button class="dropdown-item book-opiton-item" type="button">option1</button></li>
+                                        <li><button class="dropdown-item book-opiton-item" type="button">option2</button></li>
+                                        <li><button class="dropdown-item book-opiton-item" type="button">option3</button></li>
+                                      </ul>
                                 </div>
 
                                 
