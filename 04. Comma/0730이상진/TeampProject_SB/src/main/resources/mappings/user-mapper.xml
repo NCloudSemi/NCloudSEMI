@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--쿼리문이 Dao 클래스에서 분리되어 온 것이기 때문에 namespace는 관례적으로 Dao 클래스명과 일치시킨다.-->
+<mapper namespace="UserDao">
+    <select id="emailCheck" parameterType="string" resultType="int">
+        SELECT COUNT(*)
+        FROM USERS
+        WHERE EMAIL = #{email}
+    </select>
+
+    <select id="nameCheck" parameterType="string" resultType="int">
+        SELECT COUNT(*)
+        FROM USERS
+        WHERE NAME = #{name}
+    </select>
+
+    <insert id="insertUser" parameterType="user">
+        INSERT INTO USERS(
+                            EMAIL
+                          , PASSWORD
+                          , NAME
+--                           , ADDRESS
+                          , DETAIL_ADDRESS
+        ) VALUES (
+                   #{email}
+                 , #{password}
+                 , #{name}
+--                  , #{address}
+                 , #{detail_address}
+                 )
+    </insert>
+
+    <select id="login" parameterType="user" resultType="user">
+        SELECT ID
+             , EMAIL
+             , PASSWORD
+             , NAME
+        FROM USERS
+        WHERE EMAIL = #{email}
+          AND PASSWORD = #{password}
+    </select>
+</mapper>

@@ -34,7 +34,6 @@
 
         <!-- right content -->
         <div id="login-right-content">
-
             <!-- login Page -->
             <div id="login" class="login-content">
                 <a href="">
@@ -45,12 +44,12 @@
                 <p>당신의 일상에 '쉼표'를 선물하세요.</p>
 
                 <div id="login-container1">
-                    <div id="focus-login-username" class="input-group">
-                        <%--@declare id="username"--%><label for="username">ID</label>
+                    <div id="focus-login-email" class="input-group">
+                        <%--@declare id="username"--%><label for="login-email">ID</label>
                         <input type="text" id="login-email" class="login-input">
                     </div>
                     <div id="focus-login-password" class="input-group">
-                        <%--@declare id="password"--%><label for="password">PW</label>
+                        <%--@declare id="password"--%><label for="login-password">PW</label>
                         <input type="password" id="login-password" class="login-input">
                     </div>
                     <div class="btn-group">
@@ -69,21 +68,21 @@
                 <h1>comma</h1>
                 <p>join the membership</p>
                 <div id="login-container2">
-                    <div id="focus-join-username" class="input-group">
-                        <label for="join-username">ID</label>
-                        <input type="text" id="join-username" class="login-input">
+                    <div id="focus-join-email" class="input-group">
+                        <label for="join-email">ID</label>
+                        <input type="text" id="join-email" class="login-input">
                     </div>
                     <div id="focus-join-password" class="input-group">
-                        <label for="password">PW</label>
+                        <label for="join-password">PW</label>
                         <input type="password" id="join-password" class="login-input">
                     </div>
                     <div id="focus-join-passwordChk" class="input-group">
-                        <label for="password">PW CHECK</label>
+                        <label for="passwordChk">PW CHECK</label>
                         <input type="password" id="passwordChk" class="login-input">
                     </div>
-                    <div id="focus-join-nickname" class="input-group">
-                        <label for="nickname">NAME</label>
-                        <input type="text" id="nickname" class="login-input">
+                    <div id="focus-join-name" class="input-group">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" class="login-input">
                     </div>
                     <div class="btn-group">
                         <button id="male" class="btn" value="MALE">MALE</button>
@@ -139,14 +138,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-
-
-
-
-
-    </script>
-</body>
+    </body>
 </html>

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c6ebaba-041d-49b9-bb4f-fd1440c42bbe" name="Changes" comment="" />
+    <list default="true" id="2c6ebaba-041d-49b9-bb4f-fd1440c42bbe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +24,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -40,9 +47,10 @@
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Smart Tomcat.Tomcat.executor": "Run",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/planl/OneDrive/바탕 화면/bitcamp/파일질라수업/SpringFramework/Ex/_17_Spring_Board_Template",
+    "last_opened_file_path": "C:/Users/planl/OneDrive/바탕 화면/Ex/html/team/04. Comma/0726이상진/TeamProjectSB/TeampProject_SB",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -68,6 +76,9 @@
       <option name="catalinaBase" value="C:\Users\planl\.SmartTomcat\TeampProject_SB\TeampProject_SB" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="extraClassPath" value="" />
       <option name="port" value="8090" />
       <option name="tomcatInfo">
@@ -105,6 +116,7 @@
       <workItem from="1721885144734" duration="7827000" />
       <workItem from="1721896936447" duration="1703000" />
       <workItem from="1721954573628" duration="20393000" />
+      <workItem from="1722271351069" duration="505000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    display: flex;
+    justify-content: center;
+
+    margin: 35px 0;
+
+}
+
+
+/* login-page */
+#login-page-container{
+    height: 620px;
+    width: 850px;
+    border: 2px solid black;
+    border-radius: 15px;
+
+    display: flex;
+}
+
+/* left-content */
+#login-left-content{
+    width: 470px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#login-page-img img{
+    height: 570px;
+    width: 414px;
+    border-radius: 10px;
+}
+
+/* right-content */
+#login-right-content{
+    width: 430px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.login-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.login-content.hidden{
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+/* logo */
+.main-logo{
+    width: 50px;
+    margin-top: 60px;
+}
+
+/* logo-name */
+.login-content h1,
+.login-content.hidden h1{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 8px 0 25px 0;
+}
+
+/* logo-text */
+#login p{
+    font-size: 20px;
+}
+
+#join p{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Id input */
+#login-container1{
+    margin-top: 80px;
+}
+
+#login-container2{
+    margin-top: 10px;
+}
+
+.input-group{
+    height: 38px;
+    width: 270px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+
+    border: 2px solid black;
+    border-style: none none solid none;
+}
+
+#login-email,
+#join-email{
+    width: 230px;
+    font-size: 14px;
+    margin-left: 30px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+}
+
+
+#login-password,
+#join-password{
+    width: 230px;
+    font-size: 14px;
+    margin-left: 21px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+}
+
+#passwordChk{
+    width: 150px;
+    font-size: 14px;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+}
+
+#name{
+    width: 200px;
+    font-size: 14px;
+    margin-left: 20px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+}
+
+#residence-input{
+    width: 270px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#residence-group{
+    height: 38px;
+    width: 270px;
+    font-size: 16px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    border-style: none none solid none;
+}
+
+#residence{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#residence-list{
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+#login-email:focus {
+    border-color: orange;
+}
+
+/* btn */
+.btn-group{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn{
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.btn::after{
+    display:block;
+    content: '';
+    padding: 2px;
+    border-bottom: solid 2px black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.btn:hover::after{
+    transform: scaleX(1);
+}
+.btn.active::after{
+    transform: scaleX(1);
+    border-bottom: solid 2px orange;
+}
+
+/* 모달 배경 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+/* 모달 내용 */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+#residenceDetails-box,
+#saveBtn-box{
+    display: flex;
+    justify-content: center;
+}
+
+#saveBtn-box{
+    margin-top: 18px;
+}
+
+/* 닫기 버튼 */
+#modal-close-box{
+    margin-bottom: 15px;
+}
+
+#modal-close {
+    color: black;
+    width: 10px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* 큰 텍스트 창 */
+.large-textarea {
+    width: 95%;
+    height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+/* 버튼 스타일 */
+.modal-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.modal-btn:hover {
+    background-color: orange;
+}
