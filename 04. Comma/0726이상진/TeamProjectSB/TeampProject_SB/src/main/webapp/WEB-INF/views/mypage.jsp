@@ -22,7 +22,7 @@
                         />
                     </div>
                     <div class="mp_user_info_box">
-                        <h5 id="mp_nickname_change"><strong>Ob_bear___</strong></h5>
+                        <h5 id="mp_nickname_change"><strong>${loginUser.nickname}</strong></h5>
                         <p id="mp_region_change">${loginUser.region}, Korea</p>
                         <!-- Overlay -->
                         <div id="mp_userInfo_overlay"></div>
@@ -37,7 +37,7 @@
                                 </button>
                             </div>
                             <div class="mp_popup_content">
-                                <form action="/change-nickname.do" name="">
+                                <form action="/mypage/change-nickname.do" name="">
                                     <div>
                                         <p>닉네임변경</p>
                                         <input type="hidden" name="id" value="${loginUser.id}">
@@ -47,21 +47,21 @@
                                     <div>
                                         <p>지역변경</p>
                                         <select name="residence" id="residence-list">
-                                            <option value="서울">서울</option>
-                                            <option value="경기">경기</option>
-                                            <option value="인천">인천</option>
-                                            <option value="강원">강원</option>
-                                            <option value="대구">대구</option>
-                                            <option value="대전">대전</option>
-                                            <option value="광주">광주</option>
-                                            <option value="울산">울산</option>
-                                            <option value="충남">충남</option>
-                                            <option value="충북">충북</option>
-                                            <option value="경남">경남</option>
-                                            <option value="경북">경북</option>
-                                            <option value="전남">전남</option>
-                                            <option value="전북">전북</option>
-                                            <option value="제주">제주</option>
+                                            <option value="Seoul">서울</option>
+                                            <option value="Gyeonggi">경기</option>
+                                            <option value="Incheon">인천</option>
+                                            <option value="Gangwon">강원</option>
+                                            <option value="Daegu">대구</option>
+                                            <option value="Daejeon">대전</option>
+                                            <option value="Gwangju">광주</option>
+                                            <option value="Ulsan">울산</option>
+                                            <option value="Chungnam">충남</option>
+                                            <option value="Chungbuk">충북</option>
+                                            <option value="Gyeongnam">경남</option>
+                                            <option value="Gyeongbuk">경북</option>
+                                            <option value="Jeonnam">전남</option>
+                                            <option value="Jeonbuk">전북</option>
+                                            <option value="Jeju">제주</option>
                                         </select>
                                     </div>
                                 </form>

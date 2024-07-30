@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/mypage")
 public class MyPageController {
 
     private MyPageService myPageService;
@@ -27,22 +28,24 @@ public class MyPageController {
         this.userService = userService;
     }
 
-    @GetMapping("/mypage")
+    @GetMapping("/main")
     public String showMyPage(UserDto userDto, Model model, HttpSession session) {
-
-//        System.out.println(userDto);
-//        model.addAttribute("user", userService.changeNickname(userDto));
-
+        // 로그인한 사용자 정보 가져오기
         UserDto loginUser = userService.getUser();
 
+        // 세션에 사용자 정보 저장
         session.setAttribute("loginUser", loginUser);
-        return "mypage"; // 뷰 이름 (mypage.jsp를 가리킴)
+
+        // 변경된 사용자 정보 다시 로드
+        UserDto updatedUser = userService.getUser(); // 로그인한 사용자 정보 가져오기
+        session.setAttribute("loginUser", updatedUser);
+
+        // 리다이렉트 설정
+        return "mypage"; // 리다이렉트할 경로 지정
     }
 
-
-
     @RequestMapping("/change-nickname.do")
-    public String changeNickname(@ModelAttribute UserDto userDto, Model model, HttpServletResponse response) {
+    public String changeNickname(@ModelAttribute UserDto userDto, Model model) {
 
         model.addAttribute("user", userDto.getId());
         System.out.println(userDto.getId());
@@ -52,8 +55,9 @@ public class MyPageController {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-        return "mypage";
+        return "redirect:/mypage/main";
     }
+
 
 //    @PutMapping("/profile/{userId}")
 //    public void updateUserProfile(@PathVariable int userId, @RequestBody UserDto userDto) {
