@@ -93,10 +93,18 @@
 }
 #chapter-add {
     border: none;
-    background-color: #817F7F;
-    color: white;
+    background-color: black;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#chapter-add p {
+    width: 3vw;
+    height: 2vh;
+    color: white;
     font-weight: bold;
+    font-size: 1.3em;
 }
 .chapter-box button {
     margin-left: 1vh;
