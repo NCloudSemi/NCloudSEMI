@@ -1,4 +1,3 @@
-<!--jsp 페이지 지시어 지정-->
 <%@page contentType="text/html;charset=UTF-8" language="java"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <html lang="ko">
@@ -16,7 +15,7 @@
                     <div id="mp_profile_box">
                         <form id="profileForm" action="/mypage/uploadProfileImage.do" method="post" enctype="multipart/form-data">
                             <input type="file" name="file" id="fileInput" style="display:none" onchange="uploadProfileImage()">
-                            <button id="mp_profile_change_btn" type="submit" onclick="triggerFileInput()">
+                            <button id="mp_profile_change_btn" type="submit">
                                 <c:choose>
                                     <c:when test="${not empty loginMember.profile_img}">
                                         <img
@@ -50,34 +49,36 @@
                                     <div class="mp_pick_popup-header-title">
                                         <h5>유저정보 변경</h5>
                                     </div>
-                                    <button type="submit"><img src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드"/></button>
+                                    <button id="mp_userinfo_change_btn" type="submit"><img src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드"/></button>
                                     <button id="mp_userInfo_close-popup"><img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" /></button>
                                 </div>
                                 <div class="mp_popup_content">
-                                    <div class="mp_user_info_change_box">
-                                        <p>닉네임변경</p>
-                                        <input type="hidden" name="user_id" value="${loginMember.user_id}">
-                                        <input type="text" name="nickname" placeholder="${loginMember.nickname}" value="${loginMember.nickname}" required/>
-                                    </div>
-                                    <div class="mp_user_info_change_box">
-                                        <p>지역변경</p>
-                                        <select name="address" id="address-list">
-                                            <option value="Seoul">서울</option>
-                                            <option value="Gyeonggi">경기</option>
-                                            <option value="Incheon">인천</option>
-                                            <option value="Gangwon">강원</option>
-                                            <option value="Daegu">대구</option>
-                                            <option value="Daejeon">대전</option>
-                                            <option value="Gwangju">광주</option>
-                                            <option value="Ulsan">울산</option>
-                                            <option value="Chungnam">충남</option>
-                                            <option value="Chungbuk">충북</option>
-                                            <option value="Gyeongnam">경남</option>
-                                            <option value="Gyeongbuk">경북</option>
-                                            <option value="Jeonnam">전남</option>
-                                            <option value="Jeonbuk">전북</option>
-                                            <option value="Jeju">제주</option>
-                                        </select>
+                                    <div class="mp_user_info_popup_box">
+                                        <div class="mp_user_info_change_box">
+                                            <p>닉네임변경</p>
+                                            <p>지역변경</p>
+                                        </div>
+                                        <div class="mp_user_info_change_box">
+                                            <input type="hidden" name="user_id" value="${loginMember.user_id}">
+                                            <input class="mp_btn" type="text" name="nickname" placeholder="${loginMember.nickname}" value="${loginMember.nickname}" required/>
+                                            <select class="mp_btn" name="address" id="address-list">
+                                                <option value="Seoul">서울</option>
+                                                <option value="Gyeonggi">경기</option>
+                                                <option value="Incheon">인천</option>
+                                                <option value="Gangwon">강원</option>
+                                                <option value="Daegu">대구</option>
+                                                <option value="Daejeon">대전</option>
+                                                <option value="Gwangju">광주</option>
+                                                <option value="Ulsan">울산</option>
+                                                <option value="Chungnam">충남</option>
+                                                <option value="Chungbuk">충북</option>
+                                                <option value="Gyeongnam">경남</option>
+                                                <option value="Gyeongbuk">경북</option>
+                                                <option value="Jeonnam">전남</option>
+                                                <option value="Jeonbuk">전북</option>
+                                                <option value="Jeju">제주</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -85,13 +86,18 @@
                     </div>
                     <div id="mp_my_travel_grade_box">
                         <a href=""><p id="mp_grade_text">내 여행 등급</p></a>
-                        <c:choose>
-                            <img
-                                id="mp_baggage_icon"
-                                src="${pageContext.request.contextPath}/static/image/내 여행 등급 baggage_icon.svg"
-                                alt="내여행등급(1단계)"
-                            />
-                        </c:choose>
+<%--                        <c:choose>--%>
+<%--                            <c:when>--%>
+                                <img
+                                    id="mp_baggage_icon"
+                                    src="${pageContext.request.contextPath}/static/image/내 여행 등급 baggage_icon.svg"
+                                    alt="내여행등급(1단계)"
+                                />
+<%--                            </c:when>--%>
+<%--                            <c:otherwise>--%>
+<%--                                --%>
+<%--                            </c:otherwise>--%>
+<%--                        </c:choose>--%>
                         <!-- Overlay -->
                         <div id="mp_grade_overlay"></div>
                         <!-- Popup -->

@@ -2,12 +2,13 @@ package com.bit.springboard.controller;
 
 import com.bit.springboard.dto.UserDto;
 import com.bit.springboard.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -22,13 +23,26 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/login.do")
+    public String loginView() {
+        return "user/login.do";
+    }
 
-    @PostMapping("/usernameCheck.do")
-    @ResponseBody
-    public Map<String, Object> usernameCheck(UserDto userDto) {
+    @PostMapping("/login.do")
+    public String login(UserDto userDto, Model model, HttpSession session) {
 
-        System.out.println(userDto.getUsername());
-        System.out.println(userService.usernameCheck(userDto.getUsername()));
-        return userService.usernameCheck(userDto.getUsername());
+        try {
+            UserDto loginMember = userService.login(userDto);
+
+            loginMember.setPw("");
+
+            session.setAttribute("loginMember", loginMember);
+
+            return "home";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            model.addAttribute("loginFailMsg", e.getMessage());
+            return "redirect:/";
+        }
     }
 }

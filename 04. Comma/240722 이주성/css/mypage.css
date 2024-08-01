@@ -698,3 +698,65 @@ textarea::placeholder {
     font-weight: bold;
     text-align: start;
 }
+
+/*--------------------------여행계획-----------------------------*/
+
+.mp_travel_recode_box {
+    width: 47vw;
+    margin: 2rem;
+}
+
+.mp_travel_recode_icons {
+    display: flex;
+    align-items: start;
+}
+
+.mp_travel_recode_icons input[type="checkbox"]{
+    margin-right: 1rem;
+}
+
+.mp_travel_recode_icon {
+    width: 47vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.mp_travel_recode_icons img{
+    width: 40vh;
+    height: 29vh;
+    overflow: hidden;
+}
+
+.mp_popup_content_checkbox span {
+    font-size: 24px;
+}
+
+.mp_tr_checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.mp_tr_checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.mp_tr_checkbox-container label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.mp_tr_checkbox-container label span {
+    display: inline-block;
+    padding-bottom: 3px;
+    font-size: 14px;
+}

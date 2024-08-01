@@ -2,19 +2,29 @@ package com.bit.springboard.service;
 
 import com.bit.springboard.dto.UserDto;
 
+
 import java.util.List;
 import java.util.Map;
 
 public interface UserService {
-    void join(UserDto userDto);
+
+    void joinUser(UserDto userDto);
 
     List<UserDto> getMembers();
 
     UserDto getMemberByUsername(UserDto userDto);
 
-    Map<String, Object> usernameCheck(String username);
+    Map<String, Object> emailCheck(String email);
 
-    String nicknameCheck(String nickname);
+    Map<String, Object> nameCheck(String name);
 
     UserDto login(UserDto userDto);
+
+//    String changeNickname(UserDto userDto);
+
+    UserDto getUser();
+
+    void updateProfileImage(UserDto userDto);
+
+    String updateUserInformation(UserDto userDto);
 }

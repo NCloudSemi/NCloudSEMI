@@ -2,28 +2,31 @@ package com.bit.springboard.dto;
 
 public class UserDto {
 
-    private int id;
-    private String username;
-    private String password;
+    private int user_id;
+    private String pw;
     private String nickname;
     private Gender gender;
-    private String region;
-    private String detailed_region;
+    private String address;
+    private String detailed_address;
+    private String profile_img;
+    private int score;
+    private String message;
+    private String email;
 
-    public String getUsername() {
-        return username;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPw() {
+        return pw;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     public String getNickname() {
@@ -42,32 +45,67 @@ public class UserDto {
         this.gender = gender;
     }
 
-    public String getRegion() {
-        return region;
+    public String getAddress() {
+        return address;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getDetailed_region() {
-        return detailed_region;
+    public String getDetailed_address() {
+        return detailed_address;
     }
 
-    public void setDetailed_region(String detailed_region) {
-        this.detailed_region = detailed_region;
+    public void setDetailed_address(String detailed_address) {
+        this.detailed_address = detailed_address;
+    }
+
+    public String getProfile_img() {
+        return profile_img;
+    }
+
+    public void setProfile_img(String profile_img) {
+        this.profile_img = profile_img;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
     public String toString() {
         return "UserDto{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "user_id=" + user_id +
+                ", pw='" + pw + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", gender=" + gender +
-                ", region='" + region + '\'' +
-                ", detailed_region='" + detailed_region + '\'' +
+                ", address='" + address + '\'' +
+                ", detailed_address='" + detailed_address + '\'' +
+                ", profile_img='" + profile_img + '\'' +
+                ", score=" + score +
+                ", message='" + message + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

@@ -153,17 +153,84 @@
 
 /*-------------------------user_info_change_box-------------------------*/
 
+#mp_userinfo_change_btn img {
+    margin-top: 0.5rem;
+    width: 30px;
+    height: 30px;
+}
+
+.mp_user_info_popup_box {
+    display: flex;
+}
+
 .mp_user_info_change_box {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 2rem;
 }
 
-.mp_user_info_change_box input[type='text'] {
-    border: 1px solid black;
+.mp_user_info_change_box p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-#address-list {
-    border: 1px solid black;
+.mp_user_info_change_box input[type="text"] {
+    margin-bottom: 1.3rem;
+}
+
+.mp_user_info_change_box select {
+    width: 3.7rem;
+    margin-top: 2px;
+}
+
+/*.mp_user_info_change_box input[type='text'] {*/
+/*    border: none;*/
+/*    border-bottom: 2px solid black;*/
+/*}*/
+
+/*#address-list {*/
+/*    border: none;*/
+/*    border-bottom: 2px solid black;*/
+/*}*/
+
+/*#address-list option {*/
+/*    border: none;*/
+/*    border-bottom: 2px solid black;*/
+/*}*/
+
+.mp_btn{
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.mp_btn select {
+    width: 100%;
+    margin-left: 0;
+}
+
+.mp_btn:hover{
+    cursor: pointer;
+}
+
+.mp_btn::after{
+    display:block;
+    content: '';
+    padding: 2px;
+    border-bottom: solid 2px black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.mp_btn:hover::after{
+    transform: scaleX(1);
+}
+.mp_btn.active::after{
+    transform: scaleX(1);
+    border-bottom: solid 2px orange;
 }
 
 /*-------------------------pick_board_box-------------------------*/

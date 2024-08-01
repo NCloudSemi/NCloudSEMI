@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### root_contexst.xml ###
+/src/main/webapp/WEB-INF/spring/root_context.xml
