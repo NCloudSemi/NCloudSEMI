@@ -22,9 +22,10 @@
             <p>E-mail.&nbsp;&nbsp;comma@comma.com</p>
             <p>Addr.&nbsp;&nbsp;Seoul, Korea</p>
             <p>Hosting by COMMA</p>
-            <img src="${pageContext.request.contextPath}/static/img/Siderbar-Footer-Logo.svg" alt="Sidebar-Header-Logo">
+            <img src="${pageContext.request.contextPath}/static/image/Siderbar-Footer-Logo.svg" alt="Sidebar-Header-Logo">
         </div>
     </div>
+<script src="${pageContext.request.contextPath}/static/js/jquery-3.7.1.min.js"></script>
 <script>
     $(()=> {
 
