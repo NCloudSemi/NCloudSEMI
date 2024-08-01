@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //save  delete
     saveButton.addEventListener('click', ()=>{
+
         const formData = new FormData();
         //upload_file
         for (let i =0; i< fileInput.files.length;i++){
@@ -98,6 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
         //title,memo
         formData.append('title',writeTitle.value)
         formData.append('content',writeMemo.value)
+        const datetimeSQL = new Date().toISOString().split('T').join(' ').split('Z').join('');
+        formData.append('reg_date',datetimeSQL)
+        //TEST
+        formData.append('id',1)
+
         //fehch 요청
         fetch(
            "/post/write.do",{

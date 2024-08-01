@@ -106,4 +106,9 @@ public class PostServiceImpl implements PostService {
     public List<PostCommentDto> getComments(int postId) {
         return postDao.getComments(postId);
     }
+
+    @Override
+    public void toggleLike(Map<String, Object> params) {
+            postDao.ToggleLike(params);
+    }
 }

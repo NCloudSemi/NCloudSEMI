@@ -17,5 +17,6 @@ public interface PostService {
 
     public List<PostCommentDto> getComments(int postId);
 
+    public void toggleLike(Map<String,Object> params);
 
 }

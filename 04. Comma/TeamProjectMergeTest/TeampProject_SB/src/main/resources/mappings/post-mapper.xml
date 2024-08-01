@@ -10,12 +10,14 @@
             SELECT IFNULL(MAX(ID), 1) FROM POST
         </selectKey>
         INSERT INTO POST(
+            ID,
             TITLE,
             CONTENT,
             REG_DATE,
             POST_IMG
         )
         VALUE(
+            #{id},
             #{title},
             #{content},
             #{reg_date},
@@ -52,7 +54,7 @@
                 P.LIKE_CNT,
                 P.REG_DATE,
                 P.POST_IMG,
-                U.ID,
+                U.USER_ID,
                 U.NICKNAME,
                 U.PROFILE_IMG,
                 U.ADDRESS,
@@ -61,11 +63,11 @@
                    SELECT 1
                    FROM `LIKE` L
                    WHERE L.POST_ID = P.POST_ID
-                     AND L.ID = U.ID
+                     AND L.ID = U.USER_ID
                )) AS is_like
          FROM POST P
          JOIN USER U
-           ON U.ID =P.ID
+           ON U.USER_ID =P.ID
           WHERE POST_ID =#{post_id}
     </select>
 
@@ -76,7 +78,7 @@
                C.COMMENT_CONTENT,
                C.LIKE_CNT,
                C.REG_DATE,
-               U.ID,
+               U.USER_ID,
                U.NICKNAME,
                U.PROFILE_IMG,
                U.ADDRESS,
@@ -85,14 +87,68 @@
                    SELECT 1
                    FROM `LIKE` L
                    WHERE L.COMMENT_ID = C.COMMENT_ID
-                     AND L.ID = U.ID
+                     AND L.ID = U.USER_ID
                )) AS is_like
         FROM COMMENT C
                  JOIN USER U
-                      ON C.ID = U.ID
+                      ON C.ID = U.USER_ID
         WHERE C.POST_ID = #{post_id};
     </select>
 
 
+    <select id ="checkLike" parameterType="map" resultType="int">
+        SELECT 1
+        FROM `LIKE`
+        WHERE 1=1
+        <if test="type == 'post'">
+            AND POST_ID =#{target_id}
+            AND ID = #{id}
+        </if>
+        <if test="type == 'comment'">
+            AND COMMENT_ID =#{target_id}
+            AND ID = #{id}
+        </if>
+        <if test="type == 'reply'">
+            AND REPLY_ID =#{target_id}
+            AND ID = #{id}
+        </if>
+
+    </select>
+
+    <delete id="deleteLike" parameterType="map">
+        DELETE FROM `LIKE`
+         WHERE 1=1
+         <if test="type == 'post'">
+             AND POST_ID =#{target_id}
+             AND  ID =#{id}
+         </if>
+         <if test="type == 'comment'">
+             AND COMMENT_ID =#{target_id}
+             AND  ID =#{id}
+         </if>
+         <if test="type == 'reply'">
+             AND REPLY_ID =#{target_id}
+             AND  ID =#{id}
+         </if>
+
+    </delete>
+
+    <insert id="insertLike" parameterType="map">
+         INSERT INTO `LIKE`(
+            ID,
+            <if test="type == 'post'">
+                POST_ID
+            </if>
+            <if test="type == 'comment'">
+                COMMENT_ID
+            </if>
+            <if test="type == 'reply'">
+                REPLY_ID
+            </if>
+        )VALUES(
+            #{id},
+            #{target_id}
+        )
+    </insert>
 
 </mapper>

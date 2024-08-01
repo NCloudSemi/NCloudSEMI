@@ -5,6 +5,7 @@ import com.bit.springboard.dto.PostCommentDto;
 import com.bit.springboard.dto.PostDto;
 import com.bit.springboard.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.objenesis.instantiator.basic.AccessibleInstantiator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -59,7 +60,7 @@ public class PostController {
     @PostMapping("/write.do")
     @ResponseBody
     public Map<String, Object> write(PostDto postDto , MultipartFile[] uploadFiles) {
-
+        System.out.println(postDto );
        Map<String, Object> result = new HashMap<>();
        PostDto post = postService.posting(postDto , uploadFiles);
        result.put("post", post);
@@ -95,8 +96,16 @@ public class PostController {
     public Map<String, Object>  postComment(int post_id) {
 
     }
+    */
+
+    @PostMapping("/like.do")
+    public void like(@RequestParam Map<String, Object> params) {
+        System.out.println(params);
+        postService.toggleLike(params);
+    }
 
 
+    /*
     @GetMapping("/reply.do")
     public Map<String, Object>  getReply(int comment_id) {
 

@@ -31,9 +31,11 @@ $(document).ready(function() {
 
     const toggleLike = function(type) {
         const $this = $(this);
-        const isLiked = $this.attr('is-like') == "true";
-        const target_id = $this.attr('target-id')
-        console.log($this.attr('is-like'))
+        const isLiked = $this.attr('is-like') === "true"; // 엄격한 비교 사용
+        const target_id = $this.attr('target-id');
+
+        console.log($this.attr('is-like'));
+
         if (isLiked) {
             $this.find('img').attr("src", `${contextPath}/static/image/Unliked-Icon.svg`);
             $this.attr('is-like', false);
@@ -42,22 +44,31 @@ $(document).ready(function() {
             $this.attr('is-like', true);
         }
 
-        //block button
-        if(target_id != 'undefined')
-        {
-            $(this).addClass('disabled')
-            fetch(`/post/like.do?type=${type}&target_id=${target_id}`).then(()=>{
-                //unBlock button
-                $(this).removeClass('disabled');
-            })
+        console.log($this);
+        console.log(target_id);
+
+        if (target_id && target_id !== "undefined") {
+            const formData = new FormData();
+            formData.append("type", type);
+            formData.append("target_id", target_id);
+            formData.append("id", 3); // 테스트용
+            $this.addClass('disabled');
+            fetch(`/post/like.do`, {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                $this.removeClass('disabled');
+            });
         }
+    };
 
 
-
-    }
-
-    $('.modal-interaction-like-button').on('click',()=>{toggleLike('post')});
-    $('.modal-comment-box').on('click', '.comment .like-button',()=>{ toggleLike('comment')});
-    $('.modal-comment-box').on('click', ',commnet .comment-content .hidden-comments .hidden-comment .hidden-like-button',()=>{ toggleLike('hidden')})
+    $('.modal-interaction-like-button').on('click', function() {
+        toggleLike.call(this, 'post');
+    });
+    $('.modal-comment-box').on('click', '.comment .like-button', function() {
+        toggleLike.call(this, 'comment');
+    });
+   // $('.modal-comment-box').on('click', ',commnet .comment-content .hidden-comments .hidden-comment .hidden-like-button',()=>{ toggleLike('reply')})
 
 });

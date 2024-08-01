@@ -23,9 +23,14 @@ public class PostDao {
 
     //posts
     public PostDto posting(PostDto postDto) {
-
+        System.out.println("AAAAAAAA");
+        try {
             mybatis.insert("PostDao.posting", postDto);
             return postDto;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
     public PostDto editPost(PostDto postDto) {
         mybatis.insert("PostDao.editPost", postDto);
@@ -59,6 +64,24 @@ public class PostDao {
         return mybatis.selectList("PostDao.getComments", post_id);
     }
 
+
+    //toggleLike
+    public void ToggleLike(Map<String,Object> params) {
+        try {
+            Integer val = mybatis.selectOne("PostDao.checkLike", params);
+            //exit
+            if (val == null) {
+                mybatis.insert("PostDao.insertLike", params);
+            }
+            //not exit
+            else {
+                mybatis.delete("PostDao.deleteLike", params);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 
 
