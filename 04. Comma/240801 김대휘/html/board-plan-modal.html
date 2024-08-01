@@ -6,7 +6,7 @@
     <title>게시글 보기 모달창</title>
     <!-- js link -->
     <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/board-plan-modal.js"></script>
+    <script src="../test.js"></script>
     <!-- bootstrap5 link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -42,20 +42,14 @@
                     <!-- modal-header -->
                     <div class="modal-header">
                         <h3>여행 계획 세우기</h3>
-                        <button id="plan-save">💾</button>
+                        <button class="plan-save" id="plan-save">💾</button>
                         <button id="plan-delete">🗑️</button>
                     </div>
                     <!-- chapter-box -->
                     <div class="chapter-box">
                         <div class="chapter-list">
                             <div class="chapter" id="chapter1">
-                                <input type="text" id="chapter-name1" class="chapter-name" placeholder="챕터명">
-                            </div>
-                            <div class="chapter" id="chapter2">
-                                <input type="text" id="chapter-name2" class="chapter-name" placeholder="챕터명">
-                            </div>
-                            <div class="chapter" id="chapter3">
-                                <input type="text" id="chapter-name3" class="chapter-name" placeholder="챕터명">
+                                <input type="text" id="chapter-name1" class="chapter-name" value="1일차">
                             </div>
                             <div class="chapter" id="chapter-add">
                                 <p>+</p>
@@ -210,33 +204,30 @@
                                         <input class="start-location" spellcheck="false" placeholder="출발 위치"></input>
                                     </div>
                                     <div class="timeline-item" id="timeline-item1">
-                                        <div class="timeline-icon">
-                                            <img src="../img/Location-Icon.svg" alt="Location Icon">
-                                        </div>
+                                        <div class="timeline-icon" id="timeline-icon-1">1</div>
                                         <div class="timeline-content">
                                             <input class="timeline-name" id="timeline-name1" placeholder="타임라인 제목"></input>
-                                            <div class="location-img-detail">
-                                                <img src="../img/Activity.svg" alt="Activity">
-                                                <textarea id="location-detail1" class="location-detail" placeholder="자세한 사항을 입력해주세요."></textarea>
-                                            </div>
+                                            <div class="location-detail"></div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item" id="timeline-item1">
+                                        <div class="timeline-icon" id="timeline-icon-1">1</div>
+                                        <div class="timeline-content">
+                                            <input class="timeline-name" id="timeline-name1" placeholder="타임라인 제목"></input>
+                                            <div class="location-detail"></div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item" id="timeline-item1">
+                                        <div class="timeline-icon" id="timeline-icon-1">1</div>
+                                        <div class="timeline-content">
+                                            <input class="timeline-name" id="timeline-name1" placeholder="타임라인 제목"></input>
+                                            <div class="location-detail"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="timeline-column-right">
                                 <div class="timeline-line-right"></div>
-                                <div class="timeline-item" id="timeline-item2">
-                                    <div class="timeline-icon">
-                                        <img src="../img/Location-Icon.svg" alt="Location Icon">
-                                    </div>
-                                    <div class="timeline-content">
-                                        <input class="timeline-name" id="timeline-name2" placeholder="타임라인 제목"></input>
-                                        <div class="location-img-detail">
-                                            <img src="../img/Activity.svg" alt="Activity">
-                                            <textarea id="location-detail2" class="location-detail" placeholder="자세한 사항을 입력해주세요." spellcheck="false"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
