@@ -28,7 +28,7 @@
                                     <c:otherwise>
                                         <img
                                                 id="mp_profile"
-                                                src="${pageContext.request.contextPath}/static/image/프로필%20기본이미지.png"
+                                                src="${pageContext.request.contextPath}/static/image/프로필%20기본이미지.jpg"
                                                 alt="기본 프로필 사진"
                                                 onclick="triggerFileInput(event)"
                                         />

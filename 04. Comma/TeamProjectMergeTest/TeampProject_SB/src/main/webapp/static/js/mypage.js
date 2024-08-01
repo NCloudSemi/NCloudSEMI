@@ -67,7 +67,7 @@ function uploadProfileImage() {
         .then(data => {
             // console.log(data);
             if (data.userProfile) {
-                console.log('Image uploaded successfully');
+                console.log('Image uploaded successfully');``
                 var newImageUrl = `/static/savedProfileImg/${data.userProfile.profile_img
                 }?t=${new Date().getTime()}`;
 

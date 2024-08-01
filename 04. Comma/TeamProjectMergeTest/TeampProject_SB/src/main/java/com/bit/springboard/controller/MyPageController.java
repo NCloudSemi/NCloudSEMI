@@ -3,6 +3,7 @@ package com.bit.springboard.controller;
 import com.bit.springboard.dto.UserDto;
 import com.bit.springboard.service.MyPageService;
 import com.bit.springboard.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,7 +48,7 @@ public class MyPageController {
         UserDto updatedUser = userService.getUser(); // 로그인한 사용자 정보 가져오기
         session.setAttribute("loginMember", loginMember);
 
-        return "/mypage";
+        return "/mypage/mypage";
     }
 
 //    @RequestMapping("/change-nickname.do")
@@ -66,14 +67,14 @@ public class MyPageController {
 
     @RequestMapping("/uploadProfileImage.do")
     @ResponseBody
-    public Map<String, Object> uploadProfileImage(@RequestParam("file") MultipartFile file, HttpSession session) {
+    public Map<String, Object> uploadProfileImage(@RequestParam("file") MultipartFile file, HttpSession session, HttpServletRequest request) {
 
         System.out.println("uploadProfileImage 메소드 실행");
         Map<String, Object> returnMap = new HashMap<>();
 
         try {
             // 파일 저장 로직
-            String fileName = saveFile(file); // 서버에 파일 저장
+            String fileName = saveFile(file, request); // 서버에 파일 저장
             System.out.println("Saved file name: " + fileName);
 
             // 세션에서 로그인된 사용자 정보 가져오기
@@ -101,9 +102,10 @@ public class MyPageController {
         }
     }
 
-    private String saveFile(MultipartFile file) throws IOException {
+    private String saveFile(MultipartFile file, HttpServletRequest request) throws IOException {
+        String serverPath = request.getServletContext().getRealPath("/");
         // 파일 저장 경로 설정
-        String uploadDir = "D:\\lecture\\NcloudSEMI\\04. Comma\\0731 이주성\\TeampProject_SB\\src\\main\\webapp\\static\\savedProfileImg";
+        String uploadDir = serverPath + "\\static\\savedProfileImg";
 
         // 디렉토리가 존재하지 않을 경우 생성
         File directory = new File(uploadDir);
