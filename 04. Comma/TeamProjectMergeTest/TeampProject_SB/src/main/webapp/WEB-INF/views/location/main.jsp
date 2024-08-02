@@ -96,10 +96,10 @@
                         <div class="modal-header border-0 justify-content-end">
                             <div id="link_planArea" class="d-flex">
                               <p>여행계획에 추가</p>
-                              <img src="${pageContext.request.contextPath}/static/image/plan_link_logo.svg">
+                              <img src="${pageContext.request.contextPath}/static/image/plan_link_logo.svg" id="plan_button">
                             </div>
-                            <img src="${pageContext.request.contextPath}/static/image/pick_location.svg">
-                            <img src="${pageContext.request.contextPath}/static/image/share_location.svg">
+                            <img src="${pageContext.request.contextPath}/static/image/pick_location.svg" id="pick_button">
+                            <img src="${pageContext.request.contextPath}/static/image/share_location.svg" id="share_button">
                         </div>
                         <!--modal body 1-2-1 1-1-2-->
                         <div class="modal-body">

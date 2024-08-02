@@ -56,9 +56,9 @@ public class PostDao {
     }
 
 
-    public PostDto getPost(int id) {
+    public PostDto getPost(Map<String, Object> params) {
         try{
-            return mybatis.selectOne("PostDao.getPost", id);
+            return mybatis.selectOne("PostDao.getPost", params);
         }catch (Exception e){
             e.printStackTrace();
         }

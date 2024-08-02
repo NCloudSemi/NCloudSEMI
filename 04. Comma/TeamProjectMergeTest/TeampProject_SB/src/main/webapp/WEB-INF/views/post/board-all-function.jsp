@@ -28,6 +28,9 @@
     <div class="wrap">
         <!--contextPath hidden-->
         <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
+        <!--link-data hidden-->
+        <input type="hidden" id="init_id" value="${init_id}">
+
         <div class="sidebar">
             <img src="${pageContext.request.contextPath}/static/image/Sidebar-Header-Logo.svg" class="sidebar-logo" alt="Sidebar-Header-Logo">
             <div class="sidebar-buttons">
@@ -56,6 +59,7 @@
             <div class="card-box" id="cardContainer">
             </div>
         </div>
+
         <!-- view-modal -->
         <div id="view-modal" class="board-modal" style="opacity: 0; z-index: -1;">
             <div class="modal-box">

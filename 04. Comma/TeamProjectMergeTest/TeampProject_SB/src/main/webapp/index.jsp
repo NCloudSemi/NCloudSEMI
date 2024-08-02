@@ -138,8 +138,8 @@
     $(()=>{
         $('#loginBtn').on('click', () => {
             $.ajax({
-                url: '/member/main.do',
-                type: "get",
+                url:  '/member/main.do',
+                type: "POST",     //"get",
                 contentType: "x-www-form-urlencoded",
                 success: (page) => {
                     $("body").html(page)

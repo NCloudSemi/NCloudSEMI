@@ -12,7 +12,7 @@ public interface PostService {
 
     public PostDto posting(PostDto postDto, MultipartFile[] uploadFiles);
     public PostDto editPost(PostDto postDto, MultipartFile[] uploadFiles);
-    public PostDto getPost(int id);
+    public PostDto getPost(Map<String, Object> params);
     public List<PostDto> getPosts( Map<String, Object> params);
 
     public List<PostDto> getUserPosts(int user_id);

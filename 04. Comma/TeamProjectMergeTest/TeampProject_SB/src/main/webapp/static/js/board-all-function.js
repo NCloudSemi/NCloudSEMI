@@ -32,6 +32,7 @@ $(document).ready(function() {
     });
 
     $('.write-button').click(function() {
+        //only defalut img
         openWriteModal();
     });
 
@@ -81,7 +82,7 @@ $(document).ready(function() {
 
                 //did you like?
                 $('.modal-interaction-like-button').attr('target-id', post['post_id'])
-                if(post["is_like"]) {
+                if(post["is_like"] == 1) {
                     $('.modal-interaction-like-button img').attr('src', `${contextPath}/static/image/Liked-Icon.svg`)
                     $('.modal-interaction-like-button').attr('is-like',true)
                 }

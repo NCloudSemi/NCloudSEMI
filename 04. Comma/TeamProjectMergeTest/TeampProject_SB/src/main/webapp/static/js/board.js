@@ -2,6 +2,9 @@ $(document).ready(function() {
 
 
     const cardContainer = document.getElementById('cardContainer');
+    const linkPost = document.getElementById("init_id").value
+    let contextPath = document.getElementById("contextPath").value
+
     let page = 1;
     const cardsPerPage = 1000;
 
@@ -61,9 +64,27 @@ $(document).ready(function() {
         });
     }
 
+    //현재 링크 데이터가 있나?
+    function loadLinkPost(post_id){
+        try {
+            getInitModalData(post_id)
+
+
+        }catch (res){
+            alert("존재하지 않은 게시글 입니다!")
+        }
+    }
+
     //실제로 존재하는 카드들 로드후 짭 로딩됨
     fetchCardsReal(cardsPerPage).then(addCards)
 
+    //is-link?
+    if(linkPost != null && linkPost != undefined && linkPost != -1)
+    {
+        console.log("try link")
+        loadLinkPost(linkPost)
+        console.log("try link")
+    }
 
     // 무한 스크롤 구현
     window.addEventListener('scroll', () => {
@@ -72,4 +93,90 @@ $(document).ready(function() {
             fetchCards(page, cardsPerPage).then(addCards);
         }
     });
+
+
+    //modal 열기용
+    function getInitModalData(post_id){
+        fetch(`/post/get.do?post_id=${post_id}`)
+            .then((res) => res.json())
+            .then((res) => {
+
+                const post = res["post"];
+                //writer
+                // Set the src attribute of the image
+                $('.writer-image-box img').attr('src', `/upload/${post["profile_img"]}`);
+                $('.writer-name').text(post["nickname"]);
+                $('.writer-location').text(post["address"]);
+
+                //did you like?
+                $('.modal-interaction-like-button').attr('target-id', post['post_id'])
+                if(post["is_like"] == 1) {
+                    $('.modal-interaction-like-button img').attr('src', `${contextPath}/static/image/Liked-Icon.svg`)
+                    $('.modal-interaction-like-button').attr('is-like',true)
+                }
+                else {
+                    $('.modal-interaction-like-button img').attr('src', `${contextPath}/static/image/Unliked-Icon.svg`)
+                    $('.modal-interaction-like-button').attr('is-like',false)
+                }
+
+                //post title,content,imgs
+                $('#title').val(post["title"])
+                $('#memo').val(post["content"])
+
+                //imgs-list
+                slideImages=[];
+                slideImages = JSON.parse(post["post_img"]);
+                if (post["post_img"].length != 0)
+                    $(".modal-img img").attr('src', `/upload/${slideImages[0]}`);
+                else
+                    $(".modal-img img").attr('src', `${contextPath}/static/image/Default-Img.svg`);
+                currentSlide = 0;
+
+                //loading comment
+                return fetch(`/post/comment.do?post_id=${post_id}`)
+
+            })
+            .then((res) => res.json())
+            .then((res) => {
+                //all clear
+                const comments = res["comments"];
+                $('.modal-comment-box').empty()
+
+                //make_comments
+                if (comments != null && comments.length) {
+                    let i = 0;
+                    comments.forEach(comment => {
+                        //is like?
+                        let like_icon_src = `${contextPath}/static/image/Unliked-Icon.svg`
+                        let is_like = false
+                        if(comment["is_like"]) {
+                            like_icon_src = `${contextPath}/static/image/Liked-Icon.svg`
+                            is_like = true
+                        }
+
+                        const commentBlock = `<div class="comment">
+                                <img src="/upload/${comment['profile_img']}" alt="Comment${i++}" class="commenter-image">
+                                <div class="comment-content">
+                                    <div class="commenter-info">
+                                        <span class="commenter-name">${comment['nickname']}</span>
+                                        <img src="${contextPath}/static/image/Comment1-Rank.svg" alt="rank" class="commenter-rank">
+                                    </div>
+                                    <p class="comment-text">${comment['comment_content']}</p>
+                                    <button class="reply-button">답글 달기</button>
+                                </div>
+                                <button class="like-button"  comment-id = ${comment["comment_id"]} is-like =${is_like} target-id=${comment["comment_id"]} >
+                                    <img src="${like_icon_src}" alt="좋아요">
+                                </button>
+                            </div>`
+
+                        $('.modal-comment-box').append(commentBlock)
+                    })
+                }
+                openInitMViewModal()
+            })
+    }
+
+    function openInitMViewModal() {
+        $('#viewModal').css('display', 'flex').css('opacity', 1).css('z-index', 1);
+    }
 });

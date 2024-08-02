@@ -38,7 +38,7 @@ public class UserController {
 
             session.setAttribute("loginMember", loginMember);
 
-            return "home";
+            return  "home";
         } catch (Exception e) {
             System.out.println(e.getMessage());
             model.addAttribute("loginFailMsg", e.getMessage());
