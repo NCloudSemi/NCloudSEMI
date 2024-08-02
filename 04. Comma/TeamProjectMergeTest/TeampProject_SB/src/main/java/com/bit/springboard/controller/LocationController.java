@@ -3,6 +3,7 @@ package com.bit.springboard.controller;
 import com.bit.springboard.dto.LocationDto;
 import com.bit.springboard.dto.LocationOptionDto;
 import com.bit.springboard.dto.LocationReviewDto;
+import com.bit.springboard.dto.UserDto;
 import com.bit.springboard.service.LocationService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class LocationController {
     @GetMapping("/main.do")
     public String location(Model model) {
         return "location/main";
+    }
+
+    @GetMapping("/getMyLikes")
+    @ResponseBody
+    public List<LocationDto>  getMyLikes(UserDto userDto) {
+        return locationService.getUserLikes(userDto.getUser_id());
     }
 
 
@@ -87,12 +94,7 @@ public class LocationController {
     }
 
 
-    //장소 평점 관련
-    @PostMapping("/grade")
-    @ResponseBody
-    public void postGrade(Model model, LocationDto locationDto) {
-        return;
-    }
+
 
 
 

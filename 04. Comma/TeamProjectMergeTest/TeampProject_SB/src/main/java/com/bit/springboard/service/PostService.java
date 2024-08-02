@@ -15,6 +15,9 @@ public interface PostService {
     public PostDto getPost(int id);
     public List<PostDto> getPosts( Map<String, Object> params);
 
+    public List<PostDto> getUserPosts(int user_id);
+    public List<PostDto> getUserLikes(int user_id);
+
     public List<PostCommentDto> getComments(int postId);
 
     public void toggleLike(Map<String,Object> params);

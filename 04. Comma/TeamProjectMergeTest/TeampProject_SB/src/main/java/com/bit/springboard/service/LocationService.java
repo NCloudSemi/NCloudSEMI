@@ -11,6 +11,7 @@ public interface LocationService {
     //location
     public LocationDto post (LocationDto locationDto);
     public LocationDto get(LocationDto locationDto);
+    public List<LocationDto> getUserLikes(int user_id);
 
     //location-utile
     public List<LocationReviewDto> getReviews(int locationId);

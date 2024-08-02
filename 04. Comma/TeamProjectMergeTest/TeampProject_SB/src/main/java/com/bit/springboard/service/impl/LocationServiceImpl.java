@@ -29,6 +29,11 @@ public class LocationServiceImpl implements LocationService {
         return  locationDao.get(locationDto);
     }
 
+    @Override
+    public List<LocationDto> getUserLikes(int user_id) {
+        return locationDao.getUserLikes(user_id);
+    }
+
 
     @Override
     public List<LocationReviewDto> getReviews(int locationId) {

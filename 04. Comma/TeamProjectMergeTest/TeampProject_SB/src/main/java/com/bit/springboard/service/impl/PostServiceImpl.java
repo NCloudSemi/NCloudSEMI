@@ -103,6 +103,16 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostDto> getUserPosts(int user_id) {
+        return postDao.getUserPosts(user_id);
+    }
+
+    @Override
+    public List<PostDto> getUserLikes(int user_id) {
+        return postDao.getUserLikes(user_id);
+    }
+
+    @Override
     public List<PostCommentDto> getComments(int postId) {
         return postDao.getComments(postId);
     }

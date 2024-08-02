@@ -46,6 +46,27 @@
          LIMIT 1000 OFFSET 0
     </select>
 
+    <select id="getUserPosts" parameterType="int" resultType="post">
+        SELECT POST_ID,
+               TITLE,
+               POST_IMG
+        FROM POST
+        WHERE ID= #{user_id}
+        ORDER BY POST_ID DESC
+    </select>
+
+    <select id="getUserLikes" parameterType="int" resultType="post">
+        SELECT P.POST_ID,
+               P.TITLE,
+               P.POST_IMG
+        FROM POST P
+        JOIN `LIKE` L
+          ON L.ID = P.ID
+        WHERE ID= #{user_id}
+        ORDER BY POST_ID DESC
+    </select>
+
+
     <select id="getPost" parameterType="int" resultType="post">
         SELECT  P.POST_ID,
                 P.TITLE,

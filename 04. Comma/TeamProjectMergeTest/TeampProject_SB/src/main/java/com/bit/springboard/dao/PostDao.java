@@ -32,10 +32,12 @@ public class PostDao {
             return null;
         }
     }
+
     public PostDto editPost(PostDto postDto) {
         mybatis.insert("PostDao.editPost", postDto);
         return postDto;
     }
+
     public List<PostDto> getPosts( Map<String, Object> params) {
         try {
             return mybatis.selectList("PostDao.getPosts");
@@ -45,6 +47,15 @@ public class PostDao {
         return null;
 
     }
+
+    public List<PostDto> getUserPosts(int user_id) {
+       return mybatis.selectList("PostDao.getUserPosts", user_id);
+    }
+    public List<PostDto> getUserLikes(int user_id) {
+       return mybatis.selectList("PostDao.getUserLikes", user_id);
+    }
+
+
     public PostDto getPost(int id) {
         try{
             return mybatis.selectOne("PostDao.getPost", id);

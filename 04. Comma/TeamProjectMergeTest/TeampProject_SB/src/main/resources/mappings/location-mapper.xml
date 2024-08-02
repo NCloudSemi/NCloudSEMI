@@ -13,6 +13,15 @@
           AND  LOCATION_NAME = #{location_name}
     </select>
 
+    <select id="getUserLikes" parameterType="int" resultType="location">
+        SELECT LOCATION_ID,
+
+        FROM LOCATION LO
+        JOIN `LIKE` L
+         ON   L.LOCATION_ID =LO.LOCATION_ID
+        WHERE L.ID = #{user_id}
+    </select>
+
     <insert id="post" parameterType="location">
         <selectKey resultType="int" keyProperty="id" order="AFTER">
             SELECT IFNULL(MAX(ID), 1) FROM LOCATION

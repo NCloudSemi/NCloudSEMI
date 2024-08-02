@@ -3,6 +3,7 @@ package com.bit.springboard.controller;
 import com.bit.springboard.dao.PostDao;
 import com.bit.springboard.dto.PostCommentDto;
 import com.bit.springboard.dto.PostDto;
+import com.bit.springboard.dto.UserDto;
 import com.bit.springboard.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.objenesis.instantiator.basic.AccessibleInstantiator;
@@ -43,6 +44,21 @@ public class PostController {
         result.put("posts", posts);
         return result;
     }
+
+
+    @GetMapping("/getMyPost")
+    @ResponseBody
+    public List<PostDto> getByIdPosts(UserDto userDto){
+        return postService.getUserPosts(userDto.getUser_id());
+    }
+
+    @GetMapping("/getMyLikes")
+    @ResponseBody
+    public List<PostDto> getByIdLikes(UserDto userDto){
+        return postService.getUserLikes(userDto.getUser_id());
+    }
+
+
 
     //get post
     @GetMapping("/get.do")

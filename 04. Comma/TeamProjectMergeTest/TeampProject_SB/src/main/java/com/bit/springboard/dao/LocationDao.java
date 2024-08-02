@@ -35,6 +35,10 @@ public class LocationDao {
         return mybatis.selectOne("LocationDao.get",locationDto);
     }
 
+    public List<LocationDto> getUserLikes(int user_id){
+        return mybatis.selectList("LocationDao.getUserLikes",user_id);
+    }
+
     public List<LocationReviewDto> getReviews(int locationId){
         return mybatis.selectList("LocationDao.getReviews",locationId);
     }
