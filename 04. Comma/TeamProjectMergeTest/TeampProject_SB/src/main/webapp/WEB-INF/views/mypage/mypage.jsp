@@ -4,6 +4,8 @@
 <head>
     <title>COMMA_mypage</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/mypage.css">
+    <!-- ICO 파비콘 -->
+    <link rel="icon" href="${pageContext.request.contextPath}/static/image/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="wrap">
@@ -300,69 +302,70 @@
                 <div id="mp_content_flexbox_right">
                     <div id="mp_header_text">
                         <div>
-                            <a href="">여행기록</a><br />
-                            <a href="">11</a>
+                            <a class="mp_travelRecode_btn" href="">여행기록</a><br />
+                            <a class="mp_travelRecode_btn" href="">11</a>
                         </div>
                         <div>
-                            <a href="">여행계획</a><br />
-                            <a href="">3</a>
+                            <a class="mp_travelPlan_btn" href="">여행계획</a><br />
+                            <a class="mp_travelPlan_btn" href="">3</a>
                         </div>
                         <div>
-                            <a href="">예약내역</a><br />
-                            <a href="">1</a>
+                            <a class="mp_reservation_btn" href="">예약내역</a><br />
+                            <a class="mp_reservation_btn" href="">1</a>
                         </div>
                     </div>
                     <div>
-                        <div id="mp_add-post-button">
-                            <img src="${pageContext.request.contextPath}/static/image/new_board_icon.svg" alt="게시물추가" />
-                        </div>
-                        <!-- Overlay -->
-                        <div id="mp_new_board_overlay" class="mp_hidden"></div>
-                        <!-- Popup -->
-                        <div id="mp_new_board_popup" class="mp_hidden">
-                            <div class="mp_pick_popup-header">
-                                <div class="mp_pick_popup-header-title">
-                                    <h3>게시물 등록</h3>
-                                </div>
-                                <button id="mp_new_board_upload_popup">
-                                    <img src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드_icon" />
-                                </button>
-                                <button id="mp_new_board_close-popup">
-                                    <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
-                                </button>
-                            </div>
-                            <div class="mp_popup_content">
-                                <div class="mp_new_board_box">
-                                    <form action="">
-                                        <div class="mp_new_board_image_box">
-                                            <img src="${pageContext.request.contextPath}/static/image/+_icon.svg" alt="+아이콘" />
-                                            <p><strong>이미지 등록</strong></p>
-                                        </div>
-                                        <div class="mp_new_board_text_box">
-                                                <textarea
-                                                        rows="10"
-                                                        maxlength="1000"
-                                                        placeholder="게시물의 내용을 입력하세요."
-                                                ></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="mp_grid-container">
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진1.jpg" alt="이미지 1" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진2.jpg" alt="이미지 2" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진3.jpg" alt="이미지 3" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진4.jpg" alt="이미지 4" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진5.jpg" alt="이미지 5" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진6.jpg" alt="이미지 6" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진7.jpg" alt="이미지 7" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진8.jpg" alt="이미지 8" /></div>
-                            <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진9.jpg" alt="이미지 9" /></div>
-                        </div>
-                    </div>
-                    <div>
+                        <div id="mp_change_contents">
 
+                            <div id="mp_add-post-button">
+                                <img src="${pageContext.request.contextPath}/static/image/new_board_icon.svg" alt="게시물추가" />
+                            </div>
+                            <!-- Overlay -->
+                            <div id="mp_new_board_overlay" class="mp_hidden"></div>
+                            <!-- Popup -->
+                            <div id="mp_new_board_popup" class="mp_hidden">
+                                <div class="mp_pick_popup-header">
+                                    <div class="mp_pick_popup-header-title">
+                                        <h3>게시물 등록</h3>
+                                    </div>
+                                    <button id="mp_new_board_upload_popup">
+                                        <img src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드_icon" />
+                                    </button>
+                                    <button id="mp_new_board_close-popup">
+                                        <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
+                                    </button>
+                                </div>
+                                <div class="mp_popup_content">
+                                    <div class="mp_new_board_box">
+                                        <form action="">
+                                            <div class="mp_new_board_image_box">
+                                                <img src="${pageContext.request.contextPath}/static/image/+_icon.svg" alt="+아이콘" />
+                                                <p><strong>이미지 등록</strong></p>
+                                            </div>
+                                            <div class="mp_new_board_text_box">
+                                                    <textarea
+                                                            rows="10"
+                                                            maxlength="1000"
+                                                            placeholder="게시물의 내용을 입력하세요."
+                                                    ></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="mp_grid-container">
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진1.jpg" alt="이미지 1" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진2.jpg" alt="이미지 2" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진3.jpg" alt="이미지 3" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진4.jpg" alt="이미지 4" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진5.jpg" alt="이미지 5" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진6.jpg" alt="이미지 6" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진7.jpg" alt="이미지 7" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진8.jpg" alt="이미지 8" /></div>
+                                <div class="mp_grid-item"><img src="${pageContext.request.contextPath}/static/image/mp_gridbox 사진9.jpg" alt="이미지 9" /></div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

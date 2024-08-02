@@ -264,86 +264,86 @@
                     <div id="mp_content_flexbox_right">
                         <div id="mp_header_text">
                             <div>
-                                <a href="">게시물</a><br />
-                                <a href="">11</a>
+                                <a class="mp_travelRecode_btn" href="">여행기록</a><br />
+                                <a class="mp_travelRecode_btn" href="">11</a>
                             </div>
                             <div>
-                                <a href="">여행기록</a><br />
-                                <a href="">3</a>
+                                <a class="mp_travelPlan_btn" href="">여행계획</a><br />
+                                <a class="mp_travelPlan_btn" href="">3</a>
                             </div>
                             <div>
-                                <a href="">예약내역</a><br />
-                                <a href="">1</a>
+                                <a class="mp_reservation_btn" href="">예약내역</a><br />
+                                <a class="mp_reservation_btn" href="">1</a>
                             </div>
                         </div>
-                        <div>
-                            <div id="mp_add-post-button">
-                            </div>
-                            <div class="mp_travel_plan_box">
-                                <div class="mp_tr_checkbox-container">
-                                    <label class="mp_popup_content_checkbox">
-                                        <div>
-                                            <input type="checkbox" id="mp_pickplace_select-all" />
-                                            <span>전체선택</span>
-                                        </div>
-                                        <div>
-                                            <img src="../img/delete_icon.svg" alt="삭제버튼" />
-                                        </div>
-                                    </label>
+                        <div id="mp_change_contents">
+                            <div id="mp_add-post-button"></div>
+                            <div class="mp_reservation_info">
+                                <div class="mp_reservation_info_header">
+                                    <h4><strong>예약정보</strong></h4>
+                                    <div id="mp_reservation_line"></div>   
                                 </div>
-                                <div id="mp_content_flexbox_right">
-                                    <div class="mp_travel_plan_icons">
-                                        <input type="checkbox" class="item-checkbox" />
-                                        <div class="mp_travel_plan_icon">
-                                            <div>
-                                                <h4>제주</h4>
-                                                <p>8.11-8.12</p>
-                                                <p>2024.07.29 15:32 저장</p>
+                                <div class="mp_reservation_info_box">
+                                    <div class="mp_reservation_direction_btn">
+                                        <button><img src="../img/왼쪽 방향_icon.svg" alt="왼쪽방향"></button>
+                                    </div>
+                                    <div class="mp_reservation_info_titles">
+                                        <p>예약번호</p>
+                                        <p>예약날짜</p>
+                                        <p>상품명</p>
+                                        <p>인원</p>
+                                        <p>결제금액</p>
+                                        <p>결제상황</p>
+                                        <p>예약현황</p>
+                                    </div>
+                                    <div class="mp_reservation_info_contents">
+                                        <p>202408021458390001</p>
+                                        <p>2024.08.24 - 2024.08.25</p>
+                                        <p>신라스테이 서초(1박)</p>
+                                        <p>성인 2명</p>
+                                        <p>230,000원</p>
+                                        <p>결제 완료</p>
+                                        <p id="mp_reservation_status">예약확정</p>
+                                    </div>
+                                    <div class="mp_reservation_img">
+                                        <img id="mp_reservation_info_img" src="../img/신라스테이_서초_img.png" alt="신라스테이_서초">
+                                        <div class="mp_reservation_info">
+                                            <div class="mp_reservation_img_info">
+                                                <img
+                                                    id="mp_reservation_star"
+                                                    src="../img/별점(4점).svg"
+                                                    alt="별점4점"
+                                                />
+                                                <div class="mp_reservation_star_core">
+                                                    <p><strong>4.0 / 5.0</strong></p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <img src="../img/제주사진.jpg" alt="제주사진">
+                                            <div class="mp_reservation_img_info">
+                                                <p id="mp_reservation_class"><strong>3성급 호텔</strong></p>
+                                                <img
+                                                    id="certification_mark"
+                                                    src="../img/인증마크_icon.svg"
+                                                    alt="인증마크"
+                                                />
+                                            </div>
+                                            <div class="mp_reservation_address_info_box">
+                                                <div class="mp_reservation_address_info">
+                                                    <p id="mp_reservation_find_address_title" class="mp_reservation_address"><strong>찾아 가시는 길</strong></p>
+                                                    <p class="mp_reservation_address"><strong>주소</strong></p>
+                                                </div>
+                                                <div class="mp_reservation_address_info">
+                                                    <p id="mp_reservation_find_address">강남역, 양재역 도보 10분</p>
+                                                    <p>서울특별시 서초구 효령로 427</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mp_travel_plan_icons">
-                                        <input type="checkbox" class="item-checkbox" />
-                                        <div class="mp_travel_plan_icon">
-                                            <div>
-                                                <h4>양양</h4>
-                                                <p>8.24-8.25</p>
-                                                <p>2024.07.29 15:32 저장</p>
-                                            </div>
-                                            <div>
-                                                <img src="../img/양양사진.jpg" alt="양양사진"> 
-                                            </div>
-                                        </div>
+                                    <div class="mp_reservation_direction_btn">
+                                        <button><img src="../img/오른쪽 방향_icon.svg" alt="오른쪽방향"></button>
                                     </div>
-                                    <div class="mp_travel_plan_icons">
-                                        <input type="checkbox" class="item-checkbox" />
-                                        <div class="mp_travel_plan_icon">
-                                            <div>
-                                                <h4>강릉</h4>
-                                                <p>10.05-10.06</p>
-                                                <p>2024.07.29 15:32 저장</p>
-                                            </div>
-                                            <div>
-                                                <img src="../img/강릉사진.jpg" alt="강릉사진">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mp_travel_plan_icons">
-                                        <input type="checkbox" class="item-checkbox" />
-                                        <div class="mp_travel_plan_icon">
-                                            <div>
-                                                <h4>부산</h4>
-                                                <p>12.21-12.22</p>
-                                                <p>2024.07.29 15:32 저장</p>
-                                            </div>
-                                            <div>
-                                                <img src="../img/부산사진.jpg" alt="부산사진">
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="mp_reservation_cancel_btn_box">
+                                    <button id="mp_reservation_cancel_btn" type="submit">예약 취소</button>
                                 </div>
                             </div>
                         </div>

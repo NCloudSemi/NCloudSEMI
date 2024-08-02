@@ -826,3 +826,233 @@ textarea::placeholder {
     font-weight: bold;
     text-align: start;
 }
+
+/*--------------------------travel_plan-----------------------------*/
+
+.mp_travel_plan_box {
+    width: 47vw;
+    margin: 2rem;
+}
+
+.mp_travel_plan_icons {
+    width: 100%;
+    display: flex;
+    align-items: start;
+}
+
+.mp_travel_plan_checkbox{
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+.mp_travel_plan_icon {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.mp_travel_plan_icon img {
+    width: 40vh;
+    height: 29.59vh;
+    overflow: hidden;
+    align-items: center;
+    border-radius: 0 8px 8px 0;
+}
+
+.mp_travel_plan_icon h4, .mp_travel_plan_icon p {
+    overflow: hidden;
+}
+
+#mp_travel_plan_select_all {
+    display: flex;
+}
+
+#mp_travel_plan_select_all input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+    margin-right: 9px;
+}
+
+#mp_travel_plan_select_all p {
+    font-size: 18px;
+}
+
+#mp_travel_plan_select_all img {
+    margin-bottom: 1rem;
+}
+
+.mp_tr_checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.mp_tr_checkbox-container label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.mp_tr_checkbox-container label span {
+    display: inline-block;
+    padding-bottom: 3px;
+    font-size: 14px;
+}
+
+.mp_travel_plan_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+/*--------------------reservation-----------------------*/
+
+.mp_reservation_info {
+    width: 47vw;
+    margin: 2rem;
+}
+
+.mp_reservation_info_header {
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#mp_reservation_line {
+    border-bottom: 3px solid black;
+    margin: 1.5rem 0;
+}
+
+.mp_reservation_info_box {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+}
+
+.mp_reservation_info_titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mp_reservation_info_titles p {
+    width: 5vw;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.mp_reservation_info_contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mp_reservation_info_contents p {
+    width: 11vw;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.mp_reservation_cancel_btn_box {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.mp_reservation_img {
+    width: 19vw;
+}
+
+.mp_reservation_img p {
+    margin-bottom: 0;
+}
+
+.mp_reservation_info_class {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#mp_reservation_star {
+    margin-right: 1rem;
+}
+
+.mp_reservation_star_core {
+    display: flex;
+    align-items: end;
+}
+
+#mp_reservation_info_img {
+    width: 100%;
+}
+
+#mp_reservation_cancel_btn {
+    width: 5vw;
+    height: 3.5vh;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#mp_reservation_cancel_btn:hover {
+    background: #ff6b00;
+    color: white;
+    transition: opacity 2s;
+}
+
+#mp_reservation_status {
+    color: #ff6b00;
+}
+
+.mp_reservation_img_info {
+    display: flex;
+}
+
+.mp_reservation_img_info img {
+    width: 40%;
+}
+
+.mp_reservation_address_info_box {
+    display: flex;
+}
+
+.mp_reservation_address_info {
+    display: flex;
+    flex-direction: column;
+}
+
+#mp_reservation_find_address_title {
+    margin-bottom: 2rem;
+}
+
+#mp_reservation_find_address {
+    margin-bottom: 2rem;
+}
+
+.mp_reservation_address {
+    margin-right: 2rem;
+}
+
+.mp_reservation_direction_btn {
+    display: flex;
+    align-items: center;
+}
+
+.mp_reservation_direction_btn button {
+    background: transparent;
+    border: none;
+}
