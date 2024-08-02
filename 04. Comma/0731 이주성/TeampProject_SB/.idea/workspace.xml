@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc29cb28-d778-4cfe-ba68-5a3f3637bc88" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/../../TeamProjectMergeTest/TeampProject_SB/src/main/webapp/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../TeamProjectMergeTest/TeampProject_SB/src/main/webapp/sidebar.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alohalo2&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NCloudSemi/NCloudSEMI.git&quot;,
+    &quot;accountId&quot;: &quot;07260ecf-0d38-47eb-922d-bdb936aae27b&quot;
+  }
+}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2jxiU1tveV00SqKhBRMhPWwPOjt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Smart Tomcat.tomcat.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/lecture/SpringFramework/_21_Spring_Board_Fileupload",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\lecture\NcloudSEMI\04. Comma\0730이상진\TeampProject_SB\src\main\webapp\static\image" />
+      <recent name="D:\lecture\NcloudSEMI\04. Comma\0730이상진\TeampProject_SB\src\main\webapp\WEB-INF" />
+      <recent name="D:\lecture\NcloudSEMI\04. Comma\0730이상진\TeampProject_SB\src\main\webapp\WEB-INF\views" />
+      <recent name="D:\lecture\NcloudSEMI\04. Comma\0730이상진\TeampProject_SB\src\main\webapp\static\js" />
+      <recent name="D:\lecture\NcloudSEMI\04. Comma\0730이상진\TeampProject_SB\src\main\webapp\static\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\lecture\NcloudSEMI\04. Comma\0730이상진\TeampProject_SB\src\main\webapp" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.bit.springboard.service" />
+      <recent name="com.bit.springboard.service.impl" />
+      <recent name="com.bit.springboard.dto" />
+      <recent name="com.bit.springboard.dao" />
+      <recent name="com.bit.springboard.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="tomcat" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="C:\Users\kid16\.SmartTomcat\TeampProject_SB\TeampProject_SB" />
+      <option name="contextPath" value="/" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="port" value="8090" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/10.1.25" />
+          <option name="path" value="C:/devTools/apache-tomcat-10.1.25" />
+          <option name="version" value="10.1.25.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="-Dfile.encoding=UTF-8" />
+      <module name="TeampProject_SB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="cc29cb28-d778-4cfe-ba68-5a3f3637bc88" name="변경" comment="" />
+      <created>1722335140800</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722335140800</updated>
+      <workItem from="1722335141823" duration="5869000" />
+      <workItem from="1722384651580" duration="36502000" />
+      <workItem from="1722429507960" duration="285000" />
+      <workItem from="1722471159281" duration="18424000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
