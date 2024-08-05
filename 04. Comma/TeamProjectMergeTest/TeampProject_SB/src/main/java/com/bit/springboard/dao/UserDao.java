@@ -37,7 +37,7 @@ public class UserDao {
         return mybatis.selectOne("UserDao.login", userDto);
     }
 
-    // 주성이형 part
+//     주성이형 part
     public UserDto findById(int user_id) {
         try {
             return mybatis.selectOne("UserDao.findById", user_id);
@@ -45,12 +45,11 @@ public class UserDao {
             e.getMessage();
         }
         return null;
-
     }
 
-    public UserDto getUser() {
-        return mybatis.selectOne("UserDao.getUser");
-    }
+//    public UserDto getUser() {
+//        return mybatis.selectOne("UserDao.getUser");
+//    }
 
     public void updateProfileImage(UserDto existingUser) {
         // SQL 또는 MyBatis, JPA를 사용하여 업데이트

@@ -5,6 +5,4 @@ import com.bit.springboard.dto.UserDto;
 
 public interface MyPageService {
 
-    MyPageDto getMyPage(int userId);
-
 }

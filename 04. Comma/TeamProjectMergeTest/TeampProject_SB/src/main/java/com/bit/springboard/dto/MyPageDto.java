@@ -8,18 +8,6 @@ public class MyPageDto {
     private String profileImgUrl;
     private String profileMessage;
 
-//    // 게시물 관련
-//    private List<PostDto> userPosts;
-//    private List<PostDto> pickedPosts;
-//
-//    // 여행 계획 관련
-//    private List<TravelPlanDto> userTravelPlans;
-//    private List<TravelPlanDto> pickedPlaces;
-//
-//    // 예약 내역 관련
-//    private List<ReservationDto> userReservations;
-
-
     public int getUserId() {
         return userId;
     }

@@ -37,3 +37,7 @@ build/
 
 ### root_contexst.xml ###
 /src/main/webapp/WEB-INF/spring/root_context.xml
+
+### .idea ###
+.idea/
+.smarttomcat/
