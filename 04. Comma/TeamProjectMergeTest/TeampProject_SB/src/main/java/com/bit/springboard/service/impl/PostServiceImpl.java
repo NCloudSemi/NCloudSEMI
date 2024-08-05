@@ -93,8 +93,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto getPost(int id) {
-        return postDao.getPost(id);
+    public PostDto getPost(Map<String, Object> params) {
+        return postDao.getPost(params);
     }
 
     @Override

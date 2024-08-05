@@ -22,27 +22,22 @@ public class UserDao {
         return mybatis.selectOne("UserDao.emailCheck", email);
     }
 
-    public int nameCheck(String name) {
-        return mybatis.selectOne("UserDao.nameCheck", name);
+    public int nameCheck(String nickname) {
+        System.out.println("nameCheck 실행");
+        return mybatis.selectOne("UserDao.nameCheck", nickname);
     }
 
-    public void insertUser(UserDto userDto) {
-        System.out.println("UserDao의 insertUser메소드 실행");
-
-        mybatis.insert("UserDao.insertUser", userDto);
-
-        System.out.println("UserDao의 insertUser메소드 종료");
+    public void join(UserDto userDto) {
+        System.out.println("UserDao의 join메소드 실행");
+        mybatis.insert("UserDao.join", userDto);
     }
 
     public UserDto login(UserDto userDto) {
-
+        System.out.println("UserDao의 login메소드 실행");
         return mybatis.selectOne("UserDao.login", userDto);
     }
 
-    public UserDto update(UserDto existingUser) {
-        return mybatis.selectOne("UserDao.changeNickname");
-    }
-
+    // 주성이형 part
     public UserDto findById(int user_id) {
         try {
             return mybatis.selectOne("UserDao.findById", user_id);

@@ -10,9 +10,17 @@
 #serchArea{
     width: 75vw;
     height: 4vh;
+    margin-bottom: 1vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+
+#search-button{
+    width: 2vw;
+    height: 3vh;
 }
 
 #filter-button{
@@ -26,11 +34,11 @@
 }
 
 #serchBar{
-    width: 73vw;
+    width: 71vw;
     height: 3vh;
     color: gray;
     border:none;
-    border-bottom: 1px solid black;
+
 }
 
 #serch-form{
@@ -42,17 +50,17 @@
 
 
 #kakaoMap{
-    width: 75vw;
-    height: 61.75vh;
+    width: 45vw;
+    height: 85vh;
     border: black 1px solid;
     border-radius: 1vh;
 }
 
 #serchResultList{
-    width: 75vw;
-    height: 28.5vh;
+    width: 45vw;
+    height: 85vh;
     overflow: auto;
-    margin-top: 0.95vh;
+    margin-left: 0.5vw;
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
     scrollbar-width: none; /* 파이어폭스 */
 
@@ -65,8 +73,9 @@
 
 /*serch result*/
 .serchResult{
-    width: 75vw;
+    width: 45vw;
     height: 28.5vh;
+    margin-bottom: 1vh;
     border: black 1px solid;
     border-radius: 1vh;
     display: flex;
@@ -86,7 +95,7 @@
 }
 
 .serch-info{
-    width: 67.5vw;
+    width: 35vw;
     height: 100%;
     padding: 3.5vh;
     display: block;

@@ -68,11 +68,10 @@ $(()=>{
 
     //kakao 검색관련 이벤트 TEST
     const serchingData = () =>{
-        const serchValue = "호텔" //document.querySelector('#serchBar').val()
+        let serchValue = "호텔" //document.querySelector('#serchBar').val()
         //검색창 비워져 있는지
-        if(serchValue ===''){
-            console.log('no_serch_Value')
-            return
+        if($('#serchBar').val() !=''){
+            serchValue = $('#serchBar').val()
         }
 
         //serch options
@@ -374,7 +373,40 @@ $(()=>{
     }
 
 
+    //like location evet
+    function ToggleLike(){
+        const $this = $(this);
+        const isLiked = $this.attr('is-like') === "true"; // 엄격한 비교 사용
+        const target_id = $this.attr('target-id');
 
+        console.log($this.attr('is-like'));
+
+        //pick-unpick
+        if (isLiked) {
+            $this.find('img').attr("src", `${contextPath}/static/image/Unliked-Icon.svg`);
+            $this.attr('is-like', false);
+        } else {
+            $this.find('img').attr("src", `${contextPath}/static/image/Liked-Icon.svg`);
+            $this.attr('is-like', true);
+        }
+
+        console.log($this);
+        console.log(target_id);
+
+        if (target_id && target_id !== "undefined") {
+            const formData = new FormData();
+            formData.append("type", "location");
+            formData.append("target_id", target_id);
+            formData.append("id", 3); // 테스트용
+            $this.addClass('disabled');
+            fetch(`/location/like.do`, {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                $this.removeClass('disabled');
+            });
+        }
+    }
 
 
 
@@ -491,6 +523,10 @@ $(()=>{
         serchFillter['Area'] = $(this).text()
         serchingData()
     })
+
+    //search-button
+    $("#search-button").on('click',serchingData)
+
 
     //filter options
     $('#filter-button').on('click',()=>{

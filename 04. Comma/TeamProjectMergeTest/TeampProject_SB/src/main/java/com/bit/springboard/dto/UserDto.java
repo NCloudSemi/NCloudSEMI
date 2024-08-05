@@ -3,15 +3,15 @@ package com.bit.springboard.dto;
 public class UserDto {
 
     private int user_id;
+    private String email;
     private String pw;
     private String nickname;
-    private Gender gender;
+    private String gender;
     private String address;
     private String detailed_address;
     private String profile_img;
     private int score;
     private String message;
-    private String email;
 
     public int getUser_id() {
         return user_id;
@@ -19,6 +19,14 @@ public class UserDto {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPw() {
@@ -37,11 +45,11 @@ public class UserDto {
         this.nickname = nickname;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -85,27 +93,19 @@ public class UserDto {
         this.message = message;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
         return "UserDto{" +
                 "user_id=" + user_id +
+                ", email='" + email + '\'' +
                 ", pw='" + pw + '\'' +
                 ", nickname='" + nickname + '\'' +
-                ", gender=" + gender +
+                ", gender='" + gender + '\'' +
                 ", address='" + address + '\'' +
                 ", detailed_address='" + detailed_address + '\'' +
                 ", profile_img='" + profile_img + '\'' +
                 ", score=" + score +
                 ", message='" + message + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }

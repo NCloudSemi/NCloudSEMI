@@ -16,13 +16,33 @@
         WHERE NICKNAME = #{nickname}
     </select>
 
+
     <select id="login" parameterType="user" resultType="user">
-        SELECT *
+        SELECT EMAIL
+             , PW
         FROM USER
         WHERE EMAIL = #{email}
-          AND PASSWORD = #{password}
-          AND USER_ID = #{user_id}
+          AND PW = #{pw}
     </select>
+
+    <insert id="join" parameterType="user">
+        INSERT INTO USER(
+                          PW
+                        , NICKNAME
+                        , GENDER
+                        , ADDRESS
+                        , DETAILED_ADDRESS
+                        , EMAIL
+
+        ) VALUES (
+                   #{pw}
+                 , #{nickname}
+                 , #{gender}
+                 , #{address}
+                 , #{detailed_address}
+                 , #{email}
+                 )
+    </insert>
 
     <select id="findById" parameterType="int" resultType="user">
         SELECT *
@@ -61,5 +81,4 @@
         SET MESSAGE = #{message}
         WHERE USER_ID = #{user_id}
     </update>
-
 </mapper>

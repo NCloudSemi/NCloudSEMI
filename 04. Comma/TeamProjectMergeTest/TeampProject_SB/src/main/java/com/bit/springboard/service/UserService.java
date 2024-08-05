@@ -8,11 +8,7 @@ import java.util.Map;
 
 public interface UserService {
 
-    void joinUser(UserDto userDto);
-
-    List<UserDto> getMembers();
-
-    UserDto getMemberByUsername(UserDto userDto);
+    void join(UserDto userDto);
 
     Map<String, Object> emailCheck(String email);
 
@@ -20,8 +16,9 @@ public interface UserService {
 
     UserDto login(UserDto userDto);
 
-//    String changeNickname(UserDto userDto);
 
+
+    // 주성이형 part
     UserDto getUser();
 
     void updateProfileImage(UserDto userDto);

@@ -67,7 +67,7 @@
     </select>
 
 
-    <select id="getPost" parameterType="int" resultType="post">
+    <select id="getPost" parameterType="map" resultType="post">
         SELECT  P.POST_ID,
                 P.TITLE,
                 P.CONTENT,
@@ -84,7 +84,7 @@
                    SELECT 1
                    FROM `LIKE` L
                    WHERE L.POST_ID = P.POST_ID
-                     AND L.ID = U.USER_ID
+                     AND L.ID = #{user_id}
                )) AS is_like
          FROM POST P
          JOIN USER U
@@ -121,7 +121,7 @@
         SELECT 1
         FROM `LIKE`
         WHERE 1=1
-        <if test="type == 'post'">
+        <if test= "type == 'post'">
             AND POST_ID =#{target_id}
             AND ID = #{id}
         </if>

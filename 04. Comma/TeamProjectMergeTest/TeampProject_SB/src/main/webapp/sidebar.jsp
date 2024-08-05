@@ -11,9 +11,9 @@
     <div class="sidebar">
         <img src="${pageContext.request.contextPath}/static/image/Sidebar-Header-Logo.svg" class="sidebar-logo" alt="Sidebar-Header-Logo">
         <div class="sidebar-buttons">
-            <button type="button" class="linked-map">Travel Information</button>
-            <button type="button" class="linked-card">Card Board</button>
-            <button type="button" class="linked-mypage">My Page</button>
+            <button type="button" class="linked-map"  onclick="location.href='/location/main.do'">Travel Information</button>
+            <button type="button" class="linked-card" onclick="location.href='/post/main.do'">Card Board</button>
+            <button type="button" class="linked-mypage" onclick="location.href='/mypage/main'">My Page</button>
             <button id="logout">Logout</button>
         </div>
         <div class="sidebar-footer">
@@ -25,36 +25,5 @@
             <img src="${pageContext.request.contextPath}/static/image/Siderbar-Footer-Logo.svg" alt="Sidebar-Header-Logo">
         </div>
     </div>
-<script src="${pageContext.request.contextPath}/static/js/jquery-3.7.1.min.js"></script>
-<script>
-    $(()=> {
-
-        const getPage = (pageName) => {
-
-            $.ajax({
-                url: pageName,
-                type: "get",
-                contentType: "x-www-form-urlencoded",
-                success: (page) => {
-                    $(".content").html(page)
-                },
-                error: (err) => {
-                    console.log(err);
-                }
-            });
-        }
 
 
-        $('.linked-map').on('click', () => {
-            getPage('/location/main.do')
-        })
-
-        $('.linked-card').on('click', () => {
-            getPage('/card/card.do')
-        })
-
-        $('.linked-mypage').on('click', () => {
-            getPage('/member/mypage.do')
-        })
-    })
-</script>

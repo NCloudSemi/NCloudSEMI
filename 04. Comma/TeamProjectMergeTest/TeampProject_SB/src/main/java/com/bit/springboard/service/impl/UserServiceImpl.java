@@ -22,29 +22,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void joinUser(UserDto userDto) {
-        System.out.println("UserServiceImpl의 join메소드 실행");
-        userDao.insertUser(userDto);
+    public void join(UserDto userDto) {
+        System.out.println("UserserviceImpl의 join메소드 실행");
+        userDao.join(userDto);
     }
 
     @Override
-    public List<UserDto> getMembers() {
-        return List.of();
-    }
+    public Map<String, Object> emailCheck(String email) {
 
-    @Override
-    public UserDto getMemberByUsername(UserDto userDto) {
-        return null;
-    }
+        System.out.println(email);
 
-    @Override
-    public Map<String, Object> emailCheck(String username) {
+        int emailCheck = userDao.emailCheck(email);
 
-        System.out.println(username);
-
-        int emailCheck = userDao.emailCheck(username);
-
-        System.out.println(emailCheck);
         Map<String, Object> chkResult = new HashMap<>();
 
         if (emailCheck == 0) {
@@ -53,13 +42,17 @@ public class UserServiceImpl implements UserService {
             chkResult.put("emailCheckMsg", "emailFail");
         }
 
+        System.out.println(chkResult.get("emailCheckMsg"));
+
         return chkResult;
     }
 
     @Override
-    public Map<String, Object> nameCheck(String name) {
+    public Map<String, Object> nameCheck(String nickname) {
 
-        int nameCheck = userDao.nameCheck(name);
+        System.out.println(nickname);
+
+        int nameCheck = userDao.nameCheck(nickname);
 
         Map<String, Object> chkResult = new HashMap<>();
 
@@ -69,6 +62,8 @@ public class UserServiceImpl implements UserService {
             chkResult.put("nameCheckMsg", "nameFail");
         }
 
+        System.out.println(chkResult.get("nameCheckMsg"));
+
         return chkResult;
     }
 
@@ -77,6 +72,7 @@ public class UserServiceImpl implements UserService {
 
         System.out.println("UserServiceImpl.login메소드 실행");
         System.out.println(userDto.getEmail());
+        System.out.println(userDto.getPw());
 
         int emailCheck = userDao.emailCheck(userDto.getEmail());
 
@@ -92,6 +88,9 @@ public class UserServiceImpl implements UserService {
     }
 
 
+
+
+// 주성이형 part
     @Override
     public UserDto getUser() {
         return userDao.getUser();

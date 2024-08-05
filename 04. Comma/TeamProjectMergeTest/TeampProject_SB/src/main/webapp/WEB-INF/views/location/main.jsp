@@ -3,16 +3,20 @@
 <head>
 
     <title>반응형 레이아웃</title>
-    <!-- js link -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js></script>
+
     <!--kakao Link-->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
     <!-- bootstrap5 link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- style css link -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/location.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/location.css">\
+    <!-- js link -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js></script>
+
+    <!--script-->
+    <script src="${pageContext.request.contextPath}/static/js/location.js"></script>
 
 </head>
 <body>
@@ -75,20 +79,25 @@
             <div id="serchArea">
                 <!--serch-->
                 <div id="serch-form" >
+                    <img src="${pageContext.request.contextPath}/static/image/Search-Button.svg" alt="" id="search-button">
                     <input type="text" id="serchBar" placeholder="검색">
                     <img src="${pageContext.request.contextPath}/static/image/filter.svg" alt="" id="filter-button">
                 </div>
                 <!--only line-->
             </div>
 
-            <!--kakao Map-->
-            <div id="kakaoMap">
 
-            </div>
-            <!--result-->
-            <div id ="serchResultList">
+            <div class="d-flex">
+                <!--kakao Map-->
+                <div id="kakaoMap">
 
+                </div>
+                <!--result-->
+                <div id ="serchResultList">
+
+                </div>
             </div>
+
             <!--modal-->
             <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-left" style="max-width: 80vw;" role="document" >
@@ -96,10 +105,10 @@
                         <div class="modal-header border-0 justify-content-end">
                             <div id="link_planArea" class="d-flex">
                               <p>여행계획에 추가</p>
-                              <img src="${pageContext.request.contextPath}/static/image/plan_link_logo.svg">
+                              <img src="${pageContext.request.contextPath}/static/image/plan_link_logo.svg" id="plan_button">
                             </div>
-                            <img src="${pageContext.request.contextPath}/static/image/pick_location.svg">
-                            <img src="${pageContext.request.contextPath}/static/image/share_location.svg">
+                            <img src="${pageContext.request.contextPath}/static/image/pick_location.svg" id="pick_button">
+                            <img src="${pageContext.request.contextPath}/static/image/share_location.svg" id="share_button">
                         </div>
                         <!--modal body 1-2-1 1-1-2-->
                         <div class="modal-body">
@@ -321,6 +330,5 @@
     <!-- ⚠️⚠️⚠️ 윗 부분 (content 부분)만 수정하세요. ⚠️⚠️⚠️ -->
     <!-- ⚠️⚠️⚠️ 윗 부분 (content 부분)만 수정하세요. ⚠️⚠️⚠️ -->
 </div>
-<!--script-->
-<script src="${pageContext.request.contextPath}/static/js/location.js"></script>
+
 </body>

@@ -5,6 +5,7 @@ import com.bit.springboard.dto.PostCommentDto;
 import com.bit.springboard.dto.PostDto;
 import com.bit.springboard.dto.UserDto;
 import com.bit.springboard.service.PostService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.objenesis.instantiator.basic.AccessibleInstantiator;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,20 @@ public class PostController {
 
     //main
     @GetMapping("/main.do")
-    public String main(Model model) {
+    public String main(@RequestParam Map<String, Object> map, HttpSession httpSession,  Model model) {
+
+        System.out.println("post_id"+map.get("post_id"));
+        //check has params\
+        int post_id = -1;
+        if( map.get("post_id") != null)
+        {
+             post_id = Integer.parseInt(map.get("post_id").toString());
+        }
+
+        model.addAttribute("init_id", post_id);
         return "post/board-all-function";
     }
+
 
     //get post
     @GetMapping("/view.do")
@@ -63,10 +75,18 @@ public class PostController {
     //get post
     @GetMapping("/get.do")
     @ResponseBody
-    public Map<String, Object> get(PostDto post, Model model) {
+    public Map<String, Object> get(PostDto post, HttpSession httpSession) {
+
+        Integer user_id = (Integer) httpSession.getAttribute("user_id");
+        //TEST 3  REAL -1
+        if(user_id == null){
+            user_id = 3;
+        }
+        Map<String, Object> params = new HashMap<>();
+        params.put("user_id", user_id);
+        params.put("post_id", post.getPost_id() );
+        post = postService.getPost(params);
         Map<String, Object> result = new HashMap<>();
-        post = postService.getPost(post.getPost_id());
-        System.out.println(post);
         result.put("post", post);
         return result;
     }
@@ -115,8 +135,9 @@ public class PostController {
     */
 
     @PostMapping("/like.do")
-    public void like(@RequestParam Map<String, Object> params) {
+    public void like(@RequestParam Map<String, Object> params ) {
         System.out.println(params);
+        //params.put("id", httpSession.getAttribute("user_id"));
         postService.toggleLike(params);
     }
 

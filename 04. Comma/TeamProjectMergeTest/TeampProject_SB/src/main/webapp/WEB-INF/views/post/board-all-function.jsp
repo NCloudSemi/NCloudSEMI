@@ -28,23 +28,10 @@
     <div class="wrap">
         <!--contextPath hidden-->
         <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
-        <div class="sidebar">
-            <img src="${pageContext.request.contextPath}/static/image/Sidebar-Header-Logo.svg" class="sidebar-logo" alt="Sidebar-Header-Logo">
-            <div class="sidebar-buttons">
-                <button>Travel Information</button>
-                <button style="color: #FF6B00;">Card Board</button>
-                <button>My Page</button>
-                <button id="logout">Logout</button>
-            </div>
-            <div class="sidebar-footer">
-                <p>Tel.&nbsp;&nbsp;000-0000-0000</p>
-                <p>Fax.&nbsp;&nbsp;00-0000-0000</p>
-                <p>E-mail.&nbsp;&nbsp;comma@comma.com</p>
-                <p>Addr.&nbsp;&nbsp;Seoul, Korea</p>
-                <p>Hosting by COMMA</p>
-                <img src="${pageContext.request.contextPath}/static/image/Siderbar-Footer-Logo.svg" alt="Sidebar-Header-Logo">
-            </div>
-        </div>
+        <!--link-data hidden-->
+        <input type="hidden" id="init_id" value="${init_id}">
+
+        <jsp:include page="${pageContext.request.contextPath}/sidebar.jsp"></jsp:include>
         <div class="content">
             <div class="search-bar">
                 <button type="button">
@@ -56,6 +43,7 @@
             <div class="card-box" id="cardContainer">
             </div>
         </div>
+
         <!-- view-modal -->
         <div id="view-modal" class="board-modal" style="opacity: 0; z-index: -1;">
             <div class="modal-box">
