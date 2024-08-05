@@ -96,8 +96,7 @@ public class UserDto {
     @Override
     public String toString() {
         return "UserDto{" +
-                "user_id=" + user_id +
-                ", email='" + email + '\'' +
+                "email='" + email + '\'' +
                 ", pw='" + pw + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", gender='" + gender + '\'' +
