@@ -1,0 +1,276 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    display: flex;
+    justify-content: center;
+
+    margin: 35px 0;
+}
+
+
+/* login-page */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-page-container{
+    height: 730px;
+    width: 900px;
+    border: 2px solid black;
+    border-radius: 15px;
+
+    display: flex;
+}
+
+/* left-content */
+#login-left-content{
+    width: 470px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#login-page-img img{
+    height: 700px;
+    width: 455px;
+    border-radius: 10px;
+}
+
+/* right-content */
+#login-right-content{
+    width: 430px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.login-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.login-content.hidden{
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+/* logo */
+.main-logo1{
+    width: 50px;
+    margin-top: 100px;
+}
+
+.main-logo2{
+    width: 50px;
+    margin-top: 60px;
+}
+
+/* logo-name */
+.login-content h1,
+.login-content.hidden h1{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 8px 0 25px 0;
+}
+
+/* logo-text */
+#login p{
+    font-size: 20px;
+}
+
+#join p{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Id input */
+#login-container1{
+    margin-top: 100px;
+}
+
+#login-container2{
+    margin-top: 10px;
+}
+
+.input-group{
+    height: 38px;
+    width: 270px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+
+    border: 2px solid black;
+    border-style: none none solid none;
+}
+
+#login-email,
+#join-email{
+    width: 230px;
+    font-size: 14px;
+    margin-left: 30px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+}
+
+#login-password,
+#join-password{
+    width: 230px;
+    font-size: 14px;
+    margin-left: 21px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+}
+
+#passwordChk{
+    width: 150px;
+    font-size: 14px;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+}
+
+#nickname{
+    width: 200px;
+    font-size: 14px;
+    margin-left: 20px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+}
+
+#detailed-address{
+    width: 270px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#addressChk-text{
+    height: 38px;
+    width: 270px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    border-style: none none solid none;
+}
+
+#address {
+    width: 270px;
+    border: none;
+    background-color: white;
+    font-size: 14px;
+    font-width: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#address:focus {
+    outline: none;
+}
+
+
+#residence{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#residence-list{
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+#login-email:focus {
+    border-color: orange;
+}
+
+/* btn */
+.btn-group1{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn-group2{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn{
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.btn::after{
+    display:block;
+    content: '';
+    padding: 2px;
+    border-bottom: solid 2px black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.btn:hover::after{
+    transform: scaleX(1);
+}
+.btn.active::after{
+    transform: scaleX(1);
+    border-bottom: solid 2px black;
+}
+
+.hide {
+    display: none;
+}
+
+.email-fail-message1,
+.email-fail-message2,
+.email-fail-message3,
+.password-fail-message1,
+.password-fail-message2,
+.pwCheck-fail-message,
+.name-fail-message1,
+.name-fail-message2,
+.address-fail-message{
+    margin: 10px 0;
+    width: 270px;
+    color: red;
+    font-size: 14px;
+}

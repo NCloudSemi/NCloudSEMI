@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setFocusStyle('passwordChk', 'focus-join-passwordChk');
     setFocusStyle('nickname', 'focus-join-name');
 
+
     // modal
     document.getElementById('residence-input').addEventListener('click', function () {
         document.getElementById('myModal').style.display = 'block';
