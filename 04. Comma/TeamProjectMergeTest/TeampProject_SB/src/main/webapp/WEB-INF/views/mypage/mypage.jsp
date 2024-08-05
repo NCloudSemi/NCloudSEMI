@@ -6,6 +6,11 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/mypage.css">
     <!-- ICO 파비콘 -->
     <link rel="icon" href="${pageContext.request.contextPath}/static/image/favicon.ico" type="image/x-icon">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrap">
@@ -63,23 +68,27 @@
                                         <div class="mp_user_info_change_box">
                                             <input type="hidden" name="user_id" value="${loginUser.user_id}">
                                             <input class="mp_btn" type="text" name="nickname" placeholder="${loginUser.nickname}" value="${loginUser.nickname}" required/>
-                                            <select class="mp_btn" name="address" id="address-list">
-                                                <option value="Seoul">서울</option>
-                                                <option value="Gyeonggi">경기</option>
-                                                <option value="Incheon">인천</option>
-                                                <option value="Gangwon">강원</option>
-                                                <option value="Daegu">대구</option>
-                                                <option value="Daejeon">대전</option>
-                                                <option value="Gwangju">광주</option>
-                                                <option value="Ulsan">울산</option>
-                                                <option value="Chungnam">충남</option>
-                                                <option value="Chungbuk">충북</option>
-                                                <option value="Gyeongnam">경남</option>
-                                                <option value="Gyeongbuk">경북</option>
-                                                <option value="Jeonnam">전남</option>
-                                                <option value="Jeonbuk">전북</option>
-                                                <option value="Jeju">제주</option>
-                                            </select>
+                                            <div id="mp_change_address">
+                                                <input type="text" name="address" id="mp_address" class="mp_login-input"
+                                                       placeholder="주소" readonly>
+                                            </div>
+<%--                                            <select class="mp_btn" name="address" id="address-list">--%>
+<%--                                                <option value="Seoul">서울</option>--%>
+<%--                                                <option value="Gyeonggi">경기</option>--%>
+<%--                                                <option value="Incheon">인천</option>--%>
+<%--                                                <option value="Gangwon">강원</option>--%>
+<%--                                                <option value="Daegu">대구</option>--%>
+<%--                                                <option value="Daejeon">대전</option>--%>
+<%--                                                <option value="Gwangju">광주</option>--%>
+<%--                                                <option value="Ulsan">울산</option>--%>
+<%--                                                <option value="Chungnam">충남</option>--%>
+<%--                                                <option value="Chungbuk">충북</option>--%>
+<%--                                                <option value="Gyeongnam">경남</option>--%>
+<%--                                                <option value="Gyeongbuk">경북</option>--%>
+<%--                                                <option value="Jeonnam">전남</option>--%>
+<%--                                                <option value="Jeonbuk">전북</option>--%>
+<%--                                                <option value="Jeju">제주</option>--%>
+<%--                                            </select>--%>
                                         </div>
                                     </div>
                                 </div>

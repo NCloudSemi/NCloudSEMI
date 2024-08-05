@@ -4,6 +4,8 @@
     <title></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/header.css">
+    <!-- ICO 파비콘 -->
+    <link rel="icon" href="${pageContext.request.contextPath}/static/image/favicon.ico" type="image/x-icon">
 </head>
 
 <header>

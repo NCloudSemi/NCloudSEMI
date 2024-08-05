@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c85f0b0-c571-448e-9d6f-4803d0703f65" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/TeamProjectSB.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/catalina.policy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/catalina.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/context.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/jaspic-providers.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/jaspic-providers.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/logging.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/server.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/tomcat-users.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/tomcat-users.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/web.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappings/user-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappings/user-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/mypage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +52,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Smart Tomcat.못된 고양이.executor": "Run",
     "Smart Tomcat.이름이 지정되지 않았습니다.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kid16/OneDrive/바탕 화면/TeamProjectSB/TeampProject_SB",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -113,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722858549590</updated>
-      <workItem from="1722858550851" duration="235000" />
+      <workItem from="1722858550851" duration="3780000" />
     </task>
     <servers />
   </component>

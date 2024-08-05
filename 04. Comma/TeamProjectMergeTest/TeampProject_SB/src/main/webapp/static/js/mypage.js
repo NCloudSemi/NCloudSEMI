@@ -103,6 +103,23 @@ document.getElementById("mp_userInfo_overlay").addEventListener("click", functio
     document.getElementById("mp_userInfo_popup").style.display = "none";
 });
 
+// 주소 체크
+$(window).on("load", function(){
+    $("#mp_change_address").click(function (){
+
+        new daum.Postcode({
+            oncomplete: function (data) {
+
+                jQuery("#address").val(data.address);
+                addressChk = true;
+                console.log(addressChk);
+
+                jQuery("#detailed-address").focus();
+            }
+        }).open();
+    })
+})
+
 /*---------------------------픽한 게시물, 픽한 장소-----------------------*/
 /*------------------------------픽한 게시물------------------------------*/
 // mp_heart_icon와 mp_pickboard_text 클릭 시 팝업과 오버레이 표시

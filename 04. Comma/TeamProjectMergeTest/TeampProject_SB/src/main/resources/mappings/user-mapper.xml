@@ -39,17 +39,13 @@
                , #{email});
     </insert>
 
+    <!--주성이형 part-->
+
     <select id="findById" parameterType="int" resultType="user">
         SELECT *
         FROM USER
         WHERE USER_ID = #{user_id}
     </select>
-
-<!--    <select id="getUser" resultType="user">-->
-<!--        SELECT *-->
-<!--        FROM USER-->
-<!--        WHERE USER_ID = 1-->
-<!--    </select>-->
 
     <select id="getUserProfile" resultType="user">
         SELECT *

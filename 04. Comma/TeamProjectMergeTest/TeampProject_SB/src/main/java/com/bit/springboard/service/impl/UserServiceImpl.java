@@ -86,6 +86,8 @@ public class UserServiceImpl implements UserService {
         return loginUser;
     }
 
+    //// 주성이형 part
+
     @Override
     public UserDto findById(int user_id) {
 
@@ -100,12 +102,6 @@ public class UserServiceImpl implements UserService {
         System.out.println(existingUser);
         return existingUser;
     }
-
-//// 주성이형 part
-//    @Override
-//    public UserDto getUser() {
-//        return userDao.getUser();
-//    }
 
     @Override
     public void updateProfileImage(UserDto userDto) {
