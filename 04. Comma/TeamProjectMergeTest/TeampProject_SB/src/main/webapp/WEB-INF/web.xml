@@ -79,4 +79,9 @@
         <filter-name>characterEncoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!-- SpringFramework, Tomcat 사용하여 서버를 열 때, 기본적인 index.jsp 대신 login.jsp를 설정-->
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/views/login/login.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
 body {
@@ -6,14 +7,19 @@ body {
     justify-content: center;
 
     margin: 35px 0;
-
 }
 
 
 /* login-page */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #login-page-container{
-    height: 620px;
-    width: 850px;
+    height: 730px;
+    width: 900px;
     border: 2px solid black;
     border-radius: 15px;
 
@@ -29,8 +35,8 @@ body {
 }
 
 #login-page-img img{
-    height: 570px;
-    width: 414px;
+    height: 700px;
+    width: 455px;
     border-radius: 10px;
 }
 
@@ -60,7 +66,12 @@ body {
 }
 
 /* logo */
-.main-logo{
+.main-logo1{
+    width: 50px;
+    margin-top: 100px;
+}
+
+.main-logo2{
     width: 50px;
     margin-top: 60px;
 }
@@ -87,7 +98,7 @@ body {
 
 /* Id input */
 #login-container1{
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 #login-container2{
@@ -107,8 +118,8 @@ body {
     border-style: none none solid none;
 }
 
-#login-username,
-#join-username{
+#login-email,
+#join-email{
     width: 230px;
     font-size: 14px;
     margin-left: 30px;
@@ -116,7 +127,6 @@ body {
     border: none;
     outline: none;
 }
-
 
 #login-password,
 #join-password{
@@ -145,7 +155,7 @@ body {
     outline: none;
 }
 
-#residence-input{
+#detailed-address{
     width: 270px;
     font-size: 14px;
     border: none;
@@ -156,16 +166,34 @@ body {
     text-overflow: ellipsis;
 }
 
-#residence-group{
+#addressChk-text{
     height: 38px;
     width: 270px;
     font-size: 16px;
+    font-weight: bold;
     margin: 5px 0;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border: 2px solid black;
     border-style: none none solid none;
 }
+
+#address {
+    width: 270px;
+    border: none;
+    background-color: white;
+    font-size: 14px;
+    font-width: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#address:focus {
+    outline: none;
+}
+
 
 #residence{
     font-size: 16px;
@@ -180,13 +208,20 @@ body {
     cursor: pointer;
 }
 
-#login-username:focus {
+#login-email:focus {
     border-color: orange;
 }
 
 /* btn */
-.btn-group{
-    margin-top: 20px;
+.btn-group1{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn-group2{
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -218,84 +253,24 @@ body {
 }
 .btn.active::after{
     transform: scaleX(1);
-    border-bottom: solid 2px orange;
+    border-bottom: solid 2px black;
 }
 
-/* 모달 배경 */
-.modal {
+.hide {
     display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
-/* 모달 내용 */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
 }
 
-#residenceDetails-box,
-#saveBtn-box{
-    display: flex;
-    justify-content: center;
-}
-
-#saveBtn-box{
-    margin-top: 18px;
-}
-
-/* 닫기 버튼 */
-#modal-close-box{
-    margin-bottom: 15px;
-}
-
-#modal-close {
-    color: black;
-    width: 10px;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-#modal-close:hover,
-#modal-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-/* 큰 텍스트 창 */
-.large-textarea {
-    width: 95%;
-    height: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none;
-}
-/* 버튼 스타일 */
-.modal-btn {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.modal-btn:hover {
-    background-color: orange;
+.email-fail-message1,
+.email-fail-message2,
+.email-fail-message3,
+.password-fail-message1,
+.password-fail-message2,
+.pwCheck-fail-message,
+.name-fail-message1,
+.name-fail-message2,
+.address-fail-message{
+    margin: 10px 0;
+    width: 270px;
+    color: red;
+    font-size: 14px;
 }
