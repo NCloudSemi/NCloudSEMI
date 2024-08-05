@@ -79,6 +79,7 @@ public class PostDao {
     //toggleLike
     public void ToggleLike(Map<String,Object> params) {
         try {
+            System.out.println(params);
             Integer val = mybatis.selectOne("PostDao.checkLike", params);
             //exit
             if (val == null) {

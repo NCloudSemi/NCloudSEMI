@@ -121,7 +121,7 @@
         SELECT 1
         FROM `LIKE`
         WHERE 1=1
-        <if test="type == 'post'">
+        <if test= "type == 'post'">
             AND POST_ID =#{target_id}
             AND ID = #{id}
         </if>
