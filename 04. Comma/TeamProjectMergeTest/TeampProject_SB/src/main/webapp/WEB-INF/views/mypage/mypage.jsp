@@ -10,7 +10,7 @@
 <body>
     <div class="wrap">
         <jsp:include page="/sidebar.jsp"></jsp:include>
-        <input type="hidden" name="user_id" value="${loginMember.user_id}">
+        <input type="hidden" name="user_id" value="${loginUser.user_id}">
         <div class="content">
             <div id="mp_content_flexbox">
                 <div id="mp_content_flexbox_left">
@@ -19,10 +19,10 @@
                             <input type="file" name="file" id="fileInput" style="display:none" onchange="uploadProfileImage()">
                             <button id="mp_profile_change_btn" type="submit">
                                 <c:choose>
-                                    <c:when test="${not empty loginMember.profile_img}">
+                                    <c:when test="${not empty loginUser.profile_img}">
                                         <img
                                                 id="mp_profile"
-                                                src="${pageContext.request.contextPath}/static/savedProfileImg/${loginMember.profile_img}"
+                                                src="${pageContext.request.contextPath}/static/savedProfileImg/${loginUser.profile_img}"
                                                 alt="프로필사진"
                                                 onclick="triggerFileInput(event)"
                                         />
@@ -40,8 +40,8 @@
                         </form>
                     </div>
                     <div class="mp_user_info_box">
-                        <h5 id="mp_nickname_change"><strong>${loginMember.nickname}</strong></h5>
-                        <p id="mp_region_change">${loginMember.address}, Korea</p>
+                        <h5 id="mp_nickname_change"><strong>${loginUser.nickname}</strong></h5>
+                        <p id="mp_region_change">${loginUser.address}, Korea</p>
                         <!-- Overlay -->
                         <div id="mp_userInfo_overlay"></div>
                         <!-- Popup -->
@@ -61,8 +61,8 @@
                                             <p>지역변경</p>
                                         </div>
                                         <div class="mp_user_info_change_box">
-                                            <input type="hidden" name="user_id" value="${loginMember.user_id}">
-                                            <input class="mp_btn" type="text" name="nickname" placeholder="${loginMember.nickname}" value="${loginMember.nickname}" required/>
+                                            <input type="hidden" name="user_id" value="${loginUser.user_id}">
+                                            <input class="mp_btn" type="text" name="nickname" placeholder="${loginUser.nickname}" value="${loginUser.nickname}" required/>
                                             <select class="mp_btn" name="address" id="address-list">
                                                 <option value="Seoul">서울</option>
                                                 <option value="Gyeonggi">경기</option>
@@ -280,7 +280,7 @@
                     </div>
                     <form action="/mypage/changeUserStatusMessage.do" name="">
                         <div id="mp_messagebox">
-                            <span class="message">${loginMember.message}</span>
+                            <span class="message">${loginUser.message}</span>
                         </div>
                         <!-- Overlay -->
                         <div id="mp_status_overlay"></div>
@@ -290,15 +290,15 @@
                                 <div id="close-mp_status_popup_btn">
                                     <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
                                 </div>
-                                <input type="hidden" name="user_id" value="${loginMember.user_id}">
+                                <input type="hidden" name="user_id" value="${loginUser.user_id}">
                                 <textarea
                                         id="message-input"
                                         rows="15"
                                         maxlength="300"
                                         type="text" name="message"
-                                        placeholder="${loginMember.message}"
+                                        placeholder="${loginUser.message}"
                                         required>
-                                    ${loginMember.message}
+                                    ${loginUser.message}
                                 </textarea>
                             </div>
                             <button type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드" /></button>

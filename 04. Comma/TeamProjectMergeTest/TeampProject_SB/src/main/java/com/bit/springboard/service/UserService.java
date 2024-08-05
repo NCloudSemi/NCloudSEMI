@@ -16,10 +16,8 @@ public interface UserService {
 
     UserDto login(UserDto userDto);
 
-
-
-    // 주성이형 part
-    UserDto getUser();
+//    // 주성이형 part
+//    UserDto getUser();
 
     void updateProfileImage(UserDto userDto);
 

@@ -39,31 +39,17 @@ public class MyPageController {
     @GetMapping("/main")
     public String showMyPage(HttpSession session) {
         // 로그인한 사용자 정보 가져오기
-        UserDto loginMember = userService.getUser();
+        UserDto loginUser = userService.login(userDto);
 
         // 세션에 사용자 정보 저장
-        session.setAttribute("loginMember", loginMember);
+        session.setAttribute("loginUser", loginUser);
 
         // 변경된 사용자 정보 다시 로드
-        UserDto updatedUser = userService.getUser(); // 로그인한 사용자 정보 가져오기
-        session.setAttribute("loginMember", loginMember);
+        UserDto updatedUser = userService.login(userDto); // 로그인한 사용자 정보 가져오기
+        session.setAttribute("loginUser", loginUser);
 
         return "/mypage/mypage";
     }
-
-//    @RequestMapping("/change-nickname.do")
-//    public String changeNickname(@ModelAttribute UserDto userDto, Model model) {
-//
-//        model.addAttribute("user", userDto.getUser_id());
-//
-//        try {
-//            String result = userService.changeNickname(userDto);
-//
-//        } catch (IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return "redirect:/mypage/main";
-//    }
 
     @RequestMapping("/uploadProfileImage.do")
     @ResponseBody
@@ -78,19 +64,19 @@ public class MyPageController {
             System.out.println("Saved file name: " + fileName);
 
             // 세션에서 로그인된 사용자 정보 가져오기
-            UserDto loginMember = (UserDto) session.getAttribute("loginMember");
-            System.out.println(loginMember);
+            UserDto loginUser = (UserDto) session.getAttribute("loginUser");
+            System.out.println(loginUser);
 
             // 사용자 객체에 새 프로필 이미지 경로 설정
-            loginMember.setProfile_img(fileName);
+            loginUser.setProfile_img(fileName);
             System.out.println(fileName);
 
             // 데이터베이스에 프로필 이미지 경로 업데이트
-            userService.updateProfileImage(loginMember);
-            System.out.println(loginMember);
+            userService.updateProfileImage(loginUser);
+            System.out.println(loginUser);
 
             // json 형태로 리턴될 맵에 데이터 추가
-            returnMap.put("userProfile", loginMember);
+            returnMap.put("userProfile", loginUser);
 
             return returnMap;
         } catch (Exception e) {
@@ -145,15 +131,15 @@ public class MyPageController {
     @RequestMapping("/changeUserStatusMessage.do")
     public String changeUserStatusmessage(@RequestParam("message") String message, HttpSession session) {
         // 변경된 내용이 있으면 session에도 변경된 내용을 저장하고 다시 호출해야한다.
-        UserDto loginMember = (UserDto)session.getAttribute("loginMember");
+        UserDto loginUser = (UserDto)session.getAttribute("loginUser");
         UserDto userDto = new UserDto();
         userDto.setMessage(message);
-        loginMember.setMessage(message);
+        loginUser.setMessage(message);
         System.out.println(userDto.getMessage());
 
         userService.updateStatusMessage(userDto);
         System.out.println(userService.updateStatusMessage(userDto));
-        session.setAttribute("loginMember", loginMember);
+        session.setAttribute("loginUser", loginUser);
         return "redirect:/mypage/main";
     }
 

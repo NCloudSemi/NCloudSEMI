@@ -48,9 +48,9 @@ public class UserDao {
 
     }
 
-    public UserDto getUser() {
-        return mybatis.selectOne("UserDao.getUser");
-    }
+//    public UserDto getUser() {
+//        return mybatis.selectOne("UserDao.getUser");
+//    }
 
     public void updateProfileImage(UserDto existingUser) {
         // SQL 또는 MyBatis, JPA를 사용하여 업데이트

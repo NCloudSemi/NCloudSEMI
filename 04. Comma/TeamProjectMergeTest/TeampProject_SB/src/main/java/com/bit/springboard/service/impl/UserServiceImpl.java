@@ -87,14 +87,11 @@ public class UserServiceImpl implements UserService {
         return loginUser;
     }
 
-
-
-
-// 주성이형 part
-    @Override
-    public UserDto getUser() {
-        return userDao.getUser();
-    }
+//// 주성이형 part
+//    @Override
+//    public UserDto getUser() {
+//        return userDao.getUser();
+//    }
 
     @Override
     public void updateProfileImage(UserDto userDto) {

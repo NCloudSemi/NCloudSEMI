@@ -51,11 +51,11 @@
 
     </select>
 
-    <select id="getUser" resultType="user">
-        SELECT *
-        FROM USER
-        WHERE USER_ID = 1
-    </select>
+<!--    <select id="getUser" resultType="user">-->
+<!--        SELECT *-->
+<!--        FROM USER-->
+<!--        WHERE USER_ID = 1-->
+<!--    </select>-->
 
     <select id="getUserProfile" resultType="user">
         SELECT *
