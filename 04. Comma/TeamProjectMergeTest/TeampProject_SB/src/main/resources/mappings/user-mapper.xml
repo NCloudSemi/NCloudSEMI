@@ -26,22 +26,20 @@
     </select>
 
     <insert id="join" parameterType="user">
-        INSERT INTO USER(
-                          PW
+        INSERT INTO USER( PW
                         , NICKNAME
                         , GENDER
                         , ADDRESS
                         , DETAILED_ADDRESS
-                        , EMAIL
+                        , EMAIL)
+        VALUES ( #{pw}
+               , #{nickname}
+               , #{gender}
+               , #{address}
+               , #{detailed_address}
+               , #{email});
 
-        ) VALUES (
-                   #{pw}
-                 , #{nickname}
-                 , #{gender}
-                 , #{address}
-                 , #{detailed_address}
-                 , #{email}
-                 )
+
     </insert>
 
     <select id="findById" parameterType="int" resultType="user">

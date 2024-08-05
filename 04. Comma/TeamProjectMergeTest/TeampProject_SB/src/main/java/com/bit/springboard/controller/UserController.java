@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("/login.do")
     public String loginView() {
-        return "user/login";
+        return "login/login";
     }
 
     @PostMapping("/login.do")
@@ -37,7 +37,7 @@ public class UserController {
             System.out.println("로그인 성공");
             System.out.println("----------------------------");
 
-            return "/main/main";
+            return "/mypage/mypage";
         } catch (Exception e) {
             System.out.println(e.getMessage() + ", 로그인 실패");
             System.out.println("----------------------------");
@@ -66,5 +66,15 @@ public class UserController {
     public Map<String, Object> nameCheck(UserDto userDto) {
         return userService.nameCheck(userDto.getNickname());
     }
+
+    @GetMapping("/logout.do")
+    public String logout(HttpSession session) {
+        // session 초기화
+        System.out.println(session.getAttribute("loginUser"));
+        session.invalidate();
+
+        return "redirect:/user/login.do";
+    }
+
 }
 

@@ -14,7 +14,7 @@
             <button type="button" class="linked-map"  onclick="location.href='/location/main.do'">Travel Information</button>
             <button type="button" class="linked-card" onclick="location.href='/post/main.do'">Card Board</button>
             <button type="button" class="linked-mypage" onclick="location.href='/mypage/main'">My Page</button>
-            <button id="logout">Logout</button>
+            <button type="button" id="logout" onclick="location.href='/user/logout.do'">Logout</button>
         </div>
         <div class="sidebar-footer">
             <p>Tel.&nbsp;&nbsp;000-0000-0000</p>
