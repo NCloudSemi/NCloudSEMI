@@ -29,6 +29,13 @@ public class PostController {
        this.postService = postService;
     }
 
+    //TEST
+    @GetMapping("/test")
+    public String test(@RequestParam Map<String, Object> map, HttpSession httpSession) {
+        System.out.println("상진이형 화이팅");
+        return "post/board-modal-plan";
+    }
+
     //main
     @GetMapping("/main.do")
     public String main(@RequestParam Map<String, Object> map, HttpSession httpSession,  Model model) {
