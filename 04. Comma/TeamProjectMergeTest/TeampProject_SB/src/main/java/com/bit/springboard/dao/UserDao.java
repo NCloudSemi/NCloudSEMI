@@ -65,4 +65,8 @@ public class UserDao {
     public void updateUserInformation(UserDto existingUser) {
         mybatis.selectOne("UserDao.updateUserInformation", existingUser);
     }
+
+    public void updateStatusMessage(UserDto existingUser) {
+        mybatis.selectOne("UserDao.updateStatusMessage", existingUser);
+    }
 }

@@ -30,7 +30,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem 0;
+    margin: 2rem 0;
 }
 
 .mp_user_info_box h5 {
@@ -500,6 +500,7 @@
 
 #mp_my_travel_grade_box p {
     font-weight: bold;
+    margin-bottom: 1em;
 }
 
 #mp_baggage_icon {
@@ -642,6 +643,7 @@
     border-radius: 5px;
     background: linear-gradient(to bottom, transparent calc(100% - 1px)) repeat-y;
     resize: none; /* 사용자가 크기를 변경하지 못하도록 */
+    text-align: left;
 }
 
 #close-mp_status_popup_btn {
@@ -870,6 +872,8 @@ textarea::placeholder {
 
 #mp_travel_plan_select_all {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #mp_travel_plan_select_all input[type="checkbox"] {
@@ -881,7 +885,9 @@ textarea::placeholder {
 }
 
 #mp_travel_plan_select_all p {
-    font-size: 18px;
+    font-size: 1em;
+    font-width: bold;
+    text-wrap: nowrap;
 }
 
 #mp_travel_plan_select_all img {
@@ -891,6 +897,8 @@ textarea::placeholder {
 .mp_tr_checkbox-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 .mp_tr_checkbox-container label {
@@ -1055,4 +1063,5 @@ textarea::placeholder {
 .mp_reservation_direction_btn button {
     background: transparent;
     border: none;
+    cursor: pointer;
 }

@@ -136,5 +136,24 @@ public class UserServiceImpl implements UserService {
         return "User information updated successfully";
     }
 
+    @Override
+    public String updateStatusMessage(UserDto userDto) {
+
+        // 기존 사용자 정보 조회
+        UserDto existingUser = userDao.findById(userDto.getUser_id() + 1);
+        if (existingUser == null) {
+            throw new IllegalArgumentException("User not found");
+        }
+
+        // 메세지가 변경되었는지 확인
+        if (userDto.getMessage() != null && !userDto.getMessage().equals(existingUser.getMessage())) {
+            existingUser.setMessage(userDto.getMessage());
+        }
+
+        // 변경된 정보 업데이트
+        userDao.updateStatusMessage(existingUser);
+        return "User status message updated successfully";
+    }
+
 }
 

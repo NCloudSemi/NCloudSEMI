@@ -51,9 +51,15 @@
 
     <update id="updateUserInformation" parameterType="user">
         UPDATE USER
-        SET nickname = #{nickname},
-            address = #{address}
-        WHERE user_id = #{user_id}
+        SET NICKNAME = #{nickname},
+            ADDRESS = #{address}
+        WHERE USER_ID = #{user_id}
+    </update>
+
+    <update id="updateStatusMessage" parameterType="user">
+        UPDATE USER
+        SET MESSAGE = #{message}
+        WHERE USER_ID = #{user_id}
     </update>
 
 </mapper>

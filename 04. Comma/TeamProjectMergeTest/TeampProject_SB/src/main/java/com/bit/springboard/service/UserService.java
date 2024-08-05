@@ -27,4 +27,6 @@ public interface UserService {
     void updateProfileImage(UserDto userDto);
 
     String updateUserInformation(UserDto userDto);
+
+    String updateStatusMessage(UserDto userDto);
 }

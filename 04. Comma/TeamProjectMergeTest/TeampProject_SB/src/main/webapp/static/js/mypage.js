@@ -231,6 +231,10 @@ const mp_status_overlay = document.getElementById("mp_status_overlay");
 const applyMessageBtn = document.getElementById("apply-message");
 const closeStatusPopupBtn = document.getElementById("close-mp_status_popup");
 
+document.querySelector('textarea').addEventListener('input', function() {
+    this.value = this.value.trim();
+});
+
 messageBox.addEventListener("click", function () {
     // 팝업 및 오버레이 표시
     mp_status_popup.style.display = "block";
@@ -252,6 +256,9 @@ applyMessageBtn.addEventListener("click", function () {
 
         // 폰트 크기 조절
         fitTextToBox(messageElement);
+
+        // 서버에 메시지 저장
+        // saveMessageToServer(message);
 
         // 팝업 닫기
         mp_status_popup.style.display = "none";
@@ -309,6 +316,10 @@ document.getElementById("mp_new_board_overlay").addEventListener("click", functi
 
 /*-----------------------오른쪽 상단 텍스트 innerHtml-----------------------*/
 
+function saveContentToLocalStorage(content) {
+    localStorage.setItem('savedContent', content);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // 각 섹션에 대한 HTML 콘텐츠 정의
     const travelRecordsHTML = `
@@ -365,15 +376,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <div id="mp_add-post-button"></div>
         <div class="mp_travel_plan_box">
             <div class="mp_tr_checkbox-container">
-                <label class="mp_popup_content_checkbox">
-                    <div id="mp_travel_plan_select_all">
+                <div id="mp_travel_plan_select_all">
+                    <label>
                         <input type="checkbox" id="mp_travelplan_select-all" onclick=""/>
-                        <p>전체선택</p>
-                    </div>
-                    <div>
-                        <img id="mp_travelPlan_delete" src="/static/image/delete_icon.svg" alt="삭제버튼" />
-                    </div>
-                </label>
+                    </label>
+                    <p>전체선택</p>
+                </div>
+                <div>
+                    <img id="mp_travelPlan_delete" src="/static/image/delete_icon.svg" alt="삭제버튼" />
+                </div>
             </div>
             <div id="mp_content_flexbox_right">
                 <div class="mp_travel_plan_icons">
@@ -479,7 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="mp_reservation_img">
                     <img id="mp_reservation_info_img" src="/static/image/신라스테이_서초_img.png" alt="신라스테이_서초">
-                    <div class="mp_reservation_info">
+                    <div class="mp_reservation_info_class">
                         <div class="mp_reservation_img_info">
                             <img
                                 id="mp_reservation_star"
@@ -529,6 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element.addEventListener('click', (event) => {
                 event.preventDefault(); // 기본 동작 방지 (페이지 이동 방지)
                 changeContentDiv.innerHTML = content;
+                saveContentToLocalStorage(content); // 내용 저장
                 if (initFunction) {
                     initFunction();
                 }
@@ -620,6 +632,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // 여기서 reservationDetailsHTML에 필요한 모든 JavaScript 코드를 초기화합니다.
         console.log('reservationDetailsHTML initialized');
 
+    }
+
+    // 로컬 저장소에서 저장된 콘텐츠 불러오기
+    const savedContent = localStorage.getItem('savedContent');
+    if (savedContent) {
+        changeContentDiv.innerHTML = savedContent;
     }
 
     // 각 버튼에 클릭 이벤트 리스너 추가

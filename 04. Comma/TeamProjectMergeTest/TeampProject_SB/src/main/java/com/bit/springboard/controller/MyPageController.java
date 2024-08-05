@@ -142,5 +142,19 @@ public class MyPageController {
         return "redirect:/mypage/main"; // 리다이렉트할 경로
     }
 
+    @RequestMapping("/changeUserStatusMessage.do")
+    public String changeUserStatusmessage(@RequestParam("message") String message, HttpSession session) {
+        // 변경된 내용이 있으면 session에도 변경된 내용을 저장하고 다시 호출해야한다.
+        UserDto loginMember = (UserDto)session.getAttribute("loginMember");
+        UserDto userDto = new UserDto();
+        userDto.setMessage(message);
+        loginMember.setMessage(message);
+        System.out.println(userDto.getMessage());
+
+        userService.updateStatusMessage(userDto);
+        System.out.println(userService.updateStatusMessage(userDto));
+        session.setAttribute("loginMember", loginMember);
+        return "redirect:/mypage/main";
+    }
 
 }
