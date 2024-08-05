@@ -37,19 +37,45 @@ public class MyPageController {
     }
 
     @GetMapping("/main")
-    public String showMyPage(HttpSession session) {
-        // 로그인한 사용자 정보 가져오기
-        UserDto loginUser = userService.login(userDto);
+    public String showMyPage(HttpSession session, Model model) {
+        // 세션에서 사용자 정보 가져오기
+        UserDto loginUser = (UserDto) session.getAttribute("loginUser");
+        System.out.println(loginUser);
+        if (loginUser == null) {
+            model.addAttribute("errorMessage", "로그인이 필요합니다.");
+            return "errorPage"; // 로그인 페이지로 리다이렉트하도록 변경할 수도 있습니다.
+        }
 
-        // 세션에 사용자 정보 저장
-        session.setAttribute("loginUser", loginUser);
+        try {
+            // 로그인한 사용자 정보 가져오기
+            UserDto updatedUser = userService.findById(loginUser.getUser_id());
+            System.out.println(updatedUser);
+            // 세션에 사용자 정보 저장
+            session.setAttribute("loginUser", updatedUser);
 
-        // 변경된 사용자 정보 다시 로드
-        UserDto updatedUser = userService.login(userDto); // 로그인한 사용자 정보 가져오기
-        session.setAttribute("loginUser", loginUser);
-
-        return "/mypage/mypage";
+            return "/mypage/mypage";
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "errorPage"; // 적절한 오류 페이지로 이동
+        }
     }
+
+//    @GetMapping("/main")
+//    public String showMyPage(HttpSession session) {
+//        // 로그인한 사용자 정보 가져오기
+//        UserDto loginUser = userService.findById(userDto);
+//        System.out.println(userDto);
+//
+//        // 세션에 사용자 정보 저장
+//        session.setAttribute("loginUser", loginUser);
+//
+//        // 변경된 사용자 정보 다시 로드
+//        UserDto updatedUser = userService.findById(userDto); // 로그인한 사용자 정보 가져오기
+//        System.out.println(userDto);
+//        session.setAttribute("loginUser", loginUser);
+//
+//        return "/mypage/mypage";
+//    }
 
     @RequestMapping("/uploadProfileImage.do")
     @ResponseBody

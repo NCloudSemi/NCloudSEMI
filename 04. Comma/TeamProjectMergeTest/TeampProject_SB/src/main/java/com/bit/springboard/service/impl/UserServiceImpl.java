@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -87,6 +86,21 @@ public class UserServiceImpl implements UserService {
         return loginUser;
     }
 
+    @Override
+    public UserDto findById(int user_id) {
+
+        System.out.println("UserServiceImpl.findById 메소드 실행");
+        System.out.println(userDao.findById(user_id));
+
+        UserDto existingUser = userDao.findById(user_id);
+        System.out.println(existingUser);
+        if (existingUser == null) {
+            throw new IllegalArgumentException("User not found");
+        }
+        System.out.println(existingUser);
+        return existingUser;
+    }
+
 //// 주성이형 part
 //    @Override
 //    public UserDto getUser() {
@@ -112,7 +126,7 @@ public class UserServiceImpl implements UserService {
     public String updateUserInformation(UserDto userDto) {
 
         // 기존 사용자 정보 조회
-        UserDto existingUser = userDao.findById(userDto.getUser_id() + 1);
+        UserDto existingUser = userDao.findById(userDto.getUser_id());
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }
@@ -136,7 +150,7 @@ public class UserServiceImpl implements UserService {
     public String updateStatusMessage(UserDto userDto) {
 
         // 기존 사용자 정보 조회
-        UserDto existingUser = userDao.findById(userDto.getUser_id() + 1);
+        UserDto existingUser = userDao.findById(userDto.getUser_id());
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }

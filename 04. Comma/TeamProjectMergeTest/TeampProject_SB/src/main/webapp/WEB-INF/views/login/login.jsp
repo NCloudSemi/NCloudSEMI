@@ -16,6 +16,8 @@
     <!-- servlet-context.xml에 /static/** 설정 -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login-joining.css">
+    <!-- ICO 파비콘 -->
+    <link rel="icon" href="${pageContext.request.contextPath}/static/image/favicon.ico" type="image/x-icon">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script
             src="https://code.jquery.com/jquery-3.7.1.js"

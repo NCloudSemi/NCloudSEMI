@@ -18,8 +18,7 @@
 
 
     <select id="login" parameterType="user" resultType="user">
-        SELECT EMAIL
-             , PW
+        SELECT *
         FROM USER
         WHERE EMAIL = #{email}
           AND PW = #{pw}
@@ -38,15 +37,12 @@
                , #{address}
                , #{detailed_address}
                , #{email});
-
-
     </insert>
 
     <select id="findById" parameterType="int" resultType="user">
         SELECT *
         FROM USER
         WHERE USER_ID = #{user_id}
-
     </select>
 
 <!--    <select id="getUser" resultType="user">-->
