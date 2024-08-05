@@ -278,26 +278,32 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="mp_messagebox">
-                        <span class="message">상태 메시지: 메시지를 클릭하여 수정하세요.</span>
-                    </div>
-                    <!-- Overlay -->
-                    <div id="mp_status_overlay"></div>
-                    <!-- Popup -->
-                    <div id="mp_status_popup">
-                        <div>
-                            <div id="close-mp_status_popup_btn">
-                                <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
-                            </div>
-                            <textarea
-                                id="message-input"
-                                rows="15"
-                                maxlength="300"
-                                placeholder="상태 메시지를 입력하세요"
-                            ></textarea>
+                    <form action="/mypage/changeUserStatusMessage.do" name="">
+                        <div id="mp_messagebox">
+                            <span class="message">${loginMember.message}</span>
                         </div>
-                        <img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드" />
-                    </div>
+                        <!-- Overlay -->
+                        <div id="mp_status_overlay"></div>
+                        <!-- Popup -->
+                        <div id="mp_status_popup">
+                            <div>
+                                <div id="close-mp_status_popup_btn">
+                                    <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
+                                </div>
+                                <input type="hidden" name="user_id" value="${loginMember.user_id}">
+                                <textarea
+                                        id="message-input"
+                                        rows="15"
+                                        maxlength="300"
+                                        type="text" name="message"
+                                        placeholder="${loginMember.message}"
+                                        required>
+                                    ${loginMember.message}
+                                </textarea>
+                            </div>
+                            <button type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드" /></button>
+                        </div>
+                    </form>
                 </div>
                 <div id="mp_content_flexbox_right">
                     <div id="mp_header_text">

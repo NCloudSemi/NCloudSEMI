@@ -261,15 +261,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <div id="mp_add-post-button"></div>
         <div class="mp_travel_plan_box">
             <div class="mp_tr_checkbox-container">
-                <label class="mp_popup_content_checkbox">
+                <div class="mp_popup_content_checkbox">
                     <div id="mp_travel_plan_select_all">
+                    <label>
                         <input type="checkbox" id="mp_travelplan_select-all" />
+                    </label>
                         <p>전체선택</p>
                     </div>
                     <div>
                         <img id="mp_travelPlan_delete" src="../img/delete_icon.svg" alt="삭제버튼" />
                     </div>
-                </label>
+                </div>
             </div>
             <div id="mp_content_flexbox_right">
                 <div class="mp_travel_plan_icons">
