@@ -1,4 +1,4 @@
-
+//map controller
 $(()=>{
 
     const contextPath = document.getElementById("contextPath").value;
@@ -39,13 +39,8 @@ $(()=>{
         grade:0
     }
 
-    //modal
-    modal =  new bootstrap.Modal(document.getElementById('resultModal'));
-
-
     //카카오 지도
-    const mapContainer = document.getElementById('kakaoMap')
-    const modalMapContainer = document.getElementById('resultModalMap')
+    const mapContainer = document.querySelector('.map-box-map')
     const mapOptionMain = {
         center: new kakao.maps.LatLng(37.56356944444444, 126.98000833333333), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
@@ -54,10 +49,7 @@ $(()=>{
         center: new kakao.maps.LatLng(37.56356944444444, 126.98000833333333), // 지도의 중심좌표
         level: 2 // 지도의 확대 레벨
     };
-
     const kakaoMap = new kakao.maps.Map(mapContainer, mapOptionMain);
-    const modalMap = new kakao.maps.Map( modalMapContainer, mapOptionModal);
-
 
     //위치 검색서비스
     const pleaceService = new kakao.maps.services.Places();
@@ -66,12 +58,13 @@ $(()=>{
     const infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 
+
     //kakao 검색관련 이벤트 TEST
     const serchingData = () =>{
         let serchValue = "호텔" //document.querySelector('#serchBar').val()
         //검색창 비워져 있는지
-        if($('#serchBar').val() !=''){
-            serchValue = $('#serchBar').val()
+        if($('#map-box-search-input').val() !=''){
+            serchValue = $('#map-box-search-input').val()
         }
 
         //serch options
@@ -150,15 +143,11 @@ $(()=>{
                     infowindow.close();
                 });
 
-                kakao.maps.event.addListener(marker, 'click', function() {
-                    displayModal(marker, place);
-                });
-
             })(marker, places[i]);
 
 
             //Result List 추가하기
-            addResult(places[i])
+            addResult(places[i],i)
         }
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         kakaoMap.setBounds(bounds);
@@ -187,29 +176,6 @@ $(()=>{
         markers = [];
     }
 
-    //나중에 함수 합치기
-    function addMarkerModal(position) {
-        const imageSrc = `${contextPath}/static/image/marker.svg`// 마커 이미지 url, 스프라이트 이미지를 씁니다
-        const    imageSize = new kakao.maps.Size(36, 37) // 마커 이미지의 크기
-        const   markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
-        const   marker = new kakao.maps.Marker({
-            position: position, // 마커의 위치
-            image: markerImage
-        });
-        marker.setMap(modalMap); // 지도 위에 마커를 표출합니다
-        modalMarkers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
-        return marker;
-    }
-
-    // 지도 위에 표시되고 있는 마커를 모두 제거합니다
-    function removeMarkerModal() {
-        for ( var i = 0; i < modalMarkers.length; i++ ) {
-            modalMarkers[i].setMap(null);
-        }
-        modalMarkers = [];
-    }
-
     // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
     // 인포윈도우에 장소명을 표시합니다
     function displayMinInfo(marker, title) {
@@ -219,31 +185,14 @@ $(()=>{
         infowindow.open(kakaoMap, marker);
     }
 
-    function  displayModal(marker,place){
-
-        console.log(place)
-
-        //title
-        document.querySelector("#place_name").textContent = place["place_name"]
-        document.querySelector("#resultModalDatas .price-info .price").textContent = 'TEST'
-        document.querySelector("#resultModalDatas .location-info .location").textContent =place["road_address_name"]
-        document.querySelector("#resultModalDatas .direction-info .direction").textContent = make_direction(place)
-
-        modal.show();
-        removeMarkerModal()
-        addMarkerModal(marker.getPosition())
-        modalMap.setCenter(marker.getPosition());
-    }
-
-
 
     //ResultList에 모든 Result을 제거합디다
     const removeResult = ()=>{
-        document.querySelector('#serchResultList').innerHTML =""
+        document.querySelector('.map-box-preview-box').innerHTML =""
     }
 
-    const addResult =(place)=>{
-        const direction = make_direction(place)
+    const addResult =(place ,i)=>{
+
         //요청 때리기 있는지
         $.ajax({
             url: "/location/data.do",
@@ -261,378 +210,65 @@ $(()=>{
                 let cost = location_data["loc"]  || 0;
                 serchResults.push(location_data);
 
-                const serchResultForm = `<div class="serchResult">
-                                            <!--data img-->
-                                            <div class="serch-img" style="background-image: url(${imgPath});">
-                                            </div>
-                                            <div class ="serch-info">
+                const serchResultForm = `<div id="map-box-preview-item${i}" class="map-box-preview-item">
+                                <div class="map-box-preview-img" id="map-box-preview-img1">
+                                    <img src="${contextPath}/static/image/Comment1.svg" alt="" s>
+                                </div>
+                                <div class="description-box">
+                                    <div class="place-name">${place["place_name"]}</div>
+                                    <div class="grade-box">
+                                        <img src="${contextPath}/static/image/Grade-40.jpg" alt="">
+                                        <p>4.0 / 5</p>
+                                    </div>
+                                    <div class="certification-box">
+                                        <div class="certification-name">3성급 호텔</div>
+                                        <img src="${contextPath}/static/image/Certification-Icon.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="description-detail-box">
+                                    <div class="cost-box">
+                                        <div class="cost-name">가격</div>
+                                        <div class="cost-content">20,000 ~ 30,000</div>
+                                    </div>
+                                    <div class="address-box">
+                                        <div class="address-name">주소</div>
+                                        <div class="address-content">서울특별시 서초구 효령로 427</div>
+                                    </div>
+                                </div>
+                            </div>`
+                document.querySelector('.map-box-preview-box').innerHTML +=  serchResultForm
 
-                                                <div class="d-flex m-0 serch-name">
-                                                    <p class="serch-name">${place["place_name"]}</p>
-                                                    <div class="grade">⭐⭐⭐⭐⭐</div>
-                                                </div>
+                const mapBoxPreviewItems = document.querySelectorAll('.map-box-preview-item')
+                //add events
+                const isEditable = true
 
-                                                <div class="d-flex serch-certification">
-                                                    <img src="" alt="" class="certification-img">
-                                                    <p class="certification-title"></p> 
-                                                </div>
+                mapBoxPreviewItems .forEach(item => {
+                    item.setAttribute('draggable',  isEditable);
+                    item.querySelectorAll('*').forEach(el => el.style.pointerEvents = isEditable ? '' : 'none');
+                });
 
-                                                <div class="d-flex serch-data">
+                mapBoxPreviewItems.forEach(item => {
+                    item.setAttribute('draggable', true);
+                    item.addEventListener('dragstart', handleDragStart);
 
-                                                    <div class="price-info" style="margin-right: 10vw">
-                                                        <p>금액</p>
-                                                        <p class="price">${cost}</p>
-                                                    </div>
+                    item.querySelectorAll('*').forEach(child => {
+                        child.setAttribute('draggable', false);
+                        child.addEventListener('dragstart', e => e.preventDefault());
+                    });
+                });
 
-                                                    <div class="direction-info" style="margin-right: 10vw">
-                                                        <p>찾아가시는 길</p>
-                                                        <p class="direction">${direction}</p>
-                                                    </div>
 
-                                                    <div class="location-info" style="margin-right: 10vw">
-                                                        <p>위치</p>
-                                                        <p class="location">${place["road_address_name"]}</p>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                            
-                                        </div>`
-                document.querySelector('#serchResultList').innerHTML +=  serchResultForm
             },
             error: (err) => {
                 console.log(err);
             }
         });
 
-
-
-    }
-
-
-    //return_grade_img
-    const make_grade= (grade) =>{
-
-    }
-
-    const make_direction =(place)=>{
-        let station =''
-        let min_distance = 100
-        const x = place['x']
-        const y = place['y']
-        for (let index = 0; index < station_data.length; index++) {
-            const station_x = station_data[index]["coordinate"][1];
-            const station_y = station_data[index]["coordinate"][0];
-            const distance = getDistance(x, y, station_x, station_y);
-            if(min_distance > distance){
-                min_distance = distance
-                station =station_data[index]['name']
-            }
-        }
-        return `${station}역 에서 도보로 ${ parseInt(min_distance*15)}분 거리`
-    }
-
-    // 라디안 변환 함수
-    function toRadians(degrees) {
-        return degrees * Math.PI / 180;
-    }
-
-    // 두 지점 사이의 거리 계산 함수 (Haversine formula)
-    function getDistance(latitude1, longitude1, latitude2, longitude2) {
-        const earthRadiusKm = 6371; // 지구 반지름 (단위: 킬로미터)
-
-        // 위도와 경도를 라디안으로 변환
-        const lat1 = toRadians(latitude1);
-        const lon1 = toRadians(longitude1);
-        const lat2 = toRadians(latitude2);
-        const lon2 = toRadians(longitude2);
-
-        // 위도 차이와 경도 차이 계산
-        const dLat = lat2 - lat1;
-        const dLon = lon2 - lon1;
-
-        // Haversine formula 계산
-        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(lat1) * Math.cos(lat2) *
-            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-        // 거리 계산 (단위: 킬로미터)
-        const distance = earthRadiusKm * c;
-
-        return distance;
-    }
-
-
-    //like location evet
-    function ToggleLike(){
-        const $this = $(this);
-        const isLiked = $this.attr('is-like') === "true"; // 엄격한 비교 사용
-        const target_id = $this.attr('target-id');
-
-        console.log($this.attr('is-like'));
-
-        //pick-unpick
-        if (isLiked) {
-            $this.find('img').attr("src", `${contextPath}/static/image/Unliked-Icon.svg`);
-            $this.attr('is-like', false);
-        } else {
-            $this.find('img').attr("src", `${contextPath}/static/image/Liked-Icon.svg`);
-            $this.attr('is-like', true);
-        }
-
-        console.log($this);
-        console.log(target_id);
-
-        if (target_id && target_id !== "undefined") {
-            const formData = new FormData();
-            formData.append("type", "location");
-            formData.append("target_id", target_id);
-            formData.append("id", 3); // 테스트용
-            $this.addClass('disabled');
-            fetch(`/location/like.do`, {
-                method: 'POST',
-                body: formData
-            }).then(() => {
-                $this.removeClass('disabled');
-            });
-        }
     }
 
 
 
-    //calender
-
-    let date = new Date();
-    let month = date.getMonth();
-    let year = date.getFullYear();
-    let startDate =null
-    let endDate =null
-
-
-    const months = [
-        '01','02','03','04','05','06','07','08','09','10','11','12',
-    ];
-
-    function renderCalendar() {
-        $('.calendar-body').empty();
-        $('#month-year').text(`${months[month]} ${year}`);
-
-        const firstDayOfMonth = new Date(year, month, 1).getDay();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        const firstDayOfMonthNext = new Date(year, month+1, 1).getDay();
-        const daysInMonthNext = new Date(year, month + 2, 0).getDate();
-
-        for (let i = 0; i < firstDayOfMonth; i++) {
-            $('#cur-calender').append(createEmptyDay());
-        }
-        for (let i = 1; i <= daysInMonth; i++) {
-            $('#cur-calender').append(createDay(year,month,i));
-        }
-
-        for (let i = 0; i < firstDayOfMonthNext; i++) {
-            $('#next-calendar').append(createEmptyDay());
-        }
-        for (let i = 1; i <= daysInMonthNext; i++) {
-            $('#next-calendar').append(createDay( (month === 11 ? year+1:year) ,(month+1)%12,i));
-        }
-
-        if(startDate != null)
-        {
-            $("#check_in").val(`${startDate.getFullYear()}-${startDate.getMonth() +1}-${startDate.getDate()}`)
-        }
-        if(endDate != null)
-        {
-            $("#check_out").val(`${endDate.getFullYear()}-${endDate.getMonth() +1}-${endDate.getDate()}`)
-        }
-
-        $("#next-month").text( months[(month+1)%12])
-        $("#cur-month").text(months[month])
-
-    }
-
-    function createEmptyDay() {
-        return $('<div>').addClass('day');
-    }
-
-    function createDay(y,m,d) {
-        const div = $('<div>')
-            .addClass('day')
-            .text(d)
-            .on('click',bookingDay);
-        let selectedDate = new Date(y, m, d); // Corrected this part
-        if (startDate != null && endDate != null &&
-            startDate <= selectedDate && selectedDate <= endDate) {
-            div.addClass('booked');
-        }
-        return div
-    }
-
-    function bookingDay(){
-        const parent_id  = $(this).parent().attr('id')
-        $(this).addClass('booked')
-        if (startDate == null) {
-            if(parent_id ==='next-calendar')
-                startDate = new Date(year, (month+1)%12, $(this).text());
-            else
-                startDate = new Date(year, month, $(this).text());
-
-        }
-        else {
-            if(parent_id ==='next-calendar')
-                endDate = new Date(year, (month+1)%12, $(this).text());
-            else
-                endDate = new Date(year, month, $(this).text());
-
-        }
-
-        //교환
-        if (startDate > endDate) {
-            let temp = startDate;
-            startDate = endDate;
-            endDate = temp;
-        }
-        console.log(startDate,endDate)
-        renderCalendar()
-    }
-
-
-    //각종 이벤트변수 초기화
-    initalize_val = ()=>{
-        date = new Date();
-        month = date.getMonth();
-        year = date.getFullYear();
-        startDate =null
-        endDate =null
-    }
-
-    //serch-filter
-    $('.area').on('click',function(){
-        $(this).addClass('active')
-        $(this).siblings().removeClass('active')
-        serchFillter['Area'] = $(this).text()
-        serchingData()
-    })
-
-    //search-button
-    $("#search-button").on('click',serchingData)
-
-
-    //filter options
-    $('#filter-button').on('click',()=>{
-        $('#serch-form').css({display:'none'})
-        $('#filter-form').css({display:'block'})
-    })
-
-    $('#filter-back-button').on('click',()=>{
-        $('#filter-form').css({display:'none'})
-        $('#serch-form').css({display:'flex'})
-    })
-
-
-
-    //price filter drag
-    $('.price-point').draggable({
-        axis: 'x',
-        containment: "#price-progress"
-    });
-
-    $('#draggable-point-1').draggable({
-        drag: function() {
-
-
-
-            const left2 =   parseFloat($('#draggable-point-2').css("left"))
-            const left1 =  parseFloat($('#draggable-point-1').css("left"))
-            const range = parseFloat($('#price-progress').css("width"))
-            const offset =  parseFloat(window.innerWidth) || parseFloat(document.documentElement.clientWidth);
-
-            const maxPrice = parseInt($('#price-max').attr('value'))
-            const minPrice = parseInt($('#price-min').attr('value'))
-            const priceRange =  maxPrice -minPrice
-
-            //길이
-            $('#price-progress-bar').css({
-                'width':  ((left1 - left2)/offset)*100 +'vw'
-            });
-
-            //값
-            console.log(minPrice + (priceRange)* (left1/range))
-            $('price-handle-max').text(parseInt( minPrice + (priceRange)* (left1/range)))
-        },
-
-        stop: function() {
-            const left =  parseFloat($(this).css("left"))
-            const top = parseFloat($(this).css("top"))
-            const offsetW =  parseFloat(window.innerWidth) || parseFloat(document.documentElement.clientWidth);
-            const offsetH =  parseFloat(window.innerHeight) || parseFloat(document.documentElement.clientHeight);
-            //위치변환 vw
-            $(this).css({
-                "left": (left/offsetW)*100 +'vw',
-                "top":  (top/offsetH) *100 +'vh'
-            })
-        }
-    });
-
-    $('#draggable-point-2').draggable({
-        drag: function() {
-            const left2 =   parseFloat($('#draggable-point-2').css("left"))
-            const left1 =  parseFloat($('#draggable-point-1').css("left"))
-            const offset =  parseFloat(window.innerWidth) || parseFloat(document.documentElement.clientWidth);
-
-            //길이
-            $('#price-progress-bar').css({
-                'left':  (left2/offset)*100 +'vw' ,
-                'width':  ((left1 - left2)/offset)*100 +'vw'
-            });
-        },
-
-        stop: function() {
-            const left =  parseFloat($(this).css("left"))
-            const top = parseFloat($(this).css("top"))
-            const offsetW =  parseFloat(window.innerWidth) || parseFloat(document.documentElement.clientWidth);
-            const offsetH =  parseFloat(window.innerHeight) || parseFloat(document.documentElement.clientHeight);
-            //위치변환 vw
-            $(this).css({
-                "left": (left/offsetW)*100 +'vw',
-                "top":  (top/offsetH) *100 +'vh'
-            })
-        }
-    });
-
-    //calender button
-    $('#prev').on('click', function () {
-        month--;
-        if (month < 0) {
-            month = 11;
-            year--;
-        }
-        renderCalendar();
-    });
-    //
-    $('#next').on('click', function () {
-        month++;
-        if (month > 11) {
-            month = 0;
-            year++;
-        }
-        renderCalendar();
-    });
-
-    //modal show callback
-    modal._element.addEventListener('shown.bs.modal', function () {
-        modalMap.relayout();    // 지도의 크기가 변동이 있을 경우 함수 호출
-    });
-
-
-
-    //TEST SERCH
-    serchingData() //SEARCH TEST
-    renderCalendar()
-
-    //NEW MODAL EVENTS
+    $('#map-box-search-button').on('click',serchingData)
 
 
 

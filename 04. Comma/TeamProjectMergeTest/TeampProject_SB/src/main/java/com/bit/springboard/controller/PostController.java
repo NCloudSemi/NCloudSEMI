@@ -33,7 +33,7 @@ public class PostController {
     @GetMapping("/test")
     public String test(@RequestParam Map<String, Object> map, HttpSession httpSession) {
         System.out.println("상진이형 화이팅");
-        return "post/board-modal-plan";
+        return "modal/board-plan-modal";
     }
 
     //main
