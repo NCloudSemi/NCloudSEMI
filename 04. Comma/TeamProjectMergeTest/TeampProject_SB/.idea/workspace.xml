@@ -4,47 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="038e276d-22b4-4acf-829c-da6f4e263f3a" name="변경" comment="">
+    <list default="true" id="6c85f0b0-c571-448e-9d6f-4803d0703f65" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/TeamProjectSB.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/catalina.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/catalina.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/jaspic-providers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/jaspic-providers.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/tomcat-users.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.smarttomcat/TeamProjectSB/conf/web.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/MyPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/MyPageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/MyPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/MyPageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappings/user-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappings/user-mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.jsp" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/PostController.java" afterDir="false" />
->>>>>>> aab2142f4a8f43bafd7057a8733c4a2d8b9f1d04
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Jsp File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;alohalo2&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "alohalo2"
   }
-}</component>
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/NCloudSemi/NCloudSEMI.git",
-    "accountId": "2856d53f-5b1e-4c40-a1f8-76bf9550eef3"
+    "accountId": "07260ecf-0d38-47eb-922d-bdb936aae27b"
   }
 }]]></component>
   <component name="LogFilters">
@@ -54,58 +49,44 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2k5y9Am1rMRaFasxZOS13RKC31m" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2kEpNFdWzbrHcvMhENUYspVlE91" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-<<<<<<< HEAD
-=======
-    &quot;Smart Tomcat.Unnamed.executor&quot;: &quot;Run&quot;,
->>>>>>> aab2142f4a8f43bafd7057a8733c4a2d8b9f1d04
-    &quot;Smart Tomcat.나쁜 고양이.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/lecture/NcloudSEMI/04. Comma/TeamProjectMergeTest/TeampProject_SB&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Smart Tomcat.이름이 지정되지 않았습니다.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" nameIsGenerated="true">
+    <configuration name="못된 고양이" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="catalinaBase" value="C:\Users\bitcamp\.SmartTomcat\TeampProject_SB\TeampProject_SB" />
+      <option name="catalinaBase" value="C:\Users\kid16\.SmartTomcat\TeampProject_SB\TeampProject_SB" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="envOptions">
         <map />
       </option>
       <option name="extraClassPath" value="" />
+      <option name="port" value="8090" />
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/10.1.25" />
-          <option name="path" value="$PROJECT_DIR$/../../../../../../../Program Files/apache-tomcat-10.1.25" />
+          <option name="path" value="C:/devTools/apache-tomcat-10.1.25" />
           <option name="version" value="10.1.25.0" />
         </TomcatInfo>
       </option>
@@ -127,21 +108,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="038e276d-22b4-4acf-829c-da6f4e263f3a" name="변경" comment="" />
-      <created>1722587578343</created>
+      <changelist id="6c85f0b0-c571-448e-9d6f-4803d0703f65" name="변경" comment="" />
+      <created>1722858549590</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1722587578343</updated>
-      <workItem from="1722587579566" duration="2609000" />
-<<<<<<< HEAD
-      <workItem from="1722816108571" duration="20957000" />
-      <workItem from="1722842323553" duration="3507000" />
-      <workItem from="1722845961520" duration="8559000" />
-=======
-      <workItem from="1722816108571" duration="20630000" />
-      <workItem from="1722842679854" duration="3901000" />
-      <workItem from="1722848315399" duration="99000" />
->>>>>>> aab2142f4a8f43bafd7057a8733c4a2d8b9f1d04
+      <updated>1722858549590</updated>
+      <workItem from="1722858550851" duration="235000" />
     </task>
     <servers />
   </component>
