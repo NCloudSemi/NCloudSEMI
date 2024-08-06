@@ -93,6 +93,12 @@ public class LocationController {
         }
     }
 
+    //장소 like 가져오기
+    @GetMapping("/getMylike")
+    @ResponseBody
+    public void getMyLike(UserDto userDto){
+       
+    }
 
 
 
