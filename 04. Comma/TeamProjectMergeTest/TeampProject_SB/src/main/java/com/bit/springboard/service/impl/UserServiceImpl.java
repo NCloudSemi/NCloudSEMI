@@ -89,24 +89,25 @@ public class UserServiceImpl implements UserService {
     //// 주성이형 part
 
     @Override
-    public UserDto findById(int user_id) {
+    public UserDto findById(UserDto userDto) {
 
         System.out.println("UserServiceImpl.findById 메소드 실행");
-        System.out.println(userDao.findById(user_id));
 
-        UserDto existingUser = userDao.findById(user_id);
-        System.out.println(existingUser);
+        UserDto existingUser = userDao.findById(userDto);
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }
-        System.out.println(existingUser);
+        System.out.println("UserServiceImpl.findById 메소드 " + existingUser);
+        userDao.findById(existingUser);
         return existingUser;
     }
 
     @Override
     public void updateProfileImage(UserDto userDto) {
+
+        System.out.println("UserServiceImpl.updateProfileImage 메소드 실행");
         // 기존 사용자 정보 조회
-        UserDto existingUser = userDao.findById(userDto.getUser_id());
+        UserDto existingUser = userDao.findById(userDto);
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }
@@ -119,10 +120,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updateUserInformation(UserDto userDto) {
+    public UserDto updateUserInformation(UserDto userDto) {
 
+        System.out.println("UserServiceImpl.updateUserInformation 메소드 실행");
         // 기존 사용자 정보 조회
-        UserDto existingUser = userDao.findById(userDto.getUser_id());
+        UserDto existingUser = userDao.findById(userDto);
+        System.out.println(userDto.getUser_id());
+        System.out.println("updateUserInformation 메소드의 " + existingUser);
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }
@@ -136,17 +140,22 @@ public class UserServiceImpl implements UserService {
         if (userDto.getAddress() != null && !userDto.getAddress().equals(existingUser.getAddress())) {
             existingUser.setAddress(userDto.getAddress());
         }
+        // 상세주소가 변경되었는지 확인
+        if (userDto.getDetailed_address() != null && !userDto.getDetailed_address().equals(existingUser.getDetailed_address())) {
+            existingUser.setDetailed_address(userDto.getDetailed_address());
+        }
 
         // 변경된 정보 업데이트
         userDao.updateUserInformation(existingUser);
-        return "User information updated successfully";
+        return existingUser;
     }
 
     @Override
     public String updateStatusMessage(UserDto userDto) {
 
+        System.out.println("UserServiceImpl.updateStatusMessage 메소드 실행");
         // 기존 사용자 정보 조회
-        UserDto existingUser = userDao.findById(userDto.getUser_id());
+        UserDto existingUser = userDao.findById(userDto);
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }

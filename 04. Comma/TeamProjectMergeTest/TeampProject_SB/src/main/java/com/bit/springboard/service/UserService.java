@@ -18,11 +18,11 @@ public interface UserService {
 
 //  주성이형 part
 
-    UserDto findById(int user_id);
+    UserDto findById(UserDto userDto);
 
     void updateProfileImage(UserDto userDto);
 
-    String updateUserInformation(UserDto userDto);
+    UserDto updateUserInformation(UserDto userDto);
 
     String updateStatusMessage(UserDto userDto);
 }

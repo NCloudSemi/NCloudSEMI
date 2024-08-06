@@ -63,32 +63,20 @@
                                     <div class="mp_user_info_popup_box">
                                         <div class="mp_user_info_change_box">
                                             <p>닉네임변경</p>
-                                            <p>지역변경</p>
+                                            <p>주소변경</p>
+                                            <p>상세주소변경</p>
                                         </div>
                                         <div class="mp_user_info_change_box">
                                             <input type="hidden" name="user_id" value="${loginUser.user_id}">
-                                            <input class="mp_btn" type="text" name="nickname" placeholder="${loginUser.nickname}" value="${loginUser.nickname}" required/>
+                                            <input id="mp_nickname" class="mp_btn" type="text" name="nickname" placeholder="${loginUser.nickname}" value="${loginUser.nickname}" required/>
                                             <div id="mp_change_address">
-                                                <input type="text" name="address" id="mp_address" class="mp_login-input"
-                                                       placeholder="주소" readonly>
+                                                <input type="text" name="address" id="mp_address" class="mp_btn"
+                                                       placeholder="${loginUser.address}" readonly>
                                             </div>
-<%--                                            <select class="mp_btn" name="address" id="address-list">--%>
-<%--                                                <option value="Seoul">서울</option>--%>
-<%--                                                <option value="Gyeonggi">경기</option>--%>
-<%--                                                <option value="Incheon">인천</option>--%>
-<%--                                                <option value="Gangwon">강원</option>--%>
-<%--                                                <option value="Daegu">대구</option>--%>
-<%--                                                <option value="Daejeon">대전</option>--%>
-<%--                                                <option value="Gwangju">광주</option>--%>
-<%--                                                <option value="Ulsan">울산</option>--%>
-<%--                                                <option value="Chungnam">충남</option>--%>
-<%--                                                <option value="Chungbuk">충북</option>--%>
-<%--                                                <option value="Gyeongnam">경남</option>--%>
-<%--                                                <option value="Gyeongbuk">경북</option>--%>
-<%--                                                <option value="Jeonnam">전남</option>--%>
-<%--                                                <option value="Jeonbuk">전북</option>--%>
-<%--                                                <option value="Jeju">제주</option>--%>
-<%--                                            </select>--%>
+                                            <div id="mp_change_detail_address">
+                                                <input type="text" name="detailed_address" id="mp_detailed-address" class="mp_btn"
+                                                       placeholder="${loginUser.detailed_address}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -300,17 +288,9 @@
                                     <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
                                 </div>
                                 <input type="hidden" name="user_id" value="${loginUser.user_id}">
-                                <textarea
-                                        id="message-input"
-                                        rows="15"
-                                        maxlength="300"
-                                        type="text" name="message"
-                                        placeholder="${loginUser.message}"
-                                        required>
-                                    ${loginUser.message}
-                                </textarea>
+                                <textarea id="message-input" rows="15" maxlength="300" type="text" name="message" placeholder="${loginUser.message}" required>${loginUser.message}</textarea>
                             </div>
-                            <button type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드" /></button>
+                            <button type="submit"><img src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드" /></button>
                         </div>
                     </form>
                 </div>

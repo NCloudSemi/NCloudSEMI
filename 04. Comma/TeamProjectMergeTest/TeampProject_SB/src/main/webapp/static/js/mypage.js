@@ -14,6 +14,8 @@
 //     };
 // }
 
+let addressChk = false;
+
 function changeFileFromLocal(file) {
     let reader = new FileReader();
     reader.readAsDataURL(file, "UTF-8");
@@ -110,11 +112,11 @@ $(window).on("load", function(){
         new daum.Postcode({
             oncomplete: function (data) {
 
-                jQuery("#address").val(data.address);
+                jQuery("#mp_address").val(data.address);
                 addressChk = true;
                 console.log(addressChk);
 
-                jQuery("#detailed-address").focus();
+                jQuery("#mp_detailed-address").focus();
             }
         }).open();
     })

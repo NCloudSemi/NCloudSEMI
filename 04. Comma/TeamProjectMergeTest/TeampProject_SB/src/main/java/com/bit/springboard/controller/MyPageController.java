@@ -40,7 +40,7 @@ public class MyPageController {
     public String showMyPage(HttpSession session, Model model) {
         // 세션에서 사용자 정보 가져오기
         UserDto loginUser = (UserDto) session.getAttribute("loginUser");
-        System.out.println(loginUser);
+        System.out.println("controller.showMyPage 메소드의 " + loginUser);
         if (loginUser == null) {
             model.addAttribute("errorMessage", "로그인이 필요합니다.");
             return "errorPage"; // 로그인 페이지로 리다이렉트하도록 변경할 수도 있습니다.
@@ -48,8 +48,7 @@ public class MyPageController {
 
         try {
             // 로그인한 사용자 정보 가져오기
-            UserDto updatedUser = userService.findById(loginUser.getUser_id());
-            System.out.println(updatedUser);
+            UserDto updatedUser = userService.findById(loginUser);
             // 세션에 사용자 정보 저장
             session.setAttribute("loginUser", updatedUser);
 
@@ -60,28 +59,11 @@ public class MyPageController {
         }
     }
 
-//    @GetMapping("/main")
-//    public String showMyPage(HttpSession session) {
-//        // 로그인한 사용자 정보 가져오기
-//        UserDto loginUser = userService.findById(userDto);
-//        System.out.println(userDto);
-//
-//        // 세션에 사용자 정보 저장
-//        session.setAttribute("loginUser", loginUser);
-//
-//        // 변경된 사용자 정보 다시 로드
-//        UserDto updatedUser = userService.findById(userDto); // 로그인한 사용자 정보 가져오기
-//        System.out.println(userDto);
-//        session.setAttribute("loginUser", loginUser);
-//
-//        return "/mypage/mypage";
-//    }
-
     @RequestMapping("/uploadProfileImage.do")
     @ResponseBody
     public Map<String, Object> uploadProfileImage(@RequestParam("file") MultipartFile file, HttpSession session, HttpServletRequest request) {
 
-        System.out.println("uploadProfileImage 메소드 실행");
+        System.out.println("controller.uploadProfileImage 메소드 실행");
         Map<String, Object> returnMap = new HashMap<>();
 
         try {
@@ -91,7 +73,6 @@ public class MyPageController {
 
             // 세션에서 로그인된 사용자 정보 가져오기
             UserDto loginUser = (UserDto) session.getAttribute("loginUser");
-            System.out.println(loginUser);
 
             // 사용자 객체에 새 프로필 이미지 경로 설정
             loginUser.setProfile_img(fileName);
@@ -99,7 +80,6 @@ public class MyPageController {
 
             // 데이터베이스에 프로필 이미지 경로 업데이트
             userService.updateProfileImage(loginUser);
-            System.out.println(loginUser);
 
             // json 형태로 리턴될 맵에 데이터 추가
             returnMap.put("userProfile", loginUser);
@@ -144,13 +124,27 @@ public class MyPageController {
     @RequestMapping("/changeUserInfo.do")
     public String changeUserInfo(
             @RequestParam("nickname") String nickname,
-            @RequestParam("address") String address) {
+            @RequestParam("address") String address,
+            @RequestParam("detailed_address") String detailed_address, HttpSession session) {
+
+        UserDto loginUser = (UserDto) session.getAttribute("loginUser");
+        if (loginUser == null) {
+            return "redirect:/login"; // 로그인 페이지로 리다이렉트
+        }
 
         UserDto userDto = new UserDto();
+        userDto.setUser_id(loginUser.getUser_id()); // 세션에서 가져온 user_id 설정
         userDto.setNickname(nickname);
         userDto.setAddress(address);
+        userDto.setDetailed_address(detailed_address);
+
+        loginUser.setNickname(nickname);
+        loginUser.setAddress(address);
+        loginUser.setDetailed_address(detailed_address);
 
         userService.updateUserInformation(userDto);
+        System.out.println("controller의 changeUserInfo 메소드의 " + userService.updateUserInformation(userDto));
+        session.setAttribute("loginUser", loginUser);
         return "redirect:/mypage/main"; // 리다이렉트할 경로
     }
 
@@ -164,7 +158,6 @@ public class MyPageController {
         System.out.println(userDto.getMessage());
 
         userService.updateStatusMessage(userDto);
-        System.out.println(userService.updateStatusMessage(userDto));
         session.setAttribute("loginUser", loginUser);
         return "redirect:/mypage/main";
     }
