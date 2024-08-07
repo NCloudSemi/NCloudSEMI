@@ -8,6 +8,7 @@ public class UserDto {
     private String nickname;
     private String gender;
     private String address;
+    private String e_address;
     private String detailed_address;
     private String profile_img;
     private int score;
@@ -67,6 +68,14 @@ public class UserDto {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getE_address() {
+        return e_address;
+    }
+
+    public void setE_address(String e_address) {
+        this.e_address = e_address;
     }
 
     public String getDetailed_address() {
@@ -153,6 +162,7 @@ public class UserDto {
                 ", nickname='" + nickname + '\'' +
                 ", gender='" + gender + '\'' +
                 ", address='" + address + '\'' +
+                ", e_address='" + e_address + '\'' +
                 ", detailed_address='" + detailed_address + '\'' +
                 ", profile_img='" + profile_img + '\'' +
                 ", score=" + score +
