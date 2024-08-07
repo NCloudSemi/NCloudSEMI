@@ -278,7 +278,7 @@
                                                         <div class="day-name">수</div>
                                                         <div class="day-name">목</div>
                                                         <div class="day-name">금</div>
-                                                        <div class="day-name" style="color: red">토</div>
+                                                        <div class="day-name" style="color: blue">토</div>
                                                     </div>
                                                     <div class="calendar-body" id="cur-calender">
                                                         <!-- Calendar dates will be inserted here by JavaScript -->
@@ -287,14 +287,14 @@
                                                 <!--달력2-->
                                                 <div class="calendar">
                                                     <h2 class="month-year" id="next-month">TEST</h2>
-                                                    <div  class="calendar-days" >
-                                                        <div class="day-name">일</div>
+                                                    <div class="calendar-days" >
+                                                        <div class="day-name" style="color: red">일</div>
                                                         <div class="day-name">월</div>
                                                         <div class="day-name">화</div>
                                                         <div class="day-name">수</div>
                                                         <div class="day-name">목</div>
                                                         <div class="day-name">금</div>
-                                                        <div class="day-name">토</div>
+                                                        <div class="day-name" style="color: blue">토</div>
                                                     </div>
                                                     <div  class="calendar-body" id="next-calendar">
                                                         <!-- Calendar dates will be inserted here by JavaScript -->
