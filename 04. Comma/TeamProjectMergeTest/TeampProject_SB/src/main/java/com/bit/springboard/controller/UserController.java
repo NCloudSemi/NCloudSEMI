@@ -27,7 +27,6 @@ public class UserController {
 
     @PostMapping("/login.do")
     public String login(UserDto userDto, Model model, HttpSession session) {
-
         try {
             UserDto loginUser = userService.login(userDto);
 
@@ -49,6 +48,7 @@ public class UserController {
     @PostMapping("/join.do")
     public String join(UserDto userDto) {
         System.out.println("Controller join 메소드 실행");
+
         System.out.println(userDto.toString());
         userService.join(userDto);
         return "/login/login";
@@ -75,6 +75,5 @@ public class UserController {
 
         return "redirect:/user/login.do";
     }
-
 }
 

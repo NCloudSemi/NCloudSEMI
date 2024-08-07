@@ -16,6 +16,8 @@
     <!-- servlet-context.xml에 /static/** 설정 -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/reset.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login-joining.css">
+    <!-- 비밀번호 눈모양 아이콘 -->
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- ICO 파비콘 -->
     <link rel="icon" href="${pageContext.request.contextPath}/static/image/favicon.ico" type="image/x-icon">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -57,6 +59,9 @@
                     <div id="focus-login-password" class="input-group">
                         <%--@declare id="password"--%><label for="login-password">PW</label>
                         <input type="password" id="login-password" name="pw" class="login-input">
+                        <button type="button" id="login-toggle-pw" class="eye-icon">
+                            <img src="${pageContext.request.contextPath}/static/image/eye-3_svgrepo.com.svg">
+                        </button>
                     </div>
                     <div class="btn-group1">
                         <button id="loginBtn" class="btn">LOGIN</button>
@@ -82,10 +87,16 @@
                     <div id="focus-join-password" class="input-group">
                         <label for="join-password">PW</label>
                         <input type="password" id="join-password" name="pw" class="login-input">
+                        <button type="button" id="join-toggle-pw" class="eye-icon">
+                            <img src="${pageContext.request.contextPath}/static/image/eye-3_svgrepo.com.svg">
+                        </button>
                     </div>
                     <div id="focus-join-passwordChk" class="input-group">
-                        <label for="passwordChk">PW CHECK</label>
+                        <label for="passwordChk" style="width: 100px;">PW CHECK</label>
                         <input type="password" id="passwordChk" name="passwordChk" class="login-input">
+                        <button type="button" id="join-toggle-pwChk" class="eye-icon">
+                            <img src="${pageContext.request.contextPath}/static/image/eye-3_svgrepo.com.svg">
+                        </button>
                     </div>
                     <div id="focus-join-name" class="input-group">
                         <label for="nickname">NAME</label>
@@ -104,6 +115,8 @@
                         <input type="text" name="address" id="address" class="login-input"
                                placeholder="주소" readonly>
                     </div>
+                    <input type="hidden" name="e_address" id="e_addressInput">
+
                     <div id="focus-detail-address2" class="input-group">
                         <input type="text" name="detailed_address" id="detailed-address" class="login-input"
                                placeholder="상세주소를 입력하세요.">

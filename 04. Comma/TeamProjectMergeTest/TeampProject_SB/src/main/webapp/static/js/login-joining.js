@@ -104,6 +104,55 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // pw eye icon
+    function togglePasswordVisibility(toggleButton, passwordField) {
+        // 현재 타입이 password인 경우 text로 변경, 그렇지 않으면 password로 변경
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+
+        // 아이콘 이미지 변경
+        if (type === 'password') {
+            toggleButton.innerHTML = '<img src="/static/image/eye-3_svgrepo.com.svg" alt="Show Password">';
+        } else {
+            toggleButton.innerHTML = '<img src="/static/image/eye-slashed_svgrepo.com.svg" alt="Hide Password">';
+        }
+    }
+
+    document.getElementById("login-toggle-pw").addEventListener('click', () => {
+        const loginFieldPw = document.getElementById("login-password");
+        const loginTogglePw = document.getElementById("login-toggle-pw");
+        togglePasswordVisibility(loginTogglePw, loginFieldPw);
+    });
+
+    document.getElementById("join-toggle-pw").addEventListener('click', () => {
+        const joinFieldPw = document.getElementById("join-password");
+        const joinTogglePw = document.getElementById("join-toggle-pw");
+        togglePasswordVisibility(joinTogglePw, joinFieldPw);
+    });
+
+    document.getElementById("join-toggle-pwChk").addEventListener('click', () => {
+        const joinFieldPwChk = document.getElementById("passwordChk");
+        const joinTogglePwChk = document.getElementById("join-toggle-pwChk");
+        togglePasswordVisibility(joinTogglePwChk, joinFieldPwChk);
+    });
+
+    const joinPwInput = document.getElementById('join-password');
+    const joinPwInputChk = document.getElementById('passwordChk');
+    const nicknameInput = document.getElementById('nickname');
+
+    joinPwInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab' && !e.shiftKey) { // Tab 키를 눌렀을 때
+            e.preventDefault(); // 기본 탭 이동 방지
+            joinPwInputChk.focus(); // 다음 입력란으로 포커스 이동
+        }
+    });
+
+    joinPwInputChk.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab' && !e.shiftKey) { // Tab 키를 눌렀을 때
+            e.preventDefault(); // 기본 탭 이동 방지
+            nicknameInput.focus(); // 다음 입력란으로 포커스 이동
+        }
+    });
 
     // focus on login and change the color
     setFocusStyle('login-email', 'focus-login-email');
@@ -184,8 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
     }
-
-
 
     /* 비밀번호 조건 정규표현식 */
     function validatePassword(password) {
@@ -306,22 +353,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('female')
     });
 
-
-
-    // let genderValue = '';
-    //
-    // $('.btn-gender-check').on('click', function(){
-    //     $('.btn-gender-check').removeClass('active');
-    //     $(this).addClass('active');
-    //     genderValue = $(this).val();
-    //     console.log("Selected gender: " + genderValue); // For debugging
-    //
-    //     if (genderValue !== null) {
-    //         genderChk = true;
-    //     }
-    // });
-
-
     // 주소 체크
     $(window).on("load", function(){
         $("#focus-detail-address1").click(function (){
@@ -330,14 +361,106 @@ document.addEventListener('DOMContentLoaded', function () {
                 oncomplete: function (data) {
 
                     jQuery("#address").val(data.address);
+
+                    // 주소 값 가져오기
+                    var addressValue = jQuery("#address").val();
+                    document.getElementById('address').value = addressValue;
                     addressChk = true;
                     console.log(addressChk);
 
+                    // 지역 이름 매칭
+                    var region = '';
+                    if (addressValue.startsWith("서울")) {
+                        region = 'Seoul';
+                    } else if (addressValue.startsWith("부산")) {
+                        region = 'Busan';
+                    } else if (addressValue.startsWith("대구")) {
+                        region = 'Daegu';
+                    } else if (addressValue.startsWith("인천")) {
+                        region = 'Incheon';
+                    } else if (addressValue.startsWith("광주")) {
+                        region = 'Gwangju';
+                    } else if (addressValue.startsWith("대전")) {
+                        region = 'Daejeon';
+                    } else if (addressValue.startsWith("울산")) {
+                        region = 'Ulsan';
+                    } else if (addressValue.startsWith("세종")) {
+                        region = 'Sejong';
+                    } else if (addressValue.startsWith("경기")) {
+                        region = 'Gyeonggi';
+                    } else if (addressValue.startsWith("강원")) {
+                        region = 'Gangwon';
+                    } else if (addressValue.startsWith("충북")) {
+                        region = 'Chungbuk';
+                    } else if (addressValue.startsWith("충남")) {
+                        region = 'Chungnam';
+                    } else if (addressValue.startsWith("전북")) {
+                        region = 'Jeonbuk';
+                    } else if (addressValue.startsWith("전남")) {
+                        region = 'Jeonnam';
+                    } else if (addressValue.startsWith("경북")) {
+                        region = 'Gyeongbuk';
+                    } else if (addressValue.startsWith("경남")) {
+                        region = 'Gyeongnam';
+                    } else if (addressValue.startsWith("제주")) {
+                        region = 'Jeju';
+                    } else {
+                        region = addressValue;
+                    }
+
+                    // 지역 값을 입력 필드에 설정
+                    document.getElementById('e_addressInput').value = region;
+
+                    // 상세 주소 필드에 포커스 설정
                     jQuery("#detailed-address").focus();
                 }
             }).open();
-        })
-    })
+        });
+    });
+
+    //                 if ($("#address").startsWith("서울")) {
+    //                     document.getElementById('e_addressInput').value = 'Seoul'
+    //                 } else if ($("#address").startsWith("부산")) {
+    //                     document.getElementById('e_addressInput').value = 'Busan'
+    //                 } else if ($("#address").startsWith("대구")) {
+    //                     document.getElementById('e_addressInput').value = 'Daegu'
+    //                 } else if ($("#address").startsWith("인천")) {
+    //                     document.getElementById('e_addressInput').value = 'Incheon'
+    //                 } else if ($("#address").startsWith("광주")) {
+    //                     document.getElementById('e_addressInput').value = 'Gwangju'
+    //                 } else if ($("#address").startsWith("대전")) {
+    //                     document.getElementById('e_addressInput').value = 'Daejeon'
+    //                 } else if ($("#address").startsWith("울산")) {
+    //                     document.getElementById('e_addressInput').value = 'Ulsan'
+    //                 } else if ($("#address").startsWith("세종")) {
+    //                     document.getElementById('e_addressInput').value = 'Sejong'
+    //                 } else if ($("#address").startsWith("경기")) {
+    //                     document.getElementById('e_addressInput').value = 'Gyeonggi'
+    //                 } else if ($("#address").startsWith("강원")) {
+    //                     document.getElementById('e_addressInput').value = 'Gangwon'
+    //                 } else if ($("#address").startsWith("충북")) {
+    //                     document.getElementById('e_addressInput').value = 'Chungbuk'
+    //                 } else if ($("#address").startsWith("충남")) {
+    //                     document.getElementById('e_addressInput').value = 'Chungnam'
+    //                 } else if ($("#address").startsWith("전북")) {
+    //                     document.getElementById('e_addressInput').value = 'Jeonbuk'
+    //                 } else if ($("#address").startsWith("전남")) {
+    //                     document.getElementById('e_addressInput').value = 'Jeonnam'
+    //                 } else if ($("#address").startsWith("경북")) {
+    //                     document.getElementById('e_addressInput').value = 'Gyeongbuk'
+    //                 } else if ($("#address").startsWith("경남")) {
+    //                     document.getElementById('e_addressInput').value = 'Gyeongnam'
+    //                 } else if ($("#address").startsWith("제주")) {
+    //                     document.getElementById('e_addressInput').value = 'Jeju'
+    //                 } else {
+    //                     return $("#address");
+    //                 }
+    //
+    //                 jQuery("#detailed-address").focus();
+    //             }
+    //         }).open();
+    //     })
+    // })
 
     $("#join").on('submit', (e) => {
 
