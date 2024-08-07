@@ -1,0 +1,291 @@
+#link_planArea, #pick_button, #share_button {
+    width: 3vh;
+    height: 3vh;
+    margin-left: 1.5vh;
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+#plan_button {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#link_planArea:hover,
+#pick_button:hover,
+#share_button:hover {
+    transform: scale(1.2);
+}
+
+/* 모달창 데이터 결과값 영역 (modal-container) */
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+/* 모달창 이미지 영역 설정 */
+#resultModalImg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    width: 100%;
+    height: 40vh;
+}
+
+/* 모달창 지도 영역 설정 */
+#resultModalMap {
+    width: 100%;
+    height: 40vh;
+    border-radius: 10px;
+}
+
+/* 모달창 댓글 목록 영역 설정 (modal comment) */
+#resultModalComment {
+    border: 1px solid rgba(129, 127, 127, 0.5);
+    border-radius: 10px;
+    width: 100%;
+    height: 40vh;
+    overflow-y: auto;
+    justify-content: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    scrollbar-width: none;
+}
+#resultModalComment::-webkit-scrollbar {
+    display: none;
+}
+#review-list {;
+    position: sticky;
+    background: white;
+    border-bottom: 1px solid rgba(129, 127, 127, 0.5);
+    top: 0;
+    width: 100%;
+    height: 3em;
+    padding: 0.875em;
+    z-index: 1;
+    margin: 0;
+}
+.commentArea{
+    border-bottom: 1px solid rgba(129, 127, 127, 0.5);
+    padding: 1.5vh;
+}
+.place_name, .option_name {
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-left: 0.3vw;
+    text-wrap: nowrap;
+}
+.comment {
+    padding: 0.3vh;
+    text-align: left;
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+/* 모달창 장소 정보 영역 설정 (resultModalDatas) */
+#resultModalDatas {
+    padding: 2vh;
+}
+#resultModalDatas #place_name {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 1em;
+    text-wrap: nowrap;
+}
+#resultModalDatas #grade {
+    font-size: 1em;
+    font-weight: bold;
+    text-wrap: nowrap;
+}
+#resultModalDatas .price-info,
+#resultModalDatas .location-info,
+#resultModalDatas .direction-info {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    text-wrap: nowrap;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#resultModalDatas .price,
+#resultModalDatas .direction,
+#resultModalDatas .location {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+/* 모달창 예약 영역 설정 (book) */
+#resultModalBooking {
+    padding: 2vh;
+}
+#book-men {
+    font-size: 1em;
+    font-weight: bold;
+    text-wrap: nowrap;
+    color: black;
+    justify-content: space-between;
+}
+#bookMen-dropDown {
+    font-size: 1em;
+    font-weight: bold;
+    text-wrap: nowrap;
+    color: black;
+    outline: none;
+}
+.form-select {
+    width: 10vw;
+}
+.dropdown-menu,
+.form-group,
+#book-option-button {
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+}
+.form-control {
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+}
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+.form-control::placeholder {
+    font-weight: bold;
+    font-size: 1em;
+    color: #A9A8A8;
+}
+#book-option {
+    font-size: 1em;
+    font-weight: bold;
+    text-wrap: nowrap;
+    color: black;
+    justify-content: space-between;
+}
+.book-opiton-item {
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+}
+.book-opiton-item:hover {
+    background-color: rgba(129, 127, 127, 0.2);
+}
+#book-button {
+    margin-left: 77%;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    width: 5em;
+    height: 2em;
+    transition: background-color 0.2s;
+}
+#book-button:hover {
+    background-color: #ff6b00;
+    color: white;
+}
+
+/* 모달창 사진 슬라이드 영역 설정 (carousel) */
+.carousel .carousel-item {
+    width: 18vw;
+    height: 25vh;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-item img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+/* 모달창 달력 영역 설정 (Calender) */
+#resultModalCalender {
+    padding: 2vh;
+}
+#calendar-wrapper {
+    padding: 0;
+    width: 100%;
+    height: 95%;
+    justify-content: center;
+    align-items: center;
+}
+.calendar {
+    width: 47%;
+    height: 97%;
+    margin: 1.5%;
+}
+.calendar-button {
+    width: 3vh;
+    height: 3vh;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: black;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.calendar-button:hover {
+    color: #ff600b;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.calendar-button:focus,
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.month-year {
+    font-size: 2em;
+    font-weight: bold;
+}
+.calendar-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1.3em;
+}
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.day {
+    width: 2vw;
+    height: 4vh;
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+.day:hover {
+    background-color: rgba(129, 127, 127, 0.5);
+}
+.day.booked {
+    color: white;
+    background-color: #FF6B00;
+    border: 1px solid white;
+}
+.day.booked:hover {
+    color: white;
+    background-color: #FF6B00;
+    border: 1px solid white;
+}

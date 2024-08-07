@@ -20,11 +20,9 @@
 
 </head>
 <body>
-<div class="wrap">
-    <jsp:include page="${pageContext.request.contextPath}/sidebar.jsp"></jsp:include>
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
     <div class="content">
-        <div id="plan-modal" class="board-modal" style="display: none;">
+        <div id="plan-modal" class="board-modal" style="">
             <div class="modal-box">
                 <!-- modal-header -->
                 <div class="modal-header">
@@ -196,6 +194,7 @@
             </div>
         </div>
     </div>
-</div>
+    <jsp:include page="../modal/location-modal.jsp"></jsp:include>
 </body>
+
 
