@@ -24,5 +24,5 @@ public interface UserService {
 
     UserDto updateUserInformation(UserDto userDto);
 
-    String updateStatusMessage(UserDto userDto);
+    UserDto updateStatusMessage(UserDto userDto);
 }
