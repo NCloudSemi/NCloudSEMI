@@ -54,14 +54,14 @@ public class UserDto {
     }
 
     public String getAddress() {
-        return address;
+        String transformedAddress = transformAddress(this.address); // 로드할 때 변환된 주소 반환
+        System.out.println("Original Address: " + this.address);
+        System.out.println("Transformed Address: " + transformedAddress);
+        return transformedAddress;
     }
 
     public void setAddress(String address) {
-        String transformedAddress = transformAddress(address);
-        System.out.println("Original Address: " + address);
-        System.out.println("Transformed Address: " + transformedAddress);
-        this.address = transformedAddress;
+        this.address = address;
     }
 
     public String getDetailed_address() {
