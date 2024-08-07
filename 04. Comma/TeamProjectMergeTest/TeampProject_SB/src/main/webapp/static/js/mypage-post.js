@@ -1,6 +1,6 @@
 $(()=>{
 
-    let mainContainer = document.querySelector("#")
+    let mainContainer = document.querySelector("#mp_change_contents")
     let cardContainer = document.querySelector("#mp_grid-container") //container
     let popupCardContainer =  document.querySelector(".mp_pickplace-list")
     let popupLocationContainer =  document.querySelector(".mp_popup_gallery")
@@ -41,7 +41,7 @@ $(()=>{
             inner += `<div class="mp_grid-item"><img src="${card.imageUrl}" /></div>`
 
         });
-        cardContainer.innerHTML= inner;
+        document.querySelector("#mp_grid-container").innerHTML= inner;
     }
 
    
@@ -86,9 +86,46 @@ $(()=>{
     } 
 
     //page 전환 일부
-    addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
-    $("#mp_travelRecode_btn").on("click",function (){
-
+    $(".mp_travelRecode_btn").on("click",function (){
+         const loaded_page =`<div id="mp_add-post-button">
+            <img src="/static/image/new_board_icon.svg" alt="게시물추가" />
+        </div>
+        <div id="mp_new_board_overlay" class="mp_hidden"></div>
+        <div id="mp_new_board_popup" class="mp_hidden">
+            <div class="mp_pick_popup-header">
+                <div class="mp_pick_popup-header-title">
+                    <h5>게시물 등록</h5>
+                </div>
+                <button id="mp_new_board_upload_popup">
+                    <img src="/static/image/업로드_icon.svg" alt="업로드_icon" />
+                </button>
+                <button id="mp_new_board_close-popup">
+                    <img src="/static/image/닫기_icon.svg" alt="닫기버튼" />
+                </button>
+            </div>
+            <div class="mp_popup_content">
+                <div class="mp_new_board_box">
+                    <form action="">
+                        <div class="mp_new_board_image_box">
+                            <img src="/static/image/+_icon.svg" alt="+ 아이콘" />
+                            <p><strong>이미지 등록</strong></p>
+                        </div>
+                        <div class="mp_new_board_text_box">
+                            <textarea
+                                rows="10"
+                                maxlength="1000"
+                                placeholder="게시물의 내용을 입력하세요."
+                            ></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="mp_grid-container">
+        </div>`
+        mainContainer.innerHTML =loaded_page
+        //카드 다시 가져오기
+        fetchCardsMy().then(addCards);
     })
 
 
