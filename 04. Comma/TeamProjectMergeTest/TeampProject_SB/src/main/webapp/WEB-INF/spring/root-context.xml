@@ -28,6 +28,9 @@
     <bean class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg ref="sessionFactory"/>
     </bean>
+
+    <!-- root-context.xml 또는 다른 Spring 설정 파일에 추가 -->
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 </beans>
 
         <!-- root-context.xml파일은 web.xml이 가장 먼저 읽어들이는 설정파일이다.
