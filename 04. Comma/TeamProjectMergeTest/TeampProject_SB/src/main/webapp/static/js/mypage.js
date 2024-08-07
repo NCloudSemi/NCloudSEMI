@@ -185,6 +185,21 @@ mp_pickboard_tag2.addEventListener('mouseout', function() {
     mp_pickboard_tag1.style.transition = '';
 });
 
+mp_pickboard_tag1.addEventListener('mouseover', function() {
+    mp_pickboard_tag2.style.fontSize = '1.3em';
+    mp_pickboard_tag2.style.fontWeight = 'bolder';
+    mp_pickboard_tag2.style.color = '#ff6b00';
+    mp_pickboard_tag2.style.borderColor = '#ff6b00';
+});
+
+mp_pickboard_tag1.addEventListener('mouseout', function() {
+    mp_pickboard_tag2.style.fontSize = '';
+    mp_pickboard_tag2.style.fontWeight = '';
+    mp_pickboard_tag2.style.color = '';
+    mp_pickboard_tag2.style.borderColor = '';
+});
+
+
 /*------------------------------픽한 장소--------------------------------*/
 // #mp_pin_icon와 #mp_pickplace_text 클릭 시 팝업과 오버레이 표시
 // 픽한 장소 팝업 열기
@@ -234,16 +249,32 @@ itemCheckboxes_place.forEach((checkbox) => {
     });
 });
 
-// const mp_pickboard_tag1 = document.getElementById('mp_pin_icon');
-// const mp_pickboard_tag2 = document.getElementById('mp_pickplace_text');
-//
-// mp_pickboard_tag2.addEventListener('mouseover', function() {
-//     mp_pickboard_tag1.style.scale = '1.3';
-// });
-//
-// mp_pickboard_tag2.addEventListener('mouseout', function() {
-//     mp_pickboard_tag1.style.scale = '';
-// });
+const mp_pickplace_tag1 = document.getElementById('mp_pin_icon');
+const mp_pickplace_tag2 = document.getElementById('mp_pickplace_text');
+
+mp_pickplace_tag2.addEventListener('mouseover', function() {
+    mp_pickplace_tag1.style.transform = 'scale(1.3)';
+    mp_pickplace_tag1.style.transition = 'transform 0.3s ease';
+});
+
+mp_pickplace_tag2.addEventListener('mouseout', function() {
+    mp_pickplace_tag1.style.transform = '';
+    mp_pickplace_tag1.style.transition = '';
+});
+
+mp_pickplace_tag1.addEventListener('mouseover', function() {
+    mp_pickplace_tag2.style.fontSize = '1.3em';
+    mp_pickplace_tag2.style.fontWeight = 'bolder';
+    mp_pickplace_tag2.style.color = '#ff6b00';
+    mp_pickplace_tag2.style.borderColor = '#ff6b00';
+});
+
+mp_pickplace_tag1.addEventListener('mouseout', function() {
+    mp_pickplace_tag2.style.fontSize = '';
+    mp_pickplace_tag2.style.fontWeight = '';
+    mp_pickplace_tag2.style.color = '';
+    mp_pickplace_tag2.style.borderColor = '';
+});
 
 /*---------------------------내 여행 등급 확인----------------------------*/
 

@@ -46,7 +46,7 @@
                     </div>
                     <div class="mp_user_info_box">
                         <h5 id="mp_nickname_change"><strong>${loginUser.nickname}</strong></h5>
-                        <p id="mp_region_change">${loginUser.address}, Korea</p>
+                        <p id="mp_region_change">${loginUser.e_address}, Korea</p>
                         <!-- Overlay -->
                         <div id="mp_userInfo_overlay"></div>
                         <!-- Popup -->
@@ -115,12 +115,12 @@
                                         <p>보스턴백</p>
                                     </div>
                                     <div class="mp_grade_text_info">
-                                        <h6><strong>다음 단계까지 ____남았습니다.</strong></h6>
-                                        <p>여행 계획 채택 수에 따라서 등급이 나누어집니다.</p>
-                                        <p>보스턴백 : 채택수 0 ~ 500사이</p>
-                                        <p>트렁크백 : 채택수 500 ~ 2000사이</p>
-                                        <p>캐리어 : 채택수 2000 ~ 10000사이</p>
-                                        <p>비행기 : 채택수 10000이상</p>
+                                        <h6><strong>다음 단계까지 230 남았습니다.</strong></h6>
+                                        <p>**내 여행기록 '좋아요' 수에 따라서 등급이 나누어집니다.</p>
+                                        <p>보스턴백 : '좋아요' 수 0 ~ 500사이</p>
+                                        <p>트렁크백 : '좋아요' 수 500 ~ 2000사이</p>
+                                        <p>캐리어 : '좋아요' 수 2000 ~ 10000사이</p>
+                                        <p>비행기 : '좋아요' 수 10000이상</p>
                                     </div>
                                 </div>
                                 <div class="mp_arrow">
