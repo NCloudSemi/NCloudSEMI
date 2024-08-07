@@ -67,14 +67,24 @@ public class PostController {
 
     @GetMapping("/getMyPost")
     @ResponseBody
-    public List<PostDto> getByIdPosts(UserDto userDto){
-        return postService.getUserPosts(userDto.getUser_id());
+    public Map<String, Object> getByIdPosts(UserDto userDto){
+        Map<String, Object> result = new HashMap<>();
+        List<PostDto> posts = postService.getUserPosts(userDto.getUser_id());
+        System.out.printf("my post");
+        result.put("posts", posts);
+        System.out.printf(posts.toString());
+        return result;
     }
 
     @GetMapping("/getMyLikes")
     @ResponseBody
-    public List<PostDto> getByIdLikes(UserDto userDto){
-        return postService.getUserLikes(userDto.getUser_id());
+    public Map<String, Object> getByIdLikes(UserDto userDto){
+        Map<String, Object> result = new HashMap<>();
+        List<PostDto>  posts  = postService.getUserLikes(userDto.getUser_id());
+        System.out.printf("my like");
+        result.put("posts", posts);
+        System.out.printf(posts.toString());
+        return result;
     }
 
 

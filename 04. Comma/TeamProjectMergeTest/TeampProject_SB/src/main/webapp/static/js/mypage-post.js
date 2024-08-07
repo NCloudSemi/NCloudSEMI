@@ -10,12 +10,12 @@ $(()=>{
     //나중에 코드 합치기 p
 
     //내 카드 챙셔오기
-    function  fetchCardsMy(initPage){
+    function  fetchCardsMy(){
         return new  Promise((resolve) =>{
 
                 const cards = [];
                 let datas =[]
-                fetch(`/post/getMyPost?user_id=${user_id }`).then((res) =>res.json()).then((res)=>{
+                fetch(`/post/getMyPost?user_id=${user_id}`).then((res) =>res.json()).then((res)=>{
                     datas = res["posts"];
                     datas.forEach(data =>{
                         //이미지 작업
@@ -34,21 +34,23 @@ $(()=>{
     }
     // 카드 추가 기능
     function addCards(cards) {
+        let inner=""
         cards.forEach(card => {
-            const cardElement = `<div class="mp_grid-item"><img src="${card.imageUrl}" /></div>`
-            cardContainer.appendChild(cardElement);
+            inner += `<div class="mp_grid-item"><img src="${card.imageUrl}" /></div>`
+
         });
+        cardContainer.innerHTML= inner;
     }
 
    
 
     //like 카드 챙겨오기
-    function  fetchCardLike(initPage){
+    function  fetchCardLike(){
         return new  Promise((resolve) =>{
 
                 const cards = [];
                 let datas =[]
-                fetch(`/post//getMyLikes?user_id=${user_id }`).then((res) =>res.json()).then((res)=>{
+                fetch(`/post/getMyLikes?user_id=${user_id}`).then((res) =>res.json()).then((res)=>{
                     datas = res["posts"];
                     datas.forEach(data =>{
                         //이미지 작업
@@ -67,13 +69,15 @@ $(()=>{
     }
     //카드추가
     function addLikeCards(cards) {
+        let inner=""
         cards.forEach(card => {
-            const cardElement = `<div class="mp_checkbox">
+            inner +=  `<div class="mp_checkbox">
             <input type="checkbox" class="item-checkbox" />
             <img src="${card.imageUrl}" alt="Image 1" />
         </div>`
-            cardContainer.appendChild(cardElement);
+
         });
+        popupLocationContainer.innerHTML = inner;
     } 
 
     //like 장소 챙겨오기
@@ -82,14 +86,15 @@ $(()=>{
 
     
      //실행
-     fetchCardsMy.then(addCards);
-     fetchCardLike.then(addLikeCards);
+     fetchCardsMy().then(addCards);
+     fetchCardLike().then(addLikeCards);
 
 
     
    //픽한 게시물 픽한 장소 데이터 전송
    
 
+    /*
    `<div class="mp_pickplace-item">
         <input type="checkbox" class="item-checkbox" />
         <img src="${pageContext.request.contextPath}/static/image/신라스테이_서초_img.png" alt="신라스테이_서초" />
@@ -115,10 +120,10 @@ $(()=>{
             </div>
         </div>
     </div>`
+    */
 
 
 
-   /
 
 
 

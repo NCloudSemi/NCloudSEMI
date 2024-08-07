@@ -52,7 +52,12 @@ public class PostDao {
        return mybatis.selectList("PostDao.getUserPosts", user_id);
     }
     public List<PostDto> getUserLikes(int user_id) {
-       return mybatis.selectList("PostDao.getUserLikes", user_id);
+        try{
+            return mybatis.selectList("PostDao.getUserLikes", user_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
