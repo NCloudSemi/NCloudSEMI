@@ -37,10 +37,14 @@ $(()=>{
     function addCards(cards) {
         let inner=""
         console.log("HEAR1")
+        let count =1
         cards.forEach(card => {
             inner += `<div class="mp_grid-item"><img src="${card.imageUrl}" /></div>`
-
+            count +=1
         });
+        for (let i = count; i <= 9; i++) {
+            inner += `<div class="mp_grid-item"><img src="/static/image/mp_gridbox 사진${i}.jpg" /></div>`
+        }
         document.querySelector("#mp_grid-container").innerHTML= inner;
     }
 
