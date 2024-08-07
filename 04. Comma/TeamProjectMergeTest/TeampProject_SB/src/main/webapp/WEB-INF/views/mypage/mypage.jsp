@@ -366,6 +366,7 @@
             </div>
         </div>
     </div>
+    <jsp:include page="../modal/board-plan-modal.jsp" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage-post.js"></script>
 </body>

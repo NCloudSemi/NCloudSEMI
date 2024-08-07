@@ -20,7 +20,8 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/post")
-public class PostController {
+public class
+PostController {
 
     private final PostService postService;
 

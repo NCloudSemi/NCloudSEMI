@@ -1,10 +1,11 @@
 $(()=>{
 
-
+    let mainContainer = document.querySelector("#")
     let cardContainer = document.querySelector("#mp_grid-container") //container
     let popupCardContainer =  document.querySelector(".mp_pickplace-list")
     let popupLocationContainer =  document.querySelector(".mp_popup_gallery")
-    
+
+
     const user_id  = $('input[name="user_id"]').val();
     
     //나중에 코드 합치기 p
@@ -84,14 +85,21 @@ $(()=>{
         console.log("im inner "+inner)
     } 
 
+    //page 전환 일부
+    addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
+    $("#mp_travelRecode_btn").on("click",function (){
+
+    })
+
+
     //like 장소 챙겨오기
     
     //like 징소 추가
 
     
      //실행
-     fetchCardsMy().then(addCards);
-     fetchCardLike().then(addLikeCards);
+    fetchCardsMy().then(addCards);
+    fetchCardLike().then(addLikeCards);
 
 
     

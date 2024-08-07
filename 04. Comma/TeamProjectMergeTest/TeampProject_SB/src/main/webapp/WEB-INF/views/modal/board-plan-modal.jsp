@@ -16,7 +16,6 @@
     <script src="${pageContext.request.contextPath}/static/js/board-plan-modal.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/plan-modal-map.js"></script>
     <!-- style css link -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/sidebar-template.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/board-plan-modal.css">
 
 </head>

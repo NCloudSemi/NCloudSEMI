@@ -14,7 +14,6 @@
     <!-- js link -->
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js></script>
-
     <!--script-->
     <script src="${pageContext.request.contextPath}/static/js/location.js"></script>
 
@@ -23,6 +22,7 @@
 <div class="wrap">
 
     <jsp:include page="${pageContext.request.contextPath}/sidebar.jsp"></jsp:include>
+
     <!-- ⚠️⚠️⚠️ 이 밑 부분 (content 부분)만 수정하세요. ⚠️⚠️⚠️ -->
     <!-- ⚠️⚠️⚠️ 이 밑 부분 (content 부분)만 수정하세요. ⚠️⚠️⚠️ -->
     <!-- 👇👇👇 이 밑 부분 (content 부분)만 수정하세요. 👇👇👇 -->
@@ -38,7 +38,7 @@
                 <div id="area-filer">
                     <p style="display: block; width: 5vw; height: 3vh; font-weight: bold;">지역</p>
                     <div id="areas" class="d-flex">
-                        <p class="area">서율</p>
+                        <p class="area">서울</p>
                         <p class="area">인천</p>
                         <p class="area">경기</p>
                         <p class="area">강원</p>
@@ -59,18 +59,18 @@
                     <p style="display: block; width: 5vw; height: 3vh; font-weight: bold;">가격</p>
                     <p id="price-min" value ='100000'>100,000</p>
                     <div class="price-progress" id="price-progress">
-                        <div id="draggable-point-1" style="left:75%;position:absolute;" class="draggable ui-widget-content price-point">
+                        <div id="draggable-point-1" style="left:73.4342vw;position:absolute;" class="draggable ui-widget-content price-point">
                             <div class="price-progress-handle"></div>
                             <div class="price-handle-value" id="price-handle-max">750,000</div>
                         </div>
-                        <div id="draggable-point-2" style="left:55%;position:absolute;" class="draggable ui-widget-content price-point">
+                        <div id="draggable-point-2" style="left:60.5047vw;position:absolute;" class="draggable ui-widget-content price-point">
                             <div class="price-progress-handle"></div>
                             <div class="price-handle-value" id="price-handle-min">550,000</div>
                         </div>
 
-                        <div id="price-progress-bar" class="bar" style="width:20%; left:55%; position:absolute"></div>
+                        <div id="price-progress-bar" class="bar" style="width: 12.9817vw; left: 60.4525vw; position: absolute;"></div>
                     </div>
-                    <p id="price-max" value ='1000000'>1,000,000+</p>
+                    <p id="price-max" value ='1000000'>1,000,000 +</p>
 
                 </div>
             </div>
@@ -80,12 +80,11 @@
                 <!--serch-->
                 <div id="serch-form" >
                     <img src="${pageContext.request.contextPath}/static/image/Search-Button.svg" alt="" id="search-button">
-                    <input type="text" id="serchBar" placeholder="검색">
+                    <input type="text" id="serchBar" placeholder="검색어를 입력하세요." spellcheck="false">
                     <img src="${pageContext.request.contextPath}/static/image/filter.svg" alt="" id="filter-button">
                 </div>
                 <!--only line-->
             </div>
-
 
             <div class="d-flex">
                 <!--kakao Map-->
@@ -104,8 +103,7 @@
                     <div class="modal-content">
                         <div class="modal-header border-0 justify-content-end">
                             <div id="link_planArea" class="d-flex">
-                              <p>여행계획에 추가</p>
-                              <img src="${pageContext.request.contextPath}/static/image/plan_link_logo.svg" id="plan_button">
+                              <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" id="plan_button">
                             </div>
                             <img src="${pageContext.request.contextPath}/static/image/pick_location.svg" id="pick_button">
                             <img src="${pageContext.request.contextPath}/static/image/share_location.svg" id="share_button">
@@ -114,19 +112,19 @@
                         <div class="modal-body">
                             <div>
                                 <div class="row" style="height: 40vh;">
-                                    <div class="col-3 border result-container" >
+                                    <div class="col-3 result-container" >
                                         <div class="col-3 border" id="resultModalImg" style="background-image: url(${pageContext.request.contextPath}/static/image/Food.svg);">
 
                                         </div>
                                     </div>
-                                    <div class="col-6 border result-container">
+                                    <div class="col-6 result-container">
                                         <div id="resultModalMap">
 
                                         </div>
                                     </div>
-                                    <div class="col-3 border result-container" >
+                                    <div class="col-3 result-container" >
                                         <div id="resultModalComment">
-                                            <p>후기</p>
+                                            <p id="review-list">Review List</p>
                                             <div class="commentArea">
                                                 <div class="d-flex">
                                                     <div class="grade">
@@ -137,7 +135,22 @@
                                                 </div>
                                                 <div class="comment">
                                                     <p>
-                                                        AAAAAAAA<br>AAAAAAAAA
+                                                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eligendi explicabo fuga iusto labore laboriosam minima natus, nulla quaerat quod sit suscipit velit? Dolore id molestias neque quasi sequi voluptate?
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <div class="commentArea">
+                                                <div class="d-flex">
+                                                    <div class="grade">
+                                                        ⭐⭐⭐⭐⭐
+                                                    </div>
+                                                    <p class="place_name">TEST</p>
+                                                    <p class="option_name">TEST</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eligendi explicabo fuga iusto labore laboriosam minima natus, nulla quaerat quod sit suscipit velit? Dolore id molestias neque quasi sequi voluptate?
                                                     </p>
                                                 </div>
 
@@ -153,34 +166,17 @@
                                                 </div>
                                                 <div class="comment">
                                                     <p>
-                                                        AAAAAAAA<br>AAAAAAAAA
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eligendi explicabo fuga iusto labore laboriosam minima natus, nulla quaerat quod sit suscipit velit? Dolore id molestias neque quasi sequi voluptate?
                                                     </p>
                                                 </div>
-
-
-                                            </div>
-                                            <div class="commentArea">
-                                                <div class="d-flex">
-                                                    <div class="grade">
-                                                        ⭐⭐⭐⭐⭐
-                                                    </div>
-                                                    <p class="place_name">TEST</p>
-                                                    <p class="option_name">TEST</p>
-                                                </div>
-                                                <div class="comment">
-                                                    <p>
-                                                        AAAAAAAA<br>AAAAAAAAA
-                                                    </p>
-                                                </div>
-
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row" style="height: 40vh;">
-                                    <div class="col-3 border" id="resultModalDatas">
-                                        <div class="d-flex">
+                                    <div class="col-3" id="resultModalDatas">
+                                        <div class="d-flex" style="flex-wrap: wrap">
                                             <p id="place_name">TEST</p>
                                             <div id="grade">
                                                 ⭐⭐⭐⭐⭐
@@ -205,13 +201,12 @@
                                             <p class="location">TEST WHERE</p>
                                         </div>
                                     </div>
-                                    <div class="col-3 border" id="resultModalBooking">
+                                    <div class="col-3" id="resultModalBooking">
 
                                         <div class="d-flex" id="book-men">
-                                            <div style="padding: 6px;">예약인원</div>
-
-                                            <button class="btn dropdown-toggle" type="button" id="bookMen-dropDown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                                예약인원수
+                                            <div style="padding: 6px;">예약 인원</div>
+                                                <button class="btn dropdown-toggle" type="button" id="bookMen-dropDown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                예약 인원 수
                                             </button>
                                             <div class="dropdown-menu" >
                                                 <form>
@@ -228,7 +223,7 @@
                                         </div>
 
                                         <div class="d-flex" id="book-option">
-                                            <div style="padding: 6px;">객실종류</div>
+                                            <div style="padding: 6px;">객실 종류</div>
                                             <button class="btn dropdown-toggle" id="book-option-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 option1
                                             </button>
@@ -238,8 +233,6 @@
                                                 <li><button class="dropdown-item book-opiton-item" type="button">option3</button></li>
                                             </ul>
                                         </div>
-
-
 
                                         <!--carecell-->
                                         <div id="optionImage-carouse" class="carousel slide">
@@ -264,13 +257,13 @@
                                             </button>
                                         </div>
 
-                                        <button class="" id="book-button">예약</button>
+                                        <button class="" id="book-button">Check ✔</button>
 
                                     </div>
-                                    <div class="col-6 border" id="resultModalCalender">
-                                        <div class="container mt-4">
+                                    <div class="col-6" id="resultModalCalender">
+                                        <div class="container">
 
-                                            <div id="calendar-wrapper" class="border rounded p-3 d-flex" style='background-color: #FFF' >
+                                            <div id="calendar-wrapper" class="border rounded d-flex" style='background-color: #FFF' >
 
 
                                                 <!--번트1--->
@@ -279,13 +272,13 @@
                                                 <div class="calendar">
                                                     <h2 class="month-year" id="cur-month">TEST</h2>
                                                     <div class="calendar-days" >
-                                                        <div class="day-name">일</div>
+                                                        <div class="day-name" style="color: red">일</div>
                                                         <div class="day-name">월</div>
                                                         <div class="day-name">화</div>
                                                         <div class="day-name">수</div>
                                                         <div class="day-name">목</div>
                                                         <div class="day-name">금</div>
-                                                        <div class="day-name">토</div>
+                                                        <div class="day-name" style="color: blue">토</div>
                                                     </div>
                                                     <div class="calendar-body" id="cur-calender">
                                                         <!-- Calendar dates will be inserted here by JavaScript -->
@@ -294,14 +287,14 @@
                                                 <!--달력2-->
                                                 <div class="calendar">
                                                     <h2 class="month-year" id="next-month">TEST</h2>
-                                                    <div  class="calendar-days" >
-                                                        <div class="day-name">일</div>
+                                                    <div class="calendar-days" >
+                                                        <div class="day-name" style="color: red">일</div>
                                                         <div class="day-name">월</div>
                                                         <div class="day-name">화</div>
                                                         <div class="day-name">수</div>
                                                         <div class="day-name">목</div>
                                                         <div class="day-name">금</div>
-                                                        <div class="day-name">토</div>
+                                                        <div class="day-name" style="color: blue">토</div>
                                                     </div>
                                                     <div  class="calendar-body" id="next-calendar">
                                                         <!-- Calendar dates will be inserted here by JavaScript -->
