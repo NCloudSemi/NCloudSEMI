@@ -139,9 +139,9 @@ body {
 }
 
 #passwordChk{
-    width: 150px;
+    width: 130px;
     font-size: 14px;
-    margin-left: 20px;
+    margin-left: 10px;
     border: none;
     outline: none;
 }
@@ -273,4 +273,20 @@ body {
     width: 270px;
     color: red;
     font-size: 14px;
+}
+
+#login-toggle-pw,
+#join-toggle-pw,
+#join-toggle-pwChk {
+    background: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0 3px 0 0;
+}
+
+.eye-icon img {
+    width: 30px; /* 아이콘 크기 조정 */
+    height: 30px;
+    background-color: white;
 }

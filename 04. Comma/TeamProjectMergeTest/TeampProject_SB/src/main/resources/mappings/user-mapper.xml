@@ -28,12 +28,14 @@
                         , NICKNAME
                         , GENDER
                         , ADDRESS
+                        , E_ADDRESS
                         , DETAILED_ADDRESS
                         , EMAIL)
         VALUES ( #{pw}
                , #{nickname}
                , #{gender}
                , #{address}
+               , #{e_address}
                , #{detailed_address}
                , #{email});
     </insert>
