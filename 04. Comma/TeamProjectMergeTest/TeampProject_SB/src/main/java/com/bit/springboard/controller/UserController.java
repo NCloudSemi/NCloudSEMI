@@ -37,7 +37,7 @@ public class UserController {
             System.out.println("로그인 성공");
             System.out.println("----------------------------");
 
-            return "/mypage/mypage";
+            return "/main/main";
         } catch (Exception e) {
             System.out.println(e.getMessage() + ", 로그인 실패");
             System.out.println("----------------------------");

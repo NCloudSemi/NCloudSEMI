@@ -38,14 +38,16 @@ public class UserDao {
     }
 
 //     주성이형 part
-    public UserDto findById(int user_id) {
-        try {
-            return mybatis.selectOne("UserDao.findById", user_id);
-        }catch (Exception e){
-            e.getMessage();
-        }
-        return null;
+public UserDto findById(UserDto userDto) {
+    try {
+
+        return mybatis.selectOne("UserDao.findById", userDto);
+    } catch (Exception e) {
+        // 예외 메시지 출력
+        System.err.println("Error fetching user by ID: " + e.getMessage());
     }
+    return null;
+}
 
     public void updateProfileImage(UserDto existingUser) {
         // SQL 또는 MyBatis, JPA를 사용하여 업데이트
