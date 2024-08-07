@@ -1,9 +1,9 @@
 $(()=>{
 
 
-    let cardContainer = $("#mp_grid-container") //container
-    let popupCardContainer = $(".mp_pickplace-list")
-    let popupLocationContainer = $(".mp_popup_gallery")
+    let cardContainer = document.querySelector("#mp_grid-container") //container
+    let popupCardContainer =  document.querySelector(".mp_pickplace-list")
+    let popupLocationContainer =  document.querySelector(".mp_popup_gallery")
     
     const user_id  = $('input[name="user_id"]').val();
     
@@ -35,6 +35,7 @@ $(()=>{
     // 카드 추가 기능
     function addCards(cards) {
         let inner=""
+        console.log("HEAR1")
         cards.forEach(card => {
             inner += `<div class="mp_grid-item"><img src="${card.imageUrl}" /></div>`
 
@@ -70,6 +71,7 @@ $(()=>{
     //카드추가
     function addLikeCards(cards) {
         let inner=""
+
         cards.forEach(card => {
             inner +=  `<div class="mp_checkbox">
             <input type="checkbox" class="item-checkbox" />
@@ -78,6 +80,8 @@ $(()=>{
 
         });
         popupLocationContainer.innerHTML = inner;
+        console.log(popupLocationContainer)
+        console.log("im inner "+inner)
     } 
 
     //like 장소 챙겨오기
