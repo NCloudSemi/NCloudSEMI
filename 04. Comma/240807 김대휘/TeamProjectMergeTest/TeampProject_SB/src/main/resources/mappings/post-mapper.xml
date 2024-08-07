@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--쿼리문이 Dao 클래스에서 분리되어 온 것이기 때문에 namespace는 관례적으로 Dao 클래스명과 일치시킨다.-->
+<mapper namespace="PostDao">
+
+    <insert id="posting" parameterType="post">
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            SELECT IFNULL(MAX(ID), 1) FROM POST
+        </selectKey>
+        INSERT INTO POST(
+            ID,
+            TITLE,
+            CONTENT,
+            REG_DATE,
+            POST_IMG
+        )
+        VALUE(
+            #{id},
+            #{title},
+            #{content},
+            #{reg_date},
+            #{post_img}
+        )
+    </insert>
+
+    <update id="editPost" parameterType="post">
+        UPDATE POST
+          SET
+              TITLE = #{title},
+              CONTENT = #{content},
+              PLAN_ID = #{plan_id},
+              REG_DATE = #{reg_date},
+              POST_IMG = #{post_img},
+          WHERE POST_ID =#{post_id}
+    </update>
+
+    <select id="getPosts"  parameterType="map" resultType="post">
+        SELECT POST_ID,
+               TITLE,
+               POST_IMG
+         FROM POST
+         WHERE 1=1
+         ORDER BY POST_ID DESC
+         LIMIT 1000 OFFSET 0
+    </select>
+
+    <select id="getUserPosts" parameterType="int" resultType="post">
+        SELECT POST_ID,
+               TITLE,
+               POST_IMG
+        FROM POST
+        WHERE ID= #{user_id}
+        ORDER BY POST_ID DESC
+    </select>
+
+    <select id="getUserLikes" parameterType="int" resultType="post">
+        SELECT P.POST_ID,
+               P.TITLE,
+               P.POST_IMG
+        FROM POST P
+        JOIN `LIKE` L
+          ON L.ID = P.ID
+        WHERE ID= #{user_id}
+        ORDER BY POST_ID DESC
+    </select>
+
+
+    <select id="getPost" parameterType="map" resultType="post">
+        SELECT  P.POST_ID,
+                P.TITLE,
+                P.CONTENT,
+                P.PLAN_ID,
+                P.LIKE_CNT,
+                P.REG_DATE,
+                P.POST_IMG,
+                U.USER_ID,
+                U.NICKNAME,
+                U.PROFILE_IMG,
+                U.ADDRESS,
+                U.SCORE,
+                (SELECT EXISTS (
+                   SELECT 1
+                   FROM `LIKE` L
+                   WHERE L.POST_ID = P.POST_ID
+                     AND L.ID = #{user_id}
+               )) AS is_like
+         FROM POST P
+         JOIN USER U
+           ON U.USER_ID =P.ID
+          WHERE POST_ID =#{post_id}
+    </select>
+
+    <select id="getComments" parameterType="int" resultType="postComment">
+        SELECT C.COMMENT_ID,
+               C.POST_ID,
+               C.COMMENT_TAG,
+               C.COMMENT_CONTENT,
+               C.LIKE_CNT,
+               C.REG_DATE,
+               U.USER_ID,
+               U.NICKNAME,
+               U.PROFILE_IMG,
+               U.ADDRESS,
+               U.SCORE,
+               (SELECT EXISTS (
+                   SELECT 1
+                   FROM `LIKE` L
+                   WHERE L.COMMENT_ID = C.COMMENT_ID
+                     AND L.ID = U.USER_ID
+               )) AS is_like
+        FROM COMMENT C
+                 JOIN USER U
+                      ON C.ID = U.USER_ID
+        WHERE C.POST_ID = #{post_id};
+    </select>
+
+
+    <select id ="checkLike" parameterType="map" resultType="int">
+        SELECT 1
+        FROM `LIKE`
+        WHERE 1=1
+        <if test= "type == 'post'">
+            AND POST_ID =#{target_id}
+            AND ID = #{id}
+        </if>
+        <if test="type == 'comment'">
+            AND COMMENT_ID =#{target_id}
+            AND ID = #{id}
+        </if>
+        <if test="type == 'reply'">
+            AND REPLY_ID =#{target_id}
+            AND ID = #{id}
+        </if>
+
+    </select>
+
+    <delete id="deleteLike" parameterType="map">
+        DELETE FROM `LIKE`
+         WHERE 1=1
+         <if test="type == 'post'">
+             AND POST_ID =#{target_id}
+             AND  ID =#{id}
+         </if>
+         <if test="type == 'comment'">
+             AND COMMENT_ID =#{target_id}
+             AND  ID =#{id}
+         </if>
+         <if test="type == 'reply'">
+             AND REPLY_ID =#{target_id}
+             AND  ID =#{id}
+         </if>
+
+    </delete>
+
+    <insert id="insertLike" parameterType="map">
+         INSERT INTO `LIKE`(
+            ID,
+            <if test="type == 'post'">
+                POST_ID
+            </if>
+            <if test="type == 'comment'">
+                COMMENT_ID
+            </if>
+            <if test="type == 'reply'">
+                REPLY_ID
+            </if>
+        )VALUES(
+            #{id},
+            #{target_id}
+        )
+    </insert>
+
+</mapper>

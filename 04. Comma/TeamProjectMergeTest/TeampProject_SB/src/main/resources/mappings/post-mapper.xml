@@ -62,7 +62,7 @@
         FROM POST P
         JOIN `LIKE` L
           ON L.ID = P.ID
-        WHERE ID= #{user_id}
+        WHERE P.ID= #{user_id}
         ORDER BY POST_ID DESC
     </select>
 
