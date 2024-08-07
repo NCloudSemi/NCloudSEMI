@@ -418,50 +418,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //                 if ($("#address").startsWith("서울")) {
-    //                     document.getElementById('e_addressInput').value = 'Seoul'
-    //                 } else if ($("#address").startsWith("부산")) {
-    //                     document.getElementById('e_addressInput').value = 'Busan'
-    //                 } else if ($("#address").startsWith("대구")) {
-    //                     document.getElementById('e_addressInput').value = 'Daegu'
-    //                 } else if ($("#address").startsWith("인천")) {
-    //                     document.getElementById('e_addressInput').value = 'Incheon'
-    //                 } else if ($("#address").startsWith("광주")) {
-    //                     document.getElementById('e_addressInput').value = 'Gwangju'
-    //                 } else if ($("#address").startsWith("대전")) {
-    //                     document.getElementById('e_addressInput').value = 'Daejeon'
-    //                 } else if ($("#address").startsWith("울산")) {
-    //                     document.getElementById('e_addressInput').value = 'Ulsan'
-    //                 } else if ($("#address").startsWith("세종")) {
-    //                     document.getElementById('e_addressInput').value = 'Sejong'
-    //                 } else if ($("#address").startsWith("경기")) {
-    //                     document.getElementById('e_addressInput').value = 'Gyeonggi'
-    //                 } else if ($("#address").startsWith("강원")) {
-    //                     document.getElementById('e_addressInput').value = 'Gangwon'
-    //                 } else if ($("#address").startsWith("충북")) {
-    //                     document.getElementById('e_addressInput').value = 'Chungbuk'
-    //                 } else if ($("#address").startsWith("충남")) {
-    //                     document.getElementById('e_addressInput').value = 'Chungnam'
-    //                 } else if ($("#address").startsWith("전북")) {
-    //                     document.getElementById('e_addressInput').value = 'Jeonbuk'
-    //                 } else if ($("#address").startsWith("전남")) {
-    //                     document.getElementById('e_addressInput').value = 'Jeonnam'
-    //                 } else if ($("#address").startsWith("경북")) {
-    //                     document.getElementById('e_addressInput').value = 'Gyeongbuk'
-    //                 } else if ($("#address").startsWith("경남")) {
-    //                     document.getElementById('e_addressInput').value = 'Gyeongnam'
-    //                 } else if ($("#address").startsWith("제주")) {
-    //                     document.getElementById('e_addressInput').value = 'Jeju'
-    //                 } else {
-    //                     return $("#address");
-    //                 }
-    //
-    //                 jQuery("#detailed-address").focus();
-    //             }
-    //         }).open();
-    //     })
-    // })
-
     $("#join").on('submit', (e) => {
 
         console.log(emailChk);
