@@ -766,3 +766,22 @@ document.addEventListener('DOMContentLoaded', () => {
     addClickListener('mp_reservation_btn', reservationDetailsHTML, initReservationDetails);
     console.log(3);
 });
+
+$(document).on('click', '.mp_grid-item', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $('#view-modal').show();
+});
+
+$(document).on('click', '.edit', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $('#write-modal').show();
+});
+
+
+$(document).on('click', '.mp_travel_plan_icons, .plan-button, .plan-button2', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $('#plan-modal').show();
+});
