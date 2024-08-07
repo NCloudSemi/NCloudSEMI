@@ -139,7 +139,9 @@ public class UserServiceImpl implements UserService {
         // 주소가 변경되었는지 확인
         if (userDto.getAddress() != null && !userDto.getAddress().equals(existingUser.getAddress())) {
             existingUser.setAddress(userDto.getAddress());
+            System.out.println("Final Transformed Address: " + userDto.getAddress());
         }
+
         // 상세주소가 변경되었는지 확인
         if (userDto.getDetailed_address() != null && !userDto.getDetailed_address().equals(existingUser.getDetailed_address())) {
             existingUser.setDetailed_address(userDto.getDetailed_address());
@@ -151,11 +153,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updateStatusMessage(UserDto userDto) {
+    public UserDto updateStatusMessage(UserDto userDto) {
 
         System.out.println("UserServiceImpl.updateStatusMessage 메소드 실행");
         // 기존 사용자 정보 조회
         UserDto existingUser = userDao.findById(userDto);
+        System.out.println(userDto.getUser_id());
+        System.out.println("updateStatusMessage 메소드의 " + existingUser);
         if (existingUser == null) {
             throw new IllegalArgumentException("User not found");
         }
@@ -167,7 +171,7 @@ public class UserServiceImpl implements UserService {
 
         // 변경된 정보 업데이트
         userDao.updateStatusMessage(existingUser);
-        return "User status message updated successfully";
+        return existingUser;
     }
 
 }

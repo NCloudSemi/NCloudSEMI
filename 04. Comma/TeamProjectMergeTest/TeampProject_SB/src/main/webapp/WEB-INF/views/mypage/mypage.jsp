@@ -290,7 +290,7 @@
                                 <input type="hidden" name="user_id" value="${loginUser.user_id}">
                                 <textarea id="message-input" rows="15" maxlength="300" type="text" name="message" placeholder="${loginUser.message}" required>${loginUser.message}</textarea>
                             </div>
-                            <button type="submit"><img src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드" /></button>
+                            <button type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드"/></button>
                         </div>
                     </form>
                 </div>

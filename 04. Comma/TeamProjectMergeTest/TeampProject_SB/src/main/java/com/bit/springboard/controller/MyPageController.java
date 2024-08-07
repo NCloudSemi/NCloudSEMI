@@ -152,10 +152,12 @@ public class MyPageController {
     public String changeUserStatusmessage(@RequestParam("message") String message, HttpSession session) {
         // 변경된 내용이 있으면 session에도 변경된 내용을 저장하고 다시 호출해야한다.
         UserDto loginUser = (UserDto)session.getAttribute("loginUser");
+
         UserDto userDto = new UserDto();
+        userDto.setUser_id(loginUser.getUser_id()); // 세션에서 가져온 user_id 설정
         userDto.setMessage(message);
+
         loginUser.setMessage(message);
-        System.out.println(userDto.getMessage());
 
         userService.updateStatusMessage(userDto);
         session.setAttribute("loginUser", loginUser);

@@ -58,7 +58,10 @@ public class UserDto {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        String transformedAddress = transformAddress(address);
+        System.out.println("Original Address: " + address);
+        System.out.println("Transformed Address: " + transformedAddress);
+        this.address = transformedAddress;
     }
 
     public String getDetailed_address() {
@@ -91,6 +94,49 @@ public class UserDto {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    private String transformAddress(String address) {
+        if (address == null) {
+            return null;
+        }
+        if (address.startsWith("서울")) {
+            return "Seoul";
+        } else if (address.startsWith("부산")) {
+            return "Busan";
+        } else if (address.startsWith("대구")) {
+            return "Daegu";
+        } else if (address.startsWith("인천")) {
+            return "Incheon";
+        } else if (address.startsWith("광주")) {
+            return "Gwangju";
+        } else if (address.startsWith("대전")) {
+            return "Daejeon";
+        } else if (address.startsWith("울산")) {
+            return "Ulsan";
+        } else if (address.startsWith("세종")) {
+            return "Sejong";
+        } else if (address.startsWith("경기")) {
+            return "Gyeonggi";
+        } else if (address.startsWith("강원")) {
+            return "Gangwon";
+        } else if (address.startsWith("충북")) {
+            return "Chungbuk";
+        } else if (address.startsWith("충남")) {
+            return "Chungnam";
+        } else if (address.startsWith("전북")) {
+            return "Jeonbuk";
+        } else if (address.startsWith("전남")) {
+            return "Jeonnam";
+        } else if (address.startsWith("경북")) {
+            return "Gyeongbuk";
+        } else if (address.startsWith("경남")) {
+            return "Gyeongnam";
+        } else if (address.startsWith("제주")) {
+            return "Jeju";
+        } else {
+            return address;
+        }
     }
 
     @Override
