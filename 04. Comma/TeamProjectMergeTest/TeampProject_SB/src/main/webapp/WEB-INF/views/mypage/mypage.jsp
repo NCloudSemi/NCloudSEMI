@@ -224,8 +224,8 @@
                                 <div id="mp_pickplace_popup">
                                     <div class="mp_pick_popup-header">
                                         <div class="mp_pick_popup-header-title">
-                                            <img src="${pageContext.request.contextPath}/static/image/픽한 장소 pin_icon.svg" alt="" />
-                                            <h5>픽한 장소</h5>
+                                            <img id="mp_pickplace_tag" src="${pageContext.request.contextPath}/static/image/픽한 장소 pin_icon.svg" alt="픽한장소" />
+                                            <h5 id="mp_pickplace_text_tag">픽한 장소</h5>
                                         </div>
                                         <button id="mp_pickplace_close-popup">
                                             <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
@@ -297,16 +297,16 @@
                 <div id="mp_content_flexbox_right">
                     <div id="mp_header_text">
                         <div>
-                            <a class="mp_travelRecode_btn" >여행기록</a><br />
-                            <a class="mp_travelRecode_btn" >11</a>
+                            <a class="mp_travelRecode_btn" id="mp_travel_recode_tag">여행기록</a><br/>
+                            <a class="mp_travelRecode_btn" id="mp_travel_recode_num_tag">11</a>
                         </div>
                         <div>
-                            <a class="mp_travelPlan_btn" >여행계획</a><br />
-                            <a class="mp_travelPlan_btn" >3</a>
+                            <a class="mp_travelPlan_btn" id="mp_travel_plan_tag">여행계획</a><br/>
+                            <a class="mp_travelPlan_btn" id="mp_travel_plan_num_tag">3</a>
                         </div>
                         <div>
-                            <a class="mp_reservation_btn" >예약내역</a><br />
-                            <a class="mp_reservation_btn" >1</a>
+                            <a class="mp_reservation_btn" id="mp_reservation_tag">예약내역</a><br/>
+                            <a class="mp_reservation_btn" id="mp_reservation_num_tag">1</a>
                         </div>
                     </div>
                     <div>

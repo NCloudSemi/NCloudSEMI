@@ -172,6 +172,19 @@ itemCheckboxes_board.forEach((checkbox) => {
     });
 });
 
+const mp_pickboard_tag1 = document.getElementById('mp_heart_icon');
+const mp_pickboard_tag2 = document.getElementById('mp_pickboard_text');
+
+mp_pickboard_tag2.addEventListener('mouseover', function() {
+    mp_pickboard_tag1.style.transform = 'scale(1.3)';
+    mp_pickboard_tag1.style.transition = 'transform 0.3s ease';
+});
+
+mp_pickboard_tag2.addEventListener('mouseout', function() {
+    mp_pickboard_tag1.style.transform = '';
+    mp_pickboard_tag1.style.transition = '';
+});
+
 /*------------------------------픽한 장소--------------------------------*/
 // #mp_pin_icon와 #mp_pickplace_text 클릭 시 팝업과 오버레이 표시
 // 픽한 장소 팝업 열기
@@ -220,6 +233,17 @@ itemCheckboxes_place.forEach((checkbox) => {
         }
     });
 });
+
+// const mp_pickboard_tag1 = document.getElementById('mp_pin_icon');
+// const mp_pickboard_tag2 = document.getElementById('mp_pickplace_text');
+//
+// mp_pickboard_tag2.addEventListener('mouseover', function() {
+//     mp_pickboard_tag1.style.scale = '1.3';
+// });
+//
+// mp_pickboard_tag2.addEventListener('mouseout', function() {
+//     mp_pickboard_tag1.style.scale = '';
+// });
 
 /*---------------------------내 여행 등급 확인----------------------------*/
 
@@ -311,6 +335,50 @@ function fitTextToBox(element) {
         if (fontSize < 10) break; // 최소 폰트 크기 제한
     }
 }
+
+/*-------------------------------mp_right_header_tags----------------------------*/
+const mp_tag1 = document.getElementById('mp_travel_recode_tag');
+const mp_tag2 = document.getElementById('mp_travel_recode_num_tag');
+const mp_tag3 = document.getElementById('mp_travel_plan_tag');
+const mp_tag4 = document.getElementById('mp_travel_plan_num_tag');
+const mp_tag5 = document.getElementById('mp_reservation_tag');
+const mp_tag6 = document.getElementById('mp_reservation_num_tag');
+
+mp_tag2.addEventListener('mouseover', function() {
+    mp_tag1.style.fontSize = '1.3em';
+    mp_tag1.style.fontWeight = 'bolder';
+    mp_tag1.style.color = '#ff6b00';
+});
+
+mp_tag2.addEventListener('mouseout', function() {
+    mp_tag1.style.fontSize = '';
+    mp_tag1.style.fontWeight = '';
+    mp_tag1.style.color = '';
+});
+
+mp_tag4.addEventListener('mouseover', function() {
+    mp_tag3.style.fontSize = '1.3em';
+    mp_tag3.style.fontWeight = 'bolder';
+    mp_tag3.style.color = '#ff6b00';
+});
+
+mp_tag4.addEventListener('mouseout', function() {
+    mp_tag3.style.fontSize = '';
+    mp_tag3.style.fontWeight = '';
+    mp_tag3.style.color = '';
+});
+
+mp_tag6.addEventListener('mouseover', function() {
+    mp_tag5.style.fontSize = '1.3em';
+    mp_tag5.style.fontWeight = 'bolder';
+    mp_tag5.style.color = '#ff6b00';
+});
+
+mp_tag6.addEventListener('mouseout', function() {
+    mp_tag5.style.fontSize = '';
+    mp_tag5.style.fontWeight = '';
+    mp_tag5.style.color = '';
+});
 
 /*-------------------------------게시물추가----------------------------*/
 const newBoardIcons = document.querySelectorAll("#mp_add-post-button");

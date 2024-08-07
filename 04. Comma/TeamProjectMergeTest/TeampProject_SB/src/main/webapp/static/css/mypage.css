@@ -233,19 +233,6 @@
     transition: transform 0.3s ease;
 }
 
-#pick_box ul li a {
-    font-size: 15px;
-    font-weight: bold;
-    transition: font-size 0.3s, color 0.3s;
-}
-
-#pick_box ul li a:hover {
-    font-size: 1.3em;
-    font-weight: bolder;
-    color: #ff6b00;
-    border-color: #ff6b00;
-}
-
 #mp_heart_icon {
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
@@ -253,8 +240,22 @@
     cursor: pointer;
 }
 
-#mp_heart_icon:hover {
+#mp_heart_icon:hover ~ #mp_pickboard_text {
     transform: scale(1.3);
+    transition: transform 0.3s ease;
+}
+
+#mp_pickboard_text {
+    font-size: 15px;
+    font-weight: bold;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+#mp_pickboard_text:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+    border-color: #ff6b00;
 }
 
 #mp_pin_icon {
@@ -264,7 +265,7 @@
     cursor: pointer;
 }
 
-#mp_pin_icon:hover {
+#mp_pin_icon:hover ~ #mp_pickplace_text {
     transform: scale(1.3);
 }
 
@@ -464,6 +465,9 @@
     margin-bottom: 5px;
 }
 
+
+
+
 /*------------------mp_my_travel_grade_box-------------------*/
 
 #mp_my_travel_grade_box a {
@@ -582,6 +586,11 @@
     word-break: break-word;
 }
 
+#mp_status_message_upload_btn {
+    background: transparent;
+
+}
+
 #mp_status_popup {
     width: 30vw;
     height: auto;
@@ -635,15 +644,61 @@
 /*}*/
 
 /*-----------------mp_content_flexbox_right---------------------*/
-
+/*------------------mp_right_header_tags----------------------*/
 #mp_header_text {
     height: 10vh;
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
+#mp_travel_recode_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+#mp_travel_recode_tag:hover ~ #mp_travel_recode_num_tag {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
 
-#mp_header_text div a:hover {
+#mp_travel_recode_num_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_travel_plan_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_travel_plan_tag:hover ~ #mp_travel_plan_num_tag {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_travel_plan_num_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_reservation_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_reservation_tag:hover ~ #mp_reservation_num_tag {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_reservation_num_tag:hover {
     font-size: 1.3em;
     font-weight: bolder;
     color: #ff6b00;
