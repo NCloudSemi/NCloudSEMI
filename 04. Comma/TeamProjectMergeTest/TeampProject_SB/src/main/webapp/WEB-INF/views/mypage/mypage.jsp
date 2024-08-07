@@ -366,7 +366,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage-post.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage.js"></script>
+
 </body>
 </html>

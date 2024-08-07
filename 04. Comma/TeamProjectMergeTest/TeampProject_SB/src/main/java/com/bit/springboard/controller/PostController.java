@@ -70,9 +70,7 @@ public class PostController {
     public Map<String, Object> getByIdPosts(UserDto userDto){
         Map<String, Object> result = new HashMap<>();
         List<PostDto> posts = postService.getUserPosts(userDto.getUser_id());
-        System.out.printf("my post");
         result.put("posts", posts);
-        System.out.printf(posts.toString());
         return result;
     }
 
@@ -81,9 +79,7 @@ public class PostController {
     public Map<String, Object> getByIdLikes(UserDto userDto){
         Map<String, Object> result = new HashMap<>();
         List<PostDto>  posts  = postService.getUserLikes(userDto.getUser_id());
-        System.out.printf("my like");
         result.put("posts", posts);
-        System.out.printf(posts.toString());
         return result;
     }
 
