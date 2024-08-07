@@ -16,7 +16,6 @@
     <script src="${pageContext.request.contextPath}/static/js/board-plan-modal.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/plan-modal-map.js"></script>
     <!-- style css link -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/sidebar-template.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/board-plan-modal.css">
 
 </head>
@@ -25,7 +24,7 @@
     <jsp:include page="${pageContext.request.contextPath}/sidebar.jsp"></jsp:include>
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
     <div class="content">
-        <div id="plan-modal" class="board-modal">
+        <div id="plan-modal" class="board-modal" style="display: none;">
             <div class="modal-box">
                 <!-- modal-header -->
                 <div class="modal-header">

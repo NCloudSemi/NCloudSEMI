@@ -617,6 +617,7 @@
     background: linear-gradient(to bottom, transparent calc(100% - 1px)) repeat-y;
     resize: none; /* 사용자가 크기를 변경하지 못하도록 */
     text-align: left;
+    white-space: pre-wrap;
 }
 
 #close-mp_status_popup_btn {
