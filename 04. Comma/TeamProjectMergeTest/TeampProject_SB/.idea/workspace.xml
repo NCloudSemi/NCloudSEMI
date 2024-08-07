@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a1183eaa-5452-4111-b35e-7b1f60ed1899" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/controller/MyPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bit/springboard/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/mypage/mypage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,7 @@
       <workItem from="1721536479675" duration="16000" />
       <workItem from="1722920094218" duration="14572000" />
       <workItem from="1722990297117" duration="4720000" />
-      <workItem from="1722995352431" duration="779000" />
+      <workItem from="1722995352431" duration="5690000" />
     </task>
     <servers />
   </component>

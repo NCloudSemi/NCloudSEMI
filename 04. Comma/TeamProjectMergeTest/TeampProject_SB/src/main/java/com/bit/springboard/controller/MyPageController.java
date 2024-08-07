@@ -126,6 +126,8 @@ public class MyPageController {
             @RequestParam("nickname") String nickname,
             @RequestParam("address") String address,
             @RequestParam("detailed_address") String detailed_address, HttpSession session) {
+        System.out.println("====================================================");
+        System.out.println(address);
 
         UserDto loginUser = (UserDto) session.getAttribute("loginUser");
         if (loginUser == null) {
@@ -142,9 +144,9 @@ public class MyPageController {
         loginUser.setAddress(address);
         loginUser.setDetailed_address(detailed_address);
 
-        userService.updateUserInformation(userDto);
+        UserDto updatedUser =  userService.updateUserInformation(userDto);
         System.out.println("controller의 changeUserInfo 메소드의 " + userService.updateUserInformation(userDto));
-        session.setAttribute("loginUser", loginUser);
+        session.setAttribute("loginUser", updatedUser);
         return "redirect:/mypage/main"; // 리다이렉트할 경로
     }
 

@@ -60,6 +60,11 @@ public class UserDto {
         return transformedAddress;
     }
 
+    // 원본 주소를 반환하는 메서드 추가
+    public String getOriginalAddress() {
+        return this.address;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }

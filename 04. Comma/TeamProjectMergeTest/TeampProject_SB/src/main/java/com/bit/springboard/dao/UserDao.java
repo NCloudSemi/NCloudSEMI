@@ -40,7 +40,8 @@ public class UserDao {
 //     주성이형 part
 public UserDto findById(UserDto userDto) {
     try {
-
+        System.out.println("UserDao의 findById 메소드 실행");
+        System.out.println("UserDao.findById " + userDto);
         return mybatis.selectOne("UserDao.findById", userDto);
     } catch (Exception e) {
         // 예외 메시지 출력

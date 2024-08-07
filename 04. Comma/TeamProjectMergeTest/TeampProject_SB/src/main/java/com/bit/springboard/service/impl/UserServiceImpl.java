@@ -98,7 +98,9 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("User not found");
         }
         System.out.println("UserServiceImpl.findById 메소드 " + existingUser);
-        userDao.findById(existingUser);
+
+//        userDao.findById(existingUser);
+
         return existingUser;
     }
 
@@ -137,9 +139,11 @@ public class UserServiceImpl implements UserService {
         }
 
         // 주소가 변경되었는지 확인
-        if (userDto.getAddress() != null && !userDto.getAddress().equals(existingUser.getAddress())) {
-            existingUser.setAddress(userDto.getAddress());
-            System.out.println("Final Transformed Address: " + userDto.getAddress());
+        System.out.println("UserServiceImpl.updateUserInformation 메소드 userDto.getOriginalAddress " + userDto.getOriginalAddress());
+        System.out.println("UserServiceImpl.updateUserInformation 메소드 existingUser.getOriginalAddress" + existingUser.getOriginalAddress());
+        if (userDto.getAddress() != null && !userDto.getOriginalAddress().equals(existingUser.getOriginalAddress())) {
+            existingUser.setAddress(userDto.getOriginalAddress());
+            System.out.println("Final Transformed Address: " + userDto.getOriginalAddress());
         }
 
         // 상세주소가 변경되었는지 확인
