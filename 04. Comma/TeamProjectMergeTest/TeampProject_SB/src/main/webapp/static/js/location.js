@@ -541,9 +541,6 @@ $(()=>{
 
     $('#draggable-point-1').draggable({
         drag: function() {
-
-
-
             const left2 =   parseFloat($('#draggable-point-2').css("left"))
             const left1 =  parseFloat($('#draggable-point-1').css("left"))
             const range = parseFloat($('#price-progress').css("width"))
@@ -553,14 +550,19 @@ $(()=>{
             const minPrice = parseInt($('#price-min').attr('value'))
             const priceRange =  maxPrice -minPrice
 
+
+            const max_left = 89.8372
+            const min_left = 31.1211
+
             //길이
             $('#price-progress-bar').css({
                 'width':  ((left1 - left2)/offset)*100 +'vw'
             });
 
             //값
-            console.log(minPrice + (priceRange)* (left1/range))
-            $('price-handle-max').text(parseInt( minPrice + (priceRange)* (left1/range)))
+            let val = minPrice +     priceRange * (((left1/offset)*100 - min_left) / (max_left - min_left))
+            val = parseInt(Math.ceil(val/1000))*1000
+            $('#price-handle-max').text(val)
         },
 
         stop: function() {
@@ -582,11 +584,24 @@ $(()=>{
             const left1 =  parseFloat($('#draggable-point-1').css("left"))
             const offset =  parseFloat(window.innerWidth) || parseFloat(document.documentElement.clientWidth);
 
+            const maxPrice = parseInt($('#price-max').attr('value'))
+            const minPrice = parseInt($('#price-min').attr('value'))
+            const priceRange =  maxPrice -minPrice
+
+
+            const max_left = 89.8372
+            const min_left = 31.1211
+
             //길이
             $('#price-progress-bar').css({
                 'left':  (left2/offset)*100 +'vw' ,
                 'width':  ((left1 - left2)/offset)*100 +'vw'
             });
+
+            //값
+            let val = minPrice +     priceRange * (((left2/offset)*100 - min_left) / (max_left - min_left))
+            val = parseInt(Math.ceil(val/1000))*1000
+            $('#price-handle-min').text(val)
         },
 
         stop: function() {
