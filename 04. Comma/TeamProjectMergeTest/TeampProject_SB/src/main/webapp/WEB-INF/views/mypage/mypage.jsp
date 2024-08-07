@@ -287,7 +287,7 @@
                                 <div id="close-mp_status_popup_btn">
                                     <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
                                 </div>
-                                <input type="hidden" name="user_id" value="${loginUser.user_id}">
+                                <input type="hidden" name="userF_id" value="${loginUser.user_id}">
                                 <textarea id="message-input" rows="15" cols="30" type="text" name="message" placeholder="${loginUser.message}" required>${loginUser.message}</textarea>
                             </div>
                             <button id="mp_status_message_upload_btn" type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드"/></button>
@@ -297,16 +297,16 @@
                 <div id="mp_content_flexbox_right">
                     <div id="mp_header_text">
                         <div>
-                            <a class="mp_travelRecode_btn" href="">여행기록</a><br />
-                            <a class="mp_travelRecode_btn" href="">11</a>
+                            <a class="mp_travelRecode_btn" >여행기록</a><br />
+                            <a class="mp_travelRecode_btn" >11</a>
                         </div>
                         <div>
-                            <a class="mp_travelPlan_btn" href="">여행계획</a><br />
-                            <a class="mp_travelPlan_btn" href="">3</a>
+                            <a class="mp_travelPlan_btn" >여행계획</a><br />
+                            <a class="mp_travelPlan_btn" >3</a>
                         </div>
                         <div>
-                            <a class="mp_reservation_btn" href="">예약내역</a><br />
-                            <a class="mp_reservation_btn" href="">1</a>
+                            <a class="mp_reservation_btn" >예약내역</a><br />
+                            <a class="mp_reservation_btn" >1</a>
                         </div>
                     </div>
                     <div>
