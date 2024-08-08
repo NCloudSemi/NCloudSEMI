@@ -23,7 +23,7 @@ public class LocationDao {
 
     public LocationDto post(LocationDto locationDto){
         try {
-            System.out.println("HEAR DAO");
+            System.out.println(locationDto);
             mybatis.insert("LocationDao.post", locationDto);
             return locationDto;
         }catch (Exception e){

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 
 public class LocationDto {
-    private int id;
+    private int location_id;
     private String location_name;
     private String cover_img_url;
     private String[] img_urls; //take a loacation_img
@@ -29,12 +29,12 @@ public class LocationDto {
     //데이터 존재 여부 확인 => 좌표값과 이름이 동일한 데이터가 존재하는지 확인할것
 
 
-    public int getId() {
-        return id;
+    public int getLocation_id() {
+        return location_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setLocation_id(int location_id) {
+        this.location_id = location_id;
     }
 
     public String getLocation_name() {
@@ -136,7 +136,7 @@ public class LocationDto {
     @Override
     public String toString() {
         return "LocationDto{" +
-                "id=" + id +
+                "id=" + location_id +
                 ", location_name='" + location_name + '\'' +
                 ", cover_img_url='" + cover_img_url + '\'' +
                 ", img_urls=" + Arrays.toString(img_urls) +

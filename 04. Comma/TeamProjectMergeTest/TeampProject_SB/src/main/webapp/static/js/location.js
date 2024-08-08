@@ -119,54 +119,73 @@ $(()=>{
     // 검색 결과 목록과 마커를 표출하는 함수입니다
     function displayPlaces(places) {
 
-        bounds = new kakao.maps.LatLngBounds(),
-            // 지도에 표시되고 있는 마커를 제거합니다
-            removeMarker();
+        bounds = new kakao.maps.LatLngBounds()
+        removeMarker();
         removeResult();
 
 
         for ( let i=0; i<places.length; i++ ) {
+            //DB에 있는지 확인 할것
+            $.ajax({
+                url: "/location/data.do",
+                type: "get",
+                data: {
+                    "location_name" : places[i]["place_name"],
+                    "x": places[i]['x'],
+                    "y": places[i]['y'],
+                    "tag": places[i]['category_group_name']
+                },
+                contentType: "x-www-form-urlencoded",
+                success: (location_data) => {
+                    const loc = location_data["loc"]
+                    let imgPath =  loc["cover_img_url"] || `/static/image/Food.svg`;
+                    let grade = loc['grade']  || 0.0; //use make_grade
+                    let cost =  loc["cost"]  || 0;
 
-            // 마커를 생성하고 지도에 표시합니다
-            const placePosition = new kakao.maps.LatLng(places[i].y, places[i].x)
-            const marker = addMarker(placePosition)
-            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-            // LatLngBounds 객체에 좌표를 추가합니다
-            bounds.extend(placePosition);
+                    const placePosition = new kakao.maps.LatLng(places[i].y, places[i].x)
+                    const marker = addMarker(placePosition)
+                    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                    // LatLngBounds 객체에 좌표를 추가합니다
+                    bounds.extend(placePosition);
 
-            // 마커와 검색결과 항목에 mouseover 했을때
-            // 해당 장소에 인포윈도우에 장소명을 표시합니다
-            // mouseout 했을 때는 인포윈도우를 닫습니다
-            (function(marker, place) {
-                kakao.maps.event.addListener(marker, 'mouseover', function() {
-                    markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker_active.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
-                    marker.setImage( markerImage)
-                    displayMinInfo(marker, place.place_name);
-                });
+                    (function(marker,place) {
+                        kakao.maps.event.addListener(marker, 'mouseover', function() {
+                            markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker_active.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                            marker.setImage(markerImage)
+                            displayMinInfo(marker, loc["location_name"]);
+                        });
 
-                kakao.maps.event.addListener(marker, 'mouseout', function() {
-                    markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
-                    marker.setImage(markerImage )
-                    infowindow.close();
-                });
+                        kakao.maps.event.addListener(marker, 'mouseout', function() {
+                            markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                            marker.setImage(markerImage)
+                            infowindow.close();
+                        });
 
-                kakao.maps.event.addListener(marker, 'click', function() {
-                    displayModal(marker, place);
-                });
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            displayModal(loc,place);
+                        });
 
-            })(marker, places[i]);
+                        addResult(loc,place)
+                        $(`#location-result${loc["location_id"]}`)
+                                .on("click",()=>{ displayModal(loc,place)})
 
+                    })(marker,places[i]);
 
-            //Result List 추가하기
-            addResult(places[i])
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            })
+
         }
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        kakaoMap.setBounds(bounds);
+        //kakaoMap.relayout(); //ㅅㅂ 느리다
+        //kakaoMap.setBounds(bounds);
     }
 
     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
     function addMarker(position) {
-        const imageSrc = `${contextPath}/static/image/marker.svg`// 마커 이미지 url, 스프라이트 이미지를 씁니다
+        const imageSrc = `/static/image/marker.svg`// 마커 이미지 url, 스프라이트 이미지를 씁니다
         const    imageSize = new kakao.maps.Size(36, 37) // 마커 이미지의 크기
         const   markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
         const   marker = new kakao.maps.Marker({
@@ -219,20 +238,59 @@ $(()=>{
         infowindow.open(kakaoMap, marker);
     }
 
-    function  displayModal(marker,place){
+    function  displayModal(loc,place){
 
-        console.log(place)
-
+        console.log(loc)
+        const position = new kakao.maps.LatLng(place.y, place.x)
         //title
-        document.querySelector("#place_name").textContent = place["place_name"]
-        document.querySelector("#resultModalDatas .price-info .price").textContent = 'TEST'
+        document.querySelector("#place_name").textContent = loc["location_name"]
+        document.querySelector("#resultModalDatas .price-info .price").textContent = loc["cost"]
         document.querySelector("#resultModalDatas .location-info .location").textContent =place["road_address_name"]
         document.querySelector("#resultModalDatas .direction-info .direction").textContent = make_direction(place)
+        //img
+        document.querySelector("#resultModalImg").style.backgroundImage = `url(${loc["cover_img_url"]})`;
+
+
+        $(`#optionImage-carouse .carousel-inner`).empty()
+        if(place['category_group_name'] ==  "숙박"){
+            let r_val = parseInt(Math.random()*5) + 1;
+            for (let i = 0; i < 3; i++) {
+                const isAc = i == 0 ?  "active" :""
+                const carousel =   `
+                <div class="carousel-item ${isAc}">
+                    <img src="/static/random_img/호텔_객실_img1-${(r_val++)%5 +1}.jpg" class="d-block w-100  " alt="...">
+                </div>`
+                $(`#optionImage-carouse .carousel-inner`).append(carousel)
+
+            }
+        }
+        else if( place['category_group_name'] == "음식점" || place['category_group_name'] == "카페"  ){
+            for (let i = 0; i < 3; i++) {
+                const r_val = parseInt(Math.random()*24) + 1;
+                const isAc = i == 0 ?  "active" :""
+                const carousel =   `
+                <div class="carousel-item ${isAc}">
+                    <img src="/static/random_img/식당_img${r_val}.jpg" class="d-block w-100  " alt="...">
+                </div>`
+                $(`#optionImage-carouse .carousel-inner`).append(carousel)
+            }
+        }
+        else{
+            for (let i = 0; i < 3; i++) {
+                const r_val = parseInt(Math.random()*16) + 1;
+                const isAc = i == 0 ?  "active" :""
+                const carousel =   `
+                <div class="carousel-item ${isAc}">
+                    <img src="/static/random_img/엑티비티_img${r_val}.jpg" class="d-block w-100  " alt="...">
+                </div>`
+                $(`#optionImage-carouse .carousel-inner`).append(carousel)
+            }
+        }
 
         modal.show();
         removeMarkerModal()
-        addMarkerModal(marker.getPosition())
-        modalMap.setCenter(marker.getPosition());
+        addMarkerModal(position)
+        modalMap.setCenter(position);
     }
 
 
@@ -242,28 +300,16 @@ $(()=>{
         document.querySelector('#serchResultList').innerHTML =""
     }
 
-    const addResult =(place)=>{
-        const direction = make_direction(place)
-        //요청 때리기 있는지
-        $.ajax({
-            url: "/location/data.do",
-            type: "get",
-            data: {
-                "location_name" : place["place_name"],
-                "x": place['x'],
-                "y": place['y'],
-                "tag": place['category_group_name']
-            },
-            contentType: "x-www-form-urlencoded",
-            success: (location_data) => {
-                const loc = location_data["loc"]
-                console.log(loc["cover_img_url"])
-                let imgPath =  loc["cover_img_url"] || `/static/image/Food.svg`;
-                let grade = loc['grade']  || 0.0; //use make_grade
-                let cost =  loc["cost"]  || 0;
-                serchResults.push(location_data);
+    const addResult =(loc,place)=>{
 
-                const serchResultForm = `<div class="serchResult">
+            const direction = make_direction(place)
+            let imgPath =  loc["cover_img_url"] || `/static/image/Food.svg`;
+            let grade = loc['grade']  || 0.0; //use make_grade
+            let cost =  loc["cost"]  || 0;
+            serchResults.push(loc);
+
+            const serchResultForm =
+                `<div class="serchResult" id="location-result${loc["location_id"]}" ">
                                             <!--data img-->
                                             <div class="serch-img" style="background-image: url(${imgPath});">
                                             </div>
@@ -301,16 +347,10 @@ $(()=>{
                                             </div>
                                             
                                         </div>`
-                document.querySelector('#serchResultList').innerHTML +=  serchResultForm
-            },
-            error: (err) => {
-                console.log(err);
-            }
-        });
+            $('#serchResultList').append(serchResultForm)
+    };
 
 
-
-    }
 
 
     //return_grade_img

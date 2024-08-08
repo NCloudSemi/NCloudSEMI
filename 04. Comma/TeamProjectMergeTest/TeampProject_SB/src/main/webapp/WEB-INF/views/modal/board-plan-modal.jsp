@@ -21,7 +21,7 @@
 </head>
 <body>
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
-    <div class="content">
+
         <div id="plan-modal" class="board-modal" style="display: none; z-index: 9999">
             <div class="modal-box" id="plan-modal-box">
                 <!-- modal-header -->
@@ -196,7 +196,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <jsp:include page="../modal/location-modal.jsp"></jsp:include>
 </body>

@@ -819,7 +819,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 각 버튼에 클릭 이벤트 리스너 추가
+<<<<<<< HEAD
     addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
+=======
+     addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
+>>>>>>> 41ceb65390fdb54efe64c9df21786b1345837d4e
     console.log(1);
     addClickListener('mp_travelPlan_btn', travelPlansHTML, initTravelPlans);
     console.log(2);

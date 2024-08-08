@@ -23,7 +23,7 @@
     </select>
 
     <insert id="post" parameterType="location">
-        <selectKey resultType="int" keyProperty="id" order="AFTER">
+        <selectKey resultType="int" keyProperty="location_id" order="AFTER">
             SELECT IFNULL(MAX(LOCATION_ID), 1) FROM LOCATION
         </selectKey>
        INSERT INTO LOCATION(

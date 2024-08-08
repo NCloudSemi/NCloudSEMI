@@ -39,8 +39,13 @@ $(()=>{
         grade:0
     }
 
+    //modal
+    modal =  new bootstrap.Modal(document.getElementById('resultModal'));
+
+
     //카카오 지도
     const mapContainer = document.querySelector('.map-box-map')
+    const modalMapContainer = document.getElementById('resultModalMap')
     const mapOptionMain = {
         center: new kakao.maps.LatLng(37.56356944444444, 126.98000833333333), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
@@ -49,14 +54,16 @@ $(()=>{
         center: new kakao.maps.LatLng(37.56356944444444, 126.98000833333333), // 지도의 중심좌표
         level: 2 // 지도의 확대 레벨
     };
+
     const kakaoMap = new kakao.maps.Map(mapContainer, mapOptionMain);
+    const modalMap = new kakao.maps.Map( modalMapContainer, mapOptionModal);
+
 
     //위치 검색서비스
     const pleaceService = new kakao.maps.services.Places();
 
     //마커 이름 뛰울거
     const infowindow = new kakao.maps.InfoWindow({zIndex:1});
-
 
 
     //kakao 검색관련 이벤트 TEST
@@ -112,55 +119,73 @@ $(()=>{
     // 검색 결과 목록과 마커를 표출하는 함수입니다
     function displayPlaces(places) {
 
-        bounds = new kakao.maps.LatLngBounds(),
-            // 지도에 표시되고 있는 마커를 제거합니다
-            removeMarker();
+        bounds = new kakao.maps.LatLngBounds()
+        removeMarker();
         removeResult();
 
 
         for ( let i=0; i<places.length; i++ ) {
+            //DB에 있는지 확인 할것
+            $.ajax({
+                url: "/location/data.do",
+                type: "get",
+                data: {
+                    "location_name" : places[i]["place_name"],
+                    "x": places[i]['x'],
+                    "y": places[i]['y'],
+                    "tag": places[i]['category_group_name']
+                },
+                contentType: "x-www-form-urlencoded",
+                success: (location_data) => {
+                    const loc = location_data["loc"]
+                    let imgPath =  loc["cover_img_url"] || `/static/image/Food.svg`;
+                    let grade = loc['grade']  || 0.0; //use make_grade
+                    let cost =  loc["cost"]  || 0;
 
-            // 마커를 생성하고 지도에 표시합니다
-            const placePosition = new kakao.maps.LatLng(places[i].y, places[i].x)
-            const marker = addMarker(placePosition)
-            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-            // LatLngBounds 객체에 좌표를 추가합니다
-            bounds.extend(placePosition);
+                    const placePosition = new kakao.maps.LatLng(places[i].y, places[i].x)
+                    const marker = addMarker(placePosition)
+                    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                    // LatLngBounds 객체에 좌표를 추가합니다
+                    bounds.extend(placePosition);
 
-            // 마커와 검색결과 항목에 mouseover 했을때
-            // 해당 장소에 인포윈도우에 장소명을 표시합니다
-            // mouseout 했을 때는 인포윈도우를 닫습니다
-            (function(marker, place) {
-                kakao.maps.event.addListener(marker, 'mouseover', function() {
-                    markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker_active.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
-                    marker.setImage( markerImage)
-                    displayMinInfo(marker, place.place_name);
-                });
+                    (function(marker,place) {
+                        kakao.maps.event.addListener(marker, 'mouseover', function() {
+                            markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker_active.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                            marker.setImage(markerImage)
+                            displayMinInfo(marker, loc["location_name"]);
+                        });
 
-                kakao.maps.event.addListener(marker, 'mouseout', function() {
-                    markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
-                    marker.setImage(markerImage )
-                    infowindow.close();
-                });
+                        kakao.maps.event.addListener(marker, 'mouseout', function() {
+                            markerImage = new kakao.maps.MarkerImage(`${contextPath}/static/image/marker.svg`,new kakao.maps.Size(31, 35), new kakao.maps.Point(13, 34));
+                            marker.setImage(markerImage)
+                            infowindow.close();
+                        });
 
-                kakao.maps.event.addListener(marker, 'click', function() {
-                    console.log("TRY")
-                    displayModal(place);
-                });
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            displayModal(loc,place);
+                        });
 
-            })(marker, places[i]);
+                        addResult(loc,place,i)
+                        $(`#map-box-preview-item${i}`)
+                            .on("click",()=>{ displayModal(loc,place)})
 
+                    })(marker,places[i]);
 
-            //Result List 추가하기
-            addResult(places[i],i)
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            })
+
         }
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        kakaoMap.setBounds(bounds);
+        //kakaoMap.relayout(); //ㅅㅂ 느리다
+        //kakaoMap.setBounds(bounds);
     }
 
     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
     function addMarker(position) {
-        const imageSrc = `${contextPath}/static/image/marker.svg`// 마커 이미지 url, 스프라이트 이미지를 씁니다
+        const imageSrc = `/static/image/marker.svg`// 마커 이미지 url, 스프라이트 이미지를 씁니다
         const    imageSize = new kakao.maps.Size(36, 37) // 마커 이미지의 크기
         const   markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
         const   marker = new kakao.maps.Marker({
@@ -179,124 +204,6 @@ $(()=>{
             markers[i].setMap(null);
         }
         markers = [];
-    }
-
-    // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
-    // 인포윈도우에 장소명을 표시합니다
-    function displayMinInfo(marker, title) {
-        const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-        infowindow.setContent(content);
-        infowindow.open(kakaoMap, marker);
-    }
-
-
-    //ResultList에 모든 Result을 제거합디다
-    const removeResult = ()=>{
-        document.querySelector('.map-box-preview-box').innerHTML =""
-    }
-
-    const addResult =(place ,i)=>{
-
-        //요청 때리기 있는지
-        $.ajax({
-            url: "/location/data.do",
-            type: "get",
-            data: {
-                "location_name" : place["place_name"],
-                "x": place['x'],
-                "y": place['y']
-            },
-            contentType: "x-www-form-urlencoded",
-            success: (location_data) => {
-                console.log(location_data)
-                let imgPath = location_data["loc"] || `${contextPath}/static/image/Food.svg`;
-                let grade = location_data["loc"]  || 0.0; //use make_grade
-                let cost = location_data["loc"]  || 0;
-                serchResults.push(location_data);
-
-                const serchResultForm =
-                    `<div id="map-box-preview-item${i}" class="map-box-preview-item">
-                          
-                                <div class="map-box-preview-img" id="map-box-preview-img1">
-                                    <img src="/static/image/Comment1.svg" alt="">
-                                </div>
-                                <div class="description-box">
-                                    <div class="place-name">${place["place_name"]}</div>
-                                    <div class="grade-box">
-                                        <img src="/static/image/Grade-40.jpg" alt="">
-                                        <p>4.0 / 5</p>
-                                    </div>
-                                    <div class="certification-box">
-                                        <div class="certification-name">3성급 호텔</div>
-                                        <img src="/static/image/Certification-Icon.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="description-detail-box">
-                                    <div class="cost-box">
-                                        <div class="cost-name">가격</div>
-                                        <div class="cost-content">20,000 ~ 30,000</div>
-                                    </div>
-                                    <div class="address-box">
-                                        <div class="address-name">주소</div>
-                                        <div class="address-content">${place["road_address_name"]}</div>
-                                    </div>
-                                </div>
-                            </div>`
-                document.querySelector('.map-box-preview-box').innerHTML +=  serchResultForm
-                $(`#map-box-preview-item${i}`).on('mouseenter',()=>{displayModal(place)})
-
-                const mapBoxPreviewItems = document.querySelectorAll('.map-box-preview-item')
-                //add events
-                const isEditable = true
-
-                mapBoxPreviewItems .forEach(item => {
-                    item.setAttribute('draggable',  isEditable);
-                    item.querySelectorAll('*').forEach(el => el.style.pointerEvents = isEditable ? '' : 'none');
-                });
-
-                mapBoxPreviewItems.forEach(item => {
-                    item.setAttribute('draggable', true);
-                    item.addEventListener('dragstart', handleDragStart);
-
-                    item.querySelectorAll('*').forEach(child => {
-                        child.setAttribute('draggable', false);
-                        child.addEventListener('dragstart', e => e.preventDefault());
-                    });
-                });
-
-
-            },
-            error: (err) => {
-                console.log(err);
-            }
-        });
-
-    }
-
-
-
-
-    //---------------------------------------------합치기 귀찮다---------------------------------------------------------------------///
-    modal =  new bootstrap.Modal(document.getElementById('resultModal'));
-
-
-    const modalMapContainer = document.getElementById('resultModalMap')
-    const modalMap = new kakao.maps.Map( modalMapContainer, mapOptionModal);
-    //모달 키기
-    //onclick으로 추가하기
-    function displayModal(place){
-        console.log(place)
-        //title
-        document.querySelector("#place_name").textContent = place["place_name"]
-        document.querySelector("#resultModalDatas .price-info .price").textContent = 'TEST'
-        document.querySelector("#resultModalDatas .location-info .location").textContent =place["road_address_name"]
-        document.querySelector("#resultModalDatas .direction-info .direction").textContent = make_direction(place)
-
-        const position= kakao.maps.LatLng(place["y"], place["x"])
-        //removeMarkerModal()
-        //addMarkerModal(position)
-        //modalMap.setCenter(position)
-        modal.show();
     }
 
     //나중에 함수 합치기
@@ -322,7 +229,147 @@ $(()=>{
         modalMarkers = [];
     }
 
-    //distance
+    // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+    // 인포윈도우에 장소명을 표시합니다
+    function displayMinInfo(marker, title) {
+
+        const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+        infowindow.setContent(content);
+        infowindow.open(kakaoMap, marker);
+    }
+
+    function  displayModal(loc,place){
+
+        console.log(loc)
+        const position = new kakao.maps.LatLng(place.y, place.x)
+        //title
+        document.querySelector("#place_name").textContent = loc["location_name"]
+        document.querySelector("#resultModalDatas .price-info .price").textContent = loc["cost"]
+        document.querySelector("#resultModalDatas .location-info .location").textContent =place["road_address_name"]
+        document.querySelector("#resultModalDatas .direction-info .direction").textContent = make_direction(place)
+        //img
+        document.querySelector("#resultModalImg").style.backgroundImage = `url(${loc["cover_img_url"]})`;
+
+
+        $(`#optionImage-carouse .carousel-inner`).empty()
+        if(place['category_group_name'] ==  "숙박"){
+            let r_val = parseInt(Math.random()*5) + 1;
+            for (let i = 0; i < 3; i++) {
+                const isAc = i == 0 ?  "active" :""
+                const carousel =   `
+                <div class="carousel-item ${isAc}">
+                    <img src="/static/random_img/호텔_객실_img1-${(r_val++)%5 +1}.jpg" class="d-block w-100  " alt="...">
+                </div>`
+                $(`#optionImage-carouse .carousel-inner`).append(carousel)
+
+            }
+        }
+        else if( place['category_group_name'] == "음식점" || place['category_group_name'] == "카페"  ){
+            for (let i = 0; i < 3; i++) {
+                const r_val = parseInt(Math.random()*24) + 1;
+                const isAc = i == 0 ?  "active" :""
+                const carousel =   `
+                <div class="carousel-item ${isAc}">
+                    <img src="/static/random_img/식당_img${r_val}.jpg" class="d-block w-100  " alt="...">
+                </div>`
+                $(`#optionImage-carouse .carousel-inner`).append(carousel)
+            }
+        }
+        else{
+            for (let i = 0; i < 3; i++) {
+                const r_val = parseInt(Math.random()*16) + 1;
+                const isAc = i == 0 ?  "active" :""
+                const carousel =   `
+                <div class="carousel-item ${isAc}">
+                    <img src="/static/random_img/엑티비티_img${r_val}.jpg" class="d-block w-100  " alt="...">
+                </div>`
+                $(`#optionImage-carouse .carousel-inner`).append(carousel)
+            }
+        }
+
+        modal.show();
+        removeMarkerModal()
+        addMarkerModal(position)
+        modalMap.setCenter(position);
+    }
+
+
+
+    //ResultList에 모든 Result을 제거합디다
+    const removeResult = ()=>{
+        $('.map-box-preview-box').empty()
+    }
+
+    const addResult =(loc,place,i)=>{
+
+        const direction = make_direction(place)
+        let imgPath =  loc["cover_img_url"] || `/static/image/Food.svg`;
+        let grade = loc['grade']  || 0.0; //use make_grade
+        let cost =  loc["cost"]  || 0;
+        serchResults.push(loc);
+        const serchResultForm =
+            `<div id="map-box-preview-item${i}" class="map-box-preview-item">
+                          
+                                <div class="map-box-preview-img" id="map-box-preview-img1">
+                                    <img src="${imgPath}" alt="">
+                                </div>
+                                <div class="description-box">
+                                    <div class="place-name">${place["place_name"]}</div>
+                                    <div class="grade-box">
+                                        <img src="/static/image/Grade-40.jpg" alt="">
+                                        <p>4.0 / 5</p>
+                                    </div>
+                                    <div class="certification-box">
+                                        <div class="certification-name"></div>
+                                        <img src="/static/image/Certification-Icon.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="description-detail-box">
+                                    <div class="cost-box">
+                                        <div class="cost-name">가격</div>
+                                        <div class="cost-content">${cost}</div>
+                                    </div>
+                                    <div class="address-box">
+                                        <div class="address-name">주소</div>
+                                        <div class="address-content">${place["road_address_name"]}</div>
+                                    </div>
+                                </div>
+                            </div>`
+        $('.map-box-preview-box').append(serchResultForm)
+
+        //drag event
+        const mapBoxPreviewItems = document.querySelectorAll('.map-box-preview-item')
+        //add events
+        const isEditable = true
+
+        mapBoxPreviewItems .forEach(item => {
+            item.setAttribute('draggable',  isEditable);
+            item.querySelectorAll('*').forEach(el => el.style.pointerEvents = isEditable ? '' : 'none');
+        });
+
+        mapBoxPreviewItems.forEach(item => {
+            item.setAttribute('draggable', true);
+            item.addEventListener('dragstart', handleDragStart);
+
+            item.querySelectorAll('*').forEach(child => {
+                child.setAttribute('draggable', false);
+                child.addEventListener('dragstart', e => e.preventDefault());
+            });
+        });
+
+
+
+
+    };
+
+
+
+
+    //return_grade_img
+    const make_grade= (grade) =>{
+
+    }
+
     const make_direction =(place)=>{
         let station =''
         let min_distance = 100
@@ -337,7 +384,7 @@ $(()=>{
                 station =station_data[index]['name']
             }
         }
-        return `${station}역 에서 도보로 ${parseInt(min_distance*15)}분 거리`
+        return `${station}역 에서 도보로 ${ parseInt(min_distance*15)}분 거리`
     }
 
     // 라디안 변환 함수
@@ -366,8 +413,174 @@ $(()=>{
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         // 거리 계산 (단위: 킬로미터)
-        return  earthRadiusKm * c;
+        const distance = earthRadiusKm * c;
+
+        return distance;
     }
+
+
+    //like location evet
+    function ToggleLike(){
+        const $this = $(this);
+        const isLiked = $this.attr('is-like') === "true"; // 엄격한 비교 사용
+        const target_id = $this.attr('target-id');
+
+        console.log($this.attr('is-like'));
+
+        //pick-unpick
+        if (isLiked) {
+            $this.find('img').attr("src", `${contextPath}/static/image/Unliked-Icon.svg`);
+            $this.attr('is-like', false);
+        } else {
+            $this.find('img').attr("src", `${contextPath}/static/image/Liked-Icon.svg`);
+            $this.attr('is-like', true);
+        }
+
+        console.log($this);
+        console.log(target_id);
+
+        if (target_id && target_id !== "undefined") {
+            const formData = new FormData();
+            formData.append("type", "location");
+            formData.append("target_id", target_id);
+            formData.append("id", 3); // 테스트용
+            $this.addClass('disabled');
+            fetch(`/location/like.do`, {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                $this.removeClass('disabled');
+            });
+        }
+    }
+
+
+
+    //calender
+
+    let date = new Date();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let startDate =null
+    let endDate =null
+
+
+    const months = [
+        '01','02','03','04','05','06','07','08','09','10','11','12',
+    ];
+
+    function renderCalendar() {
+        $('.calendar-body').empty();
+        $('#month-year').text(`${months[month]} ${year}`);
+
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        const firstDayOfMonthNext = new Date(year, month+1, 1).getDay();
+        const daysInMonthNext = new Date(year, month + 2, 0).getDate();
+
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            $('#cur-calender').append(createEmptyDay());
+        }
+        for (let i = 1; i <= daysInMonth; i++) {
+            $('#cur-calender').append(createDay(year,month,i));
+        }
+
+        for (let i = 0; i < firstDayOfMonthNext; i++) {
+            $('#next-calendar').append(createEmptyDay());
+        }
+        for (let i = 1; i <= daysInMonthNext; i++) {
+            $('#next-calendar').append(createDay( (month === 11 ? year+1:year) ,(month+1)%12,i));
+        }
+
+        if(startDate != null)
+        {
+            $("#check_in").val(`${startDate.getFullYear()}-${startDate.getMonth() +1}-${startDate.getDate()}`)
+        }
+        if(endDate != null)
+        {
+            $("#check_out").val(`${endDate.getFullYear()}-${endDate.getMonth() +1}-${endDate.getDate()}`)
+        }
+
+        $("#next-month").text( months[(month+1)%12])
+        $("#cur-month").text(months[month])
+
+    }
+
+    function createEmptyDay() {
+        return $('<div>').addClass('day');
+    }
+
+    function createDay(y,m,d) {
+        const div = $('<div>')
+            .addClass('day')
+            .text(d)
+            .on('click',bookingDay);
+        let selectedDate = new Date(y, m, d); // Corrected this part
+        if (startDate != null && endDate != null &&
+            startDate <= selectedDate && selectedDate <= endDate) {
+            div.addClass('booked');
+        }
+        return div
+    }
+
+    function bookingDay(){
+        const parent_id  = $(this).parent().attr('id')
+        $(this).addClass('booked')
+        if (startDate == null) {
+            if(parent_id ==='next-calendar')
+                startDate = new Date(year, (month+1)%12, $(this).text());
+            else
+                startDate = new Date(year, month, $(this).text());
+
+        }
+        else {
+            if(parent_id ==='next-calendar')
+                endDate = new Date(year, (month+1)%12, $(this).text());
+            else
+                endDate = new Date(year, month, $(this).text());
+
+        }
+
+        //교환
+        if (startDate > endDate) {
+            let temp = startDate;
+            startDate = endDate;
+            endDate = temp;
+        }
+        console.log(startDate,endDate)
+        renderCalendar()
+    }
+
+
+    //각종 이벤트변수 초기화
+    initalize_val = ()=>{
+        date = new Date();
+        month = date.getMonth();
+        year = date.getFullYear();
+        startDate =null
+        endDate =null
+    }
+
+
+    //calender button
+    $('#prev').on('click', function () {
+        month--;
+        if (month < 0) {
+            month = 11;
+            year--;
+        }
+        renderCalendar();
+    });
+    //
+    $('#next').on('click', function () {
+        month++;
+        if (month > 11) {
+            month = 0;
+            year++;
+        }
+        renderCalendar();
+    });
 
     //modal show callback
     modal._element.addEventListener('shown.bs.modal', function () {
@@ -376,10 +589,17 @@ $(()=>{
 
 
 
+    //TEST SERCH
+    serchingData() //SEARCH TEST
+    renderCalendar()
 
 
     $('#map-box-search-button').on('click',serchingData)
 
 
-
 })
+
+
+
+
+
