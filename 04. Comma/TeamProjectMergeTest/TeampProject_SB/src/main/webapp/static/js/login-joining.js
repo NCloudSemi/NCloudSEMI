@@ -435,7 +435,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $("#join").on('submit', (e) => {
 
-        console.log(emailChk);
         if (!emailChk) {
             e.preventDefault();
             document.querySelector(".email-fail-message1").classList.remove('hide');
@@ -463,6 +462,11 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             document.querySelector(".address-fail-message").classList.remove('hide');
             $("#focus-detail-address1").css("borderColor", "red");
+        }
+
+        if (emailChk === true && pwChk === true && pwConfirm === true && nameChk === true && genderChk === true
+            && addressChk === true) {
+            alert("회원가입 성공!! 로그인 페이지로 이동합니다.");
         }
     });
 });

@@ -50,7 +50,10 @@ public class UserController {
         System.out.println("Controller join 메소드 실행");
 
         System.out.println(userDto.toString());
+
         userService.join(userDto);
+        System.out.println("회원가입 성공");
+        System.out.println("----------------------------");
         return "/login/login";
     }
 
