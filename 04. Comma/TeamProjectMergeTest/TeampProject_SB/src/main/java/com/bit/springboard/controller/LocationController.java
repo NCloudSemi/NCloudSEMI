@@ -49,14 +49,12 @@ public class LocationController {
 
         //있나?
         LocationDto loc = locationService.get(locationDto);
-
-
         if(loc != null) {
-
             map.put("loc",loc);
             return map;
         }
         //없으면 post 후 리턴
+        System.out.println("POST");
         loc = locationService.post(locationDto);
         map.put("loc",loc);
         return map;

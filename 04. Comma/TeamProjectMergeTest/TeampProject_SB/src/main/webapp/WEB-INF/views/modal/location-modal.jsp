@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/location_modal.css">\
     <!--script-->
     <script src="${pageContext.request.contextPath}/static/js/location_modal.js"></script>
-    
+
 </head>
 <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-left" style="max-width: 80vw;" role="document" >

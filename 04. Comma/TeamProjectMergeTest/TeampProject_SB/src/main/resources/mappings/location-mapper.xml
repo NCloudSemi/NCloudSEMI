@@ -24,13 +24,14 @@
 
     <insert id="post" parameterType="location">
         <selectKey resultType="int" keyProperty="id" order="AFTER">
-            SELECT IFNULL(MAX(ID), 1) FROM LOCATION
+            SELECT IFNULL(MAX(LOCATION_ID), 1) FROM LOCATION
         </selectKey>
        INSERT INTO LOCATION(
          LOCATION_NAME,
          LIKE_CNT,
          GRADE,
          GRADE_CNT,
+         COVER_IMG_URL,
          X,
          Y
        )
@@ -39,6 +40,7 @@
            0,
            0,
            0,
+           #{cover_img_url},
            #{x},
            #{y}
         )

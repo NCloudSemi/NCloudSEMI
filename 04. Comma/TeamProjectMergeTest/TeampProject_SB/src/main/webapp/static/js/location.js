@@ -251,14 +251,16 @@ $(()=>{
             data: {
                 "location_name" : place["place_name"],
                 "x": place['x'],
-                "y": place['y']
+                "y": place['y'],
+                "tag": place['category_group_name']
             },
             contentType: "x-www-form-urlencoded",
             success: (location_data) => {
-                console.log(location_data)
-                let imgPath = location_data["loc"] || `${contextPath}/static/image/Food.svg`;
-                let grade = location_data["loc"]  || 0.0; //use make_grade
-                let cost = location_data["loc"]  || 0;
+                const loc = location_data["loc"]
+                console.log(loc["cover_img_url"])
+                let imgPath =  loc["cover_img_url"] || `/static/image/Food.svg`;
+                let grade = loc['grade']  || 0.0; //use make_grade
+                let cost =  loc["cost"]  || 0;
                 serchResults.push(location_data);
 
                 const serchResultForm = `<div class="serchResult">
