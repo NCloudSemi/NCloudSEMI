@@ -124,6 +124,7 @@ public class MyPageController {
     public String changeUserInfo(
             @RequestParam("nickname") String nickname,
             @RequestParam("address") String address,
+            @RequestParam("e_address") String e_address,
             @RequestParam("detailed_address") String detailed_address, HttpSession session) {
         System.out.println("====================================================");
         System.out.println(address);
@@ -137,10 +138,12 @@ public class MyPageController {
         userDto.setUser_id(loginUser.getUser_id()); // 세션에서 가져온 user_id 설정
         userDto.setNickname(nickname);
         userDto.setAddress(address);
+        userDto.setE_address(e_address);
         userDto.setDetailed_address(detailed_address);
 
         loginUser.setNickname(nickname);
         loginUser.setAddress(address);
+        loginUser.setE_address(e_address);
         loginUser.setDetailed_address(detailed_address);
 
         UserDto updatedUser =  userService.updateUserInformation(userDto);

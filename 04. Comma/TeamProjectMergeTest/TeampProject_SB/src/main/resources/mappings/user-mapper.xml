@@ -64,6 +64,7 @@
         UPDATE USER
         SET NICKNAME = #{nickname},
             ADDRESS = #{address},
+            E_ADDRESS = #{e_address},
             DETAILED_ADDRESS = #{detailed_address}
         WHERE USER_ID = #{user_id}
     </update>

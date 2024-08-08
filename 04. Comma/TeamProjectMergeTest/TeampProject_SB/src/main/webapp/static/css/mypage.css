@@ -636,7 +636,10 @@
     background: linear-gradient(to bottom, transparent calc(100% - 1px)) repeat-y;
     resize: none; /* 사용자가 크기를 변경하지 못하도록 */
     text-align: left;
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* 기본값으로 공백과 줄 바꿈을 유지 */
+    word-wrap: break-word; /* 단어를 줄 바꿈 할 수 있도록 */
+    overflow-wrap: break-word;
+    overflow: auto;
 }
 
 #close-mp_status_popup_btn {
