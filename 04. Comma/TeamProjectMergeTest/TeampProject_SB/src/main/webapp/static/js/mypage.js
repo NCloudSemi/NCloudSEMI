@@ -835,7 +835,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 각 버튼에 클릭 이벤트 리스너 추가
-    // addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
+     addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
     console.log(1);
     addClickListener('mp_travelPlan_btn', travelPlansHTML, initTravelPlans);
     console.log(2);
