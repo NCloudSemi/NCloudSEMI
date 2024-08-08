@@ -313,6 +313,8 @@
 }
 
 .mp_pick_popup-header-title {
+    display: flex;
+    justify-content: center;
     flex-grow: 1; /* 제목을 가능한 넓게 확장하여 중앙에 오도록 설정 */
     text-align: center; /* 제목 텍스트를 중앙 정렬 */
 }
@@ -436,7 +438,7 @@
 }
 
 .mp_pickplace-item img {
-    width: 20vw;
+    width: 15vw;
     height: auto;
     border-radius: 5px;
     margin-right: 15px;
@@ -463,6 +465,7 @@
 .mp_pickplace_details h3 {
     font-size: 24px;
     font-weight: bold;
+    margin-bottom: 1em;
 }
 
 .mp_pickplace_details .mp_pickplace_rating,
@@ -473,6 +476,9 @@
     margin-bottom: 5px;
 }
 
+.mp_pickplace_grade {
+    padding-bottom: 1em;
+}
 
 
 
@@ -859,7 +865,7 @@
 .mp_pick_popup-header-title h5 {
     font-size: 20px;
     font-weight: 900;
-    margin-left: 3rem;
+    margin-left: 0.5em;
     margin-top: 0.5rem;
 }
 
@@ -930,6 +936,7 @@ textarea::placeholder {
     font-size: 1em;
     font-width: bold;
     text-wrap: nowrap;
+    margin-bottom: 0;
 }
 
 #mp_travel_plan_select_all img {
