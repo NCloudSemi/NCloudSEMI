@@ -25,4 +25,6 @@ public interface UserService {
     UserDto updateUserInformation(UserDto userDto);
 
     UserDto updateStatusMessage(UserDto userDto);
+
+//    UserDto getPostCount(UserDto userDto);
 }

@@ -178,5 +178,12 @@ public class UserServiceImpl implements UserService {
         return existingUser;
     }
 
+//    @Override
+//    public UserDto getPostCount(UserDto userDto) {
+//
+//        userDao.userTravelRecodeCount(userDto);
+//        return userDto;
+//    }
+
 }
 

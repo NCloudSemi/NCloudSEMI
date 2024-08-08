@@ -438,7 +438,19 @@ function saveContentToLocalStorage(content) {
     localStorage.setItem('savedContent', content);
 }
 
+// 서버로부터 post 테이블의 id 컬럼 개수를 가져와서 화면에 표시
+fetch('/api/post/count')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('mp_postCount').textContent = data.count;
+    })
+    .catch(error => {
+        console.error('Error fetching post count:', error);
+    });
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
     // 각 섹션에 대한 HTML 콘텐츠 정의
     const travelRecordsHTML = `
         <div id="mp_add-post-button">

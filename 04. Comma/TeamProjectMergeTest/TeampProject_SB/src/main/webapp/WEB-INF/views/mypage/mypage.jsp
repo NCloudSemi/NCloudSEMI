@@ -298,7 +298,7 @@
                     <div id="mp_header_text">
                         <div>
                             <a class="mp_travelRecode_btn" id="mp_travel_recode_tag">여행기록</a><br/>
-                            <a class="mp_travelRecode_btn" id="mp_travel_recode_num_tag">11</a>
+                            <a class="mp_travelRecode_btn" id="mp_travel_recode_num_tag">${postCount}</a>
                         </div>
                         <div>
                             <a class="mp_travelPlan_btn" id="mp_travel_plan_tag">여행계획</a><br/>

@@ -42,8 +42,7 @@ public class MyPageController {
         UserDto loginUser = (UserDto) session.getAttribute("loginUser");
         System.out.println("controller.showMyPage 메소드의 " + loginUser);
         if (loginUser == null) {
-            model.addAttribute("errorMessage", "로그인이 필요합니다.");
-            return "errorPage"; // 로그인 페이지로 리다이렉트하도록 변경할 수도 있습니다.
+            return "/login.do"; // 로그인 페이지로 리다이렉트하도록 변경할 수도 있습니다.
         }
 
         try {
@@ -54,7 +53,7 @@ public class MyPageController {
 
             return "/mypage/mypage";
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
+            System.out.println(e.getMessage());
             return "errorPage"; // 적절한 오류 페이지로 이동
         }
     }
