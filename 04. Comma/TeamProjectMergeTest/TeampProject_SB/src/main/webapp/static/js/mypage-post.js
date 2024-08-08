@@ -46,6 +46,10 @@ $(()=>{
             inner += `<div class="mp_grid-item"><img src="/static/image/mp_gridbox 사진${i}.jpg" /></div>`
         }
         document.querySelector("#mp_grid-container").innerHTML= inner;
+        $(".mp_grid-item").on("click",()=>{
+            $('#view-modal').show();
+        })
+
     }
 
    

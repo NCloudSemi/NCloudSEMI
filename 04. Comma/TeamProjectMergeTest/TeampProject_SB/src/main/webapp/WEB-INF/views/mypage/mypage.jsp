@@ -366,7 +366,19 @@
             </div>
         </div>
     </div>
+    <%-- view modal --%>
+    <jsp:include page="../modal/board-view-modal.jsp"/>
+    <script src="${pageContext.request.contextPath}/static/js/board-view-modal.js"></script>
+
+    <%-- write modal --%>
+    <jsp:include page="../modal/board-write-modal.jsp"/>
+    <script src="${pageContext.request.contextPath}/static/js/board-write-modal.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/board-all-function.js"></script>
+
+    <%-- plan modal --%>
     <jsp:include page="../modal/board-plan-modal.jsp"/>
+    <!--script src="${pageContext.request.contextPath}/static/js/board-plan-modal.js"></script-->
+
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage-post.js"></script>
 </body>

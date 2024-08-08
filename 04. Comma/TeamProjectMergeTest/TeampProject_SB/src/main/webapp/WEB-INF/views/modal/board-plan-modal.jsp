@@ -22,7 +22,7 @@
 <body>
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
     <div class="content">
-        <div id="plan-modal" class="board-modal" style="">
+        <div id="plan-modal" class="board-modal" style="display: none">
             <div class="modal-box">
                 <!-- modal-header -->
                 <div class="modal-header">
