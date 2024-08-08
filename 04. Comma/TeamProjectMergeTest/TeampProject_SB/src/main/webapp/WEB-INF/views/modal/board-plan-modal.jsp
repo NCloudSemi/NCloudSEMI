@@ -23,7 +23,7 @@
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
     <div class="content">
         <div id="plan-modal" class="board-modal" style="display: none">
-            <div class="modal-box">
+            <div class="modal-box" id="plan-modal-box">
                 <!-- modal-header -->
                 <div class="modal-header">
                     <h3>여행 계획 세우기</h3>

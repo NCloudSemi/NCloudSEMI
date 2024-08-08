@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/location_modal.css">\
     <!--script-->
     <script src="${pageContext.request.contextPath}/static/js/location_modal.js"></script>
+    
 </head>
 <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-left" style="max-width: 80vw;" role="document" >
-        <div class="modal-content">
-            <div class="modal-header border-0 justify-content-end">
+        <div class="modal-content" style="width:  80vw !important">
+            <div class="modal-header border-0 justify-content-end" style="height: 3vh; width: 78vw;">
                 <div id="link_planArea" class="d-flex">
                     <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" id="plan_button">
                 </div>
