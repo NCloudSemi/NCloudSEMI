@@ -21,7 +21,7 @@
 <body>
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
     <div class="content">
-        <div id="view-modal" class="board-modal" style="display: none">
+        <div id="view-modal" class="board-modal" style="opacity: 0; z-index: -1;">
             <div class="modal-box">
                 <div class="modal-img">
                     <button class="slide-button prev">&#10094;</button>
@@ -45,7 +45,13 @@
                     </div>
                     <div class="modal-text">
                         <textarea name="title" id="title" readonly>제목 test</textarea>
-                        <textarea name="memo" id="memo" readonly>내용 test</textarea>
+                        <textarea name="memo" id="memo" readonly>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita vel omnis voluptas, voluptates voluptatum vitae pariatur? Labore maiores, quod est dignissimos eum consectetur voluptas exercitationem, iste consequatur quos totam excepturi!
+                            Reprehenderit possimus omnis doloribus distinctio totam quaerat blanditiis molestiae aliquam inventore? Vel ut animi quos accusantium cum, iusto eum cumque rem tempora, minima temporibus, fuga reprehenderit consectetur suscipit? Quisquam, debitis.
+                            Corporis dolorem, officia, eveniet tenetur quam perspiciatis nulla laborum amet non ut deserunt adipisci? Ex, quaerat eos, vero cum laborum, molestias hic asperiores in deserunt quod reiciendis possimus labore et?
+                            Velit eaque soluta assumenda non voluptates optio ipsam placeat, ducimus earum possimus nam ipsa dolorum unde tenetur nisi vitae nulla magnam facere ea dolores maxime. Sunt laboriosam ipsam dicta praesentium.
+                            Non deserunt expedita itaque, tempora cupiditate optio sint, nobis aperiam alias adipisci ipsa delectus dicta aliquid recusandae iste reiciendis. Mollitia itaque quis quidem modi eius minima ipsa soluta. Aliquam, doloribus.
+                            </textarea>
                     </div>
                     <div class="modal-text-line"></div>
                     <div class="modal-interaction">
@@ -108,7 +114,7 @@
                                                 <span class="hidden-commenter-name">life_hip_somi</span>
                                                 <img src="${pageContext.request.contextPath}/static/image/Writer-Rank.svg" class="hidden-commenter-rank" alt="Hidden-Comment1-Rank">
                                             </div>
-                                            <p class="hidden-comment-text"><span id="tag">@wmmwSiru</span>ㄹㅇ... 우리 그래서 언제 여행 가는건데;;</p>
+                                            <p class="hidden-comment-text"><span id="view-tag">@wmmwSiru</span>ㄹㅇ... 우리 그래서 언제 여행 가는건데;;</p>
                                         </div>
                                         <button class="hidden-like-button">
                                             <img src="${pageContext.request.contextPath}/static/image/Unliked-Icon.svg" alt="Like">
@@ -120,6 +126,11 @@
                                 <img src="${pageContext.request.contextPath}/static/image/Liked-Icon.svg" alt="좋아요">
                             </button>
                         </div>
+                    </div>
+                    <div class="comment-write-box">
+                        <img class="comment-writer-user" src="${pageContext.request.contextPath}/static/image/Writer.svg" alt="writer-image">
+                        <input class="comment-write-input" type="text">
+                        <button class="comment-write-submit-button" type="submit">⬆</button>
                     </div>
                 </div>
             </div>

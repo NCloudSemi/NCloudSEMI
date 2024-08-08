@@ -767,7 +767,7 @@
 /* 호버 시 그리드 아이템과 이미지 확대 */
 .mp_grid-item:hover {
     transform: scale(1.05);
-    z-index: 1; /* 호버된 요소를 앞에 보이게 함 */
+    z-index: 0; /* 호버된 요소를 앞에 보이게 함 */
 }
 
 .mp_grid-item img {
