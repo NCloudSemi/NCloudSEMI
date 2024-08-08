@@ -72,6 +72,7 @@
                                             <div id="mp_change_address">
                                                 <input type="text" name="address" id="mp_address" class="mp_btn"
                                                        placeholder="${loginUser.address}" readonly>
+                                                <input type="hidden" id="e_addressInput" name="e_address">
                                             </div>
                                             <div id="mp_change_detail_address">
                                                 <input type="text" name="detailed_address" id="mp_detailed-address" class="mp_btn"
@@ -287,7 +288,7 @@
                                 <div id="close-mp_status_popup_btn">
                                     <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
                                 </div>
-                                <input type="hidden" name="userF_id" value="${loginUser.user_id}">
+                                <input type="hidden" name="user_id" value="${loginUser.user_id}">
                                 <textarea id="message-input" rows="15" cols="30" type="text" name="message" placeholder="${loginUser.message}" required>${loginUser.message}</textarea>
                             </div>
                             <button id="mp_status_message_upload_btn" type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드"/></button>

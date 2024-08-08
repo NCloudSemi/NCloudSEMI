@@ -79,14 +79,6 @@ public class UserDto {
         return detailed_address;
     }
 
-//    public String getE_address() {
-//        return e_address;
-//    }
-//
-//    public void setE_address(String e_address) {
-//        this.e_address = e_address;
-//    }
-
     public void setDetailed_address(String detailed_address) {
         this.detailed_address = detailed_address;
     }

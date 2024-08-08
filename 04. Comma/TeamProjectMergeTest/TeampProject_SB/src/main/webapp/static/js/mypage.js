@@ -105,22 +105,85 @@ document.getElementById("mp_userInfo_overlay").addEventListener("click", functio
     document.getElementById("mp_userInfo_popup").style.display = "none";
 });
 
-// 주소 체크
-$(window).on("load", function(){
-    $("#mp_change_address").click(function (){
+// // 주소 체크
+// $(window).on("load", function(){
+//     $("#mp_change_address").click(function (){
+//
+//         new daum.Postcode({
+//             oncomplete: function (data) {
+//
+//                 jQuery("#mp_address").val(data.address);
+//                 addressChk = true;
+//                 console.log(addressChk);
+//
+//                 jQuery("#mp_detailed-address").focus();
+//             }
+//         }).open();
+//     })
+// })
 
+$(window).on("load", function() {
+    $("#mp_change_address").click(function() {
         new daum.Postcode({
-            oncomplete: function (data) {
+            oncomplete: function(data) {
+                $("#mp_address").val(data.address);
 
-                jQuery("#mp_address").val(data.address);
+                // 주소 값 가져오기
+                var addressValue = $("#mp_address").val();
+                document.getElementById('mp_address').value = addressValue;
                 addressChk = true;
                 console.log(addressChk);
 
-                jQuery("#mp_detailed-address").focus();
+                // 지역 이름 매칭
+                var region = '';
+                if (addressValue.startsWith("서울")) {
+                    region = 'Seoul';
+                } else if (addressValue.startsWith("부산")) {
+                    region = 'Busan';
+                } else if (addressValue.startsWith("대구")) {
+                    region = 'Daegu';
+                } else if (addressValue.startsWith("인천")) {
+                    region = 'Incheon';
+                } else if (addressValue.startsWith("광주")) {
+                    region = 'Gwangju';
+                } else if (addressValue.startsWith("대전")) {
+                    region = 'Daejeon';
+                } else if (addressValue.startsWith("울산")) {
+                    region = 'Ulsan';
+                } else if (addressValue.startsWith("세종")) {
+                    region = 'Sejong';
+                } else if (addressValue.startsWith("경기")) {
+                    region = 'Gyeonggi';
+                } else if (addressValue.startsWith("강원")) {
+                    region = 'Gangwon';
+                } else if (addressValue.startsWith("충북")) {
+                    region = 'Chungbuk';
+                } else if (addressValue.startsWith("충남")) {
+                    region = 'Chungnam';
+                } else if (addressValue.startsWith("전북")) {
+                    region = 'Jeonbuk';
+                } else if (addressValue.startsWith("전남")) {
+                    region = 'Jeonnam';
+                } else if (addressValue.startsWith("경북")) {
+                    region = 'Gyeongbuk';
+                } else if (addressValue.startsWith("경남")) {
+                    region = 'Gyeongnam';
+                } else if (addressValue.startsWith("제주")) {
+                    region = 'Jeju';
+                } else {
+                    region = addressValue;
+                }
+
+                // 지역 값을 입력 필드에 설정
+                document.getElementById('e_addressInput').value = region;
+
+                // 상세 주소 필드에 포커스 설정
+                $("#mp_detailed-address").focus();
             }
         }).open();
-    })
-})
+    });
+});
+
 
 /*---------------------------픽한 게시물, 픽한 장소-----------------------*/
 /*------------------------------픽한 게시물------------------------------*/
@@ -367,6 +430,18 @@ function fitTextToBox(element) {
     }
 }
 
+document.getElementById('message-input').addEventListener('input', function(event) {
+    // 입력된 값 확인 (디버그용)
+    console.log(event.target.value);
+});
+
+document.getElementById('message-input').addEventListener('keydown', function(event) {
+    // 스페이스바 입력을 확인하기 위한 디버깅 코드
+    if (event.code === 'Space') {
+        console.log('Space key pressed');
+    }
+});
+
 /*-------------------------------mp_right_header_tags----------------------------*/
 const mp_tag1 = document.getElementById('mp_travel_recode_tag');
 const mp_tag2 = document.getElementById('mp_travel_recode_num_tag');
@@ -439,6 +514,7 @@ function saveContentToLocalStorage(content) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
     // 각 섹션에 대한 HTML 콘텐츠 정의
     const travelRecordsHTML = `
         <div id="mp_add-post-button">

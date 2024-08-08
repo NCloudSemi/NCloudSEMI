@@ -23,6 +23,9 @@ public class LocationDto {
     private double x;
     private double y;
 
+    //장소 태그
+    private String tag;
+
     //데이터 존재 여부 확인 => 좌표값과 이름이 동일한 데이터가 존재하는지 확인할것
 
 
@@ -120,6 +123,14 @@ public class LocationDto {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     @Override

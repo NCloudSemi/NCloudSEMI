@@ -62,4 +62,16 @@ public UserDto findById(UserDto userDto) {
     public void updateStatusMessage(UserDto existingUser) {
         mybatis.selectOne("UserDao.updateStatusMessage", existingUser);
     }
+
+//    public void userTravelRecodeCount(UserDto userDto) {
+//        mybatis.selectOne("UserDao.userTravelRecodeCount", userDto);
+//    }
+//
+//    public void userTravelPlanCount(UserDto existingUser) {
+//        mybatis.selectOne("UserDao.userTravelPlanCount", existingUser);
+//    }
+//
+//    public void userReservationCount(UserDto existingUser) {
+//        mybatis.selectOne("UserDao.userReservationCount", existingUser);
+//    }
 }

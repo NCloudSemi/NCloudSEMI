@@ -64,6 +64,7 @@
         UPDATE USER
         SET NICKNAME = #{nickname},
             ADDRESS = #{address},
+            E_ADDRESS = #{e_address},
             DETAILED_ADDRESS = #{detailed_address}
         WHERE USER_ID = #{user_id}
     </update>
@@ -73,4 +74,23 @@
         SET MESSAGE = #{message}
         WHERE USER_ID = #{user_id}
     </update>
+
+    <select id="userTravelRecodeCount" parameterType="user" resultType="String">
+        SELECT COUNT(ID)
+            FROM POST
+            WHERE ID = #{id}
+    </select>
+
+<!--    <select id="userTravelPlanCount" parameterType="user" resultType="String">-->
+<!--        SELECT COUNT(ID)-->
+<!--            FROM PLAN-->
+<!--            WHERE ID = #{id}-->
+<!--    </select>-->
+
+<!--    <select id="userReservationCount" parameterType="user" resultType="String">-->
+<!--        SELECT COUNT(ID)-->
+<!--        FROM RESERVATION-->
+<!--        WHERE ID = #{id}-->
+<!--    </select>-->
+
 </mapper>
