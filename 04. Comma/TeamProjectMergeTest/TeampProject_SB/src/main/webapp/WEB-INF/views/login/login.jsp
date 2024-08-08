@@ -60,7 +60,7 @@
                         <%--@declare id="password"--%><label for="login-password">PW</label>
                         <input type="password" id="login-password" name="pw" class="login-input">
                         <button type="button" id="login-toggle-pw" class="eye-icon">
-                            <img src="${pageContext.request.contextPath}/static/image/eye-3_svgrepo.com.svg">
+                            <img src="${pageContext.request.contextPath}/static/image/eye-slashed_svgrepo.com.svg">
                         </button>
                     </div>
                     <div class="btn-group1">
@@ -88,21 +88,21 @@
                         <label for="join-password">PW</label>
                         <input type="password" id="join-password" name="pw" class="login-input">
                         <button type="button" id="join-toggle-pw" class="eye-icon">
-                            <img src="${pageContext.request.contextPath}/static/image/eye-3_svgrepo.com.svg">
+                            <img src="${pageContext.request.contextPath}/static/image/eye-slashed_svgrepo.com.svg">
                         </button>
                     </div>
                     <div id="focus-join-passwordChk" class="input-group">
                         <label for="passwordChk" style="width: 100px;">PW CHECK</label>
                         <input type="password" id="passwordChk" name="passwordChk" class="login-input">
                         <button type="button" id="join-toggle-pwChk" class="eye-icon">
-                            <img src="${pageContext.request.contextPath}/static/image/eye-3_svgrepo.com.svg">
+                            <img src="${pageContext.request.contextPath}/static/image/eye-slashed_svgrepo.com.svg">
                         </button>
                     </div>
                     <div id="focus-join-name" class="input-group">
                         <label for="nickname">NAME</label>
                         <input type="text" id="nickname" name="nickname" class="login-input">
                     </div>
-                    <div class="btn-group2">
+                    <div id="gender-btn" class="btn-group2">
                         <button type="button" id="male" class="btn" value="MALE">MALE</button>
                         <button type="button" id="female" class="btn" value="FEMALE">FEMALE</button>
                     </div>
@@ -121,7 +121,6 @@
                         <input type="text" name="detailed_address" id="detailed-address" class="login-input"
                                placeholder="상세주소를 입력하세요.">
                     </div>
-
 
                     <div class="btn-group2">
                         <button id="signupBtn" class="btn">JOIN</button>
@@ -143,16 +142,23 @@
                     <div class="password-fail-message2 hide">
                         비밀번호: 최소 8자 이상이어야 하며, 대문자 및 특수 문자를 하나 이상 포함해야 합니다.
                     </div>
-
                     <div class="pwCheck-fail-message hide">
                         비밀번호 체크: 비밀번호와 일치하지 않습니다.
                     </div>
 
+                    <div class="gender-fail-message1 hide">
+                        성별: 성별을 선택하세요.
+                    </div>
+
+                    <div class="name-fail-message2 hide">
+                        이름: 중복된 이름입니다.
+                    </div>
                     <div class="name-fail-message1 hide">
                         이름: 필수 정보입니다.
                     </div>
-                    <div class="name-fail-message2 hide">
-                        이름: 중복된 이름입니다.
+
+                    <div class="address-fail-message hide">
+                        주소: 주소를 입력하세요.
                     </div>
                 </div>
             </form>

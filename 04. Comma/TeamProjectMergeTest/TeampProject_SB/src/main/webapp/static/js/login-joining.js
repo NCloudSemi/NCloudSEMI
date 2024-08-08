@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('nickname').value = '';
         document.getElementById('focus-join-name').style.borderColor = 'black';
         document.getElementById('address').value = '';
+        document.getElementById('focus-detail-address1').style.borderColor = 'black';
         document.getElementById('detailed-address').value = '';
         maleBtn.classList.remove('active');
         femaleBtn.classList.remove('active');
@@ -38,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(".pwCheck-fail-message").classList.add('hide');
         document.querySelector(".name-fail-message1").classList.add('hide');
         document.querySelector(".name-fail-message2").classList.add('hide');
+        document.querySelector(".gender-fail-message1").classList.add('hide');
+        document.querySelector(".address-fail-message").classList.add('hide');
 
     };
 
@@ -86,11 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
     maleOption.addEventListener('click', function () {
         maleOption.classList.add('active');
         femaleOption.classList.remove('active');
+        document.querySelector(".gender-fail-message1").classList.add('hide');
     });
 
     femaleOption.addEventListener('click', function () {
         femaleOption.classList.add('active');
         maleOption.classList.remove('active');
+        document.querySelector(".gender-fail-message1").classList.add('hide');
     });
 
 
@@ -112,9 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 아이콘 이미지 변경
         if (type === 'password') {
-            toggleButton.innerHTML = '<img src="/static/image/eye-3_svgrepo.com.svg" alt="Show Password">';
+            toggleButton.innerHTML = '<img src="/static/image/eye-slashed_svgrepo.com.svg" alt="Show Password">';
         } else {
-            toggleButton.innerHTML = '<img src="/static/image/eye-slashed_svgrepo.com.svg" alt="Hide Password">';
+            toggleButton.innerHTML = '<img src="/static/image/eye-3_svgrepo.com.svg" alt="Hide Password">';
         }
     }
 
@@ -249,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("Pw is Empty");
             document.querySelector(".password-fail-message1").classList.remove('hide');
             document.querySelector(".password-fail-message2").classList.add('hide');
+            document.querySelector(".pwCheck-fail-message").classList.add('hide');
             // $("#join-password").focus();
             $("#focus-join-password").css("borderColor", "red");
             return;
@@ -258,6 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("Invalid Pw Format");
             document.querySelector(".password-fail-message1").classList.add('hide');
             document.querySelector(".password-fail-message2").classList.remove('hide');
+            document.querySelector(".pwCheck-fail-message").classList.add('hide');
             // $("#join-password").focus();
             $("#focus-join-password").css("borderColor", "red");
             return;
@@ -274,12 +281,16 @@ document.addEventListener('DOMContentLoaded', function () {
     $("#passwordChk").on('blur', (e) => {
         if ($("#passwordChk").val() === '') {
             document.querySelector(".pwCheck-fail-message").classList.remove('hide');
+            document.querySelector(".password-fail-message1").classList.add('hide');
+            document.querySelector(".password-fail-message2").classList.add('hide');
             $("#focus-join-passwordChk").css("borderColor", "red");
             return;
         }
 
         if ($("#passwordChk").val() !== $("#join-password").val()) {
             document.querySelector(".pwCheck-fail-message").classList.remove('hide');
+            document.querySelector(".password-fail-message1").classList.add('hide');
+            document.querySelector(".password-fail-message2").classList.add('hide');
             $("#focus-join-passwordChk").css("borderColor", "red");
             return;
         }
@@ -320,9 +331,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.querySelector(".name-fail-message1").classList.add('hide');
                         document.querySelector(".name-fail-message2").classList.remove('hide');
                         $("#focus-join-name").css("borderColor", "red");
-                        setTimeout(() => {
-                            $("#nickname").focus();
-                        }, 0);
                         resolve(false);
                     } else if (obj.nameCheckMsg === 'nameOK') {
                         document.querySelector(".name-fail-message1").classList.add('hide');
@@ -361,6 +369,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 oncomplete: function (data) {
 
                     jQuery("#address").val(data.address);
+
+                    if ($("#address").val() === '') {
+                        $("#focus-detail-address1").css("borderColor", "red");
+                    } else {
+                        $("#focus-detail-address1").css("borderColor", "black");
+                        document.querySelector(".address-fail-message").classList.add('hide');
+                    }
 
                     // 주소 값 가져오기
                     var addressValue = jQuery("#address").val();
@@ -418,87 +433,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //                 if ($("#address").startsWith("서울")) {
-    //                     document.getElementById('e_addressInput').value = 'Seoul'
-    //                 } else if ($("#address").startsWith("부산")) {
-    //                     document.getElementById('e_addressInput').value = 'Busan'
-    //                 } else if ($("#address").startsWith("대구")) {
-    //                     document.getElementById('e_addressInput').value = 'Daegu'
-    //                 } else if ($("#address").startsWith("인천")) {
-    //                     document.getElementById('e_addressInput').value = 'Incheon'
-    //                 } else if ($("#address").startsWith("광주")) {
-    //                     document.getElementById('e_addressInput').value = 'Gwangju'
-    //                 } else if ($("#address").startsWith("대전")) {
-    //                     document.getElementById('e_addressInput').value = 'Daejeon'
-    //                 } else if ($("#address").startsWith("울산")) {
-    //                     document.getElementById('e_addressInput').value = 'Ulsan'
-    //                 } else if ($("#address").startsWith("세종")) {
-    //                     document.getElementById('e_addressInput').value = 'Sejong'
-    //                 } else if ($("#address").startsWith("경기")) {
-    //                     document.getElementById('e_addressInput').value = 'Gyeonggi'
-    //                 } else if ($("#address").startsWith("강원")) {
-    //                     document.getElementById('e_addressInput').value = 'Gangwon'
-    //                 } else if ($("#address").startsWith("충북")) {
-    //                     document.getElementById('e_addressInput').value = 'Chungbuk'
-    //                 } else if ($("#address").startsWith("충남")) {
-    //                     document.getElementById('e_addressInput').value = 'Chungnam'
-    //                 } else if ($("#address").startsWith("전북")) {
-    //                     document.getElementById('e_addressInput').value = 'Jeonbuk'
-    //                 } else if ($("#address").startsWith("전남")) {
-    //                     document.getElementById('e_addressInput').value = 'Jeonnam'
-    //                 } else if ($("#address").startsWith("경북")) {
-    //                     document.getElementById('e_addressInput').value = 'Gyeongbuk'
-    //                 } else if ($("#address").startsWith("경남")) {
-    //                     document.getElementById('e_addressInput').value = 'Gyeongnam'
-    //                 } else if ($("#address").startsWith("제주")) {
-    //                     document.getElementById('e_addressInput').value = 'Jeju'
-    //                 } else {
-    //                     return $("#address");
-    //                 }
-    //
-    //                 jQuery("#detailed-address").focus();
-    //             }
-    //         }).open();
-    //     })
-    // })
-
     $("#join").on('submit', (e) => {
 
         console.log(emailChk);
         if (!emailChk) {
             e.preventDefault();
-            alert("아이디 중복체크를 진행하세요.");
-            return;
+            document.querySelector(".email-fail-message1").classList.remove('hide');
+            $("#focus-join-email").css("borderColor", "red");
         }
 
         if (!pwChk) {
             e.preventDefault();
-            alert("비밀번호는 최소 8자 이상이며, 하나 이상의 대문자와 하나 이상의 특수 문자로 지정하세요.");
-            return;
-        }
-
-        if (!pwConfirm) {
-            e.preventDefault();
-            alert("비밀번호가 일치하지 않습니다.");
-            return;
+            document.querySelector(".password-fail-message1").classList.remove('hide');
+            $("#focus-join-password").css("borderColor", "red");
         }
 
         if (!nameChk) {
             e.preventDefault();
-            alert("이름 중복체크를 진행하세요.");
-            return;
+            document.querySelector(".name-fail-message1").classList.remove('hide');
+            $("#focus-join-name").css("borderColor", "red");
         }
 
         if (!genderChk) {
             e.preventDefault();
-            alert("성별을 체크해 주세요.");
-            return;
+            document.querySelector(".gender-fail-message1").classList.remove('hide');
         }
 
         if (!addressChk) {
             e.preventDefault();
-            alert("주소를 입력해 주세요.");
-            return;
+            document.querySelector(".address-fail-message").classList.remove('hide');
+            $("#focus-detail-address1").css("borderColor", "red");
         }
     });
 });

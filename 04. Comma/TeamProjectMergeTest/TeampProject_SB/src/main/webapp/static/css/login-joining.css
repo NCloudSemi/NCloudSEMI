@@ -268,7 +268,9 @@ body {
 .pwCheck-fail-message,
 .name-fail-message1,
 .name-fail-message2,
-.address-fail-message{
+.address-fail-message,
+.gender-fail-message1,
+.address-fail-message {
     margin: 10px 0;
     width: 270px;
     color: red;
