@@ -130,4 +130,5 @@ $(()=>{
         renderCalendar();
     });
 
+    renderCalendar()
 })

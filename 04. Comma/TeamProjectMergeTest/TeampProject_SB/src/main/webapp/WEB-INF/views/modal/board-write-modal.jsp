@@ -9,11 +9,10 @@
 <head>
     <title>게시글 보기 모달창</title>
 
-    <!--kakao-->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ba1ee8768e59dc81c31a27c0e72ea4a&libraries=services"></script>
+
     <!-- js link -->
     <script src="${pageContext.request.contextPath}/static/js/jquery-3.7.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/static/js/board-write-modal.js-modal.js-modal.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/board-write-modal.js"></script>
     <!-- style css link -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/board-write-modal.css">
 
@@ -61,7 +60,6 @@
             </div>
         </div>
     </div>
-    <jsp:include page="../modal/location-modal.jsp"></jsp:include>
 </body>
 
 
