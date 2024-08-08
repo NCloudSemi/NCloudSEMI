@@ -28,8 +28,12 @@
                 </div>
                 <div class="modal-content">
                     <div class="edit-delete-buttons">
-                        <button class="edit">✍️</button>
-                        <button class="delete">🗑️</button>
+                        <button class="edit">
+                            <img src="${pageContext.request.contextPath}/static/image/D_Edit.svg" alt="Edit-Button" />
+                        </button>
+                        <button class="delete">
+                            <img src="${pageContext.request.contextPath}/static/image/delete_icon.svg" alt="Delete-Button" />
+                        </button>
                     </div>
                     <div class="writer-profile-box">
                         <div class="writer-image-box">
@@ -60,7 +64,7 @@
                         <button class="share-button">
                             <img src="${pageContext.request.contextPath}/static/image/Share.svg" alt="공유">
                         </button>
-                        <button class="plan-button" href="#">
+                        <button class="plan-button">
                             <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" alt="">
                         </button>
                     </div>
@@ -135,5 +139,3 @@
         </div>
     </div>
 </body>
-
-

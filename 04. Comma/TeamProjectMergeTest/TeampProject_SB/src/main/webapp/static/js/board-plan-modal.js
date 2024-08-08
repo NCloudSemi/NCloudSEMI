@@ -2,7 +2,6 @@
 function closeModalOutside(event) {
     const contextPath = document.querySelector('#contextPath').value;
 
-
     if (event.target.classList.contains('board-modal')) {
         if (document.querySelector('.modal-header button.plan-save')) {
             const confirmation = confirm("정말 해당 창을 종료하시겠습니까? 작성하신 내용은 저장되지 않습니다.");
@@ -47,8 +46,27 @@ function toggleEditMode(isEditable) {
     document.getElementById('chapter-add').style.display = isEditable ? 'block' : 'none';
     document.getElementById('plan-delete').style.display = isEditable ? 'block' : 'none';
 
+    const contextPath = document.querySelector('#contextPath').value;
     const actionButton = document.querySelector('.modal-header button:nth-child(2)');
-    actionButton.innerHTML = isEditable ? '💾' : '✍️';
+
+    const saveIconItem = document.createElement('img');
+    saveIconItem.src = `${contextPath}/static/image/D_Save.svg`;
+
+    const editIconItem = document.createElement('img');
+    editIconItem.src = `${contextPath}/static/image/D_Edit.svg`;
+
+// 기존에 추가된 모든 자식을 제거합니다.
+    while (actionButton.firstChild) {
+        actionButton.removeChild(actionButton.firstChild);
+    }
+
+// isEditable 값에 따라 이미지를 추가합니다.
+    if (isEditable) {
+        actionButton.appendChild(saveIconItem);
+    } else {
+        actionButton.appendChild(editIconItem);
+    }
+
     actionButton.classList.toggle('plan-save', isEditable);
     actionButton.classList.toggle('plan-edit', !isEditable);
     actionButton.onclick = isEditable ? savePlan : editPlan;

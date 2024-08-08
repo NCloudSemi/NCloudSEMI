@@ -38,7 +38,9 @@
                     <img src="${pageContext.request.contextPath}/static/image/Search-Button.svg" alt="Search-Button">
                 </button>
                 <input type="text" placeholder="검색어를 입력하세요.">
-                <button class="write-button">✏️</button>
+                <button class="write-button">
+                    <img src="${pageContext.request.contextPath}/static/image/D_Write.svg" alt="Write-Button">
+                </button>
             </div>
             <div class="card-box" id="cardContainer">
             </div>
@@ -54,8 +56,12 @@
                 </div>
                 <div class="modal-content">
                     <div class="edit-delete-buttons">
-                        <button class="edit">✍️</button>
-                        <button class="delete">🗑️</button>
+                        <button class="edit">
+                            <img src="${pageContext.request.contextPath}/static/image/D_Edit.svg" alt="Edit-Button">
+                        </button>
+                        <button class="delete">
+                            <img src="${pageContext.request.contextPath}/static/image/delete_icon.svg" alt="Delete-Button">
+                        </button>
                     </div>
                     <div class="writer-profile-box">
                         <div class="writer-image-box">
@@ -86,7 +92,7 @@
                         <button class="share-button">
                             <img src="${pageContext.request.contextPath}/static/image/Share.svg" alt="공유">
                         </button>
-                        <button class="plan-button" href="#">
+                        <button class="plan-button">
                             <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" alt="">
                         </button>
                     </div>
@@ -170,13 +176,19 @@
                 <div class="modal-content">
                     <div class="modal-content">
                         <div class="edit-delete-buttons">
-                            <button class="photo">🎞️</button>
+                            <button class="photo">
+                                <img src="${pageContext.request.contextPath}/static/image/D_PicAdd.svg" alt="PicAdd-Button">
+                            </button>
                             <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
-                            <button class="plan-button2" href="#">
+                            <button class="plan-button2">
                                 <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" alt="">
                             </button>
-                            <button class="save">💾</button>
-                            <button class="delete">🗑️</button>
+                            <button class="save">
+                                <img src="${pageContext.request.contextPath}/static/image/D_Save.svg" alt="Save-Button">
+                            </button>
+                            <button class="delete">
+                                <img src="${pageContext.request.contextPath}/static/image/delete_icon.svg" alt="Delete-Button">
+                            </button>
                         </div>
                         <div class="writer-profile-box">
                             <div class="writer-image-box">
@@ -199,6 +211,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="../modal/board-plan-modal.jsp"/>
     </div>
 
 

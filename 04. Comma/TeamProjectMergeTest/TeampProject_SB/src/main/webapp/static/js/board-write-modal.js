@@ -125,3 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
+$(document).on('click', '.plan-button2', function(e) {
+    $('#plan-modal').show();
+});

@@ -30,13 +30,19 @@
                 <div class="modal-content">
                     <div class="modal-content">
                         <div class="edit-delete-buttons">
-                            <button class="photo">🎞️</button>
+                            <button class="photo">
+                                <img src="${pageContext.request.contextPath}/static/image/D_PicAdd.svg" alt="사진 추가"/>
+                            </button>
                             <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
-                            <button class="plan-button2" href="#">
+                            <button class="plan-button2">
                                 <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" alt="">
                             </button>
-                            <button class="save">💾</button>
-                            <button class="delete">🗑️</button>
+                            <button class="save">
+                                <img src="${pageContext.request.contextPath}/static/image/D_Save.svg" alt="저장" />
+                            </button>
+                            <button class="delete">
+                                <img src="${pageContext.request.contextPath}/static/image/delete_icon.svg" alt="삭제" />
+                            </button>
                         </div>
                         <div class="writer-profile-box">
                             <div class="writer-image-box">

@@ -71,4 +71,9 @@ $(document).ready(function() {
     });
    // $('.modal-comment-box').on('click', ',commnet .comment-content .hidden-comments .hidden-comment .hidden-like-button',()=>{ toggleLike('reply')})
 
+
+});
+
+$(document).on('click', '.plan-button', function(e) {
+    $('#plan-modal').show();
 });

@@ -25,7 +25,7 @@
                 <div id="link_planArea" class="d-flex">
                     <img src="${pageContext.request.contextPath}/static/image/Plan_Icon.svg" id="plan_button">
                 </div>
-                <img src="${pageContext.request.contextPath}/static/image/pick_location.svg" id="pick_button">
+                <img src="${pageContext.request.contextPath}/static/image/D_Pin.svg" id="pick_button">
                 <img src="${pageContext.request.contextPath}/static/image/share_location.svg" id="share_button">
             </div>
             <!--modal body 1-2-1 1-1-2-->

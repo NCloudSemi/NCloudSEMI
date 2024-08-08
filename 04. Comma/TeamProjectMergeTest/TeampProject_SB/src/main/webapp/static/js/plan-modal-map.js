@@ -337,7 +337,7 @@ $(()=>{
                 station =station_data[index]['name']
             }
         }
-        return `${station}역 에서 도보로 ${ parseInt(min_distance*15)}분 거리`
+        return `${station}역 에서 도보로 ${parseInt(min_distance*15)}분 거리`
     }
 
     // 라디안 변환 함수

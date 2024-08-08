@@ -21,6 +21,8 @@
     font-size: 1.25em;
 }
 .write-button {
+    width: 2vh !important;
+    height: 2vh !important;
     margin-left: 26vw;
 }
 .search-bar button:hover {

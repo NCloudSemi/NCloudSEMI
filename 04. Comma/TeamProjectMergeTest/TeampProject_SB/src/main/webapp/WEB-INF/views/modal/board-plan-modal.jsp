@@ -22,13 +22,17 @@
 <body>
     <input type="hidden" id="contextPath" value="${pageContext.request.contextPath}">
     <div class="content">
-        <div id="plan-modal" class="board-modal" style="display: none">
+        <div id="plan-modal" class="board-modal" style="display: none; z-index: 9999">
             <div class="modal-box" id="plan-modal-box">
                 <!-- modal-header -->
                 <div class="modal-header">
                     <h3>여행 계획 세우기</h3>
-                    <button class="plan-save" id="plan-save">💾</button>
-                    <button id="plan-delete">🗑️</button>
+                    <button class="plan-save" id="plan-save">
+                        <img src="${pageContext.request.contextPath}/static/image/D_Save.svg" alt="저장" />
+                    </button>
+                    <button id="plan-delete">
+                        <img src="${pageContext.request.contextPath}/static/image/delete_icon.svg" alt="삭제" />
+                    ️</button>
                 </div>
                 <!-- chapter-box -->
                 <div class="chapter-box">
