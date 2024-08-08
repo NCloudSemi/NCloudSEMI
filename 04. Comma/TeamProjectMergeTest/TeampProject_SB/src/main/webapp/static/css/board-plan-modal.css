@@ -11,7 +11,8 @@
     align-items: center;
 }
 /* 모달창 박스 설정*/
-.modal-box {
+#plan-modal-box {
+    display: block !important;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;

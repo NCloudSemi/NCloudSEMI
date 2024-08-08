@@ -143,6 +143,11 @@ $(()=>{
                     infowindow.close();
                 });
 
+                kakao.maps.event.addListener(marker, 'click', function() {
+                    console.log("TRY")
+                    displayModal(place);
+                });
+
             })(marker, places[i]);
 
 
@@ -179,7 +184,6 @@ $(()=>{
     // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
     // 인포윈도우에 장소명을 표시합니다
     function displayMinInfo(marker, title) {
-
         const content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
         infowindow.setContent(content);
         infowindow.open(kakaoMap, marker);
@@ -210,19 +214,21 @@ $(()=>{
                 let cost = location_data["loc"]  || 0;
                 serchResults.push(location_data);
 
-                const serchResultForm = `<div id="map-box-preview-item${i}" class="map-box-preview-item">
+                const serchResultForm =
+                    `<div id="map-box-preview-item${i}" class="map-box-preview-item">
+                          
                                 <div class="map-box-preview-img" id="map-box-preview-img1">
-                                    <img src="${contextPath}/static/image/Comment1.svg" alt="" s>
+                                    <img src="/static/image/Comment1.svg" alt="">
                                 </div>
                                 <div class="description-box">
                                     <div class="place-name">${place["place_name"]}</div>
                                     <div class="grade-box">
-                                        <img src="${contextPath}/static/image/Grade-40.jpg" alt="">
+                                        <img src="/static/image/Grade-40.jpg" alt="">
                                         <p>4.0 / 5</p>
                                     </div>
                                     <div class="certification-box">
                                         <div class="certification-name">3성급 호텔</div>
-                                        <img src="${contextPath}/static/image/Certification-Icon.svg" alt="">
+                                        <img src="/static/image/Certification-Icon.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="description-detail-box">
@@ -232,11 +238,12 @@ $(()=>{
                                     </div>
                                     <div class="address-box">
                                         <div class="address-name">주소</div>
-                                        <div class="address-content">서울특별시 서초구 효령로 427</div>
+                                        <div class="address-content">${place["road_address_name"]}</div>
                                     </div>
                                 </div>
                             </div>`
                 document.querySelector('.map-box-preview-box').innerHTML +=  serchResultForm
+                $(`#map-box-preview-item${i}`).on('mouseenter',()=>{displayModal(place)})
 
                 const mapBoxPreviewItems = document.querySelectorAll('.map-box-preview-item')
                 //add events
@@ -265,6 +272,109 @@ $(()=>{
         });
 
     }
+
+
+
+
+    //---------------------------------------------합치기 귀찮다---------------------------------------------------------------------///
+    modal =  new bootstrap.Modal(document.getElementById('resultModal'));
+
+
+    const modalMapContainer = document.getElementById('resultModalMap')
+    const modalMap = new kakao.maps.Map( modalMapContainer, mapOptionModal);
+    //모달 키기
+    //onclick으로 추가하기
+    function displayModal(place){
+        console.log(place)
+        //title
+        document.querySelector("#place_name").textContent = place["place_name"]
+        document.querySelector("#resultModalDatas .price-info .price").textContent = 'TEST'
+        document.querySelector("#resultModalDatas .location-info .location").textContent =place["road_address_name"]
+        document.querySelector("#resultModalDatas .direction-info .direction").textContent = make_direction(place)
+
+        const position= kakao.maps.LatLng(place["y"], place["x"])
+        //removeMarkerModal()
+        //addMarkerModal(position)
+        //modalMap.setCenter(position)
+        modal.show();
+    }
+
+    //나중에 함수 합치기
+    function addMarkerModal(position) {
+        const imageSrc = `${contextPath}/static/image/marker.svg`// 마커 이미지 url, 스프라이트 이미지를 씁니다
+        const    imageSize = new kakao.maps.Size(36, 37) // 마커 이미지의 크기
+        const   markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
+        const   marker = new kakao.maps.Marker({
+            position: position, // 마커의 위치
+            image: markerImage
+        });
+        marker.setMap(modalMap); // 지도 위에 마커를 표출합니다
+        modalMarkers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+        return marker;
+    }
+
+    // 지도 위에 표시되고 있는 마커를 모두 제거합니다
+    function removeMarkerModal() {
+        for ( var i = 0; i < modalMarkers.length; i++ ) {
+            modalMarkers[i].setMap(null);
+        }
+        modalMarkers = [];
+    }
+
+    //distance
+    const make_direction =(place)=>{
+        let station =''
+        let min_distance = 100
+        const x = place['x']
+        const y = place['y']
+        for (let index = 0; index < station_data.length; index++) {
+            const station_x = station_data[index]["coordinate"][1];
+            const station_y = station_data[index]["coordinate"][0];
+            const distance = getDistance(x, y, station_x, station_y);
+            if(min_distance > distance){
+                min_distance = distance
+                station =station_data[index]['name']
+            }
+        }
+        return `${station}역 에서 도보로 ${ parseInt(min_distance*15)}분 거리`
+    }
+
+    // 라디안 변환 함수
+    function toRadians(degrees) {
+        return degrees * Math.PI / 180;
+    }
+
+    // 두 지점 사이의 거리 계산 함수 (Haversine formula)
+    function getDistance(latitude1, longitude1, latitude2, longitude2) {
+        const earthRadiusKm = 6371; // 지구 반지름 (단위: 킬로미터)
+
+        // 위도와 경도를 라디안으로 변환
+        const lat1 = toRadians(latitude1);
+        const lon1 = toRadians(longitude1);
+        const lat2 = toRadians(latitude2);
+        const lon2 = toRadians(longitude2);
+
+        // 위도 차이와 경도 차이 계산
+        const dLat = lat2 - lat1;
+        const dLon = lon2 - lon1;
+
+        // Haversine formula 계산
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1) * Math.cos(lat2) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        // 거리 계산 (단위: 킬로미터)
+        return  earthRadiusKm * c;
+    }
+
+    //modal show callback
+    modal._element.addEventListener('shown.bs.modal', function () {
+        modalMap.relayout();    // 지도의 크기가 변동이 있을 경우 함수 호출
+    });
+
+
 
 
 

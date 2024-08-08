@@ -233,28 +233,26 @@
     transition: transform 0.3s ease;
 }
 
-#pick_box ul li a {
-    font-size: 15px;
-    font-weight: bold;
-    transition: font-size 0.3s, color 0.3s;
-}
-
-#pick_box ul li a:hover {
-    font-size: 1.3em;
-    font-weight: bolder;
-    color: #ff6b00;
-    border-color: #ff6b00;
-}
-
 #mp_heart_icon {
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     padding-right: 0.4rem;
     cursor: pointer;
+    user-select: none;
+    pointer-events: none;
 }
 
-#mp_heart_icon:hover {
-    transform: scale(1.3);
+#mp_pickboard_text {
+    font-size: 15px;
+    font-weight: bold;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+#mp_pickboard_text:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+    border-color: #ff6b00;
 }
 
 #mp_pin_icon {
@@ -262,10 +260,21 @@
     padding-bottom: 0.5rem;
     padding-right: 0.4rem;
     cursor: pointer;
+    user-select: none;
+    pointer-events: none;
 }
 
-#mp_pin_icon:hover {
-    transform: scale(1.3);
+#mp_pickplace_text {
+    font-size: 15px;
+    font-weight: bold;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+#mp_pickplace_text:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+    border-color: #ff6b00;
 }
 
 /* Overlay */
@@ -464,6 +473,9 @@
     margin-bottom: 5px;
 }
 
+
+
+
 /*------------------mp_my_travel_grade_box-------------------*/
 
 #mp_my_travel_grade_box a {
@@ -505,7 +517,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 600px;
+    max-width: 700px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -582,6 +594,13 @@
     word-break: break-word;
 }
 
+#mp_status_message_upload_btn {
+    background: transparent;
+    border: none;
+    margin-top: 1em;
+
+}
+
 #mp_status_popup {
     width: 30vw;
     height: auto;
@@ -617,7 +636,10 @@
     background: linear-gradient(to bottom, transparent calc(100% - 1px)) repeat-y;
     resize: none; /* 사용자가 크기를 변경하지 못하도록 */
     text-align: left;
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* 기본값으로 공백과 줄 바꿈을 유지 */
+    word-wrap: break-word; /* 단어를 줄 바꿈 할 수 있도록 */
+    overflow-wrap: break-word;
+    overflow: auto;
 }
 
 #close-mp_status_popup_btn {
@@ -635,15 +657,61 @@
 /*}*/
 
 /*-----------------mp_content_flexbox_right---------------------*/
-
+/*------------------mp_right_header_tags----------------------*/
 #mp_header_text {
     height: 10vh;
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
+#mp_travel_recode_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+#mp_travel_recode_tag:hover ~ #mp_travel_recode_num_tag {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
 
-#mp_header_text div a:hover {
+#mp_travel_recode_num_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_travel_plan_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_travel_plan_tag:hover ~ #mp_travel_plan_num_tag {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_travel_plan_num_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_reservation_tag:hover {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_reservation_tag:hover ~ #mp_reservation_num_tag {
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #ff6b00;
+}
+
+#mp_reservation_num_tag:hover {
     font-size: 1.3em;
     font-weight: bolder;
     color: #ff6b00;
@@ -702,7 +770,7 @@
 /* 호버 시 그리드 아이템과 이미지 확대 */
 .mp_grid-item:hover {
     transform: scale(1.05);
-    z-index: 1; /* 호버된 요소를 앞에 보이게 함 */
+    z-index: 0; /* 호버된 요소를 앞에 보이게 함 */
 }
 
 .mp_grid-item img {

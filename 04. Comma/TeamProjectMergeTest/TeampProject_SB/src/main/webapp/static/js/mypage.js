@@ -105,22 +105,85 @@ document.getElementById("mp_userInfo_overlay").addEventListener("click", functio
     document.getElementById("mp_userInfo_popup").style.display = "none";
 });
 
-// 주소 체크
-$(window).on("load", function(){
-    $("#mp_change_address").click(function (){
+// // 주소 체크
+// $(window).on("load", function(){
+//     $("#mp_change_address").click(function (){
+//
+//         new daum.Postcode({
+//             oncomplete: function (data) {
+//
+//                 jQuery("#mp_address").val(data.address);
+//                 addressChk = true;
+//                 console.log(addressChk);
+//
+//                 jQuery("#mp_detailed-address").focus();
+//             }
+//         }).open();
+//     })
+// })
 
+$(window).on("load", function() {
+    $("#mp_change_address").click(function() {
         new daum.Postcode({
-            oncomplete: function (data) {
+            oncomplete: function(data) {
+                $("#mp_address").val(data.address);
 
-                jQuery("#mp_address").val(data.address);
+                // 주소 값 가져오기
+                var addressValue = $("#mp_address").val();
+                document.getElementById('mp_address').value = addressValue;
                 addressChk = true;
                 console.log(addressChk);
 
-                jQuery("#mp_detailed-address").focus();
+                // 지역 이름 매칭
+                var region = '';
+                if (addressValue.startsWith("서울")) {
+                    region = 'Seoul';
+                } else if (addressValue.startsWith("부산")) {
+                    region = 'Busan';
+                } else if (addressValue.startsWith("대구")) {
+                    region = 'Daegu';
+                } else if (addressValue.startsWith("인천")) {
+                    region = 'Incheon';
+                } else if (addressValue.startsWith("광주")) {
+                    region = 'Gwangju';
+                } else if (addressValue.startsWith("대전")) {
+                    region = 'Daejeon';
+                } else if (addressValue.startsWith("울산")) {
+                    region = 'Ulsan';
+                } else if (addressValue.startsWith("세종")) {
+                    region = 'Sejong';
+                } else if (addressValue.startsWith("경기")) {
+                    region = 'Gyeonggi';
+                } else if (addressValue.startsWith("강원")) {
+                    region = 'Gangwon';
+                } else if (addressValue.startsWith("충북")) {
+                    region = 'Chungbuk';
+                } else if (addressValue.startsWith("충남")) {
+                    region = 'Chungnam';
+                } else if (addressValue.startsWith("전북")) {
+                    region = 'Jeonbuk';
+                } else if (addressValue.startsWith("전남")) {
+                    region = 'Jeonnam';
+                } else if (addressValue.startsWith("경북")) {
+                    region = 'Gyeongbuk';
+                } else if (addressValue.startsWith("경남")) {
+                    region = 'Gyeongnam';
+                } else if (addressValue.startsWith("제주")) {
+                    region = 'Jeju';
+                } else {
+                    region = addressValue;
+                }
+
+                // 지역 값을 입력 필드에 설정
+                document.getElementById('e_addressInput').value = region;
+
+                // 상세 주소 필드에 포커스 설정
+                $("#mp_detailed-address").focus();
             }
         }).open();
-    })
-})
+    });
+});
+
 
 /*---------------------------픽한 게시물, 픽한 장소-----------------------*/
 /*------------------------------픽한 게시물------------------------------*/
@@ -172,6 +235,34 @@ itemCheckboxes_board.forEach((checkbox) => {
     });
 });
 
+const mp_pickboard_tag1 = document.getElementById('mp_heart_icon');
+const mp_pickboard_tag2 = document.getElementById('mp_pickboard_text');
+
+mp_pickboard_tag2.addEventListener('mouseover', function() {
+    mp_pickboard_tag1.style.transform = 'scale(1.3)';
+    mp_pickboard_tag1.style.transition = 'transform 0.3s ease';
+});
+
+mp_pickboard_tag2.addEventListener('mouseout', function() {
+    mp_pickboard_tag1.style.transform = '';
+    mp_pickboard_tag1.style.transition = '';
+});
+
+mp_pickboard_tag1.addEventListener('mouseover', function() {
+    mp_pickboard_tag2.style.fontSize = '1.3em';
+    mp_pickboard_tag2.style.fontWeight = 'bolder';
+    mp_pickboard_tag2.style.color = '#ff6b00';
+    mp_pickboard_tag2.style.borderColor = '#ff6b00';
+});
+
+mp_pickboard_tag1.addEventListener('mouseout', function() {
+    mp_pickboard_tag2.style.fontSize = '';
+    mp_pickboard_tag2.style.fontWeight = '';
+    mp_pickboard_tag2.style.color = '';
+    mp_pickboard_tag2.style.borderColor = '';
+});
+
+
 /*------------------------------픽한 장소--------------------------------*/
 // #mp_pin_icon와 #mp_pickplace_text 클릭 시 팝업과 오버레이 표시
 // 픽한 장소 팝업 열기
@@ -219,6 +310,33 @@ itemCheckboxes_place.forEach((checkbox) => {
             selectAllCheckbox_place.checked = true;
         }
     });
+});
+
+const mp_pickplace_tag1 = document.getElementById('mp_pin_icon');
+const mp_pickplace_tag2 = document.getElementById('mp_pickplace_text');
+
+mp_pickplace_tag2.addEventListener('mouseover', function() {
+    mp_pickplace_tag1.style.transform = 'scale(1.3)';
+    mp_pickplace_tag1.style.transition = 'transform 0.3s ease';
+});
+
+mp_pickplace_tag2.addEventListener('mouseout', function() {
+    mp_pickplace_tag1.style.transform = '';
+    mp_pickplace_tag1.style.transition = '';
+});
+
+mp_pickplace_tag1.addEventListener('mouseover', function() {
+    mp_pickplace_tag2.style.fontSize = '1.3em';
+    mp_pickplace_tag2.style.fontWeight = 'bolder';
+    mp_pickplace_tag2.style.color = '#ff6b00';
+    mp_pickplace_tag2.style.borderColor = '#ff6b00';
+});
+
+mp_pickplace_tag1.addEventListener('mouseout', function() {
+    mp_pickplace_tag2.style.fontSize = '';
+    mp_pickplace_tag2.style.fontWeight = '';
+    mp_pickplace_tag2.style.color = '';
+    mp_pickplace_tag2.style.borderColor = '';
 });
 
 /*---------------------------내 여행 등급 확인----------------------------*/
@@ -312,6 +430,62 @@ function fitTextToBox(element) {
     }
 }
 
+document.getElementById('message-input').addEventListener('input', function(event) {
+    // 입력된 값 확인 (디버그용)
+    console.log(event.target.value);
+});
+
+document.getElementById('message-input').addEventListener('keydown', function(event) {
+    // 스페이스바 입력을 확인하기 위한 디버깅 코드
+    if (event.code === 'Space') {
+        console.log('Space key pressed');
+    }
+});
+
+/*-------------------------------mp_right_header_tags----------------------------*/
+const mp_tag1 = document.getElementById('mp_travel_recode_tag');
+const mp_tag2 = document.getElementById('mp_travel_recode_num_tag');
+const mp_tag3 = document.getElementById('mp_travel_plan_tag');
+const mp_tag4 = document.getElementById('mp_travel_plan_num_tag');
+const mp_tag5 = document.getElementById('mp_reservation_tag');
+const mp_tag6 = document.getElementById('mp_reservation_num_tag');
+
+mp_tag2.addEventListener('mouseover', function() {
+    mp_tag1.style.fontSize = '1.3em';
+    mp_tag1.style.fontWeight = 'bolder';
+    mp_tag1.style.color = '#ff6b00';
+});
+
+mp_tag2.addEventListener('mouseout', function() {
+    mp_tag1.style.fontSize = '';
+    mp_tag1.style.fontWeight = '';
+    mp_tag1.style.color = '';
+});
+
+mp_tag4.addEventListener('mouseover', function() {
+    mp_tag3.style.fontSize = '1.3em';
+    mp_tag3.style.fontWeight = 'bolder';
+    mp_tag3.style.color = '#ff6b00';
+});
+
+mp_tag4.addEventListener('mouseout', function() {
+    mp_tag3.style.fontSize = '';
+    mp_tag3.style.fontWeight = '';
+    mp_tag3.style.color = '';
+});
+
+mp_tag6.addEventListener('mouseover', function() {
+    mp_tag5.style.fontSize = '1.3em';
+    mp_tag5.style.fontWeight = 'bolder';
+    mp_tag5.style.color = '#ff6b00';
+});
+
+mp_tag6.addEventListener('mouseout', function() {
+    mp_tag5.style.fontSize = '';
+    mp_tag5.style.fontWeight = '';
+    mp_tag5.style.color = '';
+});
+
 /*-------------------------------게시물추가----------------------------*/
 const newBoardIcons = document.querySelectorAll("#mp_add-post-button");
 newBoardIcons.forEach((icon) => {
@@ -340,6 +514,7 @@ function saveContentToLocalStorage(content) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
     // 각 섹션에 대한 HTML 콘텐츠 정의
     const travelRecordsHTML = `
         <div id="mp_add-post-button">
@@ -666,4 +841,17 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(2);
     addClickListener('mp_reservation_btn', reservationDetailsHTML, initReservationDetails);
     console.log(3);
+});
+
+$(document).on('click', '.mp_grid-item', function(e) {
+    $('#view-modal').show();
+});
+
+$(document).on('click', '.edit', function(e) {
+    $('#write-modal').show();
+});
+
+
+$(document).on('click', '.mp_travel_plan_icons, .plan-button, .plan-button2', function(e) {
+    $('#plan-modal').show();
 });

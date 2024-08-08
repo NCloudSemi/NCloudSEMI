@@ -146,9 +146,9 @@ public class UserServiceImpl implements UserService {
             System.out.println("Final Transformed Address: " + userDto.getOriginalAddress());
         }
 
-        if (userDto.getAddress() != null && !userDto.getOriginalAddress().equals(existingUser.getOriginalAddress())) {
-            existingUser.setAddress(userDto.getOriginalAddress());
-            System.out.println("Final Transformed Address: " + userDto.getOriginalAddress());
+        // 영어주소가 변경되었는지 확인
+        if (userDto.getE_address() != null && !userDto.getE_address().equals(existingUser.getE_address())) {
+            existingUser.setE_address(userDto.getE_address());
         }
 
         // 상세주소가 변경되었는지 확인
@@ -182,6 +182,13 @@ public class UserServiceImpl implements UserService {
         userDao.updateStatusMessage(existingUser);
         return existingUser;
     }
+
+//    @Override
+//    public UserDto getPostCount(UserDto userDto) {
+//
+//        userDao.userTravelRecodeCount(userDto);
+//        return userDto;
+//    }
 
 }
 

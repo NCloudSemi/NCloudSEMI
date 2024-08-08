@@ -64,7 +64,7 @@
 }
 /* 모달창 글 영역 설정*/
 .modal-content {
-    width: 40vw;
+    width: 40vw !important;
     height: 90vh;
     flex-direction: column;
     justify-content: center;

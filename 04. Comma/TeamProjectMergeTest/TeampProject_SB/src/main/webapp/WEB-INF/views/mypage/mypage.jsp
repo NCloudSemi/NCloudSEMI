@@ -46,7 +46,7 @@
                     </div>
                     <div class="mp_user_info_box">
                         <h5 id="mp_nickname_change"><strong>${loginUser.nickname}</strong></h5>
-                        <p id="mp_region_change">${loginUser.address}, Korea</p>
+                        <p id="mp_region_change">${loginUser.e_address}, Korea</p>
                         <!-- Overlay -->
                         <div id="mp_userInfo_overlay"></div>
                         <!-- Popup -->
@@ -72,6 +72,7 @@
                                             <div id="mp_change_address">
                                                 <input type="text" name="address" id="mp_address" class="mp_btn"
                                                        placeholder="${loginUser.address}" readonly>
+                                                <input type="hidden" id="e_addressInput" name="e_address">
                                             </div>
                                             <div id="mp_change_detail_address">
                                                 <input type="text" name="detailed_address" id="mp_detailed-address" class="mp_btn"
@@ -115,12 +116,12 @@
                                         <p>보스턴백</p>
                                     </div>
                                     <div class="mp_grade_text_info">
-                                        <h6><strong>다음 단계까지 ____남았습니다.</strong></h6>
-                                        <p>여행 계획 채택 수에 따라서 등급이 나누어집니다.</p>
-                                        <p>보스턴백 : 채택수 0 ~ 500사이</p>
-                                        <p>트렁크백 : 채택수 500 ~ 2000사이</p>
-                                        <p>캐리어 : 채택수 2000 ~ 10000사이</p>
-                                        <p>비행기 : 채택수 10000이상</p>
+                                        <h6><strong>다음 단계까지 230 남았습니다.</strong></h6>
+                                        <p>**내 여행기록 '좋아요' 수에 따라서 등급이 나누어집니다.</p>
+                                        <p>보스턴백 : '좋아요' 수 0 ~ 500사이</p>
+                                        <p>트렁크백 : '좋아요' 수 500 ~ 2000사이</p>
+                                        <p>캐리어 : '좋아요' 수 2000 ~ 10000사이</p>
+                                        <p>비행기 : '좋아요' 수 10000이상</p>
                                     </div>
                                 </div>
                                 <div class="mp_arrow">
@@ -224,8 +225,8 @@
                                 <div id="mp_pickplace_popup">
                                     <div class="mp_pick_popup-header">
                                         <div class="mp_pick_popup-header-title">
-                                            <img src="${pageContext.request.contextPath}/static/image/픽한 장소 pin_icon.svg" alt="" />
-                                            <h5>픽한 장소</h5>
+                                            <img id="mp_pickplace_tag" src="${pageContext.request.contextPath}/static/image/픽한 장소 pin_icon.svg" alt="픽한장소" />
+                                            <h5 id="mp_pickplace_text_tag">픽한 장소</h5>
                                         </div>
                                         <button id="mp_pickplace_close-popup">
                                             <img src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기버튼" />
@@ -287,7 +288,7 @@
                                 <div id="close-mp_status_popup_btn">
                                     <img id="close-mp_status_popup" src="${pageContext.request.contextPath}/static/image/닫기_icon.svg" alt="닫기" />
                                 </div>
-                                <input type="hidden" name="userF_id" value="${loginUser.user_id}">
+                                <input type="hidden" name="user_id" value="${loginUser.user_id}">
                                 <textarea id="message-input" rows="15" cols="30" type="text" name="message" placeholder="${loginUser.message}" required>${loginUser.message}</textarea>
                             </div>
                             <button id="mp_status_message_upload_btn" type="submit"><img id="apply-message" src="${pageContext.request.contextPath}/static/image/업로드_icon.svg" alt="업로드"/></button>
@@ -297,16 +298,16 @@
                 <div id="mp_content_flexbox_right">
                     <div id="mp_header_text">
                         <div>
-                            <a class="mp_travelRecode_btn" >여행기록</a><br />
-                            <a class="mp_travelRecode_btn" >11</a>
+                            <a class="mp_travelRecode_btn" id="mp_travel_recode_tag">여행기록</a><br/>
+                            <a class="mp_travelRecode_btn" id="mp_travel_recode_num_tag">11</a>
                         </div>
                         <div>
-                            <a class="mp_travelPlan_btn" >여행계획</a><br />
-                            <a class="mp_travelPlan_btn" >3</a>
+                            <a class="mp_travelPlan_btn" id="mp_travel_plan_tag">여행계획</a><br/>
+                            <a class="mp_travelPlan_btn" id="mp_travel_plan_num_tag">3</a>
                         </div>
                         <div>
-                            <a class="mp_reservation_btn" >예약내역</a><br />
-                            <a class="mp_reservation_btn" >1</a>
+                            <a class="mp_reservation_btn" id="mp_reservation_tag">예약내역</a><br/>
+                            <a class="mp_reservation_btn" id="mp_reservation_num_tag">1</a>
                         </div>
                     </div>
                     <div>
@@ -366,6 +367,11 @@
             </div>
         </div>
     </div>
+    <%-- view modal --%>
+    <jsp:include page="../modal/board-view-modal.jsp"/>
+    <%-- write modal --%>
+    <jsp:include page="../modal/board-write-modal.jsp"/>
+    <%-- plan modal --%>
     <jsp:include page="../modal/board-plan-modal.jsp"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/mypage-post.js"></script>
