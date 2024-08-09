@@ -307,6 +307,23 @@ $(()=>{
             let grade = loc['grade']  || 0.0; //use make_grade
             let cost =  loc["cost"]  || 0;
             serchResults.push(loc);
+            const  start_val = parseInt(Math.random()*4) + 6
+            let star_img ='/static/image/별점(5점).svg';
+            if(start_val >= 9){
+                let star_img ='/static/image/별점(5점).svg';
+            }
+            else if(start_val >=8){
+                star_img ='/static/image/별점(4.5점).jpg';
+            }
+            else if(start_val >=7){
+                star_img ='/static/image/별점(4점).jpg';
+            }
+            else if(start_val >=6){
+                star_img ='/static/image/별점(3.5점).svg';
+            }
+            else{
+                star_img ='/static/image/별점(3점).svg';
+            }
 
             const serchResultForm =
                 `<div class="serchResult" id="location-result${loc["location_id"]}" ">
@@ -317,7 +334,9 @@ $(()=>{
 
                                                 <div class="d-flex m-0 serch-name">
                                                     <p class="serch-name">${place["place_name"]}</p>
-                                                    <div class="grade">⭐⭐⭐⭐⭐</div>
+                                                    <div class="grade">
+                                                       <img src= ${star_img} alt=""/>
+                                                    </div>
                                                 </div>
 
                                                 <div class="d-flex serch-certification">
@@ -329,7 +348,7 @@ $(()=>{
 
                                                     <div class="price-info" style="margin-right: 10vw">
                                                         <p>금액</p>
-                                                        <p class="price">${cost}</p>
+                                                        <p class="price">${cost.toLocaleString()}</p>
                                                     </div>
 
                                                     <div class="direction-info" style="margin-right: 10vw">

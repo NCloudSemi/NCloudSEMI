@@ -79,7 +79,7 @@
 .place_name, .option_name {
     align-items: center;
     justify-content: center;
-    font-size: 0.75em;
+    font-size: 0.7em;
     font-weight: bold;
     margin-left: 0.3vw;
     text-wrap: nowrap;

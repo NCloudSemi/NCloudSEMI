@@ -48,14 +48,14 @@
                                 <div class="commentArea">
                                     <div class="d-flex">
                                         <div class="grade">
-                                            ⭐⭐⭐⭐⭐
+                                            <img src="/static/image/별점(5점).svg">
                                         </div>
-                                        <p class="place_name">TEST</p>
-                                        <p class="option_name">TEST</p>
+                                        <p class="place_name">MJSn ...</p>
+                                        <p class="option_name">디럭스 더블 시티뷰</p>
                                     </div>
                                     <div class="comment">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eligendi explicabo fuga iusto labore laboriosam minima natus, nulla quaerat quod sit suscipit velit? Dolore id molestias neque quasi sequi voluptate?
+                                            여자친구와 같이 오기 좋은 곳 같아요. 아무래도 도심지 주변에 있고, 근처에 역도 있다보니 다양한 곳에 쉽게 갈 수 있어서 좋은 것 같아요..!! 재방문 의사 당연히 있습니다.❤️❤️❤️
                                         </p>
                                     </div>
 
@@ -63,14 +63,18 @@
                                 <div class="commentArea">
                                     <div class="d-flex">
                                         <div class="grade">
-                                            ⭐⭐⭐⭐⭐
+                                            <img src="/static/image/별점(5점).svg">
                                         </div>
-                                        <p class="place_name">TEST</p>
-                                        <p class="option_name">TEST</p>
+                                        <p class="place_name">I._0vly</p>
+                                        <p class="option_name">키즈 프리미엄 더블</p>
                                     </div>
                                     <div class="comment">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eligendi explicabo fuga iusto labore laboriosam minima natus, nulla quaerat quod sit suscipit velit? Dolore id molestias neque quasi sequi voluptate?
+                                            귀여운 곰돌이 마스코트가 기분을 좋게 하는 곳💙<br><br>
+                                            시원하고 쾌적한 공간에서 푹 쉬면서 붐비는 주변의 인프라들을 편하게 만끽할 수 있어 좋아요💙💙<br><br>
+                                            다 좋았지만 특히 조식이 기대 이상인 곳👍<br>
+                                            여기만의 잔잔한 분위기가 참 좋아요🌟🌟<br><br>
+                                            모두 다 좋지만, 공간 곳곳 특히 객실 통로에서 브랜드 특유의 향기가 나면 더 좋을 것 같은 느낌..?💮🌸🩷
                                         </p>
                                     </div>
 
@@ -79,14 +83,16 @@
                                 <div class="commentArea">
                                     <div class="d-flex">
                                         <div class="grade">
-                                            ⭐⭐⭐⭐⭐
+                                            <img src="/static/image/별점(5점).svg">
                                         </div>
-                                        <p class="place_name">TEST</p>
-                                        <p class="option_name">TEST</p>
+                                        <p class="place_name">bitC ...</p>
+                                        <p class="option_name">디럭스 패밀리 트윈</p>
                                     </div>
                                     <div class="comment">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eligendi explicabo fuga iusto labore laboriosam minima natus, nulla quaerat quod sit suscipit velit? Dolore id molestias neque quasi sequi voluptate?
+                                            침구류가 깨긋하고 모든게 쾌적해서 기분 좋게 머물다 갑니당💝💝<br><br>
+                                            어메니티 구성도 깔끔하고 욕실이며 화장실이며 너무 깔끔하고 좋네요!!<br>
+                                            청결 엄청 보는 청결 덕후(?)로서 여기 진짜 강추 드립니닷🙃🙂🙃😉
                                         </p>
                                     </div>
 
@@ -99,7 +105,7 @@
                             <div class="d-flex" style="flex-wrap: wrap">
                                 <p id="place_name">TEST</p>
                                 <div id="grade">
-                                    ⭐⭐⭐⭐⭐
+                                    <img src="/static/image/별점(5점).svg">
                                 </div>
                             </div>
                             <div class="d-flex serch-certification">

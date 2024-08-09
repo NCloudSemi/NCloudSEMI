@@ -8,7 +8,7 @@ $(document).ready(function() {
     function showSlide(n) {
         const slideImage = document.querySelector('.slide-image');
         currentSlide = (n + slideImages.length) % slideImages.length;
-        slideImage.src = `/upload/${slideImages[currentSlide]}`;
+        slideImage.src = `${slideImages[currentSlide]}`;
     }
 
     document.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));

@@ -79,10 +79,6 @@
                                         <img src="${pageContext.request.contextPath}/static/image/Grade-40.jpg" alt="">
                                         <p>4.0 / 5</p>
                                     </div>
-                                    <div class="certification-box">
-                                        <div class="certification-name">3성급 호텔</div>
-                                        <img src="${pageContext.request.contextPath}/static/image/Certification-Icon.svg" alt="">
-                                    </div>
                                 </div>
                                 <div class="description-detail-box">
                                     <div class="cost-box">
@@ -105,10 +101,6 @@
                                     <div class="grade-box">
                                         <img src="${pageContext.request.contextPath}/static/image/Grade-40.jpg" alt="">
                                         <p>4.0 / 5</p>
-                                    </div>
-                                    <div class="certification-box">
-                                        <div class="certification-name">3성급 호텔</div>
-                                        <img src="${pageContext.request.contextPath}/static/image/Certification-Icon.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="description-detail-box">
@@ -133,9 +125,6 @@
                                         <img src="${pageContext.request.contextPath}/static/image/Grade-40.jpg" alt="">
                                         <p>4.0 / 5</p>
                                     </div>
-                                    <div class="certification-box">
-                                        <div class="certification-name">3성급 호텔</div>
-                                    </div>
                                 </div>
                                 <div class="description-detail-box">
                                     <div class="cost-box">
@@ -158,9 +147,6 @@
                                     <div class="grade-box">
                                         <img src="${pageContext.request.contextPath}/static/image/Grade-40.jpg" alt="">
                                         <p>4.0 / 5</p>
-                                    </div>
-                                    <div class="certification-box">
-                                        <div class="certification-name">3성급 호텔</div>
                                     </div>
                                 </div>
                                 <div class="description-detail-box">

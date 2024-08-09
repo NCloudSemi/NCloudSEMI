@@ -33,11 +33,13 @@ public class LocationServiceImpl implements LocationService {
             System.out.println("숙박!");
             int r_val = (int)(Math.random()*24) + 1;
             locationDto.setCover_img_url("/static/random_img/숙박_img"+r_val+".jpg");
+            locationDto.setCost(100000 + (int)(Math.random()*21) *10000 );
         }
         else if(locationDto.getTag().equals("음식점") || locationDto.getTag().equals("카페")  ){
             System.out.println("FOOD!");
             int r_val = (int)(Math.random()*26) + 1;
             locationDto.setCover_img_url("/static/random_img/식당_img"+r_val+".jpg");
+            locationDto.setCost( 20000 + (int)(Math.random()*80) * 1000 );
         }
         else if(locationDto.getTag().equals("관광명소")){
             System.out.println("관광지!");

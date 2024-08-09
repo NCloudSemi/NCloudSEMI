@@ -46,14 +46,18 @@
                         <img src="${pageContext.request.contextPath}/static/image/Writer-Rank.svg" alt="글쓴이 여행 등급 사진" class="writer-rank-image">
                     </div>
                     <div class="modal-text">
-                        <textarea name="title" id="title" readonly>제목 test</textarea>
-                        <textarea name="memo" id="memo" readonly>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita vel omnis voluptas, voluptates voluptatum vitae pariatur? Labore maiores, quod est dignissimos eum consectetur voluptas exercitationem, iste consequatur quos totam excepturi!
-                            Reprehenderit possimus omnis doloribus distinctio totam quaerat blanditiis molestiae aliquam inventore? Vel ut animi quos accusantium cum, iusto eum cumque rem tempora, minima temporibus, fuga reprehenderit consectetur suscipit? Quisquam, debitis.
-                            Corporis dolorem, officia, eveniet tenetur quam perspiciatis nulla laborum amet non ut deserunt adipisci? Ex, quaerat eos, vero cum laborum, molestias hic asperiores in deserunt quod reiciendis possimus labore et?
-                            Velit eaque soluta assumenda non voluptates optio ipsam placeat, ducimus earum possimus nam ipsa dolorum unde tenetur nisi vitae nulla magnam facere ea dolores maxime. Sunt laboriosam ipsam dicta praesentium.
-                            Non deserunt expedita itaque, tempora cupiditate optio sint, nobis aperiam alias adipisci ipsa delectus dicta aliquid recusandae iste reiciendis. Mollitia itaque quis quidem modi eius minima ipsa soluta. Aliquam, doloribus.
-                            </textarea>
+                        <textarea name="title" id="title" readonly>아니 여기 인피니티 풀 도대체 왜 안 와?(진짜 모름)🙃🙂🙃</textarea>
+                        <textarea name="memo" id="memo" readonly>사진 맛집, 인피니티 풀!❤️😚😍
+
+                            풍경이 노르웨이 숲 같았던 곳인데 현지인들에게도 인기만점🌟🌟🌟
+                            제가 방문했을 땐 80%가 현지인이었는데 그 외엔 한국인분들 ㅎㅎ
+
+                            호텔 조식도 분위기랑 맛이 미쳤고😚😍다들 일찍 일어나서
+                            조식 먹는지 조용히 럭셔리한 시간을 즐기던데...🩷❤️
+                            졸린 눈 비비면서  졸면서 먹는 사람 나야 나!🙋‍♀️🙋‍♂️🙋‍♀️🙋‍♂️
+
+                            한국은 겨울이라 너무 춥지만 여기는 수영하기 딱 좋았던 날씨!!~~><
+                            돌아가면 저는 얼어 죽을지도 몰라요;;;</textarea>
                     </div>
                     <div class="modal-text-line"></div>
                     <div class="modal-interaction">

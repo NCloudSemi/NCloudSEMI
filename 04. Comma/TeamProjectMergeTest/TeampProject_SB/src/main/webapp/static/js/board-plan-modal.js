@@ -50,10 +50,10 @@ function toggleEditMode(isEditable) {
     const actionButton = document.querySelector('.modal-header button:nth-child(2)');
 
     const saveIconItem = document.createElement('img');
-    saveIconItem.src = `${contextPath}/static/image/D_Save.svg`;
+    saveIconItem.src = `/static/image/D_Save.svg`;
 
     const editIconItem = document.createElement('img');
-    editIconItem.src = `${contextPath}/static/image/D_Edit.svg`;
+    editIconItem.src = `/static/image/D_Edit.svg`;
 
 // 기존에 추가된 모든 자식을 제거합니다.
     while (actionButton.firstChild) {
@@ -402,7 +402,7 @@ function updateTimelineNumbers(startLocationInput = '') {
     leftColumn.innerHTML = `
         <div class="timeline-item-start">
             <div class="timeline-icon-start">
-                <img src= "${contextPath}/static/image/Location-Icon.svg" alt="Location-Icon">
+                <img src= "/static/image/Location-Icon.svg" alt="Location-Icon">
             </div>
             <input class="start-location" spellcheck="false" placeholder="출발 위치" value="${startLocationInput}"></input>
         </div>
@@ -469,7 +469,7 @@ function createTrafficItem(trafficType) {
     trafficIcon.id = `timeline-traffic-icon${trafficItemCount}`;
 
     const iconImg = document.createElement('img');
-    iconImg.src = `${contextPath}/static/image/${trafficType}-Icon.svg`;
+    iconImg.src = `/static/image/${trafficType}-Icon.svg`;
     iconImg.alt = `${trafficType}-Icon`;
 
     const trafficTime = document.createElement('input');
@@ -510,7 +510,7 @@ function createTrafficItem(trafficType) {
     updateTimelineNumbers();
 
     trafficOption.addEventListener('change', function() {
-        iconImg.src = `"${contextPath}/static/image/${this.value}-Icon.svg`;
+        iconImg.src = `"/static/image/${this.value}-Icon.svg`;
         iconImg.alt = `${this.value}-Icon`;
     });
 

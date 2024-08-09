@@ -76,7 +76,7 @@ $(document).ready(function() {
                 const post = res["post"];
                 //writer
                 // Set the src attribute of the image
-                $('.writer-image-box img').attr('src', `/upload/${post["profile_img"]}`);
+                $('.writer-image-box img').attr('src', `${post["profile_img"]}`);
                 $('.writer-name').text(post["nickname"]);
                 $('.writer-location').text(post["address"]);
 
@@ -99,7 +99,7 @@ $(document).ready(function() {
                 slideImages=[];
                 slideImages = JSON.parse(post["post_img"]);
                 if (post["post_img"].length != 0)
-                    $(".modal-img img").attr('src', `/upload/${slideImages[0]}`);
+                    $(".modal-img img").attr('src', `${slideImages[0]}`);
                 else
                     $(".modal-img img").attr('src', `${contextPath}/static/image/Default-Img.svg`);
                 currentSlide = 0;
@@ -127,7 +127,7 @@ $(document).ready(function() {
                         }
 
                         const commentBlock = `<div class="comment">
-                                <img src="/upload/${comment['profile_img']}" alt="Comment${i++}" class="commenter-image">
+                                <img src="${comment['profile_img']}" alt="Comment${i++}" class="commenter-image">
                                 <div class="comment-content">
                                     <div class="commenter-info">
                                         <span class="commenter-name">${comment['nickname']}</span>
@@ -152,20 +152,31 @@ $(document).ready(function() {
 
 
         //더미 데이터 추가
-        $('.writer-image-box img').attr('src', `${contextPath}/static/image/Writer.svg`);
+        $('.writer-image-box img').attr('src', `/static/image/Writer.svg`);
         $('.writer-name').text("Sovely._.153");
         $('.writer-location').text("Cheonan, South Korea");
 
         //post title,content,imgs
-        $('#title').val("제목 test")
-        $('#memo').val("내용 test")
+        $('#title').val("아니 여기 인피니티 풀 도대체 왜 안 와?(진짜 모름)🙃🙂🙃")
+        $('#memo').val(
+            "사진 맛집, 인피니티 풀!❤️😚😍\n" +
+            "\n" +
+            "풍경이 노르웨이 숲 같았던 곳인데 현지인들에게도 인기만점🌟🌟🌟\n" +
+            "제가 방문했을 땐 80%가 현지인이었는데 그 외엔 한국인분들 ㅎㅎ\n" +
+            "\n" +
+            "호텔 조식도 분위기랑 맛이 미쳤고😚😍다들 일찍 일어나서\n" +
+            "조식 먹는지 조용히 럭셔리한 시간을 즐기던데...🩷❤️\n" +
+            "졸린 눈 비비면서  졸면서 먹는 사람 나야 나!🙋‍♀️🙋‍♂️🙋‍♀️🙋‍♂️\n" +
+            "\n" +
+            "한국은 겨울이라 너무 춥지만 여기는 수영하기 딱 좋았던 날씨!!~~><\n" +
+            "돌아가면 저는 얼어 죽을지도 몰라요;;;")
 
         //imgs-list
         slideImages=[];
         dumySlideImages.forEach(dumy=>{
             slideImages.push(dumy)
         })
-        $(".modal-img img").attr('src', `${contextPath}/static/image/Writer.svg`);
+        $(".modal-img img").attr('src', `/static/image/인피니티풀1.svg`);
         currentSlide = 0;
 
         //댓글영역

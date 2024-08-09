@@ -321,7 +321,6 @@ $(()=>{
                                     </div>
                                     <div class="certification-box">
                                         <div class="certification-name"></div>
-                                        <img src="/static/image/Certification-Icon.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="description-detail-box">

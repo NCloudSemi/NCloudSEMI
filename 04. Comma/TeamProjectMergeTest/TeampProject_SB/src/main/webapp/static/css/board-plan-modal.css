@@ -216,15 +216,14 @@
     margin-left: 1vh;
 }
 .place-name {
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
-    margin-bottom: 1.5vh;
+    margin-bottom: 1vh;
 }
 .grade-box {
     width: 7vw;
     height: 1.5vh;
     display: flex;
-    margin-bottom: 1.5vh;
 }
 .grade-box img {
     width: 70%;
@@ -238,22 +237,6 @@
     margin-left: 0.6em;
     font-size: 0.6em;
     font-weight: bold;
-}
-.certification-box {
-    width: 7vw;
-    height: 1.5vh;
-    display: flex;
-    align-items: center;
-}
-.certification-name {
-    font-weight: bold;
-    font-size: 0.8em;
-    margin-right: 0.8em;
-}
-.cerficiation-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 .description-detail-box {
     width: 6vw;
@@ -395,7 +378,6 @@
     width: 80%;
     padding: 1vh;
     border-radius: 10px;
-    border: 1px solid black;
     align-items: center;
     box-sizing: border-box;
 }
