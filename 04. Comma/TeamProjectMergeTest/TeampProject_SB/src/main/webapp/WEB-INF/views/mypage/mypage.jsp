@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div id="mp_my_travel_grade_box">
-                        <a href=""><p id="mp_grade_text">내 여행 등급</p></a>
+                        <a><p id="mp_grade_text">내 여행 등급</p></a>
 <%--                        <c:choose>--%>
 <%--                            <c:when>--%>
                                 <img
@@ -152,7 +152,7 @@
                         <ul id="pick_box_ul">
                             <li>
                                 <img id="mp_heart_icon" src="${pageContext.request.contextPath}/static/image/픽한 게시물 heart_icon.svg" alt="픽한게시물" />
-                                <a id="mp_pickboard_text" href="javascript:void(0)">픽한 게시물</a>
+                                <a id="mp_pickboard_text">픽한 게시물</a>
                                 <!-- Overlay -->
                                 <div id="mp_pickboard_overlay"></div>
 
@@ -218,7 +218,7 @@
                             </li>
                             <li>
                                 <img id="mp_pin_icon" src="${pageContext.request.contextPath}/static/image/픽한 장소 pin_icon.svg" alt="픽한장소" />
-                                <a id="mp_pickplace_text" href="javascript:void(0)">픽한 장소</a>
+                                <a id="mp_pickplace_text">픽한 장소</a>
                                 <!-- Overlay -->
                                 <div id="mp_pickplace_overlay"></div>
                                 <!-- Popup -->
@@ -317,9 +317,9 @@
                                 <img src="${pageContext.request.contextPath}/static/image/new_board_icon.svg" alt="게시물추가" />
                             </div>
                             <!-- Overlay -->
-                            <div id="mp_new_board_overlay" class="mp_hidden"></div>
+                            <div id="mp_new_board_overlay"></div>
                             <!-- Popup -->
-                            <div id="mp_new_board_popup" class="mp_hidden">
+                            <div id="mp_new_board_popup">
                                 <div class="mp_pick_popup-header">
                                     <div class="mp_pick_popup-header-title">
                                         <h3>게시물 등록</h3>

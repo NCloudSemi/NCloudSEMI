@@ -368,10 +368,6 @@ const mp_status_overlay = document.getElementById("mp_status_overlay");
 const applyMessageBtn = document.getElementById("apply-message");
 const closeStatusPopupBtn = document.getElementById("close-mp_status_popup");
 
-document.querySelector('textarea').addEventListener('input', function() {
-    this.value = this.value.trim();
-});
-
 messageBox.addEventListener("click", function () {
     // 팝업 및 오버레이 표시
     mp_status_popup.style.display = "block";
@@ -429,18 +425,6 @@ function fitTextToBox(element) {
         if (fontSize < 10) break; // 최소 폰트 크기 제한
     }
 }
-
-document.getElementById('message-input').addEventListener('input', function(event) {
-    // 입력된 값 확인 (디버그용)
-    console.log(event.target.value);
-});
-
-document.getElementById('message-input').addEventListener('keydown', function(event) {
-    // 스페이스바 입력을 확인하기 위한 디버깅 코드
-    if (event.code === 'Space') {
-        console.log('Space key pressed');
-    }
-});
 
 /*-------------------------------mp_right_header_tags----------------------------*/
 const mp_tag1 = document.getElementById('mp_travel_recode_tag');
@@ -521,9 +505,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="/static/image/new_board_icon.svg" alt="게시물추가" />
         </div>
         <!-- Overlay -->
-        <div id="mp_new_board_overlay" class="mp_hidden"></div>
+        <div id="mp_new_board_overlay"></div>
         <!-- Popup -->
-        <div id="mp_new_board_popup" class="mp_hidden">
+        <div id="mp_new_board_popup">
             <div class="mp_pick_popup-header">
                 <div class="mp_pick_popup-header-title">
                     <h5>게시물 등록</h5>
@@ -543,11 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p><strong>이미지 등록</strong></p>
                         </div>
                         <div class="mp_new_board_text_box">
-                            <textarea
-                                rows="10"
-                                maxlength="1000"
-                                placeholder="게시물의 내용을 입력하세요."
-                            ></textarea>
+                            <textarea rows="10"maxlength="1000"placeholder="게시물의 내용을 입력하세요."></textarea>
                         </div>
                     </form>
                 </div>
@@ -572,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="mp_tr_checkbox-container">
                 <div id="mp_travel_plan_select_all">
                     <label>
-                        <input type="checkbox" id="mp_travelplan_select-all" onclick=""/>
+                        <input type="checkbox" id="mp_travelplan_select-all"/>
                     </label>
                     <p>전체선택</p>
                 </div>
@@ -599,7 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mp_travel_plan_icons">
-                    <input type="checkbox" class="mp_travel_plan_checkbox" />
+                    <input type="checkbox" class="mp_travel_plan_checkbox"/>
                     <div class="mp_travel_plan_icon">
                         <div class="mp_travel_plan_info">
                             <div>
@@ -616,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mp_travel_plan_icons">
-                    <input type="checkbox" class="mp_travel_plan_checkbox" />
+                    <input type="checkbox" class="mp_travel_plan_checkbox"/>
                     <div class="mp_travel_plan_icon">
                         <div class="mp_travel_plan_info">
                             <div>
@@ -633,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mp_travel_plan_icons">
-                    <input type="checkbox" class="mp_travel_plan_checkbox" />
+                    <input type="checkbox" class="mp_travel_plan_checkbox"/>
                     <div class="mp_travel_plan_icon">
                         <div class="mp_travel_plan_info">
                             <div>
@@ -815,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // 체크박스 갱신: 삭제 후 남아 있는 체크박스를 다시 가져옴
-            // itemCheckboxes_travelPlan = document.querySelectorAll('.mp_travel_plan_checkbox');
+            itemCheckboxes_travelPlan = document.querySelectorAll('.mp_travel_plan_checkbox');
 
             // 전체 선택 체크박스 상태 갱신
             // updateSelectAllCheckbox();
@@ -832,10 +812,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedContent = localStorage.getItem('savedContent');
     if (savedContent) {
         changeContentDiv.innerHTML = savedContent;
+    } else {
+        // 초기 콘텐츠 설정 (mp_travelRecode_btn에 해당하는 내용)
+        changeContentDiv.innerHTML = travelRecordsHTML;
+        initTravelRecords();
     }
 
     // 각 버튼에 클릭 이벤트 리스너 추가
-     addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
+
+    addClickListener('mp_travelRecode_btn', travelRecordsHTML, initTravelRecords);
     console.log(1);
     addClickListener('mp_travelPlan_btn', travelPlansHTML, initTravelPlans);
     console.log(2);
@@ -851,7 +836,6 @@ $(document).on('click', '.edit', function(e) {
     $('#write-modal').show();
 });
 
-
-$(document).on('click', '.mp_travel_plan_icons, .plan-button, .plan-button2', function(e) {
+$(document).on('click', '.mp_travel_plan_icon, .plan-button, .plan-button2', function(e) {
     $('#plan-modal').show();
 });
