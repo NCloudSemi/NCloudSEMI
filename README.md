@@ -11,26 +11,20 @@
 
 # 🧑‍🤝‍🧑 참여인원
 
-![멤버소개 이미지](https://github.com/user-attachments/assets/4875b102-7fcb-49ba-8026-32aeb3ee3fc9)
+![comma_멤버 소개](https://github.com/user-attachments/assets/346ba47f-8ef6-4377-906b-bb1791d6cdca)
 
 # 🚩 와이어프레임(Figma)
 
-![피그마 이미지](https://github.com/user-attachments/assets/dc7a4f33-8885-437a-ab14-18660ca692c7)
+![comma_figma](https://github.com/user-attachments/assets/5fe89986-4962-4f0d-920d-7ef3ee872c45)
 
 # 💾 DB 설계(ERD Cloud)
 
-![erd cloud 이미지](https://github.com/user-attachments/assets/f69c075c-2d01-4a43-aeb3-95179c92cb85)
+![comma_erd_cloud](https://github.com/user-attachments/assets/30a43845-662f-4278-8e22-12cdef159292)
 
 # 🎨 UI/UX 스타일 가이드라인
 
-![가이드 라인](https://github.com/user-attachments/assets/a2db40ee-6a54-49aa-b194-fa7ee4bb557a)
+![comma_elements](https://github.com/user-attachments/assets/0c88a6d6-f5fc-4f3d-abb3-7d768c4cc463)
 
 # 🦾 사용기술 / 개발환경
 
-![기술 스택 이미지](https://github.com/user-attachments/assets/0138d37d-4959-4728-a1c7-74ffad683668)
-
-# 🏁 서비스 발표영상 / PPT
-
--   [서비스 발표영상](https://youtu.be/wx34GD--cko)
-
--   [Final Project PPT(BIBID) (최종).pdf](https://github.com/user-attachments/files/17701371/Final.Project.PPT.BIBID.pdf)
+![comma_기술스택](https://github.com/user-attachments/assets/588f6d95-876a-47a6-a483-cb8fd9641f20)
